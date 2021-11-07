@@ -3,6 +3,8 @@ import 'Classes/role_class.dart';
 import 'Classes/user_class.dart';
 import 'Classes/question_class.dart';
 import 'Classes/user_role_class.dart';
+import 'Classes/cv_class.dart';
+import 'Classes/interview_class.dart';
 
 void main() {
   //Testing Classes JobOffers , Role
@@ -40,4 +42,15 @@ void main() {
   print(userRole1.getidRole);
   print(userRole1.getidUser);
   print(userRole1.getidUserRole);
+
+  Cv c = Cv(1, "cv num 1");
+  print(c.getcv);
+  print(c.getidCv);
+
+// test class Interview
+
+  Interview i = Interview(2020, 20, "aaaaa", 1);
+  print("Nour test :");
+  print(i.getlocation);
+  print(i.getdate);
 }
