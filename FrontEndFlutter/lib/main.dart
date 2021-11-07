@@ -1,9 +1,12 @@
 import 'Classes/job_offer_class.dart';
 import 'Classes/role_class.dart';
+import 'Classes/user_class.dart';
+import 'Classes/question_class.dart';
+import 'Classes/user_role_class.dart';
 
 void main() {
   //Testing Classes JobOffers , Role
-  JobOffer offer1 = JobOffer(1, "offre1","offre1",10, DateTime(2012));
+  JobOffer offer1 = JobOffer(1, "offre1", "offre1", 10, DateTime(2012));
   print(offer1.gettitle);
   print(offer1.getPostNumber);
   print(offer1.getDate);
@@ -16,28 +19,25 @@ void main() {
   print(role2.getRoleType);
   print(role3.getRoleType);
 
+//testing Users classes
+  User user1 = User(1, "hanin", "benJemaa", "benjemaahanin@gmail.com", "test",
+      11429208, 54891315, "bizerte", "photo", DateTime(2021), "test");
+  print(user1.getfirstName);
+  print(user1.getlastName);
+  print(user1.getemail);
+  print(user1.getpassword);
+  print(user1.getcin);
+  print(user1.getphoneNumber);
+  print(user1.getadress);
 
-  //Testing Classes ..
+//testing question class
+  Question question1 = Question(1, "what is your name ?");
+  print(question1.getidQuestion);
+  print(question1.getquestion);
 
-  
-
+//testing userRole class
+  UserRole userRole1 = UserRole(1, 2, 3);
+  print(userRole1.getidRole);
+  print(userRole1.getidUser);
+  print(userRole1.getidUserRole);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
