@@ -8,16 +8,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
-import { AccueilComponent } from './accueil/accueil.component';
-import { ContactComponent } from './contact/contact.component';
-import { AproposComponent } from './apropos/apropos.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    AccueilComponent,
-    ContactComponent,
-    AproposComponent
   ],
   imports: [
     BrowserModule,
