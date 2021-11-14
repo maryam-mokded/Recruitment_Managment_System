@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="navbar">
+<!-- <mat-toolbar color="primary" class="navbar">
     <span>Recruitment Management System</span>
      <div class="spacer"></div>
        <a mat-button routerLink="/">Accueil</a>
@@ -6,4 +6,52 @@
        <a mat-button routerLink="/service">Services</a>
        <a mat-button routerLink="/contact">Contact</a>
        <a mat-button routerLink="/login">Login</a>
-   </mat-toolbar>
+   </mat-toolbar> -->
+
+
+    <mat-toolbar color="primary" class="expanded-toolbar">
+    <span>
+      <a mat-button><h1>Recruitement Managment System </h1></a>
+      <a mat-button routerLink="/"><mat-icon>home </mat-icon> Accueil</a>
+    </span>
+    <div fxLayout="row">
+      <a mat-button routerLink="/contact" >
+        <mat-icon>perm_contact_calendar</mat-icon>
+         Contact
+      </a>
+  
+      
+      <a mat-button routerLink="/apropos">
+        <mat-icon>info</mat-icon>
+        A propos
+      </a>
+
+      <a mat-button routerLink="/service">
+        <mat-icon>local_laundry_service</mat-icon>
+        Services
+      </a>
+
+      
+    </div>
+    <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm style="margin-left: 900px;">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-menu x-position="before" #menu="matMenu">
+     <!-- <button mat-menu-item routerLink="">
+      <mat-icon>home</mat-icon>
+     Accueil
+    </button>
+    <button mat-menu-item routerLink="">
+      <mat-icon>perm_contact_calendar</mat-icon>
+      Contact
+    </button> -->
+    <button mat-menu-item routerLink="/login" >
+      <mat-icon>power_settings_new</mat-icon>
+      Login
+    </button>
+    <!-- <button mat-menu-item routerLink="/logout" >
+      <mat-icon>exit_to_app</mat-icon>
+      Logout
+    </button> --> 
+  </mat-menu> 
