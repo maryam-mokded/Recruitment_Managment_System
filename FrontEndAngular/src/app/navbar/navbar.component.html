@@ -1,20 +1,12 @@
-<!-- <mat-toolbar color="primary" class="navbar">
-    <span>Recruitment Management System</span>
-     <div class="spacer"></div>
-       <a mat-button routerLink="/">Accueil</a>
-       <a mat-button routerLink="/apropos">A propos</a>
-       <a mat-button routerLink="/service">Services</a>
-       <a mat-button routerLink="/contact">Contact</a>
-       <a mat-button routerLink="/login">Login</a>
-   </mat-toolbar> -->
-
-
-    <mat-toolbar color="primary" class="expanded-toolbar">
+<mat-toolbar color="primary" class="expanded-toolbar">
     <span>
       <a mat-button><h1>Recruitement Managment System </h1></a>
-      <a mat-button routerLink="/"><mat-icon>home </mat-icon> Accueil</a>
     </span>
     <div fxLayout="row">
+      <a mat-button routerLink="/">
+        <mat-icon>home
+
+        </mat-icon> Accueil</a>
       <a mat-button routerLink="/contact" >
         <mat-icon>perm_contact_calendar</mat-icon>
          Contact
@@ -28,10 +20,11 @@
         Services
       </a>
     </div>
-    <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm style="margin-left: 50%;">
+    <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm style="margin-left: 35%;">
       <mat-icon>menu</mat-icon>
     </button>
   </mat-toolbar>
+
   <mat-menu x-position="before" #menu="matMenu">
      <!-- <button mat-menu-item routerLink="">
       <mat-icon>home</mat-icon>
@@ -48,5 +41,5 @@
     <!-- <button mat-menu-item routerLink="/logout" >
       <mat-icon>exit_to_app</mat-icon>
       Logout
-    </button> --> 
-  </mat-menu> 
+    </button> -->
+  </mat-menu>
