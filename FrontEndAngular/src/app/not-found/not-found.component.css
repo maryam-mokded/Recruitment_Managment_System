@@ -1,0 +1,16 @@
+#body {
+  background-image:url("src/assets/imageNoteFound.jpg");
+  height: 530px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+#btn{
+  margin-left: 457px;
+  margin-top: 449px;
+  padding-left: 38px;
+  padding-right: 38px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
