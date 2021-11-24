@@ -12,4 +12,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  mdp = "password"
+   myFunction() {
+    var x = document.getElementById("myInput");
+    if (this.mdp === "password") {
+      this.mdp = "text";
+    } else {
+      this.mdp = "password";
+    }
+  }
+
 }

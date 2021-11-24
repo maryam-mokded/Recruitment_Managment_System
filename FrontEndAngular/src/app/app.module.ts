@@ -10,12 +10,20 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { LoginComponent } from './login/login.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { ContactComponent } from './contact/contact.component';
+import { AproposComponent } from './apropos/apropos.component';
+import { EquipeComponent } from './equipe/equipe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
+    AproposComponent,
+    AccueilComponent,
+    ContactComponent,
+    EquipeComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +33,7 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
     MatIconModule,
     AppRoutingModule
-  
+
   ],
   providers: [],
   bootstrap: [AppComponent]
