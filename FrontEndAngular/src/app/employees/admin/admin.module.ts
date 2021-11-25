@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AdminRoutingModule } from './admin-routing.module';
-import { AdminComponent } from './admin.component';
+import { EmployeesListComponent } from './employees-list/employees-list.component';
 
 
 @NgModule({
   declarations: [
-    AdminComponent
+    EmployeesListComponent
   ],
   imports: [
     CommonModule,
