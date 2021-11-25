@@ -23,7 +23,7 @@ import { EquipeComponent } from './equipe/equipe.component';
     AproposComponent,
     AccueilComponent,
     ContactComponent,
-    EquipeComponent,
+    EquipeComponent
   ],
   imports: [
     BrowserModule,

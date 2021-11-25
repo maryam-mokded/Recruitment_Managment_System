@@ -6,9 +6,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { LoginComponent } from './login/login.component';
 import { EquipeComponent } from './equipe/equipe.component';
+import { EmployeesComponent } from './employees/employees.component';
 
 
 const routes :Routes =[
+  {path:'employees',component:EmployeesComponent},
   {path:'accueil',component:AccueilComponent},
   {path:'contact',component:ContactComponent},
   {path:'apropos',component:AproposComponent},
