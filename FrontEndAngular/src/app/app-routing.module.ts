@@ -15,6 +15,7 @@ const routes :Routes =[
   {path:'equipe',component:EquipeComponent},
   {path:'login',component:LoginComponent},
   {path:'',redirectTo:'/accueil',pathMatch:'full'},
+  { path: 'employees', loadChildren: () => import('./employees/employees.module').then(m => m.EmployeesModule) },
   {path:'**',component:NotFoundComponent},
 
 
