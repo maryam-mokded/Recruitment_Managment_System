@@ -5,6 +5,8 @@ import { EmployeesComponent } from './employees.component';
 import { NavBarComponent } from './navbar-emp/navbar-emp.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdminComponent } from './admin/admin.component';
+import { InterviewerComponent } from './interviewer/interviewer.component';
+
 
 
 @NgModule({
@@ -12,7 +14,9 @@ import { AdminComponent } from './admin/admin.component';
     AdminComponent,
     EmployeesComponent,
     NavBarComponent,
-    SidebarComponent
+    SidebarComponent,
+    InterviewerComponent,
+
   ],
   imports: [
     CommonModule,
