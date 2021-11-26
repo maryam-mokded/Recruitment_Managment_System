@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { InterviewerRoutingModule } from './interviewer-routing.module';
-import { InterviewerComponent } from './interviewer.component';
+import { InterviewsListComponent } from './interviews-list/interviews-list.component';
 
 
 @NgModule({
   declarations: [
-    InterviewerComponent
+    InterviewsListComponent
   ],
   imports: [
     CommonModule,
