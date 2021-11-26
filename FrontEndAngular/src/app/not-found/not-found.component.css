@@ -1,5 +1,5 @@
 #body {
-  background-image:url("src/assets/imageNoteFound.jpg");
+  background-image:url("src/assets/imageNoteFound 1.jpg");
   height: 530px;
   background-position: center;
   background-repeat: no-repeat;
@@ -7,10 +7,10 @@
   position: relative;
 }
 #btn{
-  margin-left: 457px;
+  margin-left: 550px;
   margin-top: 449px;
   padding-left: 38px;
   padding-right: 38px;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
