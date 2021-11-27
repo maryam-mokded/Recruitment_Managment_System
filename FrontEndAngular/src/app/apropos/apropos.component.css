@@ -11,7 +11,7 @@ h1, .h1 {
 }
 
 h2, .h2 {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 h3, .h3 {
@@ -19,7 +19,10 @@ h3, .h3 {
 }
 
 h4, .h4 {
-  font-size: 1.5rem;
+  font-size: 1.9rem;
+}
+p{
+  font-size: 20px;
 }
 
 h5, .h5 {
@@ -37,7 +40,7 @@ h6, .h6 {
 
 
 .page-section h3.section-subheading {
-  font-size: 1rem;
+  font-size: 1.7rem;
   font-weight: 400;
   font-style: italic;
   font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

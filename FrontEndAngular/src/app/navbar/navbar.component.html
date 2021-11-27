@@ -1,25 +1,23 @@
-<mat-toolbar color="primary" class="expanded-toolbar">
+<mat-toolbar color="primary" id="toolbar" class="expanded-toolbar">
   <span>
-    <img style="max-width:71px;margin-top :-7px;" src="assets/logos.png">
+    <img class="logo" src="assets/logos.png">
   </span>
   <div fxLayout="row">
     <a mat-button routerLink="/">
-      <mat-icon>home
-
-      </mat-icon> Accueil
+      <mat-icon>home</mat-icon> Accueil
     </a>
     <a mat-button routerLink="/contact">
       <mat-icon>perm_contact_calendar</mat-icon>
       Contact
     </a>
-    <button mat-button [mat-menu-trigger-for]="menu" fxHide="false">
+    <button id="parg" mat-button [mat-menu-trigger-for]="menu" fxHide="false">
       <mat-icon>info</mat-icon>
       A propos
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/apropos">
+      <button  mat-menu-item routerLink="/apropos">
         <mat-icon>info</mat-icon>
-        A propos
+        Histoire
       </button>
 
       <button mat-menu-item routerLink="/equipe">
@@ -33,6 +31,10 @@
     </mat-menu>
 
   </div>
-  <button type="button" class="btn btn-outline-info" mat-menu-item routerLink="/login" style="margin-left: 590px;color:white"> Login</button>
+  <button type="button"
+          class="btn btn-outline-info"
+          mat-menu-item routerLink="/login"
+          class="log"
+          > Login</button>
 </mat-toolbar>
 
