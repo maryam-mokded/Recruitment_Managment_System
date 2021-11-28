@@ -1,0 +1,32 @@
+.mat-toolbar{
+    background-color: darkcyan;
+    color: white;
+  }
+  .mat-button{
+     color: white;
+  }
+  .spacer{
+    flex: 1 1 auto;
+  }
+
+#parg{
+    font-size: 20px;
+}
+
+#toolbar{
+    height: 74px;
+}
+
+a{
+  font-size: 20px;
+}
+.log{
+  margin-left:760px;
+  color:white;
+  font-size: 20px;
+}
+
+.logo{
+  max-width:71px;
+  margin-top :-7px;
+}

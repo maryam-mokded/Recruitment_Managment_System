@@ -1,0 +1,37 @@
+<div mat-dialog-title id="dialog-title">
+  <div>
+    <h2>Titre d'offre</h2>
+  </div>
+  <div><button id="IconClose" (click)="onClose()"><i class="fas fa-times"></i></button></div>
+</div>
+
+<div id="dialog-offre">
+  <div class="modal-content" id="contenuPost">
+    <div class="container">
+      <div class="row justify-content-center">
+
+        <div class="modal-body">
+          <h4 class="text-uppercase">post</h4>
+          <p class="item-intro text-muted">Description : Voici une annonce de recrutement (exemple), ainsi qu’un modèle
+            d’accusé de réception du dossier de candidature (exemple).
+            Nous vous invitons également à consulter l’article « Le processus de description de fonction » pour définir
+            le profil du poste de la manière la plus complète et la plus précise possible.</p>
+
+          <ul class="list-inline">
+            <li>Date : January 2021</li>
+            <li>Nombre de post rest : 15</li>
+            <li>Category: Website Design</li>
+          </ul>
+          <div id="action">
+               <button type="button" (click)="onClose()"  id="btnClose" class="btn btn-danger">Close</button>
+               <button type="button" class="btn btn-info">Postuler</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
