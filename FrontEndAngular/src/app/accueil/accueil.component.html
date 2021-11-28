@@ -1,2 +1,37 @@
 <app-navbar></app-navbar>
-<h1>Page d'accueil</h1>
+<section class="page-section bg-light" id="portfolio">
+  <div class="container">
+      <div class="text-center">
+          <h2 class="section-heading text-uppercase">Nos Offres</h2>
+      </div>
+       <div *ngIf="tab.length > 0 ; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>
+        <div class="row">
+          <div *ngFor="let i of tab" class="col-lg-4 col-sm-6 mb-4" (click) ="onOpenDialog()">
+              <div class="portfolio-item">
+                  <a class="portfolio-link" data-toggle="modal" >
+                      <div class="portfolio-hover">
+                          <div class="portfolio-hover-content">
+                            <i class="fas fa-plus fa-3x"></i>
+                          </div>
+                      </div>
+                      <img class="img-fluid" src="../../assets/images.png" alt="..." />
+                  </a>
+                  <div class="portfolio-caption">
+                      <div class="portfolio-caption-heading">Offre D'emploi </div>
+                      <div class="portfolio-caption-subheading text-muted">Description ...</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </ng-template>
+      <ng-template #elseBlock>
+        <br><br>
+        <div class="alert alert-warning" style="color: black;background-color: #fff3cd;" role="alert">
+          <h3>Warning</h3>
+           We don't have offers now  <strong>check it later!</strong>
+        </div>
+      </ng-template>
+
+    </div>
+</section>

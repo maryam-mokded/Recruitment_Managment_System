@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MatDialogModule} from "@angular/material/dialog";
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,6 +16,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { EquipeComponent } from './equipe/equipe.component';
 import { TestComponent } from './test/test.component';
+import { OffreDetailsComponent } from './offre-details/offre-details.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +27,11 @@ import { TestComponent } from './test/test.component';
     AccueilComponent,
     ContactComponent,
     EquipeComponent,
-    TestComponent
+    TestComponent,
+    OffreDetailsComponent
   ],
   imports: [
+    MatDialogModule,
     BrowserModule,
     MatMenuModule,
     BrowserAnimationsModule,
