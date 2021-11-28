@@ -1,0 +1,29 @@
+
+  #contenuPost{
+    margin-top: 15px;
+
+  }
+
+#dialog-offre{
+    width: 500px;
+    height:290px;
+  }
+  #IconClose{
+    background-color: white;
+    border-radius: 100%;
+  }
+#dialog-title{
+  display: grid;
+  grid-template-columns: 95% 5%;
+}
+
+
+#action{
+  margin-left: 300px;
+
+}
+
+#btnClose{
+margin-right: 7px;
+}
+
