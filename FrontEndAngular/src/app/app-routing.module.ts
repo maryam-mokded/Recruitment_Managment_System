@@ -10,15 +10,14 @@ import { EmployeesComponent } from './employees/employees.component';
 
 
 const routes :Routes =[
-  {path:'employees',component:EmployeesComponent},
   {path:'accueil',component:AccueilComponent},
   {path:'contact',component:ContactComponent},
   {path:'apropos',component:AproposComponent},
   {path:'equipe',component:EquipeComponent},
   {path:'login',component:LoginComponent},
+  { path:'employees', loadChildren: () => import('./employees/employees.module').then(m => m.EmployeesModule) },
   {path:'',redirectTo:'/accueil',pathMatch:'full'},
-  { path: 'employees', loadChildren: () => import('./employees/employees.module').then(m => m.EmployeesModule) },
-  {path:'**',component:NotFoundComponent},
+  {path:'**', component: NotFoundComponent},
 
 
 

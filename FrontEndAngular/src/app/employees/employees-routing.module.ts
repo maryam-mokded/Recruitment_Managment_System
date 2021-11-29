@@ -7,13 +7,11 @@ import { InterviewerComponent } from './interviewer/interviewer.component';
 
 const routes: Routes = [
   { path: 'employees', component: EmployeesComponent },
-  { path:'',redirectTo:'/employees',pathMatch:'full'},
-  { path: 'admin', component: AdminComponent },
+  { path:'',redirectTo: 'employees',pathMatch:'full'},
   { path: 'recruteur', component:RecruteurComponent  },
-  { path: 'interviewer', component: InterviewerComponent },
-  { path: 'employees/admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
-  { path: 'employees/recruteur', loadChildren: () => import('./recruteur/recruteur.module').then(m => m.RecruteurModule) },
-  { path: 'employees/interviewer', loadChildren: () => import('./interviewer/interviewer.module').then(m => m.InterviewerModule) }];
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+  { path: 'recruteur', loadChildren: () => import('./recruteur/recruteur.module').then(m => m.RecruteurModule) },
+  { path: 'interviewer', loadChildren: () => import('./interviewer/interviewer.module').then(m => m.InterviewerModule) }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
