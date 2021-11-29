@@ -7,8 +7,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdminComponent } from './admin/admin.component';
 import { InterviewerComponent } from './interviewer/interviewer.component';
 
-
-
 @NgModule({
   declarations: [
     AdminComponent,
@@ -16,7 +14,7 @@ import { InterviewerComponent } from './interviewer/interviewer.component';
     NavBarComponent,
     SidebarComponent,
     InterviewerComponent,
-
+    
   ],
   imports: [
     CommonModule,
