@@ -20,6 +20,7 @@ class RecrutmentManagmentSystem extends StatelessWidget {
       home: const MyHomePage(title: 'My Home Page'),
        routes: {
           '/home': (BuildContext context) => const MyHomePage(title: "home"),
+          '/login': (BuildContext context) => const MyLoginPage(title: ""),
         },
     );
   }

@@ -10,12 +10,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { MatMenuModule } from '@angular/material/menu';
+import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ContactComponent } from './contact/contact.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { EquipeComponent } from './equipe/equipe.component';
-import { TestComponent } from './test/test.component';
 import { OffreDetailsComponent } from './offre-details/offre-details.component';
 
 @NgModule({
@@ -27,7 +27,6 @@ import { OffreDetailsComponent } from './offre-details/offre-details.component';
     AccueilComponent,
     ContactComponent,
     EquipeComponent,
-    TestComponent,
     OffreDetailsComponent
   ],
   imports: [
@@ -38,6 +37,7 @@ import { OffreDetailsComponent } from './offre-details/offre-details.component';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    HttpClientModule,
     AppRoutingModule
 
   ],
