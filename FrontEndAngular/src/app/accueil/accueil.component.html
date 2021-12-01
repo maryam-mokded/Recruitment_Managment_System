@@ -4,10 +4,10 @@
       <div class="text-center">
           <h2 class="section-heading text-uppercase">Nos Offres</h2>
       </div>
-       <div *ngIf="tab.length > 0 ; then thenBlock else elseBlock"></div>
+       <div *ngIf="nb != null ; then thenBlock else elseBlock"></div>
       <ng-template #thenBlock>
         <div class="row">
-          <div *ngFor="let i of tab" class="col-lg-4 col-sm-6 mb-4" (click) ="onOpenDialog()">
+            <div *ngFor="let offer of offers" class="col-lg-4 col-sm-6 mb-4" (click) ="onOpenDialog(offer)" >
               <div class="portfolio-item">
                   <a class="portfolio-link" data-toggle="modal" >
                       <div class="portfolio-hover">
@@ -18,8 +18,8 @@
                       <img class="img-fluid" src="../../assets/images.png" alt="..." />
                   </a>
                   <div class="portfolio-caption">
-                      <div class="portfolio-caption-heading">Offre D'emploi </div>
-                      <div class="portfolio-caption-subheading text-muted">Description ...</div>
+                      <div class="portfolio-caption-heading">{{offer.titre}}</div>
+                      <div class="portfolio-caption-subheading text-muted">{{offer.description | slice:0:100}}...</div>
                   </div>
               </div>
           </div>
