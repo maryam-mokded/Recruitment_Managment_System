@@ -5,6 +5,7 @@ import { InterviewsListComponent } from './interviews-list/interviews-list.compo
 const routes: Routes = [
   {  path: '', component: InterviewerComponent,},
   { path:'interviewList', component:InterviewsListComponent},
+  { path:'',redirectTo:'/interviewer',pathMatch:'full'},
   {  path:'**', component: InterviewerComponent }
   
 ];
