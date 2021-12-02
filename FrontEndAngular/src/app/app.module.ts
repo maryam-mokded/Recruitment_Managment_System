@@ -17,6 +17,8 @@ import { ContactComponent } from './contact/contact.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { EquipeComponent } from './equipe/equipe.component';
 import { OffreDetailsComponent } from './offre-details/offre-details.component';
+import { PostulerComponent } from './postuler/postuler.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,14 @@ import { OffreDetailsComponent } from './offre-details/offre-details.component';
     AccueilComponent,
     ContactComponent,
     EquipeComponent,
-    OffreDetailsComponent
+    OffreDetailsComponent,
+    PostulerComponent
   ],
   imports: [
     MatDialogModule,
     BrowserModule,
     MatMenuModule,
+    FormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,

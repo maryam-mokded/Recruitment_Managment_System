@@ -1,32 +1,31 @@
-<div mat-dialog-title id="dialog-title">
+
+        <div class="modal-body" *ngIf="OneOffer">
+
+          <div mat-dialog-title id="dialog-title">
   <div>
-    <h2>Titre d'offre</h2>
+    <h2>{{OneOffer.titre}}</h2>
   </div>
   <div><button id="IconClose" (click)="onClose()"><i class="fas fa-times"></i></button></div>
 </div>
 
 <div id="dialog-offre">
-  <div class="modal-content" id="contenuPost">
+  <!-- <div class="modal-content" id="contenuPost"> -->
     <div class="container">
-      <div class="row justify-content-center">
-       
-        <div class="modal-body" *ngIf="OneOffer">
-          <h4 class="text-uppercase">{{OneOffer.titre}}</h4>
+
           <p class="item-intro text-muted">Description : {{OneOffer.description}}</p>
 
           <ul class="list-inline">
             <li>Date : {{OneOffer.date  | date: 'medium' }}</li>
             <li>Nombre de post à pourvoir : {{OneOffer.nbPost}}</li>
-           
+
           </ul>
           <div id="action">
                <button type="button" (click)="onClose()"  id="btnClose" class="btn btn-danger">Close</button>
-               <button type="button" class="btn btn-info">Postuler</button>
+               <button type="button" (click)="onPostuler()" class="btn btn-info">Postuler</button>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
 
-</div>
+<!-- </div> -->

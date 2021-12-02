@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import { Offers } from '../Models/offers';
 import { OffresService } from '../Services/offers.service';
+import { PostulerComponent } from '../postuler/postuler.component';
 
 @Component({
   selector: 'app-offre-details',
@@ -9,12 +10,13 @@ import { OffresService } from '../Services/offers.service';
   styleUrls: ['./offre-details.component.css']
 })
 export class OffreDetailsComponent implements OnInit {
-  
+
   public ID?:number;
   public OneOffer? : Offers;
-  
+
   constructor(
-    private dialog :MatDialog,
+    private dialogClose :MatDialog,
+    private dialogPostuler :MatDialog,
     private offresServ : OffresService,
   ) {}
 
@@ -24,13 +26,21 @@ export class OffreDetailsComponent implements OnInit {
       //console.log(typeof this.OneOffer);
       console.log(this.OneOffer);
     });
-    
+
   }
 
-   
+
 
   onClose(){
-    this.dialog.closeAll();
+    this.dialogClose.closeAll();
   }
 
+  onPostuler(){
+    this.dialogClose.closeAll();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    //localStorage.setItem('IdOffer', JSON.stringify(Offer.idOffre));
+    this.dialogPostuler.open(PostulerComponent, dialogConfig);
+  }
 }
