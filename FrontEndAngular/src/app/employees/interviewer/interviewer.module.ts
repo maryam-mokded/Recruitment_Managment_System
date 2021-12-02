@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InterviewerRoutingModule } from './interviewer-routing.module';
 import { InterviewsListComponent } from './interviews-list/interviews-list.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,9 @@ import { InterviewsListComponent } from './interviews-list/interviews-list.compo
   ],
   imports: [
     CommonModule,
-    InterviewerRoutingModule
+    InterviewerRoutingModule,
+    HttpClientModule,
+    FormsModule,
   ]
 })
 export class InterviewerModule { }
