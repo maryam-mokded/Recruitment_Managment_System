@@ -4,7 +4,11 @@ import { Offers } from '../Models/offers';
 import { OffresService } from '../Services/offers.service';
 import { OffreDetailsComponent } from '../offre-details/offre-details.component';
 import {
-
+FormGroup,
+FormControl,
+FormBuilder,
+ReactiveFormsModule,
+Validators
 } from '@angular/forms';
 @Component({
   selector: 'app-postuler',
@@ -13,8 +17,9 @@ import {
 })
 export class PostulerComponent implements OnInit {
 
-  public OneOffer? : Offers;
 
+  public OneOffer? : Offers;
+  
 
   constructor(
     private dialog :MatDialog,

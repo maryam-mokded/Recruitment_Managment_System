@@ -1,5 +1,12 @@
 <div class="container" *ngIf="OneOffer">
-    <h1>Postuler dans : {{OneOffer.titre}}</h1>
+
+  <div mat-dialog-title id="dialog-title">
+    <div>
+      <h2>{{OneOffer.titre}}</h2>
+    </div>
+    <div><button id="IconClose" (click)="onClose()"><i class="fas fa-times"></i></button></div>
+  </div>
+
   <form class="needs-validation" novalidate>
     <div class="form-row">
       <div class="col-md-4 mb-3">
@@ -52,8 +59,7 @@
       </div>
       <div class="col-md-3 mb-3">
         <label for="validationTooltip04">CIN</label>
-        <input type="text" class="form-control" id="validationTooltip04" placeholder="Num CIN"
-          required>
+        <input type="text" class="form-control" id="validationTooltip04" placeholder="Num CIN" required>
 
         <div class="invalid-tooltip">
           Please choose a unique and valid username.
@@ -75,6 +81,7 @@
     </div>
     <div class="form-row">
       <div class="col-md-6 mb-3">
+        <label for="validationTooltip02">Importer CV</label>
         <div class="custom-file">
           <input type="file" class="custom-file-input" id="validatedCustomFile" required>
           <label class="custom-file-label" for="validatedCustomFile">Votre Cv...</label>
@@ -89,8 +96,8 @@
     </div>
 
     <div id="btn">
+      <button type="button" (click)="onClose()" id="btnClose" class="btn btn-danger">Fermer</button>
       <button type="button" (click)="onRevenir(OneOffer)" id="btnClose" class="btn btn-success">Détails Offre</button>
-      <button type="button" (click)="onClose()" id="btnClose" class="btn btn-danger">Annuler</button>
       <button class="btn btn-primary" type="submit">Postuler</button>
     </div>
   </form>

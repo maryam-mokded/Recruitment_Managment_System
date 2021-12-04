@@ -7,3 +7,13 @@
 {
 padding-left: 445px;
 }
+
+#IconClose{
+  background-color: white;
+  border-radius: 35%;
+}
+
+#dialog-title{
+  display: grid;
+  grid-template-columns: 95% 5%;
+}
