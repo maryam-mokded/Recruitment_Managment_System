@@ -6,8 +6,7 @@ import { RecruteurComponent } from './recruteur/recruteur.component';
 import { InterviewerComponent } from './interviewer/interviewer.component';
 
 const routes: Routes = [
-  { path: 'employees', component: EmployeesComponent },
-  { path:'',redirectTo: 'employees',pathMatch:'full'},
+  { path: '', component: EmployeesComponent },
   { path: 'recruteur', component:RecruteurComponent  },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'recruteur', loadChildren: () => import('./recruteur/recruteur.module').then(m => m.RecruteurModule) },

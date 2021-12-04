@@ -14,7 +14,6 @@ export class LoginComponent implements OnInit {
 
   mdp = "password"
    myFunction() {
-    var x = document.getElementById("myInput");
     if (this.mdp === "password") {
       this.mdp = "text";
     } else {
