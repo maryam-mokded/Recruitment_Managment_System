@@ -34,10 +34,6 @@ export class PostulerComponent implements OnInit {
       console.log(this.OneOffer);
      });
 
-
-
-
-
   }
 
 
