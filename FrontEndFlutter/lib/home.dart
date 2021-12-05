@@ -24,6 +24,18 @@ class MyHomePage extends StatelessWidget {
                 color: Colors.teal
               ),
             ),
+
+
+             RaisedButton(
+                 child: const Text("Go To Team Page"),
+                 color: Colors.blue,
+                 textColor: Colors.white,
+                 onPressed: () {
+                   Navigator.pushNamed(context, '/teams');
+                 }
+             ),
+
+
              const Padding(padding: EdgeInsets.only(bottom: 20)),
             RaisedButton(
                 child: const Text("Go to Screen 2"),
