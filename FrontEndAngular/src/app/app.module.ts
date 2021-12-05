@@ -29,7 +29,7 @@ import { FormsModule } from '@angular/forms';
     ContactComponent,
     EquipeComponent,
     OffreDetailsComponent,
-    PostulerComponent
+    PostulerComponent,
   ],
   imports: [
     MatDialogModule,

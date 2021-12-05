@@ -1,0 +1,64 @@
+       <div class="container" [hidden]="submitted">
+        <h1>Add A New Interview</h1>
+        <form class="needs-validation" novalidate (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="prenom">Id</label>
+                    <input type="text" class="form-control"  id="id_Interview" required [(ngModel)]="interview.id_Interview" name="id_Interview">
+                    <div class="valid-feedback">Ok !</div>
+                    <div class="invalid-feedback">Valeur incorrecte</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="interview date">Interview date </label>
+                    <input type="date" class="form-control" id="interviewDate" required [(ngModel)]="interview.interviewDate" name="interviewDate">
+                    <div class="valid-feedback">Ok !</div>
+                    <div class="invalid-feedback">Valeur incorrecte</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="pseudo">Interview type</label>
+                    <select type="text" class="form-select" id="interviewType" required [(ngModel)]="interview.interviewType" name="interviewType" required>
+                      <option value="technique">technique</option>
+                      <option value="téléphonique">téléphonique</option>
+                      <option value="RH">RH</option>
+                      </select>
+                    <div class="valid-feedback">Ok !</div>
+                    <div class="invalid-feedback">Valeur incorrecte</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="ville">location</label>
+                    <select type="text" class="form-select"  id="email" required [(ngModel)]="interview.location" name="location">
+                      <option value="physicall">physicall</option>
+                      <option value="virtual">virtual</option>
+                    </select>
+                    <div class="valid-feedback">Ok !</div>
+                    <div class="invalid-feedback">Valeur incorrecte</div>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- <div [hidden]="!submitted">
+     <h4>You submitted successfully!</h4>
+   </div> -->
+
+    <script>
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          let forms = document.getElementsByClassName('needs-validation');
+          let validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+

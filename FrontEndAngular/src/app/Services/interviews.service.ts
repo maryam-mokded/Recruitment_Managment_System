@@ -18,17 +18,17 @@ export class InterviewsService {
     return this.http.get<interviewList>(`${this.baseUrl}/${id}`);
   }
 
-  // createInterviews(interviews: Object): Observable<Object> {
-  //   return this.http.post(`${this.baseUrl}`, interviews);
-  // }
+   createInterviews(interviews: Object): Observable<Object> {
+     return this.http.post(`${this.baseUrl}`, interviews);
+   }
 
-  // updateInterviews(id: number, value: any): Observable<Object> {
-  //   return this.http.put(`${this.baseUrl}/${id}`, value);
-  // }
+   updateInterviews(id: number, value: any): Observable<Object> {
+     return this.http.put(`${this.baseUrl}/${id}`, value);
+   }
 
-  // deleteInterviews(id: number): Observable<any> {
-  //   return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
-  // }
+   deleteInterviews(id: number): Observable<any> {
+     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+   }
 
   
 }

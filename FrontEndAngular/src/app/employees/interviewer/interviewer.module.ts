@@ -4,10 +4,15 @@ import { InterviewerRoutingModule } from './interviewer-routing.module';
 import { InterviewsListComponent } from './interviews-list/interviews-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CreateInterviewComponent } from './create-interview/create-interview.component';
+import { InterviewDetailsComponent } from './interview-details/interview-details.component';
 
 @NgModule({
   declarations: [
-    InterviewsListComponent
+    InterviewsListComponent,
+    CreateInterviewComponent,
+    InterviewDetailsComponent,
+    
   ],
   imports: [
     CommonModule,
