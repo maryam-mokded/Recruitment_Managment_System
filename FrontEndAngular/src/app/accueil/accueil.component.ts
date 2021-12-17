@@ -12,15 +12,16 @@ import { OffresService } from '../Services/offers.service';
 export class AccueilComponent implements OnInit {
 
   offers? : Offers[];
-  tab = [0,1,2,3,4]
   public nb? : number;
-  
+  //public msg?:string = "";
   constructor(
     private dialog :MatDialog,
     private offresServ : OffresService,
     ) { }
 
   ngOnInit(): void {
+    //this.msg =JSON.parse(localStorage.getItem('message') || '[]') || [];
+    
     this.offresServ.ListeOffers().subscribe(o =>{
        this.offers = o; 
        this.nb = this.offers.length;

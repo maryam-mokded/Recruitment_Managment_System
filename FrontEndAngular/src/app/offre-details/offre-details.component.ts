@@ -11,7 +11,6 @@ import { PostulerComponent } from '../postuler/postuler.component';
 })
 export class OffreDetailsComponent implements OnInit {
 
-  public ID?:number;
   public OneOffer? : Offers;
 
   constructor(
@@ -29,8 +28,6 @@ export class OffreDetailsComponent implements OnInit {
 
   }
 
-
-
   onClose(){
     this.dialogClose.closeAll();
   }
@@ -40,7 +37,6 @@ export class OffreDetailsComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    //localStorage.setItem('IdOffer', JSON.stringify(Offer.idOffre));
     this.dialogPostuler.open(PostulerComponent, dialogConfig);
   }
 }

@@ -1,0 +1,167 @@
+  <div class="container" >
+
+    <div mat-dialog-title id="dialog-title">
+      <div>
+        <h1>Modifier Votre donner : </h1>
+      </div>
+    </div>
+    <form [formGroup]="myForm" class="needs-validation" novalidate>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label >Nom</label>
+          <input type="text"
+                 class="form-control"
+                 placeholder="nom"
+                 formControlName="name"
+                 [(ngModel)]="Condidat.nom"
+                 name="name">
+          <div 
+                *ngIf="name?.invalid && name?.touched" 
+                class="text-danger">
+            nom invalide minimum 2 caratères.
+          </div>
+          <div 
+          *ngIf="name?.valid && name?.touched" 
+          class="text-success">
+            nom validée!
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationTooltip02">Prénom</label>
+          <input type="text"
+                 class="form-control"
+                 id="validationTooltip02"
+                 formControlName="prenom"
+                 [(ngModel)]="Condidat.prenom"
+                 name="prenom" placeholder="prénom" >
+            <div 
+            *ngIf="prenom?.invalid && prenom?.touched" 
+            class="text-danger">
+            prenom invalide minimum 2 caratères.
+          </div>
+          <div  
+          *ngIf="prenom?.valid && prenom?.touched" 
+          class="text-success">
+            prenom validée!
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-3">
+          <label for="validationDefaultUsername">Email</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupPrepend2">@</span>
+            </div>
+            <input type="text" 
+                   class="form-control"
+                   id="validationDefaultUsername" 
+                   placeholder="Username" 
+                   aria-describedby="inputGroupPrepend2" 
+                   formControlName="email"
+                   [(ngModel)]="Condidat.email"                              
+                   required>
+          </div>
+          <div 
+          *ngIf="email?.invalid && email?.touched" 
+          class="text-danger">
+          invalide Email.
+          </div>
+          <div  
+          *ngIf="email?.valid && email?.touched" 
+          class="text-success">
+            Email validée!
+          </div>     
+    
+
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationTooltip03">Adresse</label>
+          <input type="text"
+                 class="form-control"
+                 id="validationTooltip03"
+                 formControlName="adresse"
+                 [(ngModel)]="Condidat.adress"
+                 name="adresse" 
+                 placeholder="adress">
+          <div 
+          *ngIf="adresse?.invalid && adresse?.touched" 
+          class="text-danger">
+          Adresse invalide.
+          </div>
+          <div 
+          *ngIf="adresse?.valid && adresse?.touched" 
+          class="text-success">
+            Adresse validée!
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationTooltip04">CIN</label>
+          <input type="text"
+                 class="form-control"
+                 id="validationTooltip04"
+                 formControlName="cin"
+                 [(ngModel)]="Condidat.cin"
+                 name="cin"
+                 placeholder="Num CIN">
+
+          <div 
+          *ngIf="cin?.invalid && cin?.touched" 
+          class="text-danger">
+            Numéro de CIN invalide.
+          </div>
+          <div 
+          *ngIf="cin?.valid && cin?.touched" 
+          class="text-success">
+            Numéro de CIN validée!
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationTooltip05">Téléphone</label>
+          <input type="text"
+                 class="form-control"
+                 id="validationTooltip05"
+                 formControlName="telephone"
+                 [(ngModel)]="Condidat.tel"
+                 name="tel"
+                 placeholder="Num téléphone">
+          <div 
+          *ngIf="telephone?.invalid && telephone?.touched" 
+          class="text-danger">
+            Numéro de téléphone invalide.
+          </div>
+          <div  
+          *ngIf="telephone?.valid && telephone?.touched" 
+          class="text-success">
+            Numéro de téléphone validée!
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationTooltip02">Importer CV</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" [(ngModel)]="NewCv.pdf" name="pdf" id="validatedCustomFile"
+              required>
+            <label class="custom-file-label" for="validatedCustomFile">Votre Cv...</label>
+            <div class="invalid-tooltip">
+              Please choose a unique and valid username.
+            </div>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <div id="btn">
+        <button type="button" (click)="supprimerDemande(Condidat.idUser)" id="btnClose" class="btn btn-danger">Annuler la demande</button>
+        <button type="submit" (click)="ModifierCondidat()"  [disabled]="myForm.invalid"  class="btn btn-info" >Enregistrer</button>
+      </div>
+   
+    </form>
+    
+  </div>
+

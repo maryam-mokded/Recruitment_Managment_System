@@ -18,7 +18,9 @@ import { EquipeComponent } from './equipe/equipe.component';
 import { OffreDetailsComponent } from './offre-details/offre-details.component';
 import { PostulerComponent } from './postuler/postuler.component';
 import { FormsModule } from '@angular/forms';
-
+import { UpdatePostulationComponent } from './update-postulation/update-postulation.component';
+import { ReactiveFormsModule } from '@angular/forms';
+// import { FormControl,FormGroup, FormBuilder, Validators,} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import { FormsModule } from '@angular/forms';
     ContactComponent,
     EquipeComponent,
     OffreDetailsComponent,
-    PostulerComponent
+    PostulerComponent,
+    UpdatePostulationComponent
   ],
   imports: [
     MatDialogModule,
@@ -41,6 +44,7 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
+    ReactiveFormsModule,
     AppRoutingModule
 
   ],
