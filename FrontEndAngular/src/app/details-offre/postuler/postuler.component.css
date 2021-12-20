@@ -17,3 +17,14 @@ padding-left: 445px;
   display: grid;
   grid-template-columns: 95% 5%;
 }
+
+.form-control.ng-touched.ng-invalid {
+  border:1px solid rgb(238, 28, 28);
+ }
+ .form-control.ng-touched.ng-valid {
+  border:1px solid rgb(9, 211, 9);
+ }
+ 
+ 
+ 
+ 

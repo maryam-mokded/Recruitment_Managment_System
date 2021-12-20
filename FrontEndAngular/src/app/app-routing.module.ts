@@ -17,6 +17,7 @@ const routes :Routes =[
   {path:'login',component:LoginComponent},
   { path:'employees', loadChildren: () => import('./employees/employees.module').then(m => m.EmployeesModule) },
   {path:'',redirectTo:'/accueil',pathMatch:'full'},
+  { path: 'details', loadChildren: () => import('./details-offre/details-offre.module').then(m => m.DetailsOffreModule) },
   {path:'**', component: NotFoundComponent},
 
 

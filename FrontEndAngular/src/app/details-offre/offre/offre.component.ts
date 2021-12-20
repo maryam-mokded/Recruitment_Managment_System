@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
-import { Offers } from '../Models/offers';
-import { OffresService } from '../Services/offers.service';
+import { Offers } from '../../Models/offers';
+import { OffresService } from '../../Services/offers.service';
 import { PostulerComponent } from '../postuler/postuler.component';
 
+
 @Component({
-  selector: 'app-offre-details',
-  templateUrl: './offre-details.component.html',
-  styleUrls: ['./offre-details.component.css']
+  selector: 'app-offre',
+  templateUrl: './offre.component.html',
+  styleUrls: ['./offre.component.css']
 })
-export class OffreDetailsComponent implements OnInit {
+export class OffreComponent implements OnInit {
 
   public ID?:number;
   public OneOffer? : Offers;
@@ -43,4 +44,5 @@ export class OffreDetailsComponent implements OnInit {
     //localStorage.setItem('IdOffer', JSON.stringify(Offer.idOffre));
     this.dialogPostuler.open(PostulerComponent, dialogConfig);
   }
+
 }

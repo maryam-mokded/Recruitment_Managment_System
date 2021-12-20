@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
-import { OffreDetailsComponent } from '../offre-details/offre-details.component';
+import { OffreComponent } from '../details-offre/offre/offre.component';
 import { Offers } from '../Models/offers';
 import { OffresService } from '../Services/offers.service';
 
@@ -14,7 +14,7 @@ export class AccueilComponent implements OnInit {
   offers? : Offers[];
   tab = [0,1,2,3,4]
   public nb? : number;
-  
+
   constructor(
     private dialog :MatDialog,
     private offresServ : OffresService,
@@ -22,7 +22,7 @@ export class AccueilComponent implements OnInit {
 
   ngOnInit(): void {
     this.offresServ.ListeOffers().subscribe(o =>{
-       this.offers = o; 
+       this.offers = o;
        this.nb = this.offers.length;
        // console.log(this.nb);
        // console.log(typeof this.nb);
@@ -34,6 +34,6 @@ export class AccueilComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     localStorage.setItem('IdOffer', JSON.stringify(Offer.idOffre));
-    this.dialog.open(OffreDetailsComponent, dialogConfig);
+    this.dialog.open(OffreComponent, dialogConfig);
   }
 }
