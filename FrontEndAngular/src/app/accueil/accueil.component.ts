@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import { OffreDetailsComponent } from '../details/offre-details/offre-details.component';
-import { Offers } from '../ConsommationAPI/Models/offers';
-import { OffresService } from '../ConsommationAPI/Services/offers.service';
+import { Offers } from '../Models/offers';
+import { OffresService } from '../Services/offers.service';
 
 @Component({
   selector: 'app-accueil',

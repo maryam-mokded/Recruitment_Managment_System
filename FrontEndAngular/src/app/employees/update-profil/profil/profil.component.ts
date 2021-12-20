@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { UpdatePhotoComponent } from '../update-photo/update-photo.component';
-import { Employee } from '../../../ConsommationAPI/Models/employee';
-import { EmployeeService } from '../../../ConsommationAPI/Services/employee.service';
+import { Employee } from '../../../Models/employee';
+import { EmployeeService } from '../../../Services/employee.service';
 import {  FormControl, FormGroup, Validators } from '@angular/forms';
 
 

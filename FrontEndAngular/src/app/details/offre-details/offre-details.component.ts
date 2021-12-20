@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
-import { Offers } from '../../ConsommationAPI/Models/offers';
-import { OffresService } from '../../ConsommationAPI/Services/offers.service';
+import { Offers } from '../../Models/offers';
+import { OffresService } from '../../Services/offers.service';
 import { PostulerComponent } from '../postuler/postuler.component';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { InterviewsService } from '../../../ConsommationAPI/Services/interviews.service';
-import { interviewList } from '../../../ConsommationAPI/Models/interviews';
+import { InterviewsService } from '../../../Services/interviews.service';
+import { interviewList } from '../../../Models/interviews';
 
 @Component({
   selector: 'app-interviews-list',

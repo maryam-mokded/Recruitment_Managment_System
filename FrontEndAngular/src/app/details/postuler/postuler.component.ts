@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { Offers } from '../../ConsommationAPI/Models/offers';
-import { OffresService } from '../../ConsommationAPI/Services/offers.service';
-import { CvService } from '../../ConsommationAPI/Services/cv.service';
+import { Offers } from '../../Models/offers';
+import { OffresService } from '../../Services/offers.service';
+import { CvService } from '../../Services/cv.service';
 import { OffreDetailsComponent } from '../offre-details/offre-details.component';
-import { CondidatService } from '../../ConsommationAPI/Services/condidat.service';
-import { condidat } from '../../ConsommationAPI/Models/condidat';
-import { Cv } from '../../ConsommationAPI/Models/Cv';
+import { CondidatService } from '../../Services/condidat.service';
+import { condidat } from '../../Models/condidat';
+import { Cv } from '../../Models/Cv';
 import {  FormControl, FormGroup, Validators } from '@angular/forms';
 import { ParseSourceFile } from '@angular/compiler';
 
