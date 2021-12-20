@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Employee } from 'src/app/Models/employee';
-import { EmployeeService } from 'src/app/Services/employee.service';
+import { Employee } from 'src/app/ConsommationAPI/Models/employee';
+import { EmployeeService } from 'src/app/ConsommationAPI/Services/employee.service';
 
 @Component({
   selector: 'app-employee-details',
@@ -13,7 +13,8 @@ export class EmployeeDetailsComponent implements OnInit {
   id!: number;
   employee!: Employee;
 
-  constructor(private route: ActivatedRoute,private router: Router,
+  constructor(
+    private route: ActivatedRoute,private router: Router,
     private employeeService: EmployeeService) { }
 
   ngOnInit() {

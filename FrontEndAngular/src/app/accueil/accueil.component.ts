@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
-import { OffreDetailsComponent } from '../offre-details/offre-details.component';
-import { Offers } from '../Models/offers';
-import { OffresService } from '../Services/offers.service';
+import { OffreDetailsComponent } from '../details/offre-details/offre-details.component';
+import { Offers } from '../ConsommationAPI/Models/offers';
+import { OffresService } from '../ConsommationAPI/Services/offers.service';
 
 @Component({
   selector: 'app-accueil',
@@ -14,6 +14,7 @@ export class AccueilComponent implements OnInit {
   offers? : Offers[];
   public nb? : number;
   //public msg?:string = "";
+
   constructor(
     private dialog :MatDialog,
     private offresServ : OffresService,

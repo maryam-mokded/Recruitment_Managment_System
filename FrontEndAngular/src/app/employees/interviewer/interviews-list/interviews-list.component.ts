@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { InterviewsService } from '../../../Services/interviews.service';
-import { interviewList } from '../../../Models/interviews';
+import { InterviewsService } from '../../../ConsommationAPI/Services/interviews.service';
+import { interviewList } from '../../../ConsommationAPI/Models/interviews';
 
 @Component({
   selector: 'app-interviews-list',
@@ -9,7 +9,9 @@ import { interviewList } from '../../../Models/interviews';
 })
 export class InterviewsListComponent implements OnInit {
   interviews! : interviewList[];
-  constructor(private interviewsService: InterviewsService ) {
+  constructor(
+    private interviewsService: InterviewsService,
+    ) {
    }
 
   ngOnInit(): void {

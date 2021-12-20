@@ -6,7 +6,6 @@
   </div>
     <div id="btn" *ngIf="IdCondAdd">
       <button type="button" (click)="supprimerDemande(IdCondAdd)" id="btnClose" class="btn btn-danger">Annuler la demande</button>
-      <button type="button" (click)="modifierCondidat(IdCondAdd)" id="btnClose" class="btn btn-success">Modifier</button>
       <button type="button" (click)="onClose()" class="btn btn-info" >valider</button>
     </div>
 
@@ -149,12 +148,10 @@
           </div>
         </div>
       </div>
-
-
-      <div >
-        <label>Choose file</label>
-        <input type="file"  [(ngModel)]="file" >
-       </div>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="customFile">
+        <label class="custom-file-label" for="customFile">Choose file</label>
+      </div>
 
       <div id="btn">
         <button type="button" (click)="onClose()" id="btnClose" class="btn btn-danger">Fermer</button>

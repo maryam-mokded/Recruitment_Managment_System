@@ -1,35 +1,30 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule} from "@angular/material/dialog";
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { AppRoutingModule } from './app-routing.module';
 import { MatMenuModule } from '@angular/material/menu';
-import { LoginComponent } from './login/login.component';
-import { AccueilComponent } from './accueil/accueil.component';
-import { ContactComponent } from './contact/contact.component';
-import { AproposComponent } from './apropos/apropos.component';
-import { EquipeComponent } from './equipe/equipe.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NavbarComponent } from './Component/navbar/navbar.component';
+import { DetailsRoutingModule } from './details-routing.module';
+import { DetailsComponent } from './details.component';
+import { OffreDetailsComponent } from './offre-details/offre-details.component';
+import { PostulerComponent } from './postuler/postuler.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
-    LoginComponent,
-    AproposComponent,
-    AccueilComponent,
-    ContactComponent,
-    EquipeComponent,
+    DetailsComponent,
+    OffreDetailsComponent,
+    PostulerComponent
   ],
   imports: [
+    CommonModule,
+    DetailsRoutingModule,
     MatDialogModule,
     BrowserModule,
     MatMenuModule,
@@ -39,10 +34,8 @@ import { NavbarComponent } from './Component/navbar/navbar.component';
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    ReactiveFormsModule
+
+  ]
 })
-export class AppModule { }
+export class DetailsModule { }

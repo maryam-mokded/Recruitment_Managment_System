@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { Offers } from '../Models/offers';
-import { OffresService } from '../Services/offers.service';
-import { CvService } from '../Services/cv.service';
+import { Offers } from '../../ConsommationAPI/Models/offers';
+import { OffresService } from '../../ConsommationAPI/Services/offers.service';
+import { CvService } from '../../ConsommationAPI/Services/cv.service';
 import { OffreDetailsComponent } from '../offre-details/offre-details.component';
-import { CondidatService } from '../Services/condidat.service';
-import { condidat } from '../Models/condidat';
-import { Cv } from '../Models/Cv';
-import { UpdatePostulationComponent } from '../update-postulation/update-postulation.component';
+import { CondidatService } from '../../ConsommationAPI/Services/condidat.service';
+import { condidat } from '../../ConsommationAPI/Models/condidat';
+import { Cv } from '../../ConsommationAPI/Models/Cv';
 import {  FormControl, FormGroup, Validators } from '@angular/forms';
 import { ParseSourceFile } from '@angular/compiler';
 
@@ -17,6 +16,7 @@ import { ParseSourceFile } from '@angular/compiler';
   templateUrl: './postuler.component.html',
   styleUrls: ['./postuler.component.css'],
 })
+
 export class PostulerComponent implements OnInit {
 
   public OneOffer?: Offers;
@@ -25,8 +25,8 @@ export class PostulerComponent implements OnInit {
   public message?:string="";
   public IdCondAdd?:number;
   myForm!:FormGroup;
-
   file:FileReader =new FileReader();
+
   constructor(
     private dialog: MatDialog,
     private dialogClose: MatDialog,
@@ -54,13 +54,13 @@ export class PostulerComponent implements OnInit {
     let confirmation =confirm("Êtes-vous sûr de supprimer votre demande ??")
     if(confirmation)
     this.condServ.supprimerCondidat(id).subscribe(()=>{
-      //console.log("produit supprimé");
+      console.log("produit supprimé");
     });
     this.dialogClose.closeAll();
   }
 
   addCondidat() {
-    //console.log(this.NewCondidat);
+    console.log(this.NewCondidat);
     this.NewCondidat.idUser = 1;
     this.condServ
         .AjouterCondidat(this.NewCondidat)
@@ -73,15 +73,6 @@ export class PostulerComponent implements OnInit {
      // this.dialogClose.closeAll();
         console.log(this.file);
     }
-
-  modifierCondidat(id:number){
-    this.dialogClose.closeAll();
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    localStorage.setItem('IdCondAdd', JSON.stringify(this.IdCondAdd));
-    this.dialog.open(UpdatePostulationComponent, dialogConfig);
-  }
 
   onClose() {
     this.dialogClose.closeAll();
