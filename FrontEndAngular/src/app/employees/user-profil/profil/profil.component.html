@@ -1,0 +1,290 @@
+<div class="main-content" *ngIf="employe">
+  <div class="container" style="margin-top: 64px;">
+    <div class="row">
+
+      <div class="col-md-8">
+            <!-- Information-User -->
+            <div class="card">
+              <div class="card-header card-header-danger" id="backgroundColor">
+                <h4 class="card-title" id="textColor">{{profilStatus}}</h4>
+              </div>
+              <div class="card-body border-gradient border-gradient-purple on-light">
+
+                <div *ngIf="test == true ; then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">Nom</label>
+                      <input type="text" class="form-control" value={{employe.nom}} placeholder="Mokded" disabled>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label>Prenom</label>
+                      <input type="text" class="form-control" value={{employe.prenom}} placeholder="Maryam" disabled>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">Num CIN</label>
+                      <input type="text" class="form-control" value={{employe.cin}} placeholder="147852236" disabled>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label>Num Tel</label>
+                      <input type="text" class="form-control" value="(+216) {{employe.tel}}" placeholder="(+216) 53 740 917"
+                        disabled>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" value={{employe.email}} placeholder="maryam@gmail.com"
+                      disabled>
+                  </div>
+                  <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" class="form-control" value={{employe.adress}} placeholder="Bizerte" disabled>
+                  </div>
+                  <div class="form-group">
+                    <label>Date d'embauche </label>
+                    <input type="text" class="form-control" value="{{employe.dateEmbauche | date}}"
+                      placeholder="02 Nov 2021" disabled>
+                  </div>
+
+                  <button (click)="modifierProfil()" class="btn btn-primary btn-round " style="margin-left: 590px;">
+                    <i class="fas fa-pen fa-lg"></i>
+                    Modifier
+                  </button>
+
+                </ng-template>
+                <ng-template #elseBlock>
+                  <form class="needs-validation" novalidate>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label>Nom</label>
+                        <input type="text" class="form-control" placeholder="Mokded">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>Prenom</label>
+                        <input type="text" class="form-control" placeholder="Maryam">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label>Num CIN</label>
+                        <input type="text" class="form-control" placeholder="147852236">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>Num Tel</label>
+                        <input type="text" class="form-control" placeholder="(+216) 53 740 917">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Email</label>
+                      <input type="email" class="form-control" placeholder="maryam@gmail.com">
+                    </div>
+                    <div class="form-group">
+                      <label>Address</label>
+                      <input type="text" class="form-control" placeholder="Bizerte">
+                    </div>
+                    <div class="form-group">
+                      <label>Date d'embauche </label>
+                      <input type="text" class="form-control" placeholder="02 Nov 2021" disabled>
+                    </div>
+
+                    <button (click)="modifierProfil()" class="btn btn-success btn-round" style="margin-left: 570px;">
+                      <i class="fas fa-save fa-lg"></i>
+                      Enregistrer
+                    </button>
+                  </form>
+                </ng-template>
+              </div>
+            </div>
+            <!-- Competance -->
+            <div class="card">
+                  <div class="card-header card-header-danger" id="backgroundColor">
+                    <h2 class="card-title" id="textColor">Compétance :</h2>
+                  </div>
+                  <div class="card-body border-gradient border-gradient-purple on-light">
+
+                    <div class="row">
+                      <div class="col-md-2">
+                        <label>Angular</label>
+                      </div>
+                      <div class="col-md-10">
+                        <div class="progress">
+                          <div
+                            class="progress-bar bg-success progress-bar-success progress-bar-striped progress-bar-animated"
+                            role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+                            75%
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-2">
+                        <label>Spring Boot</label>
+                      </div>
+                      <div class="col-md-10">
+                        <div class="progress">
+                          <div
+                            class="progress-bar bg-warning progress-bar-success progress-bar-striped progress-bar-animated"
+                            role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                            50%
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-2">
+                        <label>Laravel</label>
+                      </div>
+                      <div class="col-md-10">
+                        <div class="progress">
+                          <div
+                            class="progress-bar bg-danger progress-bar-success progress-bar-striped progress-bar-animated"
+                            role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                            30% faible
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-2">
+                        <label>Java</label>
+                      </div>
+                      <div class="col-md-10">
+                        <div class="progress">
+                          <div class="progress-bar progress-bar-success progress-bar-striped progress-bar-animated"
+                            role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                            100% Complete
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+            </div>
+      </div>
+
+      <div class="col-md-4 ">
+          <!-- partie image -->
+            <div class="row">
+              <div class="text-center card-box " id="backgroundColor">
+                <div class="member-card pt-2 pb-2 ">
+                  <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png"
+                      class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                  <div class="">
+                    <h4 id="textColor">{{employe.nom}} {{employe.prenom}}</h4>
+                    <h5 id="textColor">Développeur</h5>
+                   </div>
+                  <button type="file" class="btn btn-primary bg-white mt-3  btn-rounded waves-effect w-md waves-light"
+                    (click)=onOpenDialog()>
+                    <i class="fas fa-pen fa-lg"></i>
+                    Modier Photo
+                  </button>
+                </div>
+              </div>
+
+
+
+            </div>
+          <!-- partie Pwd -->
+            <div class="row">
+              <div class="text-center card-box border-gradient border-gradient-purple on-light">
+                <div class="member-card pt-2 pb-2 ">
+                  <div class="">
+                    <span><i class="fas fa-key fa-lg mr-3"></i></span>
+                    <span class="mr-3">Password </span>
+                    <div *ngIf="testPwd == true ; then MasquerPwd else AfficherPwd"></div>
+                    <ng-template #MasquerPwd>
+                      <span>&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull; </span>
+                    </ng-template>
+                    <ng-template #AfficherPwd>
+                      {{employe.pwd}}
+                    </ng-template>
+                    <span><button (click)="showPwd()" class="btn btn-info ml-3"><i class="fa fa-eye"></i></button></span>
+                  </div>
+                  <!-- Lorsque je clique sur cette boutton ,il me rederiger vers "Settings" -->
+                  <button type="button" class="btn btn-primary mt-3  btn-rounded waves-effect w-md waves-light">
+                    <i class="fas fa-pen fa-lg"></i>
+                    Changer Password
+                  </button>
+                </div>
+              </div>
+
+
+
+            </div>
+          <!-- partie Site -->
+            <div class="row">
+              <div class="text-center card-box border-gradient border-gradient-purple on-light">
+                <div class="member-card pt-2 pb-2 ">
+                  <!-- Lien Github -->
+                  <div class="">
+                    <span>
+                      <img class="IconLien mr-3" src="../../assets/Icons/Github.png" alt="..." />
+                    </span>
+                    <span>Github</span>
+                    <span class="lien"><a>Hanin103</a></span>
+                    <span>
+                      <span><button class="btn btn-warning" id="btn"><i class="fas fa-pencil-alt"></i></button></span>
+                      <span><button class="btn btn-danger" id="btn"><i class="fas fa-trash-alt"></i></button></span>
+                    </span>
+                  </div>
+                <hr>
+                   <!-- Lien LinkedIn -->
+                   <div class="">
+                    <span>
+                      <img class="IconLien mr-3" src="../../assets/Icons/Linkedin.png" alt="..." />
+                    </span>
+                    <span>LinkedIn</span>
+                    <span class="lien"><a>Hanin103</a></span>
+                    <span>
+                      <span><button class="btn btn-warning" id="btn"><i class="fas fa-pencil-alt"></i></button></span>
+                      <span><button class="btn btn-danger" id="btn"><i class="fas fa-trash-alt"></i></button></span>
+                    </span>
+                  </div>
+
+                <hr>
+                   <!-- Lien Facebook -->
+                   <div class="">
+                    <span>
+                      <img class="IconLienFace" src="../../assets/Icons/Facebook.png" alt="..." />
+                    </span>
+                    <span>Facebook</span>
+                    <span class="lien"><a>Hanin103</a></span>
+                    <span>
+                      <span><button class="btn btn-warning" id="btn"><i class="fas fa-pencil-alt"></i></button></span>
+                      <span><button class="btn btn-danger" id="btn"><i class="fas fa-trash-alt"></i></button></span>
+                    </span>
+                  </div>
+               <hr>
+                   <!-- Lien Instagram -->
+                   <div class="">
+                    <span>
+                      <img class="IconLienInsta" src="../../assets/Icons/Instagram.png" alt="..." />
+                    </span>
+                    <span>Instagram</span>
+                    <span class="lien"><a>Hanin103</a></span>
+                    <span>
+                      <span><button class="btn btn-warning" id="btn"><i class="fas fa-pencil-alt"></i></button></span>
+                      <span><button class="btn btn-danger" id="btn"><i class="fas fa-trash-alt"></i></button></span>
+                    </span>
+                  </div>
+
+                </div>
+              </div>
+
+
+
+            </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>

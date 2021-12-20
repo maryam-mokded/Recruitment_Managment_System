@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'recruteur', component:RecruteurComponent  },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'recruteur', loadChildren: () => import('./recruteur/recruteur.module').then(m => m.RecruteurModule) },
-  { path: 'interviewer', loadChildren: () => import('./interviewer/interviewer.module').then(m => m.InterviewerModule) }];
+  { path: 'interviewer', loadChildren: () => import('./interviewer/interviewer.module').then(m => m.InterviewerModule) },
+  { path: 'user-profil', loadChildren: () => import('./user-profil/user-profil.module').then(m => m.UserProfilModule) }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
