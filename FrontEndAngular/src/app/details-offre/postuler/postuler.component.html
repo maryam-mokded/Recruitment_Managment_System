@@ -48,7 +48,8 @@
                  class="form-control"
                  formControlName="prenom"
                  [(ngModel)]="NewCondidat.prenom"
-                 name="prenom" placeholder="prénom" >
+                 name="prenom"
+                 placeholder="prénom" >
             <div
             *ngIf="prenom?.invalid && prenom?.touched"
             class="text-danger">
@@ -69,7 +70,7 @@
             </div>
             <input type="text"
                    class="form-control"
-                   placeholder="Username"
+                   placeholder="Email"
                    aria-describedby="inputGroupPrepend2"
                    formControlName="email"
                    [(ngModel)]="NewCondidat.email">
