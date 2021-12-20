@@ -75,7 +75,7 @@ $(document).ready(function(){
                         <td>{{interview.interviewType}}</td>
                         <td>{{interview.location}}</td>
 						<td>
-							<a href="#editInterviewModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+							<a (click)="updateInterviews(interview.id_Interview)" class="update" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a>
 							<a (click)="deleteInterviews(interview.id_Interview)" class="delete" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 							<a (click)="interviewDetails(interview.id_Interview)" class="view" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xE417;</i></a>
 						</td>

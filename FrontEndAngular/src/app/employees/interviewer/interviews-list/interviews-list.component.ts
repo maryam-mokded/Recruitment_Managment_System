@@ -38,4 +38,9 @@ export class InterviewsListComponent implements OnInit {
 interviewDetails(id: number){
   this.router.navigate(['employees/interviewer//detailinterview', id]);
 }
+updateInterviews(id: number){
+  this.router.navigate(['employees/interviewer//updateinterview', id]);
+}
+
+
 }
