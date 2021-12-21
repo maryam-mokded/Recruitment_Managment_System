@@ -9,6 +9,8 @@ import { condidat } from '../../Models/condidat';
 import { Cv } from '../../Models/Cv';
 import {  FormControl, FormGroup, Validators } from '@angular/forms';
 import { ParseSourceFile } from '@angular/compiler';
+import { interviewList } from 'src/app/Models/interviews';
+import { InterviewsService } from 'src/app/Services/interviews.service';
 
 
 @Component({
@@ -21,6 +23,7 @@ export class PostulerComponent implements OnInit {
 
   public OneOffer?: Offers;
   public NewCondidat = new condidat();
+  public interview:interviewList = new interviewList();
   public NewCv = new Cv();
   public message?:string="";
   public IdCondAdd?:number;
@@ -28,6 +31,7 @@ export class PostulerComponent implements OnInit {
   file:FileReader =new FileReader();
 
   constructor(
+    private InterviewServ : InterviewsService,
     private dialog: MatDialog,
     private dialogClose: MatDialog,
     private offresServ: OffresService,
@@ -39,6 +43,7 @@ export class PostulerComponent implements OnInit {
     //Revenir a offre détails
       this.OffreDetailsMethode();
       this.ValidatedForm();
+
   }
 
   OffreDetailsMethode(){
