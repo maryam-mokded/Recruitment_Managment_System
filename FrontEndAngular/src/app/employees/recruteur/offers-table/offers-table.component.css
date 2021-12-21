@@ -1,0 +1,46 @@
+#card-Table{
+  padding-left: 97px;
+  padding-right: 66px;
+  padding-top: 27px;
+  padding-bottom: 20px;
+}
+
+#LienDetails:hover{
+  text-decoration: tomato wavy underline;
+  cursor: pointer;
+
+  }
+
+
+#entete-Table{
+  color: #ea4542;
+  font-family: comic sans ms;
+  font-size: 15px;
+}
+
+#title-Table{
+  background-color: #ea4542;
+  width: 1170px;
+  left: 13px;
+  bottom: 29px;
+  margin-top: 14px;
+  color: aliceblue;
+}
+
+a{
+  cursor: pointer;
+}
+
+table.table td a.update {
+	color: #FFC107;
+}
+
+table.table td a.delete {
+	color: #F44336;
+}
+
+
+#titre{
+  font-size: 31px;
+  font-family: comic sans ms;
+}

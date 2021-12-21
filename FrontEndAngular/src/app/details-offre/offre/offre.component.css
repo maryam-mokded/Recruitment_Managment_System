@@ -1,8 +1,36 @@
 
   #contenuPost{
     margin-top: 15px;
-
+    animation: level 2.5s;
+    animation-delay: 0.5s;
   }
+
+  @keyframes level {
+    0% {
+        transform: translateX(-500px);
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px)
+    }
+}
+
+#Moreinformation{
+    animation: moveTop 1.6s ease-in;
+    overflow: hidden
+}
+
+@keyframes moveTop {
+    0% {
+        transform: translateY(400px)
+    }
+
+    100% {
+        transform: translateY(0px)
+    }
+}
 
 #dialog-offre{
     width: 500px;
@@ -12,18 +40,38 @@
     background-color: white;
     border-radius: 35%;
   }
+
 #dialog-title{
   display: grid;
   grid-template-columns: 95% 5%;
-}
+  transform: translateX(-500px);
+  animation: fadeIn 1.5s;
+  animation-fill-mode: forwards
+  }
+  @keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-500px)
+    }
 
+    100% {
+        opacity: 1;
+        transform: translateX(0px)
+    }
+}
 
 #action{
   margin-left: 300px;
 
 }
 
+#btnClose:hover{
+   transform: rotate(360deg);
+
+}
+
 #btnClose{
-margin-right: 7px;
+  margin-right: 7px;
+  transition: width 2s, height 2s, transform 2s;
 }
 

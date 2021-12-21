@@ -1,0 +1,67 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12" id="card-Table">
+        <div class="card">
+          <div class="card-header card-header-danger" id="title-Table">
+            <h3 class="card-title" id="titre">Offers Table</h3><br>
+          </div>
+          <div class="card-body" *ngIf="offersList">
+            <div class="table-responsive" >
+              <table class="table" >
+                <thead class=" text-primary" >
+                  <th id="entete-Table">
+                    Post
+                  </th>
+                  <th id="entete-Table">
+                    Competance
+                  </th>
+                  <th id="entete-Table">
+                    Description
+                  </th>
+                  <th id="entete-Table">
+                    Date Postulation
+                  </th>
+                  <th id="entete-Table">
+                    Post Number
+                  </th>
+                  <th id="entete-Table">
+                    Action
+                  </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let offer of offersList">
+                    <td>
+                      <a  id="LienDetails">
+                        {{offer.titre}}
+                      </a>
+                    </td>
+                    <td>
+                      <a  id="LienDetails" >
+                      Competance
+                      </a>
+                    </td>
+                    <td>
+                      {{offer.description | slice:0:15}}...
+                     </td>
+                     <td>
+                      {{offer.date  | date: 'medium' }}
+                     </td>
+                     <td>
+                      {{offer.nbPost}}
+                     </td>
+                    <td class="text-primary">
+                      <a  class="update"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a>
+                      <a (click)="DeleteOffer(offer.idOffre)" class="delete"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                      <a (click) ="DetailsOffer(offer)" class="view"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xE417;</i></a>
+                  </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

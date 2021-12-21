@@ -12,7 +12,6 @@ import { OffresService } from '../Services/offers.service';
 export class AccueilComponent implements OnInit {
 
   offers? : Offers[];
-  tab = [0,1,2,3,4]
   public nb? : number;
 
   constructor(

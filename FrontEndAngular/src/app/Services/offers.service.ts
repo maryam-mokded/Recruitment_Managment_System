@@ -3,9 +3,9 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpClientModule , HttpHeaders } from '@angular/common/http';
 import { Offers } from '../Models/offers';
 
-// const httpOptions ={
-//   headers: new HttpHeaders({'Content-Type' : 'application/json'})
-// }
+const httpOptions ={
+  headers: new HttpHeaders({'Content-Type' : 'application/json'})
+}
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +29,14 @@ export class OffresService {
     return this.http.get<Offers>(url);
   }
 
+  supprimerOffer(id:number){
+    const url =`${this.UrlApi}/${id}`;
+    return this.http.delete(url,httpOptions);
+  }
+
+  modifierOffer(o :Offers):Observable<Offers>{
+    const url =`${this.UrlApi}/${o.idOffre}`;
+    return this.http.put<Offers>(url,o,httpOptions);
+  }
 
 }

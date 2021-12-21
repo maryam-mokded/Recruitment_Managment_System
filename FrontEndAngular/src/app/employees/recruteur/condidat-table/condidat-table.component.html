@@ -1,0 +1,54 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12" id="card-Table">
+        <div class="card">
+          <div class="card-header card-header-danger" id="title-Table">
+            <h3 class="card-title" id="titre">Condidats Table</h3><br>
+          </div>
+          <div class="card-body" *ngIf="interviewList">
+            <div class="table-responsive" >
+              <table class="table" >
+                <thead class=" text-primary" >
+                  <th id="entete-Table">
+                    Condidat Name
+                  </th>
+                  <th id="entete-Table">
+                    Offer Name
+                  </th>
+                  <th id="entete-Table">
+                    CV Condidat
+                  </th>
+                  <th id="entete-Table">
+                    Action
+                  </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let interview of interviewList">
+                    <td>
+                      <a  id="LienDetails" (click) ="DetailsCondidat(interview)">
+                        {{interview.user?.nom}}
+                        {{interview.user?.prenom}}
+                      </a>
+                    </td>
+                    <td>
+                      <a  id="LienDetails" (click) ="DetailsOffer(interview)">
+                        {{interview.offre?.titre}}
+                        </a>
+                    </td>
+                    <td>
+                      {{interview.user?.pdfcv}}
+                    </td>
+                    <td class="text-primary">
+                      <a (click) ="deleteCondidat(interview)" class="delete" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
