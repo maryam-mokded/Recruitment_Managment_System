@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { UserProfilRoutingModule } from './user-profil-routing.module';
 import { UserProfilComponent } from './user-profil.component';
@@ -26,15 +26,16 @@ import { UpdatePhotoComponent } from './update-photo/update-photo.component';
   imports: [
     CommonModule,
     UserProfilRoutingModule,
-    BrowserModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
     MatDialogModule,
+    // BrowserModule,
+    MatMenuModule,
     FormsModule,
+    // BrowserAnimationsModule,
+    MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatMenuModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ]
 })
 export class UserProfilModule { }

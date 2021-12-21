@@ -15,27 +15,27 @@ import {  FormControl, FormGroup, Validators } from '@angular/forms';
 export class ProfilComponent implements OnInit {
 
   myForm!:FormGroup;
-  id?:number;
-  employe?:Employee= new Employee();
-  test:boolean = true;
-  testPwd:boolean = true;
-  profilStatus:string="Profil";
-  constructor(
-    private EmpServ : EmployeeService,
-    private dialog :MatDialog,
+  public id?:number;
+  public employe?:Employee= new Employee();
+  public test:boolean = true;
+  public ShowPwd:boolean = true;
+  public ChangePwd:boolean = true;
+  public profilStatus:string="Profil";
+  idEmp?:number|undefined;
+ constructor(
+    private EmpServ:EmployeeService,
+    private dialog:MatDialog,
   ) { }
 
   ngOnInit(): void {
-
     this.getEmployee();
-
+    this.id = this.employe?.idUser;
   }
 
   getEmployee(){
     this.id = 11;
     this.EmpServ.getEmployee(this.id)
     .subscribe(emp => {
-     //  console.log(emp)
       this.employe = emp;
     });
   }
@@ -44,6 +44,11 @@ export class ProfilComponent implements OnInit {
     if(this.test == true){
       this.test=false;
       this.profilStatus="Editer Profil";
+      console.log(this.employe);
+      this.id=this.employe?.idUser;
+      this.EmpServ.updateEmployee(11,this.employe)
+          .subscribe(emp=>{
+          });
     }else{
       this.test = true;
       this.profilStatus="Profil";
@@ -51,11 +56,20 @@ export class ProfilComponent implements OnInit {
   }
 
   showPwd():void{
-    if(this.testPwd == true){
-      this.testPwd=false;
+    if(this.ShowPwd == true){
+      this.ShowPwd=false;
     }else{
-      this.testPwd = true;
-    }}
+      this.ShowPwd = true;
+    }
+  }
+
+  ChangerPassword(){
+    if( this.ChangePwd ==true) {
+      this.ChangePwd =false;
+    }else {
+      this.ChangePwd = true;
+    }
+  }
   onOpenDialog():void{
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
