@@ -1,33 +1,108 @@
+<div class="content-wrapper">
+    
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+
 <h2>Employee Details</h2> 
 
 <hr/>
-<div *ngIf="employee">
-  <div>
-    <label><b>Id: </b></label> {{employee.idUser}}
-  </div>
-  <div>
-    <label><b>First Name: </b></label> {{employee.nom}}
-  </div>
-  <div>
-    <label><b>Last Name: </b></label> {{employee.prenom}}
-  </div>
-  <div>
-    <label><b>Cin: </b></label> {{employee.cin}}
-  </div>  
-  <div>
-    <label><b>email: </b></label> {{employee.email}}
-  </div>  
-  <div>
-    <label><b>adress: </b></label> {{employee.adress}}
-  </div>  
-  <div>
-    <label><b>telephone: </b></label> {{employee.tel}}
-  </div> 
-  <div>
-    <label><b>password: </b></label> {{employee.pwd}}
-  </div>   
-</div>
 
-<br>
-<br>
-<button (click)="list()" class="btn btn-primary">Back to Employee List</button><br>
+<button (click)="list()" class="btn btn-primary" style="margin:15px">Back to Employee List</button><br>
+
+<div class="col-md-12" *ngIf="employee">
+  <!-- Widget: user widget style 1 -->
+  <div class="card card-widget widget-user">
+    <!-- Add the bg color to the header using any of the bg-* classes -->
+    <div class="widget-user-header bg-info">
+      <h3 class="widget-user-username">     {{employee.prenom}} {{employee.nom}}</h3>
+      <h5 class="widget-user-desc">Founder & CEO</h5>
+    </div>
+    <div class="widget-user-image">
+      <img class="img-circle elevation-2" src="../assets/img/user1-128x128.jpg" alt="User Avatar">
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-sm-4 border-right">
+          <div class="description-block">
+            <h5 class="description-header">3,200</h5>
+            <span class="description-text">SALES</span>
+          </div>
+          <!-- /.description-block -->
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 border-right">
+          <div class="description-block">
+            <h5 class="description-header">13,000</h5>
+            <span class="description-text">FOLLOWERS</span>
+          </div>
+          <!-- /.description-block -->
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4">
+          <div class="description-block">
+            <h5 class="description-header">35</h5>
+            <span class="description-text">PRODUCTS</span>
+          </div>
+          <!-- /.description-block -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+  </div>
+
+
+
+  <!-- title row -->
+  <div class="row">
+    <div class="col-12">
+      <h4>
+        <i class="fas fa-globe"></i> Plus d'informations
+        <small class="float-right">Date: 2/10/2014</small>
+      </h4>
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- info row -->
+  <div class="row invoice-info">
+    <div class="col-sm-4 invoice-col">
+
+      <address>
+        <strong>FirstName</strong><br>
+         {{employee.nom}}<br>
+         <strong>LastName</strong><br>
+         {{employee.prenom}}<br>
+      </address>
+    </div>
+    <!-- /.col -->
+    <div class="col-sm-4 invoice-col">
+      <address>
+        <strong>Numero de la carte d'identite</strong><br>
+        {{employee.cin}}<br>
+        <strong>Email</strong><br>
+        {{employee.email}}<br>
+      </address>
+    </div>
+    <!-- /.col -->
+    <div class="col-sm-4 invoice-col">
+      <b>Telephone</b><br>
+      {{employee.tel}}<br>
+      <b>Password</b><br>
+      {{employee.pwd}}<br>
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+
+
+  <!-- /.widget-user -->
+</div>
+<!-- /.col -->
+
+
+
+  
+
+</section>
+<!-- /.content -->
+</div>
