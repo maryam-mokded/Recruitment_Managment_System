@@ -9,7 +9,7 @@ import { interviewList } from '../../../Models/interviews';
   styleUrls: ['./interviews-list.component.css']
 })
 export class InterviewsListComponent implements OnInit {
-  
+
   interviews! : interviewList[];
 
   constructor(private interviewsService: InterviewsService , private router: Router ) {
@@ -17,6 +17,7 @@ export class InterviewsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadList();
+    console.log(this.interviews);
   }
 
   loadList()
@@ -30,7 +31,7 @@ export class InterviewsListComponent implements OnInit {
 
   deleteInterviews(id: number) {
     this.interviewsService.deleteInterviews(id)
-    .subscribe(o =>{        
+    .subscribe(o =>{
       this.interviews = o;
       this.loadList();
     });

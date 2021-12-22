@@ -1,3 +1,5 @@
+import { condidat } from "./condidat";
+import { Offers } from "./offers";
 
 export class interviewList {
     idUser! : number;
@@ -6,4 +8,6 @@ export class interviewList {
     interviewType!: string;
     location!: string;
     time!: string;
+    offre?:Offers;
+    user?:condidat;
 }

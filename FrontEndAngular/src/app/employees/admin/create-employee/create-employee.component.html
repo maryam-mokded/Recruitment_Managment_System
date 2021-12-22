@@ -1,4 +1,10 @@
      <body>
+       <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+
          <div class="container" [hidden]="submitted">
              <h1>Formulaires</h1>
              <form class="needs-validation" novalidate (ngSubmit)="onSubmit()">
@@ -66,6 +72,10 @@
                  <button class="btn btn-primary" type="submit">Envoyer</button>
              </form>
          </div>
+
+        </section>
+        <!-- /.content -->
+        </div>
 
          <div [hidden]="!submitted">
           <h4>You submitted successfully!</h4>

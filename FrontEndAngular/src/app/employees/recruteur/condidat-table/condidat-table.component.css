@@ -1,0 +1,35 @@
+#card-Table{
+  padding-left: 97px;
+  padding-right: 66px;
+  padding-top: 27px;
+  padding-bottom: 20px;
+}
+
+#LienDetails:hover{
+  text-decoration: #00bcd4 wavy underline;
+  cursor: pointer;
+
+}
+
+#entete-Table{
+  color: #00bcd4;
+  font-family: comic sans ms;
+font-size: 15px;
+}
+
+table.table td a.delete {
+	color: #F44336;
+}
+#title-Table{
+  background-color: #00bcd4;
+  width: 1170px;
+  left: 13px;
+  bottom: 29px;
+  margin-top: 14px;
+  color: aliceblue;
+}
+
+#titre{
+  font-size: 31px;
+  font-family: comic sans ms;
+}

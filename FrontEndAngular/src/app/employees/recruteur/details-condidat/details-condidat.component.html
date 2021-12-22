@@ -1,0 +1,50 @@
+<div class="wrapper"  *ngIf="condidat">
+  <div class="card text-white">
+      <div class="bg-pink"></div>
+      <div class="img-container d-flex align-items-center justify-content-center"> <img src="https://i.imgur.com/wvxPV9S.png" alt="" class="rounded-circle"> </div>
+      <div class="user">
+          <div class="h5 text-center m-0">{{condidat.nom}} {{condidat.prenom}}</div>
+      </div>
+      <div class="px-3">
+          <div class="d-flex align-items-center justify-content-between py-3 pe-none">
+              <div class="details snippets">
+              </div>
+              <div class="details project">
+                  <div class="head text-uppercase">
+                    <span> Email : </span>
+                    <span id="titre"> {{condidat.email}}</span>
+                  </div>
+              </div>
+              <div class="details post">
+              </div>
+          </div>
+          <div class="skills">
+              <div class=" head text-uppercase">Autre Information</div>
+              <div class=" pb-3 pt-2">
+                  <div class="text-uppercase fs-08">
+                    <span id="titre"> Adress : </span>
+                    <span>{{condidat.cin}}</span>
+                  </div>
+                  <div class="text-uppercase fs-08">
+                    <span id="titre"> Numero Tel : </span>
+                    <span>{{condidat.tel}}</span>
+                  </div>
+                  <div class="text-uppercase fs-08">
+                    <span id="titre"> Numero CIN : </span>
+                    <span>{{condidat.cin}}</span>
+                  </div>
+              </div>
+          </div>
+
+          <div class="details project">
+            <div class="head text-uppercase">
+              <button id="btn" (click)="closeDetails()" class="btn btn ml-150  btn-rounded waves-effect w-md waves-light">
+                Close Details
+              </button>
+            </div>
+        </div>
+
+
+      </div>
+  </div>
+</div>
