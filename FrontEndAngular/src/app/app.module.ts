@@ -17,6 +17,9 @@ import { AproposComponent } from './apropos/apropos.component';
 import { EquipeComponent } from './equipe/equipe.component';
 import { FormsModule } from '@angular/forms';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     AccueilComponent,
     ContactComponent,
     EquipeComponent,
+    
   ],
   imports: [
     MatDialogModule,

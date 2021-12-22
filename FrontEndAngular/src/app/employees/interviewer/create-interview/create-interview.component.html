@@ -9,12 +9,6 @@
                     <div class="invalid-feedback">Valeur incorrecte</div>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label for="interview date">Interview date </label>
-                    <input type="date" class="form-control" id="interviewDate" required [(ngModel)]="interview.interviewDate" name="interviewDate">
-                    <div class="valid-feedback">Ok !</div>
-                    <div class="invalid-feedback">Valeur incorrecte</div>
-                </div>
-                <div class="col-md-4 mb-3">
                     <label for="pseudo">Interview type</label>
                     <select type="text" class="form-select" id="interviewType" required [(ngModel)]="interview.interviewType" name="interviewType" required>
                       <option value="technique">technique</option>
@@ -24,8 +18,21 @@
                     <div class="valid-feedback">Ok !</div>
                     <div class="invalid-feedback">Valeur incorrecte</div>
                 </div>
+                
             </div>
             <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="interview date">Interview Time </label>
+                    <input type="time" class="form-control" id="time" required [(ngModel)]="interview.time" name="time">
+                    <div class="valid-feedback">Ok !</div>
+                    <div class="invalid-feedback">Valeur incorrecte</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="interview date">Interview date </label>
+                    <input type="date" class="form-control" id="interviewDate" required [(ngModel)]="interview.interviewDate" name="interviewDate">
+                    <div class="valid-feedback">Ok !</div>
+                    <div class="invalid-feedback">Valeur incorrecte</div>
+                </div>
                 <div class="col-md-6 mb-3">
                     <label for="ville">location</label>
                     <select type="text" class="form-select"  id="email" required [(ngModel)]="interview.location" name="location">
@@ -35,6 +42,20 @@
                     <div class="valid-feedback">Ok !</div>
                     <div class="invalid-feedback">Valeur incorrecte</div>
                 </div>
+                <div class="container">
+                <mat-form-field appearance="outline">
+                    <mat-label>Interview date</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                
+                    <mat-form-field appearance="outline">
+                      <mat-label>Interview Time</mat-label>
+                      <input matTimepicker #t="matTimepicker"  [strict]="false" id="timepicker-example" mode="24h" name="time">
+                         <mat-icon matSuffix (click)="t.showDialog()">access_time</mat-icon>
+                    </mat-form-field>
+                  </div>
             </div>
             <button class="btn btn-primary" type="submit">Submit</button>
         </form>
