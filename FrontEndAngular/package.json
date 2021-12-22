@@ -20,6 +20,8 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@fullcalendar/angular": "^5.10.1",
+    "@fullcalendar/daygrid": "^5.10.1",
     "admin-lte": "^3.1.0",
     "mat-timepicker": "^5.1.4",
     "ngx-bootstrap": "^7.1.0",
