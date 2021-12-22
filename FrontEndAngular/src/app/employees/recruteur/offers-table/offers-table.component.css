@@ -5,6 +5,23 @@
   padding-bottom: 20px;
 }
 
+#AlertSucces{
+  color: green;
+  background-color: #d4edda;
+  padding: 20px;
+  margin-top: 15px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+#btn{
+  background-color: #ea4542;
+  color: wheat;
+  font-size: 20px;
+  margin: 20px;
+  margin-left: 1187px;
+}
+
 #LienDetails:hover{
   text-decoration: tomato wavy underline;
   cursor: pointer;
@@ -18,7 +35,12 @@
   font-size: 15px;
 }
 
+.card{
+  box-shadow:0 0 70px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%) !important;
+}
 #title-Table{
+
+  border-radius: 10px;
   background-color: #ea4542;
   width: 1170px;
   left: 13px;

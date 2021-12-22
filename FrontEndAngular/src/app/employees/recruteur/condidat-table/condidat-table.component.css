@@ -6,22 +6,27 @@
 }
 
 #LienDetails:hover{
-  text-decoration: #00bcd4 wavy underline;
+  text-decoration: #fc9209 wavy underline;
   cursor: pointer;
 
 }
 
 #entete-Table{
-  color: #00bcd4;
+  color: #fc9209;
   font-family: comic sans ms;
 font-size: 15px;
+}
+
+.card{
+  box-shadow:0 0 70px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%) !important;
 }
 
 table.table td a.delete {
 	color: #F44336;
 }
 #title-Table{
-  background-color: #00bcd4;
+  border-radius: 10px;
+  background-color: #fc9209;
   width: 1170px;
   left: 13px;
   bottom: 29px;

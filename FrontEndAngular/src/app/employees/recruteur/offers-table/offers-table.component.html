@@ -1,10 +1,19 @@
+
 <div class="main-content">
+  <!-- <div class="alert alert-success" id="AlertSucces" role="alert">
+    This is a success alert—check it out!
+  </div> -->
+
+      <button class="btn btn" id="btn" (click)="onOpenDialogCreate()">
+        <i class="fas fa-plus"></i>
+        Add Offer
+      </button>
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12" id="card-Table">
         <div class="card">
           <div class="card-header card-header-danger" id="title-Table">
-            <h3 class="card-title" id="titre">Offers Table</h3><br>
+            <h3 class="card-title"  id="titre">Offers Table</h3><br>
           </div>
           <div class="card-body" *ngIf="offersList">
             <div class="table-responsive" >
@@ -51,7 +60,7 @@
                       {{offer.nbPost}}
                      </td>
                     <td class="text-primary">
-                      <a  class="update"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a>
+                      <a (click)="onOpenDialogUpdate(offer)" class="update"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a>
                       <a (click)="DeleteOffer(offer.idOffre)" class="delete"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                       <a (click) ="DetailsOffer(offer)" class="view"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xE417;</i></a>
                   </td>

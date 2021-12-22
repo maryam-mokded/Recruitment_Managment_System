@@ -24,6 +24,10 @@ export class OffresService {
     return this.http.get<Offers[]>(this.UrlApi);
   }
 
+  AjouterOffer(o:Offers):Observable<Offers>{
+    return this.http.post<Offers>(this.UrlApi,o,httpOptions);
+  }
+
   ConsulterOffer(id:number):Observable<Offers>{
     const url = `${this.UrlApi}/${id}`
     return this.http.get<Offers>(url);
