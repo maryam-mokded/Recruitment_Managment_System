@@ -11,7 +11,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2>Questions List</h2>
+                            <h2 style="font-family: Arial, Helvetica, sans-serif;">Questions List</h2>
                         </div>
                         <div class="col-sm-6">
                         <a routerLink="../addquestion"  routerLinkActive="active" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Question</span></a>
@@ -34,8 +34,8 @@
                         <tr *ngFor="let question of questions">
                             <td>
                                 <span class="custom-control custom-switch">
-                                    <input type="checkbox" class="custom-control-input" id="customSwitch1" name="options[]" value="1">
-                                    <label class="custom-control-label" for="customSwitch1"></label>
+                                    <input type="checkbox" class="custom-control-input" id="customSwitch" name="options[]" >
+                                    <label class="custom-control-label" for="customSwitch"></label>
                                 </span>
                             </td>
                             <td>{{question.id_Question}}</td>
