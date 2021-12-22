@@ -3,6 +3,8 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { OffreComponent } from 'src/app/details-offre/offre/offre.component';
 import { Offers } from 'src/app/Models/offers';
 import { OffresService } from 'src/app/Services/offers.service';
+import { CreateOfferComponent } from '../create-offer/create-offer.component';
+import { UpdateOfferComponent } from '../update-offer/update-offer.component';
 
 @Component({
   selector: 'app-offers-table',
@@ -22,7 +24,26 @@ export class OffersTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getListOffers();
+
   }
+
+
+
+  onOpenDialogCreate():void{
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    this.dialog.open(CreateOfferComponent, dialogConfig);
+  }
+
+  onOpenDialogUpdate(o:Offers):void{
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    localStorage.setItem('IdOffer', JSON.stringify(o.idOffre));
+    this.dialog.open(UpdateOfferComponent, dialogConfig);
+  }
+
   getListOffers(){
     this.offerServ.ListeOffers().subscribe(ListOffers =>{
       this.offersList = ListOffers;
@@ -48,6 +69,7 @@ export class OffersTableComponent implements OnInit {
       dialogConfig.autoFocus = true;
       localStorage.setItem('IdOffer', JSON.stringify(Offer.idOffre));
       this.dialog.open(OffreComponent, dialogConfig);
-
   }
+
+
 }

@@ -1,0 +1,81 @@
+<div class="ContenuCard" >
+  <div class="modal-header">
+    <h1 id="modal-title"><b>Create Offer</b></h1>
+    <button type="button" (click)="onClose()" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div><br>
+  <form [formGroup]="myForm" class="needs-validation" novalidate>
+    <div class="form-group">
+      <label>Post Name :</label>
+      <input type="text"
+             class="form-control"
+             formControlName="titre"
+             name="titre"
+             [(ngModel)]="Newoffer.titre"
+             placeholder="Post Name here ..">
+        <div
+             *ngIf="titre?.invalid && titre?.touched"
+              class="text-danger">
+               Post Name invalide minimum 2 caratères.
+       </div>
+       <div
+            *ngIf="titre?.valid && titre?.touched"
+            class="text-success">
+              Post Name validée!
+       </div>
+    </div>
+
+    <div class="lg mb-3">
+      <label>Description :</label>
+      <textarea class="form-control"
+                placeholder="Description Post here ...."
+                name="description"
+                formControlName="description"
+                [(ngModel)]="Newoffer.description"
+                ></textarea>
+          <div
+                *ngIf="description?.invalid && description?.touched"
+                 class="text-danger">
+                  Description Post invalide minimum 2 caratères.
+          </div>
+          <div
+               *ngIf="description?.valid && description?.touched"
+               class="text-success">
+                 Description Post validée!
+          </div>
+    </div>
+
+      <!-- <div class="form-group">
+      <label>Competance :</label>
+      <input type="text" class="form-control" placeholder="Competance post here ..">
+      <br><input type="text" *ngIf="CheckesCompetance==true" class="form-control" placeholder="Competance post here ..">
+      <a id="btnAddComp" (click)="addOtherCompetance()">Add Other Competance</a>
+    </div> -->
+    <div class="form-group">
+      <label for="disabledTextInput">Number Post :</label>
+      <input type="text"
+             class="form-control"
+             name="nbPost"
+             formControlName="nbPost"
+             [(ngModel)]="Newoffer.nbPost"
+             placeholder="Post Name here ..">
+        <div
+             *ngIf="nbPost?.invalid && nbPost?.touched"
+              class="text-danger">
+               Number Post invalide.
+       </div>
+       <div
+            *ngIf="nbPost?.valid && nbPost?.touched"
+            class="text-success">
+              Number Post validée!
+       </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" (click)="onClose()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="submit" (click)="addOffer()" [disabled]="myForm.invalid" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+
+</div>
