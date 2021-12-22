@@ -8,14 +8,13 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 
-
 @NgModule({
   declarations: [
     EmployeesListComponent,
     EmployeeDetailsComponent,
     CreateEmployeeComponent,
     DashboardAdminComponent
-  ],
+    ],
   imports: [
     CommonModule,
     AdminRoutingModule,
