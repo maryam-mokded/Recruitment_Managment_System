@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule} from "@angular/material/dialog";
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+  // AddForPaginator
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+//add For Sorted
+import { MatSortModule } from '@angular/material/sort';
+
+
 // Pou utilier two way binding (ngModel)
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -18,7 +24,8 @@ import { DetailsCondidatComponent } from './details-condidat/details-condidat.co
 import { OffersTableComponent } from './offers-table/offers-table.component';
 import { CreateOfferComponent } from './create-offer/create-offer.component';
 import { UpdateOfferComponent } from './update-offer/update-offer.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -40,7 +47,15 @@ import { UpdateOfferComponent } from './update-offer/update-offer.component';
     FormsModule,
     MatIconModule,
     MatMenuModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    //add For Sorted
+    MatSortModule,
+    // AddForPaginator
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+
 
   ]
 })

@@ -24,7 +24,7 @@ export class CreateOfferComponent implements OnInit {
 
   ngOnInit(): void {
     // console.log(this.offer?.description);
-    this.ValidatedForm();
+   // this.ValidatedForm();
 
   }
 

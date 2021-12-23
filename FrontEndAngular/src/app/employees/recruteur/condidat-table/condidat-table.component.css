@@ -24,11 +24,55 @@ font-size: 15px;
 table.table td a.delete {
 	color: #F44336;
 }
+
+th{
+  color: #ea4542;
+  font-size: large;
+  padding-left: 40px !important;
+  padding-bottom: 15px !important;
+  font-family: Comic sans ms;
+}
+td{
+  padding-left: 35px !important;
+  padding-top: 15px !important;
+}
+
+#alignement{
+  padding-left: 90px !important;
+}
+
+#formSearch{
+  width: 300px !important;
+}
+#inputSearch{
+  padding-left: 50px !important;
+  font-size: 15px !important;
+}
+#search{
+  display: grid;
+  grid-template-columns: 250px auto;
+}
+#btnAddSearch{
+  display: grid;
+  grid-template-columns: 250px auto;
+  margin: 30px 180px 0px;
+}
+.diviserpage{
+  display: grid;
+  grid-template-columns: auto 500px;
+}
+.mat-input-element {
+  caret-color: #ea4542 !important;
+}
+#Recherche{
+  margin: 20px;
+  margin-right: -1px !important;
+}
 #title-Table{
   border-radius: 10px;
   background-color: #fc9209;
-  width: 1170px;
-  left: 13px;
+  margin-left: 20px !important;
+  margin-right: 20px !important;
   bottom: 29px;
   margin-top: 14px;
   color: aliceblue;

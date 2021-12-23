@@ -28,7 +28,7 @@
 				<thead>
 					<tr>
 						<th>
-							
+
 						</th>
 						<th>Condidate Name</th>
 						<th>Interview Date</th>
@@ -48,8 +48,7 @@
 								<input type="checkbox" id="checkbox1" name="options[]" value="1">
 								<label for="checkbox1"></label>
 							</span>
-						</td>
-						<td>{{interview.user?.nom}}</td>
+						</td>       <td>{{interview.user?.nom}}</td>
                         <td>{{interview.interviewDate}}</td>
                         <td>{{interview.interviewType}}</td>
                         <td>{{interview.location}}</td>
@@ -59,7 +58,7 @@
 							<a (click)="deleteInterviews(interview.id_Interview)" class="delete" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 							<a (click)="interviewDetails(interview.id_Interview)" class="view" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xE417;</i></a>
 						</td>
-					</tr> 
+					</tr>
 				</tbody>
 			</table>
 			<div class="clearfix">
@@ -75,6 +74,7 @@
 				</ul>
 			</div>
 		</div>
+
 	</div>        
 </div>					
 				
