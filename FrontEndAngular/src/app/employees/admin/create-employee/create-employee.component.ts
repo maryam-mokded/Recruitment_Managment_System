@@ -30,13 +30,13 @@ export class CreateEmployeeComponent implements OnInit {
       console.log(data)
       this.employee = new Employee();
       this.gotoList();
-    }, 
+    },
     error => console.log(error));
   }
 
   onSubmit() {
     this.submitted = true;
-    this.save();    
+    this.save();
   }
 
   gotoList() {

@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { OffreComponent } from 'src/app/details-offre/offre/offre.component';
 import { Offers } from 'src/app/Models/offers';
 import { OffresService } from 'src/app/Services/offers.service';
 import { CreateOfferComponent } from '../create-offer/create-offer.component';
 import { UpdateOfferComponent } from '../update-offer/update-offer.component';
-
 @Component({
   selector: 'app-offers-table',
   templateUrl: './offers-table.component.html',
@@ -13,9 +15,15 @@ import { UpdateOfferComponent } from '../update-offer/update-offer.component';
 })
 export class OffersTableComponent implements OnInit {
 
-  public nb?:number;
-  offersList?:Offers[];
-  id?:number;
+  // AddForPaginator
+  @ViewChild('paginator') paginator!:MatPaginator;
+  // AddForSotedData
+  @ViewChild(MatSort) matSort!:MatSort;
+
+  nb?:number;
+  ELEMENT_DATA?:Offers[];
+  displayedColumns: string[] = ['idOffre','titre', 'description', 'date', 'nbPost','action'];
+  dataSource!:MatTableDataSource<any>;
 
   constructor(
     private dialog :MatDialog,
@@ -24,7 +32,17 @@ export class OffersTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getListOffers();
+   }
 
+
+  getListOffers(){
+    this.offerServ.ListeOffers().subscribe(ListOffers =>{
+      this.ELEMENT_DATA = ListOffers;
+      this.dataSource = new MatTableDataSource(ListOffers);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort =this.matSort;
+      console.log(this.dataSource);
+     });
   }
 
 
@@ -44,14 +62,7 @@ export class OffersTableComponent implements OnInit {
     this.dialog.open(UpdateOfferComponent, dialogConfig);
   }
 
-  getListOffers(){
-    this.offerServ.ListeOffers().subscribe(ListOffers =>{
-      this.offersList = ListOffers;
-      this.nb = this.offersList.length;
-       console.log(this.nb);
-       console.log(this.offersList);
-     });
-  }
+
 
   DeleteOffer(id:number){
     let confirmation =confirm("Êtes-vous sûr de supprimer ??")
@@ -71,5 +82,7 @@ export class OffersTableComponent implements OnInit {
       this.dialog.open(OffreComponent, dialogConfig);
   }
 
-
+  filterData($event:any){
+    this.dataSource.filter = $event.target.value;
+  }
 }
