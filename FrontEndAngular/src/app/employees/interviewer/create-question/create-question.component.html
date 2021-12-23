@@ -1,19 +1,45 @@
-<div class="container" [hidden]="submitted">
-    <h1><b>Add new Question</b></h1>
-    <form class="needs-validation" novalidate (ngSubmit)="onSubmit()">
-            <div class="col-md-4 mb-3">
+<!-- <div class="container text-center" [hidden]="submitted">
+    <div class="card"> -->
+        <div class="ContenuCard" [hidden]="submitted" >
+            <div class="modal-header">
+                <h1 id="modal-title"><b>Add new Question</b></h1>
+              <button type="button" (click)="onClose()" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div><br>
+    
+    <form [formGroup]="myForm" class="needs-validation" novalidate (ngSubmit)="onSubmit()" >
+            <!-- <div class="col-md-4 mb-3">
                 <label for="id">ID</label>
                 <input type="text" class="form-control"  id="id_Question" required [(ngModel)]="question.id_Question" name="id_Question">
                 <div class="valid-feedback">Ok !</div>
                 <div class="invalid-feedback">Valeur incorrecte</div>
+            </div> -->
+            <div class="col-md-13 mb-4">
+                <!-- <label >Question :</label> -->
+                <textarea class="form-control"
+                          id="question"
+                          placeholder="Question Post here ...."
+                          name="question"
+                          formControlName="question"
+                          [(ngModel)]="question.question"
+                          ></textarea>
+                <div
+             *ngIf="Question?.invalid && Question?.touched"
+              class="text-danger">
+               Post Question invalide minimum 2 caratères.
+       </div>
+       <div
+            *ngIf="Question?.valid && Question?.touched"
+            class="text-success">
+              Post Question validée!
+       </div>
             </div>
-            <div class="col-md-4 mb-3">
-                <label for="prenom">Question</label>
-                <input type="text" class="form-control"  id="question" required [(ngModel)]="question.question" name="question">
-                <div class="valid-feedback">Ok !</div>
-                <div class="invalid-feedback">Valeur incorrecte</div>
-            </div>
-        
-        <button class="btn-hover color-1" type="submit">Submit</button>
+               
+        <button class="btn-hover color-1" type="submit" [disabled]="myForm.invalid">Submit</button>
+        <button class="btn-hover color-1" type="button" (click)="onClose()">close</button>
+         
     </form>
+    </div>
+    <div>
 </div>
