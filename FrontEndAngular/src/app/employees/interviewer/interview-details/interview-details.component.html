@@ -1,13 +1,14 @@
 
+   <div class="card">
 <body style="text-align: center;" >
 <div class="container"  >
 <h2>Interview Details</h2> 
 
 <div>
 <div *ngIf="interview">
-<div class="form-group">
+<!-- <div class="form-group">
         <label>ID : </label> {{interview.id_Interview}}
-</div>
+</div> -->
 <div class="form-group">
     <label>Interview Date :</label> {{interview.interviewDate}}
 </div>
@@ -23,6 +24,7 @@
 					
 <div>
     <button (click)="list()" class="btn btn-success">Back to Interviews List</button>
+</div>
 </div>
 </div>
 </div>
