@@ -12,6 +12,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 //add For Sorted
 import { MatSortModule } from '@angular/material/sort';
 
+//add Snackbar
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // Pou utilier two way binding (ngModel)
 import { FormsModule } from '@angular/forms';
@@ -39,7 +41,8 @@ import { MatInputModule } from '@angular/material/input';
   imports: [
     CommonModule,
     RecruteurRoutingModule,
-    // BrowserModule,
+   // BrowserModule,
+   // BrowserAnimationsModule,
     HttpClientModule,
     MatDialogModule,
     MatToolbarModule,
@@ -55,6 +58,7 @@ import { MatInputModule } from '@angular/material/input';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule
 
 
   ]

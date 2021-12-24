@@ -28,7 +28,7 @@ import { FormsModule } from '@angular/forms';
     AccueilComponent,
     ContactComponent,
     EquipeComponent,
-    
+
   ],
   imports: [
     MatDialogModule,

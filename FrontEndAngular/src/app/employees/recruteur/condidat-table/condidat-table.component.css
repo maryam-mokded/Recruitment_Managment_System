@@ -23,8 +23,21 @@ font-size: 15px;
 
 table.table td a.delete {
 	color: #F44336;
+  cursor: pointer;
+  margin: 5px;
 }
 
+.download {
+	color: blue;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.acceptCond{
+  color: green;
+  margin: 5px;
+  cursor: pointer;
+}
 th{
   color: #ea4542;
   font-size: large;
