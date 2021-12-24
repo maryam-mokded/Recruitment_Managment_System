@@ -1,5 +1,8 @@
+import { ValidationErrors } from "@angular/forms";
 import { condidat } from "./condidat";
 import { Offers } from "./offers";
+import { Questionnaire } from "./questionnaire";
+import { questionList } from "./questions";
 
 export class interviewList {
     idUser! : number;
@@ -8,6 +11,8 @@ export class interviewList {
     interviewType!: string;
     location!: string;
     time!: string;
+    test?:number;
     offre?:Offers;
     user?:condidat;
+    questionnaire?:questionList;
 }

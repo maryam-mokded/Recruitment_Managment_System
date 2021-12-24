@@ -33,20 +33,25 @@ export class CreateEmployeeComponent implements OnInit {
     .createEmployee(this.employee).subscribe(data => {
       console.log(data)
       this.employee = new Employee();
+
       this.onClose();
       //this.gotoList();
     }, 
+
     error => console.log(error));
   }
 
   onSubmit() {
-    //this.submitted = true;
-    this.save();    
+
+    this.submitted = true;
+    this.save();
+
   }
 
   gotoList() {
     this.router.navigate(['employees/admin/employeesList']);
   }
+
 
   onClose() {
     this.dialogClose.closeAll();
@@ -91,4 +96,6 @@ get tel(){
 
 
 
+
 }
+

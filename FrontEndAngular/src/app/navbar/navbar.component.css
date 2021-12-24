@@ -15,18 +15,24 @@
 
 #toolbar{
     height: 74px;
+   /* position: fixed;
+    overflow: hidden;
+    top: 0;
+    width: 100%;*/
 }
 
 a{
   font-size: 20px;
+
 }
 .log{
   margin-left:760px;
   color:white;
   font-size: 20px;
-}
+  }
 
 .logo{
-  max-width:71px;
-  margin-top :-7px;
+  max-width:70px;
+  margin-top :6px;
+  
 }

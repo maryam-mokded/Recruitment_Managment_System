@@ -1,50 +1,100 @@
-<div class="container">
-    <h1>Update Interviews</h1>
-    <form class="needs-validation" novalidate (ngSubmit)="onSubmit()">
-        <div class="form-row">
-            <div class="col-md-4 mb-3">
-                <label for="prenom">Id</label>
-                <input type="text" class="form-control"  id="id_Interview" required [(ngModel)]="interview.id_Interview" name="id_Interview">
-                <div class="valid-feedback">Ok !</div>
-                <div class="invalid-feedback">Valeur incorrecte</div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <label for="pseudo">Interview type</label>
-                <select type="text" class="form-select" id="interviewType" required [(ngModel)]="interview.interviewType" name="interviewType" required>
-                  <option value="technique">technique</option>
-                  <option value="téléphonique">téléphonique</option>
-                  <option value="RH">RH</option>
+<!-- <div class="container">
+    <div class="card"> -->
+      <div class="ContenuCard"  >
+        <div class="modal-header">
+            <h1 id="modal-title"><b>Update Interview</b></h1>
+          <button type="button" (click)="onClose()" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div><br>
+      <form [formGroup]="myForm" class="needs-validation" novalidate (ngSubmit)="onSubmit()">
+          <div class="form-row">
+              <!-- <div class="col-md-4 mb-3">
+                  <label for="prenom">Id</label>
+                  <input type="text" class="form-control"  id="id_Interview"  [(ngModel)]="interview.id_Interview" name="id_Interview">
+                  <div class="valid-feedback">Ok !</div>
+                  <div class="invalid-feedback">Valeur incorrecte</div>
+              </div> -->
+              <div class="col-md-6 mb-3">
+                  <label for="pseudo">Interview type</label>
+   <select type="text" class="form-select" id="interviewType" [(ngModel)]="interview.interviewType" name="interviewType" formControlName="interviewType" >
+                    <option value="technique">technique</option>
+                    <option value="téléphonique">téléphonique</option>
+                    <option value="RH">RH</option>
+                    </select>
+                    <div
+                    *ngIf="InterviewType?.invalid && InterviewType?.touched"
+                     class="text-danger">
+                     Interview Type Post invalide !
+              </div>
+              <div
+                   *ngIf="InterviewType?.valid && InterviewType?.touched"
+                   class="text-success">
+                     Interview Type Post validée .
+              </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                  <label for="ville">location</label>
+                  <select type="text" class="form-select"  id="location"  [(ngModel)]="interview.location" name="location" formControlName="location" >
+                    <option value="physicall">physicall</option>
+                    <option value="virtual">virtual</option>
                   </select>
-                <div class="valid-feedback">Ok !</div>
-                <div class="invalid-feedback">Valeur incorrecte</div>
+                  <div
+                  *ngIf="Location?.invalid && Location?.touched"
+                   class="text-danger">
+                   Location invalide !
             </div>
-            
-        </div>
-        <div class="form-row">
-            <div class="col-md-4 mb-3">
-                <label for="interview date">Interview Time </label>
-                <input type="time" class="form-control" id="time" required [(ngModel)]="interview.time" name="time">
-                <div class="valid-feedback">Ok !</div>
-                <div class="invalid-feedback">Valeur incorrecte</div>
+            <div
+                 *ngIf="Location?.valid && Location?.touched"
+                 class="text-success">
+                 Location validée .
             </div>
-            <div class="col-md-4 mb-3">
-                <label for="interview date">Interview date </label>
-                <input type="date" class="form-control" id="interviewDate" required [(ngModel)]="interview.interviewDate" name="interviewDate">
-                <div class="valid-feedback">Ok !</div>
-                <div class="invalid-feedback">Valeur incorrecte</div>
+              </div>
+              
+          </div>
+          <div class="form-row">
+              <div class="col-md-6 mb-3">
+                  <label for="interview date">Interview Time </label>
+                  <input type="time" class="form-control" id="time" [(ngModel)]="interview.time" name="time" formControlName="time" >
+                  <div
+                  *ngIf="Time?.invalid && Time?.touched"
+                   class="text-danger">
+                   Time invalide !
             </div>
-            
-            <div class="col-md-6 mb-3">
-                <label for="ville">location</label>
-                <select type="text" class="form-select"  id="email" required [(ngModel)]="interview.location" name="location">
-                  <option value="physicall">physicall</option>
-                  <option value="virtual">virtual</option>
-                </select>
-                <div class="valid-feedback">Ok !</div>
-                <div class="invalid-feedback">Valeur incorrecte</div>
+            <div
+                 *ngIf="Time?.valid && Time?.touched"
+                 class="text-success">
+                 Time validée .
             </div>
-        </div>
-        <button class="btn btn-success" type="submit">Update</button>
-    </form>
+              </div>
+              <div class="col-md-6 mb-3">
+                  <label for="interview date">Interview date </label>
+                  <input type="date" class="form-control" id="interviewDate" [(ngModel)]="interview.interviewDate" name="interviewDate"  formControlName="interviewDate">
+                  <div
+                  *ngIf="InterviewDate?.invalid && InterviewDate?.touched"
+                   class="text-danger">
+                   Interview Date invalide !
+            </div>
+            <div
+                 *ngIf="InterviewDate?.valid && InterviewDate?.touched"
+                 class="text-success">
+                   Interview Date validée .
+            </div>
+              </div>
+              <!-- <div class="container">
+              <mat-form-field appearance="outline">
+                  <mat-label>Interview date</mat-label>
+                  <input matInput [matDatepicker]="picker">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                </div> -->
+          </div>
+          <button class="btn-hover color-7" type="submit" [disabled]="myForm.invalid">Update</button>
+          <button class="btn-hover color-7" type="button" (click)="onClose()">close</button>
+
+      </form>
 </div>
+
+
 

@@ -6,24 +6,86 @@
 }
 
 #LienDetails:hover{
-  text-decoration: #00bcd4 wavy underline;
+  text-decoration: #fc9209 wavy underline;
   cursor: pointer;
 
 }
 
 #entete-Table{
-  color: #00bcd4;
+  color: #fc9209;
   font-family: comic sans ms;
 font-size: 15px;
 }
 
+.card{
+  box-shadow:0 0 70px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%) !important;
+}
+
 table.table td a.delete {
 	color: #F44336;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.download {
+	color: blue;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.acceptCond{
+  color: green;
+  margin: 5px;
+  cursor: pointer;
+}
+th{
+  color: #ea4542;
+  font-size: large;
+  padding-left: 40px !important;
+  padding-bottom: 15px !important;
+  font-family: Comic sans ms;
+}
+td{
+  padding-left: 35px !important;
+  padding-top: 15px !important;
+}
+
+#alignement{
+  padding-left: 90px !important;
+}
+
+#formSearch{
+  width: 300px !important;
+}
+#inputSearch{
+  padding-left: 50px !important;
+  font-size: 15px !important;
+}
+#search{
+  display: grid;
+  grid-template-columns: 250px auto;
+}
+#btnAddSearch{
+  display: grid;
+  grid-template-columns: 250px auto;
+  margin: 30px 180px 0px;
+}
+.diviserpage{
+  display: grid;
+  grid-template-columns: auto 500px;
+}
+.mat-input-element {
+  caret-color: #ea4542 !important;
+}
+#Recherche{
+  margin: 20px;
+  margin-right: -1px !important;
 }
 #title-Table{
-  background-color: #00bcd4;
-  width: 1170px;
-  left: 13px;
+  border-radius: 10px;
+  background-color: #fc9209;
+  margin-left: 20px !important;
+  margin-right: 20px !important;
   bottom: 29px;
   margin-top: 14px;
   color: aliceblue;

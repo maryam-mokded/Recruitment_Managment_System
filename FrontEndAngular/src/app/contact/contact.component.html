@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="body">
-  <div class="container contact">
+  <div class="container contact" [hidden]="submitted">
 
     <div class="column">
       <div class="row">
@@ -15,38 +15,79 @@
           </div>
         </div>
         <div class="col-md-9" style="background-color: #4d9096;">
-          <div class="contact-form">
+          <form class="needs-validation" novalidate>
             <div class="form-group">
               <label class="control-label col-sm-2" for="fname">First Name:</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="fname">
+                <input type="text" class="form-control" placeholder="Enter First Name" [(ngModel)]="contact.nom" name="nom" >
+                <!-- <div
+                *ngIf="Nom?.invalid && Nom?.touched"
+                class="text-danger">
+            nom invalide minimum 2 caratères.
+          </div>
+          <div
+          *ngIf="Nom?.valid && Nom?.touched"
+          class="text-success">
+            nom validée!
+          </div> -->
               </div>
             </div>
-            <div class="form-group">
+            <div  class="form-group">
               <label class="control-label col-sm-2" for="lname">Last Name:</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="lname">
+                <input type="text" class="form-control" id="prenom" placeholder="Enter Last Name" [(ngModel)]="contact.prenom"  name="prenom">
+                <!-- <div
+            *ngIf="Prenom?.invalid && Prenom?.touched"
+            class="text-danger">
+            prenom invalide minimum 2 caratères.
+          </div>
+          <div
+          *ngIf="Prenom?.valid && Prenom?.touched"
+          class="text-success">
+            prenom validée!
+          </div> -->
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-2" for="email">Email:</label>
               <div class="col-sm-10">
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                <input type="email" class="form-control" id="email" placeholder="Enter email" [(ngModel)]="contact.email"  name="email">
+                <!-- <div
+          *ngIf="Email?.invalid && Email?.touched"
+          class="text-danger">
+          invalide Email.
+          </div>
+          <div
+          *ngIf="Email?.valid && Email?.touched"
+          class="text-success">
+            Email validée!
+          </div> -->
+
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-2" for="comment">Comment:</label>
               <div class="col-sm-10">
-                <textarea class="form-control" rows="5" id="comment"></textarea>
+                <textarea class="form-control" rows="5" [(ngModel)]="contact.comment"  name="comment"></textarea>
+                <!-- <div
+                *ngIf="Comment?.invalid && Comment?.touched"
+                class="text-danger">
+                Comment invalide.
+                </div>
+                <div
+                *ngIf="Comment?.valid && Comment?.touched"
+                class="text-success">
+                  Comment validée!
+                </div> -->
               </div>
             </div>
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default"  style=" margin-top: 24px;margin-left: 366px; background-color: #d66b73;">
-                Submit</button>
+                <button type="submit" class="btn btn-danger"  style="margin-left: 500px; " >  Submit</button>
               </div>
+              </div>
+          </form>
             </div>
-          </div>
         </div>
       </div>
       <div>
@@ -67,9 +108,6 @@
         </footer>
       </div>
     </div>
-
-
-
   </div>
 
-</div>
+

@@ -6,7 +6,7 @@
           <div class="card-header card-header-danger" id="title-Table">
             <h3 class="card-title" id="titre">Condidats Table</h3><br>
           </div>
-          <div class="card-body" *ngIf="interviewList">
+          <div class="card-body">
             <div class="table-responsive" >
               <table class="table" >
                 <thead class=" text-primary" >
@@ -24,7 +24,7 @@
                   </th>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let interview of interviewList">
+                  <tr *ngFor="let interview of interviewsList">
                     <td>
                       <a  id="LienDetails" (click) ="DetailsCondidat(interview)">
                         {{interview.user?.nom}}
@@ -37,10 +37,12 @@
                         </a>
                     </td>
                     <td>
-                      {{interview.user?.pdfcv}}
+                        {{interview.user?.pdfcv?.pdf}}
                     </td>
                     <td class="text-primary">
-                      <a (click) ="deleteCondidat(interview)" class="delete" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                      <a (click) ="DownLoadCv(interview.user?.pdfcv?.idCV)" class="download" data-toggle="modal" title="Download Cv"><mat-icon>cloud_download</mat-icon></a>
+                      <a (click) ="deleteCondidat(interview)" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" ><i title="Delete Condidat" class="fas fa-times"></i></i></a>
+                      <a (click) ="PasserAuInterview(interview)" class="acceptCond" data-toggle="modal" title="Download Cv"><i class="material-icons" data-toggle="tooltip" ><i title="Accept Condidat" class="fas fa-check"></i></i></a>
                     </td>
                   </tr>
                 </tbody>

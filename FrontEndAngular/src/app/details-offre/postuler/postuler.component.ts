@@ -68,14 +68,25 @@ export class PostulerComponent implements OnInit {
     console.log(this.NewCondidat);
     this.NewCondidat.idUser = 1;
     this.condServ
-        .AjouterCondidat(this.NewCondidat)
+        .AjouterCondidat(this.NewCondidat,this.OneOffer?.idOffre!)
         .subscribe(condid=>{
           this.IdCondAdd = condid.idUser;
           this.message="success";
           localStorage.setItem('message', JSON.stringify(this.message));
           //console.log(condid.idUser);
         });
-     // this.dialogClose.closeAll();
+
+  /*
+    this.condServ
+        .AjouterCondidat(this.NewCondidat,this.OneOffer!.idOffre)
+        .subscribe(condid=>{
+          this.IdCondAdd = condid.idUser;
+          this.message="success";
+          localStorage.setItem('message', JSON.stringify(this.message));
+          //console.log(condid.idUser);
+        });
+  */
+        this.dialogClose.closeAll();
         console.log(this.file);
     }
 

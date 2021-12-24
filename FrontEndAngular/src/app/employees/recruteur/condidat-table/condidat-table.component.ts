@@ -3,11 +3,8 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { interviewList } from 'src/app/Models/interviews';
 import { OffreComponent } from '../../../details-offre/offre/offre.component';
 import { InterviewsService } from 'src/app/Services/interviews.service';
-import { OffresService } from 'src/app/Services/offers.service';
 import { DetailsCondidatComponent } from '../details-condidat/details-condidat.component';
-import { condidat } from 'src/app/Models/condidat';
 import { CvService } from 'src/app/Services/cv.service';
-import { CondidatService } from 'src/app/Services/condidat.service';
 
 @Component({
   selector: 'app-condidat-table',
@@ -17,40 +14,50 @@ import { CondidatService } from 'src/app/Services/condidat.service';
 export class CondidatTableComponent implements OnInit {
 
   public nb?:number;
-  interviewList?:interviewList[];
-  id?:number;
+  interviewsList:interviewList[]=[];
+  idNumber:number=0;
+
   constructor(
+    private CvServ : CvService,
     private dialog :MatDialog,
     private interviewServ : InterviewsService,
   ) { }
 
-
   ngOnInit(): void {
     this.getListInterview();
   }
+
   getListInterview(){
     this.interviewServ.getInterviewsList().subscribe(ListInterview =>{
-      this.interviewList = ListInterview;
-      this.nb = this.interviewList.length;
-       console.log(this.nb);
-       console.log(this.interviewList[1].user?.pdfcv);
-     });
+      var _j=0;
+      for (var _i = 0; _i < ListInterview.length; _i++) {
+        if(ListInterview[_i].test == 0){
+          this.interviewsList[_j] = ListInterview[_i];
+          _j++
+          console.log(this.interviewsList)
+        }else{
+          console.log('Test = 1 ')
+        }
+      }
+    });
+  }
+
+  PasserAuInterview(Interview:interviewList){
+    Interview.test = 1;
+    this.interviewServ.updateInterviews(Interview.id_Interview,Interview).subscribe(o=>{
+      window.location.reload();
+      console.log(Interview);
+    });
   }
 
   deleteCondidat(interview:interviewList){
-
     let confirmation =confirm("Êtes-vous sûr de supprimer Ce Condidat ??")
     if(confirmation)
     this.interviewServ.deleteInterviews(interview.id_Interview).subscribe(()=>{
+      window.location.reload();
       console.log("Interview supprimé");
     });
-    // this.id=interview.user?.idUser;
-    // this.condServ.supprimerCondidat(this.id!).subscribe(()=>{
-    //   console.log("Condidat supprimé");
-    // });
-
  }
-
 
   DetailsCondidat(interview:interviewList){
     const dialogConfig = new MatDialogConfig();
@@ -67,4 +74,19 @@ export class CondidatTableComponent implements OnInit {
     localStorage.setItem('IdOffer', JSON.stringify(interview.offre?.idOffre));
     this.dialog.open(OffreComponent, dialogConfig);
   }
+
+  DownLoadCv(IdCvCondidat?:number){
+    console.log(IdCvCondidat);
+
+    this.CvServ.downloadCv(IdCvCondidat).subscribe(cv =>{
+        console.log(IdCvCondidat);
+        console.log("download successfulyy");
+         },
+          error=>{
+            // alert("Failed to download cv !")
+          }
+
+         );
+      }
+
 }

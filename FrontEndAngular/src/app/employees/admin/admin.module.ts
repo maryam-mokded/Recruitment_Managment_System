@@ -15,19 +15,18 @@ import { CreateEmployeeComponent } from './create-employee/create-employee.compo
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 
-
 @NgModule({
   declarations: [
     EmployeesListComponent,
     EmployeeDetailsComponent,
     CreateEmployeeComponent,
+
     DashboardAdminComponent,
     UpdateEmployeeComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    HttpClientModule,
     FormsModule,
     HttpClientModule,
     MatDialogModule,
