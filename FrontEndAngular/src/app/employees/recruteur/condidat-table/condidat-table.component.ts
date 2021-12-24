@@ -14,8 +14,7 @@ import { CvService } from 'src/app/Services/cv.service';
 export class CondidatTableComponent implements OnInit {
 
   public nb?:number;
-  interviewsList?:interviewList[];
-  List?:interviewList[];
+  interviewsList:interviewList[]=[];
   idNumber:number=0;
 
   constructor(
@@ -30,25 +29,32 @@ export class CondidatTableComponent implements OnInit {
 
   getListInterview(){
     this.interviewServ.getInterviewsList().subscribe(ListInterview =>{
-      this.interviewsList = ListInterview;
-      for (var _i = 0, interv = this.interviewsList; _i < interv.length; _i++) {
-        var Interview = interv[_i];
-        if(Interview.test == 0){
-           console.log(Interview)
+      var _j=0;
+      for (var _i = 0; _i < ListInterview.length; _i++) {
+        if(ListInterview[_i].test == 0){
+          this.interviewsList[_j] = ListInterview[_i];
+          _j++
+          console.log(this.interviewsList)
         }else{
-          this.interviewsList.splice(_i);
-          //console.log(this.interviewsList)
-          //console.log(this.interviewsList.length)
+          console.log('Test = 1 ')
         }
       }
-     });
+    });
   }
 
+  PasserAuInterview(Interview:interviewList){
+    Interview.test = 1;
+    this.interviewServ.updateInterviews(Interview.id_Interview,Interview).subscribe(o=>{
+      window.location.reload();
+      console.log(Interview);
+    });
+  }
 
   deleteCondidat(interview:interviewList){
     let confirmation =confirm("Êtes-vous sûr de supprimer Ce Condidat ??")
     if(confirmation)
     this.interviewServ.deleteInterviews(interview.id_Interview).subscribe(()=>{
+      window.location.reload();
       console.log("Interview supprimé");
     });
  }
