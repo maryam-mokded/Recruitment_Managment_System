@@ -9,11 +9,14 @@ import { interviewList } from '../Models/interviews';
 export class InterviewsService {
 
   private baseUrl = 'http://localhost:3800/Interview';
+  // private baseUrl2 = 'http://localhost:3800/getInters';
+
   constructor(private http: HttpClient) { }
 
   getInterviewsList(): Observable<interviewList[]> {
     return this.http.get<interviewList[]>(`${this.baseUrl}`);
    }
+
   getInterviews(id: number): Observable<interviewList> {
     return this.http.get<interviewList>(`${this.baseUrl}/${id}`);
   }
@@ -30,5 +33,8 @@ export class InterviewsService {
      return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
    }
 
-  
+  //  getInters(): Observable<any> {
+  //   return this.http.get(`${this.baseUrl2}`);
+  // }
+
 }

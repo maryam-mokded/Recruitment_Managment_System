@@ -45,10 +45,10 @@
                         <div class="inner">
                           <h3>150</h3>
           
-                          <p>New Orders</p>
+                          <p>Project</p>
                         </div>
                         <div class="icon">
-                          <i class="ion ion-bag"></i>
+                          <i class="ion ion-ios-list-outline"></i>
                         </div>
                         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                       </div>
@@ -58,12 +58,12 @@
                       <!-- small box -->
                       <div class="small-box bg-success">
                         <div class="inner">
-                          <h3>53<sup style="font-size: 20px">%</sup></h3>
+                          <h3>{{somEmpl}}</h3>
           
-                          <p>Bounce Rate</p>
+                          <p>Employees</p>
                         </div>
                         <div class="icon">
-                          <i class="ion ion-stats-bars"></i>
+                          <i class="ion ion-person-stalker"></i>
                         </div>
                         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                       </div>
@@ -73,9 +73,9 @@
                       <!-- small box -->
                       <div class="small-box bg-warning">
                         <div class="inner">
-                          <h3>44</h3>
+                          <h3>{{somCond}}</h3>
           
-                          <p>User Registrations</p>
+                          <p>Condidats</p>
                         </div>
                         <div class="icon">
                           <i class="ion ion-person-add"></i>
@@ -88,12 +88,12 @@
                       <!-- small box -->
                       <div class="small-box bg-danger">
                         <div class="inner">
-                          <h3>65</h3>
-          
-                          <p>Unique Visitors</p>
+                          <h3>{{somInter}}</h3>
+                              
+                          <p>Interviews</p>
                         </div>
                         <div class="icon">
-                          <i class="ion ion-pie-graph"></i>
+                          <i class="ion ion-ios-calendar-outline"></i>
                         </div>
                         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                       </div>
@@ -108,6 +108,10 @@
                         <div class="card-header">
                           <h5 class="card-title">Monthly Recap Report</h5>
           
+                          <!-- <tr *ngFor="let l of list ">
+                            <td>{{l}}</td>
+                          </tr>  -->
+
                           <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                               <i class="fas fa-minus"></i>
@@ -134,23 +138,27 @@
                           <div class="row">
                             <div class="col-md-8">
                               <p class="text-center">
-                                <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+                                <strong>Sales: 1 Dec, 2021 - 1 Jan, 2022</strong>
                               </p>
           
                               <div class="chart">
                                 <!-- Sales Chart Canvas -->
-                                <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
+                                <div id="main" height="480" style="height: 480px;"></div>
+                                <!-- <canvas id="salesChart" height="180" style="height: 180px;"></canvas> -->
                               </div>
                               <!-- /.chart-responsive -->
                             </div>
                             <!-- /.col -->
                             <div class="col-md-4">
+
+                              <div id="time" style="height: 385px;width:350px;margin-top:-70px;margin-bottom:-50px;overflow: hidden"></div>
+
                               <p class="text-center">
                                 <strong>Goal Completion</strong>
                               </p>
           
                               <div class="progress-group">
-                                Add Products to Cart
+                                Interviews
                                 <span class="float-right"><b>160</b>/200</span>
                                 <div class="progress progress-sm">
                                   <div class="progress-bar bg-primary" style="width: 80%"></div>
@@ -159,7 +167,7 @@
                               <!-- /.progress-group -->
           
                               <div class="progress-group">
-                                Complete Purchase
+                                Projects
                                 <span class="float-right"><b>310</b>/400</span>
                                 <div class="progress progress-sm">
                                   <div class="progress-bar bg-danger" style="width: 75%"></div>
@@ -168,7 +176,7 @@
           
                               <!-- /.progress-group -->
                               <div class="progress-group">
-                                <span class="progress-text">Visit Premium Page</span>
+                                <span class="progress-text">Employees</span>
                                 <span class="float-right"><b>480</b>/800</span>
                                 <div class="progress progress-sm">
                                   <div class="progress-bar bg-success" style="width: 60%"></div>
@@ -177,13 +185,15 @@
           
                               <!-- /.progress-group -->
                               <div class="progress-group">
-                                Send Inquiries
+                                Cv
                                 <span class="float-right"><b>250</b>/500</span>
                                 <div class="progress progress-sm">
                                   <div class="progress-bar bg-warning" style="width: 50%"></div>
                                 </div>
                               </div>
                               <!-- /.progress-group -->
+
+
                             </div>
                             <!-- /.col -->
                           </div>
@@ -261,7 +271,10 @@
                           <div class="d-md-flex">
                             <div class="p-1 flex-fill" style="overflow: hidden">
                               <!-- Map will be created here -->
-                              <div id="world-map-markers" style="height: 325px; overflow: hidden">
+                              <div id="graph2" style="height: 325px; overflow: hidden">
+
+
+
                                 <div class="map"></div>
                               </div>
                             </div>
@@ -724,7 +737,7 @@
                           <div class="row">
                             <div class="col-md-8">
                               <div class="chart-responsive">
-                                <canvas id="pieChart" height="150"></canvas>
+                                <!-- <div id="time" height="150"></div> -->
                               </div>
                               <!-- ./chart-responsive -->
                             </div>

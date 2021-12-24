@@ -5,6 +5,7 @@ import { EmployeesListComponent } from './employees-list/employees-list.componen
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 import { EmployeeDetailsComponent  } from './employee-details/employee-details.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import { UpdateEmployeeComponent  } from './update-employee/update-employee.component';
 
 const routes: Routes = [
   { path: '', component: AdminComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'dashboardAdmin', component: DashboardAdminComponent },
   { path: 'addemployee', component: CreateEmployeeComponent  },
   { path: 'detailemployee/:id', component: EmployeeDetailsComponent   },
+  { path: 'updateemployee/:id', component: UpdateEmployeeComponent   },
   { path:'',redirectTo:'/admin',pathMatch:'full'},
 ];
 

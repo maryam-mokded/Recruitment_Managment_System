@@ -3,7 +3,7 @@ export class Employee{
     nom!: string;
     prenom!: string;
     email!: string;
-    pwd!: string;
+    Pwd!: string;
     adress!: string;
     cin!: string;
     dateEmbauche!: string;

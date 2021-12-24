@@ -1,104 +1,176 @@
-     <body>
-       <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    
+<body>
+  <!-- Content Wrapper. Contains page content -->
+  <!-- <div class="content-wrapper"> -->
+
   <!-- Content Header (Page header) -->
   <section class="content-header">
 
-         <div class="container" [hidden]="submitted">
-             <h1>Formulaires</h1>
-             <form class="needs-validation" novalidate (ngSubmit)="onSubmit()">
-                 <div class="form-row">
-                     <div class="col-md-4 mb-3">
-                         <label for="prenom">Id</label>
-                         <input type="text" class="form-control"  id="idUser" required [(ngModel)]="employee.idUser" name="idUser">
-                         <div class="valid-feedback">Ok !</div>
-                         <div class="invalid-feedback">Valeur incorrecte</div>
-                     </div>
-                     <div class="col-md-4 mb-3">
-                         <label for="nom">Nom </label>
-                         <input type="text" class="form-control" id="nom" required [(ngModel)]="employee.nom" name="nom">
-                         <div class="valid-feedback">Ok !</div>
-                         <div class="invalid-feedback">Valeur incorrecte</div>
-                     </div>
-                     <div class="col-md-4 mb-3">
-                         <label for="pseudo">Prenom</label>
-                         <input type="text" class="form-control" id="prenom" required [(ngModel)]="employee.prenom" name="prenom">
-                         <div class="valid-feedback">Ok !</div>
-                         <div class="invalid-feedback">Valeur incorrecte</div>
-                     </div>
-                 </div>
-                 <div class="form-row">
-                     <div class="col-md-6 mb-3">
-                         <label for="ville">Email</label>
-                         <input type="text" class="form-control" id="email" required [(ngModel)]="employee.email" name="email">
-                         <div class="valid-feedback">Ok !</div>
-                         <div class="invalid-feedback">Valeur incorrecte</div>
-                     </div>
-                     <div class="col-md-3 mb-3">
-                         <label for="pays">Cin</label>
-                         <input type="number" class="form-control" id="cin" required [(ngModel)]="employee.cin" name="cin">
-                         <div class="valid-feedback">Ok !</div>
-                         <div class="invalid-feedback">Valeur incorrecte</div>
-                     </div>
-                     <div class="col-md-3 mb-3">
-                         <label for="cp">adress</label>
-                         <input type="text" class="form-control" id="adress" required [(ngModel)]="employee.adress" name="adress">
-                         <div class="valid-feedback">Ok !</div>
-                         <div class="invalid-feedback">Valeur incorrecte</div>
-                     </div>
+    <div class="container" >
+      <h1 style="color:rgb(255, 187, 0)">Formulaires</h1>
+      <hr style="color:rgb(255, 187, 0)">
+      <!-- class="was-validated" -->
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate >
+        <div class="form-row">
+          <div class="form-group col-md-6 mb-3">
+            <label>UserName </label>
+            <input type="text" 
+             formControlName="nom" 
+             class="form-control"
+             id="nom" 
+             [(ngModel)]="employee.nom"
+             name="nom">
 
-                     <div class="col-md-3 mb-3">
-                      <label for="cp">Telephone</label>
-                      <input type="number" class="form-control" id="tel" required [(ngModel)]="employee.tel" name="tel">
-                      <div class="valid-feedback">Ok !</div>
-                      <div class="invalid-feedback">Valeur incorrecte</div>
-                  </div>
+            <div *ngIf="nom?.invalid && nom?.touched" class="text-danger">
+              UserName invalid! you must enter at least 2 characters
+            </div>
+            <div *ngIf="nom?.valid && nom?.touched" class="text-success">
+              UserName validée!
+            </div>
 
-                  <div class="col-md-3 mb-3">
-                    <label for="cp">Password</label>
-                    <input type="number" class="form-control" id="pwd" required [(ngModel)]="employee.pwd" name="pwd">
-                    <div class="valid-feedback">Ok !</div>
-                    <div class="invalid-feedback">Valeur incorrecte</div>
-                </div>
-                 </div>
-                 <div class="form-group">
-                     <div class="form-check">
-                       <input class="form-check-input" type="checkbox" value="" id="cgu" required>
-                       <label class="form-check-label" for="cgu">J'accepte les conditions générales d'utilisation et de vente</label>
-                       <div class="invalid-feedback">Vous devez accepter les CGU pour continuer</div>
-                     </div>
-                 </div>
-                 <button class="btn btn-primary" type="submit">Envoyer</button>
-             </form>
-         </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="pseudo">LastName</label>
+            <input type="text"
+             class="form-control"
+              id="prenom" 
+              formControlName="prenom"
+              [(ngModel)]="employee.prenom"
+              name="prenom">
 
-        </section>
-        <!-- /.content -->
+              <div *ngIf="prenom?.invalid && prenom?.touched" class="text-danger">
+                invalid LastName! you must enter at least 2 characters
+              </div>
+              <div *ngIf="prenom?.valid && prenom?.touched" class="text-success">
+                LastName valid!
+              </div> 
+        
+          </div> 
         </div>
+        <div class="form-row">
 
-         <div [hidden]="!submitted">
-          <h4>You submitted successfully!</h4>
-           <!-- <button class="btn btn-success" (click)="employee"></button>  -->
+
+          <div class="col-md-6 mb-3">
+            <label for="email">Email</label>
+            <input type="email"
+            size="30"
+             required class="form-control ng-valid"
+             id="email"
+             formControlName="email"
+              [(ngModel)]="employee.email"
+              name="email"
+              pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"  multiple>
+            <!-- <div class="valid-feedback">Ok !</div>
+              <div class="invalid-feedback">vous devez introduire un email correct !</div> -->
+              
+              <div *ngIf="email?.invalid && email?.touched" class="text-danger">
+                Email invalid! you must enter a valid email 
+              </div>
+              <div *ngIf="email?.valid && email?.touched" class="text-success">
+                Email valid !
+              </div> 
+           
+            </div>
+          <div class="col-md-3 mb-3">
+            <label for="pays">Cin</label>
+            <input type="text"
+             class="form-control"
+              minlength="8" maxlength="8"
+              size="8" id="cin"
+              formControlName="cin"
+              required
+              [(ngModel)]="employee.cin"
+              name="cin">
+          
+              <div *ngIf="cin?.invalid && cin?.touched" class="text-danger">
+                invalid CIN number! you must enter exactly 8 characters.
+              </div>
+              <div *ngIf="cin?.valid && cin?.touched" class="text-success">
+                CIN number valid !
+              </div> 
+
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="cp">adress</label>
+            <input type="text" class="form-control" id="adress" formControlName="adress" required
+              [(ngModel)]="employee.adress" name="adress" minlength="4" >
+
+              <div *ngIf="adress?.invalid && adress?.touched" class="text-danger">
+                Adress invalid! you must enter at least 2 characters
+              </div>
+              <div *ngIf="adress?.valid && adress?.touched" class="text-success">
+                Adress valid !
+              </div> 
+
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <label for="cp">Phone Number</label>
+            <input type="text"
+             class="form-control"
+              id="tel"
+              formControlName="tel"
+              required
+              [(ngModel)]="employee.tel"
+              name="tel">
+
+              <div *ngIf="tel?.invalid && tel?.touched" class="text-danger">
+                The phone number is invalid! you must enter exactly 8 characters.
+              </div>
+              <div *ngIf="tel?.valid && tel?.touched" class="text-success">
+                The phone number validée!
+              </div> 
+
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <label for="cp">Password</label>
+            <input type="number" class="form-control" id="Pwd" formControlName="Pwd" required [(ngModel)]="employee.Pwd"
+              name="Pwd">
+            <div class="valid-feedback">Ok !</div>
+            <div class="invalid-feedback">Valeur incorrecte</div>
+          </div>
         </div>
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="cgu" required>
+            <label class="form-check-label" for="cgu">J'accepte les conditions générales d'utilisation et de
+              vente</label>
+            <div class="invalid-feedback">Vous devez accepter les CGU pour continuer</div>
+          </div>
+        </div>
+        <button class="btn btn-primary" style="margin:20px" (click)="save()"  type="submit">Envoyer</button>
+        <!-- close popup -->
+        <button (click)="onClose()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </form>
+    </div>
 
-         <script>
-           /*La fonction principale de ce script est d'empêcher l'envoi du formulaire si un champ a été mal rempli
-            *et d'appliquer les styles de validation aux différents éléments de formulaire*/
-           (function() {
-             'use strict';
-             window.addEventListener('load', function() {
-               let forms = document.getElementsByClassName('needs-validation');
-               let validation = Array.prototype.filter.call(forms, function(form) {
-                 form.addEventListener('submit', function(event) {
-                   if (form.checkValidity() === false) {
-                     event.preventDefault();
-                     event.stopPropagation();
-                   }
-                   form.classList.add('was-validated');
-                 }, false);
-               });
-             }, false);
-           })();
-         </script>
+  </section>
 
+  <!-- /.content -->
+  <!-- </div> -->
+
+  <!-- <div [hidden]="!submitted">
+          <h4>Erreur!</h4> -->
+
+
+  <!-- <button class="btn btn-success" (click)="employee"></button>  -->
+  <!-- </div> -->
+
+  <!-- <script>
+   
+    (function () {
+      'use strict';
+      window.addEventListener('load', function () {
+        let forms = document.getElementsByClassName('needs-validation');
+        let validation = Array.prototype.filter.call(forms, function (form) {
+          form.addEventListener('submit', function (event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script> -->

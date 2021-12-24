@@ -9,6 +9,11 @@ import { Employee } from '../Models/employee';
 export class EmployeeService {
 
   private baseUrl = 'http://localhost:3800/user';
+  private baseUrl2 = 'http://localhost:3800/getUsers';
+  private baseUrl3 = 'http://localhost:3800/getCondidats';
+  private baseUrl4 = 'http://localhost:3800/getInters';
+  private baseUrl5 = 'http://localhost:3800/getNbUsers';
+
 
   constructor(private http: HttpClient) { }
 
@@ -31,4 +36,21 @@ export class EmployeeService {
   getEmployeesList(): Observable<Employee[]> {
     return this.http.get<Employee[]>(`${this.baseUrl}`);
   }
+
+  getUsers(): Observable<any> {
+    return this.http.get(`${this.baseUrl2}`);
+  }
+
+  getCondidats(): Observable<any> {
+    return this.http.get(`${this.baseUrl3}`);
+  }
+
+  getInters(): Observable<any> {
+    return this.http.get(`${this.baseUrl4}`);
+  }
+
+  getNbUsers(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl5}`);
+  }
+
 }

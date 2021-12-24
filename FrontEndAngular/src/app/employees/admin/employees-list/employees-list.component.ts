@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { EmployeeService } from '../../../Services/employee.service';
 import { Employee } from '../../../Models/employee';
+import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
+import { CreateEmployeeComponent } from '../create-employee/create-employee.component';
 
 
 @Component({
@@ -15,7 +17,7 @@ export class EmployeesListComponent implements OnInit {
   employees?: Employee[];
 
   constructor(private employeeService: EmployeeService,
-    private router: Router) {}
+    private router: Router, private dialog:MatDialog) {}
 
   ngOnInit() {
     this.reloadData();
@@ -39,6 +41,18 @@ export class EmployeesListComponent implements OnInit {
   }
 
   employeeDetails(id: number){
-    this.router.navigate(['employees/admin//detailemployee', id]);
+    this.router.navigate(['employees/admin/detailemployee', id]);
   }
+
+  updateEmployee(id: number){
+    this.router.navigate(['employees/admin/updateemployee', id]);
+  }
+
+  onOpenDialogCreate():void{
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    this.dialog.open(CreateEmployeeComponent, dialogConfig);
+  }
+
 }
