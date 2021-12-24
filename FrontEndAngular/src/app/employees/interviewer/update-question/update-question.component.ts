@@ -34,10 +34,9 @@ export class UpdateQuestionComponent implements OnInit {
   }
 
   updateQuestions(){
-    this.questionsService.updateQuestions(this.id,this.question)
+    this.questionsService.updateQuestions(this.question.id_Question,this.question)
     .subscribe(data => console.log(data),error => console.log(error));
     this.question = new questionList();
-    // this.gotoList();
     this.dialogClose.closeAll();
     window.location.reload();
   }
