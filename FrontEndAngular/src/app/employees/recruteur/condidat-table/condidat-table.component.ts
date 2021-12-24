@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { interviewList } from 'src/app/Models/interviews';
@@ -16,24 +15,33 @@ export class CondidatTableComponent implements OnInit {
 
   public nb?:number;
   interviewsList?:interviewList[];
+  List?:interviewList[];
   idNumber:number=0;
+
   constructor(
     private CvServ : CvService,
     private dialog :MatDialog,
     private interviewServ : InterviewsService,
   ) { }
 
-
   ngOnInit(): void {
     this.getListInterview();
   }
+
   getListInterview(){
     this.interviewServ.getInterviewsList().subscribe(ListInterview =>{
       this.interviewsList = ListInterview;
-      this.nb = this.interviewsList.length;
+      for (var _i = 0, interv = this.interviewsList; _i < interv.length; _i++) {
+        var Interview = interv[_i];
+        if(Interview.test == 0){
+           console.log(Interview)
+        }else{
+          this.interviewsList.splice(_i);
+          //console.log(this.interviewsList)
+          //console.log(this.interviewsList.length)
+        }
+      }
      });
-
-     this.interviewsList
   }
 
 
