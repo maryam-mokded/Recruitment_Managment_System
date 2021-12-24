@@ -1,30 +1,35 @@
 
-   <div class="card">
-<body style="text-align: center;" >
-<div class="container"  >
-<h2>Interview Details</h2> 
-
+ <div class="ContenuCard"  >
+    <div class="modal-header">
+        <h1 id="modal-title"><b>Interview Details</b></h1>
 <div>
+    <button type="button"  (click)="closeDetails()" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div><br>
+    
+</div>
+<br>
 <div *ngIf="interview">
 <!-- <div class="form-group">
         <label>ID : </label> {{interview.id_Interview}}
 </div> -->
-<div class="form-group">
-    <label>Interview Date :</label> {{interview.interviewDate}}
+<div class="form-group text-center">
+    <label>Interview Date :</label> 
+    <span id="interviewDate">  {{interview.interviewDate}} </span>
 </div>
-<div class="form-group">
+<div class="form-group text-center">
     <label>Interview Time :</label> {{interview.time}}
 </div>
-<div class="form-group">
+<div class="form-group text-center">
     <label>Interview Type :</label> {{interview.interviewType}}
 </div>
-<div class="form-group">
+<div class="form-group text-center" >
     <label>Location : </label> {{interview.location}}
 </div>
-					
-<div>
-    <button (click)="list()" class="btn btn-success">Back to Interviews List</button>
+</div>			
+<div style="text-align: center;">
+    <button (click)="closeDetails()" class="btn btn-success">Close Details</button>
 </div>
 </div>
-</div>
-</div>
+

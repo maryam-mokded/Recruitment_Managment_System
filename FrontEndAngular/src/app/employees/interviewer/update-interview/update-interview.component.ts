@@ -3,6 +3,7 @@ import { ActivatedRoute ,Router } from '@angular/router';
 import { interviewList } from '../../../Models/interviews';
 import { InterviewsService } from '../../../Services/interviews.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-update-interview',
@@ -14,33 +15,43 @@ export class UpdateInterviewComponent implements OnInit {
   id!: number;
   interview!: interviewList;
 
-  constructor( private route: ActivatedRoute, private router: Router , 
+  constructor( private dialogClose: MatDialog, private route: ActivatedRoute, private router: Router , 
     private interviewsService: InterviewsService ) { }
 
   ngOnInit(): void {
     this.ValidatedForm();
     this.interview = new interviewList();
+    this.interview =JSON.parse(localStorage.getItem('interview') || '[]') || [];
+    console.log("***********");
+    console.log(this.interview);
 
-    this.id = this.route.snapshot.params['id'];
+
+    // this.id = this.route.snapshot.params['id'];
     
-    this.interviewsService.getInterviews(this.id)
-      .subscribe(data => {
-        console.log(data)
-        this.interview = data;
-      }, error => console.log(error));
+    // this.interviewsService.getInterviews(this.interview.id_Interview)
+    //   .subscribe(data => {
+    //     console.log(data)
+    //     this.interview = data;
+    //   }, error => console.log(error));
   }
   updateInterviews(){
-    this.interviewsService.updateInterviews(this.id,this.interview)
+    this.interviewsService.updateInterviews(this.interview.id_Interview,this.interview)
     .subscribe(data => console.log(data),error => console.log(error));
     this.interview = new interviewList();
-    this.gotoList();
+    this.dialogClose.closeAll();
+    window.location.reload();
   }
+  
   onSubmit() {
     this.updateInterviews();  
   }
 
   gotoList() {
     this.router.navigate(['employees/interviewer/interviewList']);
+  }
+
+  onClose() {
+    this.dialogClose.closeAll();
   }
 
   ValidatedForm(){
