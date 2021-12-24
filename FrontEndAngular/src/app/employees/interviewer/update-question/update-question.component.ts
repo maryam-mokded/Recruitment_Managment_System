@@ -21,10 +21,12 @@ export class UpdateQuestionComponent implements OnInit {
   ngOnInit(): void {
     this.ValidatedForm();
     this.question = new questionList();
+    this.question =JSON.parse(localStorage.getItem('Question') || '[]') || [];
+    console.log(this.question);
 
-    this.id = this.route.snapshot.params['id'];
-    
-    this.questionsService.getQuestions(this.id)
+    // this.id = this.route.snapshot.params['id'];
+    //console.log(this.question.id_Question);
+    this.questionsService.getQuestions(this.question.id_Question)
       .subscribe(data => {
         console.log(data)
         this.question = data;
@@ -35,7 +37,9 @@ export class UpdateQuestionComponent implements OnInit {
     this.questionsService.updateQuestions(this.id,this.question)
     .subscribe(data => console.log(data),error => console.log(error));
     this.question = new questionList();
-    this.gotoList();
+    // this.gotoList();
+    this.dialogClose.closeAll();
+    window.location.reload();
   }
   
   onSubmit() {
@@ -44,6 +48,9 @@ export class UpdateQuestionComponent implements OnInit {
 
   gotoList() {
     this.router.navigate(['employees/interviewer/questionList']);
+  }
+  onClose() {
+    this.dialogClose.closeAll();
   }
 
 

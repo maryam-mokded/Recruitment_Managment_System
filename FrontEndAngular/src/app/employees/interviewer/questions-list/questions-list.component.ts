@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { QuestionsService } from '../../../Services/questions.service';
 import { questionList } from '../../../Models/questions';
 import { CreateQuestionComponent } from '../create-question/create-question.component';
+import { UpdateQuestionComponent } from '../update-question/update-question.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
@@ -37,7 +38,14 @@ export class QuestionsListComponent implements OnInit {
     this.dialog.open(CreateQuestionComponent, dialogConfig);
   }
 
-  
+ 
+  onOpenDialogUpdate(data:questionList):void{
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    localStorage.setItem('Question', JSON.stringify(data));
+    this.dialog.open(UpdateQuestionComponent, dialogConfig);
+  }
 
   deleteQuestions(id: number) {
     let confirmation =confirm("Do you really want to delete this question ?")
@@ -51,9 +59,10 @@ export class QuestionsListComponent implements OnInit {
 questionDetails(id: number){
   this.router.navigate(['employees/interviewer//detailquestion', id]);
 }
-updateQuestions(id: number){
-  this.router.navigate(['employees/interviewer//updatequestion', id]);
-}
+
+// updateQuestions(id: number){
+//   this.router.navigate(['employees/interviewer//updatequestion', id]);
+// }
 
 
 

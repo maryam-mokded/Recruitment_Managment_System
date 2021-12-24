@@ -44,7 +44,9 @@
                          
                             <td>
                                 <a (click)="deleteQuestions(question.id_Question)" class="delete" style="cursor: pointer;" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                <a (click)="updateQuestions(question.id_Question)" class="update" style="cursor: pointer;" ><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a>
+                                <!-- <a (click)="updateQuestions(question.id_Question)" class="update" style="cursor: pointer;" ><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a> -->
+                                <a (click)="onOpenDialogUpdate(question)" class="update" style="cursor: pointer;" ><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a>
+
                             </td>
                         </tr> 
                     </tbody>

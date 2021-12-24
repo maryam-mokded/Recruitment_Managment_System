@@ -7,7 +7,7 @@ import { InterviewDetailsComponent  } from './interview-details/interview-detail
 import { UpdateInterviewComponent } from './update-interview/update-interview.component';
 import { QuestionsListComponent } from './questions-list/questions-list.component';
 // import { CreateQuestionComponent } from './create-question/create-question.component';
-import { UpdateQuestionComponent } from './update-question/update-question.component';
+// import { UpdateQuestionComponent } from './update-question/update-question.component';
 
 const routes: Routes = [
   {  path: '', component: InterviewerComponent,},
@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'updateinterview/:id', component: UpdateInterviewComponent   },
   { path:'questionList', component:QuestionsListComponent},
   // { path: 'addquestion', component: CreateQuestionComponent  },
-  { path: 'updatequestion/:id', component: UpdateQuestionComponent   },
+  // { path: 'updatequestion/:id', component: UpdateQuestionComponent   },
   { path:'',redirectTo:'/interviewer',pathMatch:'full'},
   {  path:'**', component: InterviewerComponent }
   

@@ -1,6 +1,13 @@
-<div class="container" >
-    <div class="card">
-    <h1><b>Update Question</b></h1>
+<!-- <div class="container" >
+    <div class="card"> -->
+        <div class="ContenuCard" >
+            <div class="modal-header">
+                <h1 id="modal-title"><b>Update Question</b></h1>
+              <button type="button" (click)="onClose()" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div><br>
+    <!-- <h1><b>Update Question</b></h1> -->
     <form [formGroup]="myForm" class="needs-validation" novalidate (ngSubmit)="onSubmit()">
             <!-- <div class="col-md-4 mb-3">
                 <label for="id">ID</label>
@@ -8,8 +15,8 @@
                 <div class="valid-feedback">Ok !</div>
                 <div class="invalid-feedback">Valeur incorrecte</div>
             </div> -->
-            <div class="col-md-4 mb-3">
-                <label >Question :</label>
+            <div class="col-md-13 mb-3">
+                <!-- <label >Question :</label> -->
                 <textarea class="form-control"
                           id="question"
                           placeholder="Question Post here ...."
@@ -29,7 +36,12 @@
        </div>
             </div>
         
-        <button class="btn btn-primary" type="submit">Update</button>
+        <button class="btn-hover color-1" type="submit" [disabled]="myForm.invalid">Update</button>
+        <button class="btn-hover color-1" type="button" (click)="onClose()">close</button>
+
     </form>
-</div>
-</div>
+
+        </div>
+        <div>
+
+        </div>
