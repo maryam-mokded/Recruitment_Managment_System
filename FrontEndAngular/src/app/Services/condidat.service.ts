@@ -27,8 +27,6 @@ export class CondidatService {
     return this.http.get<condidat>(url);
   }
 
-
-
   AjouterCondidat(cond:condidat,id:number):Observable<condidat>{
     const url = `${this.UrlApi}/${id}`
     return this.http.post<condidat>(url,cond,httpOptions);
