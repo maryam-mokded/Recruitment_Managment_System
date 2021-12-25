@@ -20,6 +20,8 @@ import { QuestionsListComponent } from './questions-list/questions-list.componen
 import { CreateQuestionComponent } from './create-question/create-question.component';
 import { UpdateQuestionComponent } from './update-question/update-question.component';
 import { QuestionnaireDetailsComponent } from './questionnaire-details/questionnaire-details.component';
+import { QuizrulesComponent } from './quizrules/quizrules.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { QuestionnaireDetailsComponent } from './questionnaire-details/questionn
     CreateQuestionComponent,
     UpdateQuestionComponent,
     QuestionnaireDetailsComponent,
+    QuizrulesComponent,
+    QuizComponent,
   
     
   ],
