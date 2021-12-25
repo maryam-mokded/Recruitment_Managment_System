@@ -55,7 +55,7 @@
                 <th mat-header-cell *matHeaderCellDef> Action</th>
                 <td mat-cell *matCellDef="let element">
                   <a (click)="onOpenDialogUpdate(element)" class="update"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a>
-                  <a (click)="DeleteOffer(element.idOffre)" class="delete"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                  <a (click)="DeleteOffer(element?.idOffre)" class="delete"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                   <a (click) ="DetailsOffer(element)" class="view"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xE417;</i></a>
                 </td>
                 </ng-container>
@@ -76,3 +76,22 @@
     </div>
   </div>
 </div>
+
+
+
+<div class="toast {{ShowToast}}" id="ToastDiv">
+  <div id={{idTitle}} class="toast-header">
+    <strong class="mr-auto">
+      <span class="mr-3">
+      <i *ngIf="Toast[0] == 'Success'" class="fas fa-check"></i>
+      <i *ngIf="Toast[0] == 'Failed'" class="fas fa-exclamation-triangle"></i>
+    </span>
+      {{Toast[0]}}</strong>
+    <small style="color: gray;">
+      {{counter}} second ago</small>
+  </div>
+  <div id={{idContenu}} class="toast-body">
+    {{Toast[1]}}
+  </div>
+</div>
+

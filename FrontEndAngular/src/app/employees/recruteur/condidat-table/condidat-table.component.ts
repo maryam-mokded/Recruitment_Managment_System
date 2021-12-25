@@ -9,57 +9,41 @@ import { CvService } from 'src/app/Services/cv.service';
 @Component({
   selector: 'app-condidat-table',
   templateUrl: './condidat-table.component.html',
-  styleUrls: ['./condidat-table.component.css']
+  styleUrls: ['./condidat-table.component.css'],
 })
 export class CondidatTableComponent implements OnInit {
 
-  public nb?:number;
-  interviewsList:interviewList[]=[];
-  idNumber:number=0;
+  intervalId?:any;
+  idContenu?: string;
+  idTitle?: string;
+  Toast!: string[];
+  counter: number = 0;
+  ShowToast: string = 'hide';
+
+  public nb?: number;
+  interviewsList: interviewList[] = [];
+  idNumber: number = 0;
 
   constructor(
-    private CvServ : CvService,
-    private dialog :MatDialog,
-    private interviewServ : InterviewsService,
-  ) { }
+    private CvServ: CvService,
+    private dialog: MatDialog,
+    private interviewServ: InterviewsService
+  ) {}
 
   ngOnInit(): void {
     this.getListInterview();
+    this.idContenu = 'TostSuccessContenu';
+    this.idTitle = 'TostSuccessTile';
+    this.Toast = JSON.parse(localStorage.getItem('Toast') || '[]') || [];
+    if (this.Toast[0] == 'Success') {
+      console.log('Toast est n est pas vide');
+      this.showToast();
+    } else {
+      console.log('Toast Vide');
+    }
   }
 
-  getListInterview(){
-    this.interviewServ.getInterviewsList().subscribe(ListInterview =>{
-      var _j=0;
-      for (var _i = 0; _i < ListInterview.length; _i++) {
-        if(ListInterview[_i].test == 0){
-          this.interviewsList[_j] = ListInterview[_i];
-          _j++
-          console.log(this.interviewsList)
-        }else{
-          console.log('Test = 1 ')
-        }
-      }
-    });
-  }
-
-  PasserAuInterview(Interview:interviewList){
-    Interview.test = 1;
-    this.interviewServ.updateInterviews(Interview.id_Interview,Interview).subscribe(o=>{
-      window.location.reload();
-      console.log(Interview);
-    });
-  }
-
-  deleteCondidat(interview:interviewList){
-    let confirmation =confirm("Êtes-vous sûr de supprimer Ce Condidat ??")
-    if(confirmation)
-    this.interviewServ.deleteInterviews(interview.id_Interview).subscribe(()=>{
-      window.location.reload();
-      console.log("Interview supprimé");
-    });
- }
-
-  DetailsCondidat(interview:interviewList){
+  DetailsCondidat(interview: interviewList) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -67,7 +51,7 @@ export class CondidatTableComponent implements OnInit {
     this.dialog.open(DetailsCondidatComponent, dialogConfig);
   }
 
-  DetailsOffer(interview:interviewList):void{
+  DetailsOffer(interview: interviewList): void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -75,18 +59,126 @@ export class CondidatTableComponent implements OnInit {
     this.dialog.open(OffreComponent, dialogConfig);
   }
 
-  DownLoadCv(IdCvCondidat?:number){
-    console.log(IdCvCondidat);
-
-    this.CvServ.downloadCv(IdCvCondidat).subscribe(cv =>{
-        console.log(IdCvCondidat);
-        console.log("download successfulyy");
-         },
-          error=>{
-            // alert("Failed to download cv !")
-          }
-
-         );
+  getListInterview() {
+    this.interviewServ.getInterviewsList().subscribe((ListInterview) => {
+      var _j = 0;
+      for (var _i = 0; _i < ListInterview.length; _i++) {
+        if (ListInterview[_i].test == 0) {
+          this.interviewsList[_j] = ListInterview[_i];
+          _j++;
+          console.log(this.interviewsList);
+        } else {
+          console.log('Test = 1');
+        }
       }
+    });
+  }
 
+  PasserAuInterview(Interview: interviewList) {
+    Interview.test = 1;
+    this.interviewServ
+      .updateInterviews(Interview.id_Interview, Interview)
+      .subscribe(
+        (o) => {
+          this.Toast[0] = 'Success';
+          this.Toast[1] =
+            'condidat ' +
+            Interview.user?.nom +
+            ' ' +
+            Interview.user?.prenom +
+            ' passes to interview successfully';
+          localStorage.setItem('Toast', JSON.stringify(this.Toast));
+          window.location.reload();
+        },
+        (error) => {
+          this.idContenu = 'TostDangerContenu';
+          this.idTitle = 'TostDangerTile';
+          this.Toast[0] = 'Failed';
+          this.Toast[1] =
+            'Condidat ' +
+            Interview.user?.nom +
+            ' ' +
+            Interview.user?.prenom +
+            ' passes to interview failed';
+          this.showToast();
+        }
+      );
+  }
+
+  deleteCondidat(interview: interviewList) {
+    this.interviewServ.deleteInterviews(interview.id_Interview).subscribe(
+      () => {
+        this.Toast[0] = 'Success';
+        this.Toast[1] =
+          'the Condidat ' +
+          interview.user?.nom +
+          ' ' +
+          interview.user?.prenom +
+          ' was successfully removed';
+        localStorage.setItem('Toast', JSON.stringify(this.Toast));
+      },
+      (error) => {
+        this.idContenu = 'TostDangerContenu';
+        this.idTitle = 'TostDangerTile';
+        this.Toast[0] = 'Failed';
+        this.Toast[1] =
+          'Remove ' +
+          interview.user?.nom +
+          ' ' +
+          interview.user?.prenom +
+          ' condidat failed';
+        this.showToast();
+      }
+    );
+  }
+
+  DownLoadCv(interview: interviewList) {
+    console.log(interview);
+    this.CvServ.downloadCv(interview.user?.pdfcv?.idCV).subscribe(
+      (cv) => {
+        this.Toast[0] = 'Success';
+        this.Toast[1] =
+          'Download Cv ' +
+          interview.user?.nom +
+          ' ' +
+          interview.user?.prenom +
+          ' Successfully';
+        localStorage.setItem('Toast', JSON.stringify(this.Toast));
+      },
+      (error) => {
+        this.idContenu = 'TostDangerContenu';
+        this.idTitle = 'TostDangerTile';
+        this.Toast[0] = 'Failed';
+        this.Toast[1] =
+          'Failed to download cv ' +
+          interview.user?.nom +
+          ' ' +
+          interview.user?.prenom;
+        this.showToast();
+      }
+    );
+  }
+
+  showToast() {
+    if (this   .ShowToast == 'hide') {
+      setTimeout(() => {
+        this.ShowToast = 'show';
+        console.log(this.ShowToast);
+      }, 1);
+    }
+
+    setTimeout(() => {
+      this.ShowToast = 'hide';
+      this.Toast = [];
+      localStorage.setItem('Toast', JSON.stringify(this.Toast));
+      console.log(this.ShowToast);
+    }, 6100);
+    this.intervalId = setInterval(() => {
+      this.counter = this.counter + 1;
+      console.log(this.counter);
+      if (this.counter === 6)
+      clearInterval(this.intervalId);
+    }, 1000);
+    this.counter=0
+ }
 }

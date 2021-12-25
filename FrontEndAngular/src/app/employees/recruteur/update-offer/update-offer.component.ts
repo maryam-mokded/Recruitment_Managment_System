@@ -32,12 +32,18 @@ export class UpdateOfferComponent implements OnInit {
   }
 
   updateOffre(){
+
     this.OfferServ
         .modifierOffer(this.offer)
         .subscribe(o=>{
+          localStorage.setItem('Toast', JSON.stringify(["Success","Offre was successfully updated"]));
           window.location.reload();
           console.log(this.offer);
-        });
+        },
+        (error) => {
+          console.log("Failed")
+        }
+      );
   }
 
   ValidatedForm(){
@@ -72,6 +78,5 @@ export class UpdateOfferComponent implements OnInit {
     }
 
   }
-
 
 }
