@@ -1,0 +1,20 @@
+
+<div class="container bg-light py-5 mt-5 ">
+  <h1 class="display-5 fw-bold">Welcome to the Interview Quiz Section</h1>
+  <p class="col-md-13 fs-4">this technical quiz will contains total 9 questions !
+     Each Question holds 10 Points</p>
+  <h4>Interview Rules :</h4>
+  <ol>
+    <li>Correct Question gives the condidate 10 points</li>
+    <li>Incorrect Question gives the condidate -10 points</li>
+    <li>Condidate have 60 sec to answer those 9 questions</li>
+    <li>Refreching the page will reset the Quiz if you want to restart an interview </li>
+  </ol>
+  <h1 style="font-family: cursive;text-align: center;">All the best In the Process!<br><i class="fa fa-smile-o"></i></h1>
+  <div class="name col-md-4 my-3">
+    <label form="">Enter Condidate Name : </label>
+    <input #name type="text" class="form-control">
+  </div>
+  <button class="btn btn-success btn" routerLink="/employees/interviewer/quiz" (click)="startQuiz()">Start the Interview !</button>
+
+</div>

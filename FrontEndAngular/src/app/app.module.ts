@@ -16,6 +16,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { EquipeComponent } from './equipe/equipe.component';
 import { FormsModule } from '@angular/forms';
+import { ChangeBgDirective } from './Services/change-bg.directive';
 
 
 
@@ -29,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     AccueilComponent,
     ContactComponent,
     EquipeComponent,
+    ChangeBgDirective,
 
   ],
   imports: [
