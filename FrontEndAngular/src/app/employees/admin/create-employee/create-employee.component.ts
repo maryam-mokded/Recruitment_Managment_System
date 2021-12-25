@@ -32,18 +32,14 @@ export class CreateEmployeeComponent implements OnInit {
     this.employeeService
     .createEmployee(this.employee).subscribe(data => {
       console.log(data)
-      this.employee = new Employee();
-
-      this.onClose();
+      window.location.reload()
       //this.gotoList();
-    }, 
-
-    error => console.log(error));
+    });
   }
 
   onSubmit() {
 
-    this.submitted = true;
+    //this.submitted = true;
     this.save();
 
   }

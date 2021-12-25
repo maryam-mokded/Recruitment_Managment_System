@@ -13,6 +13,7 @@ export class EmployeeService {
   private baseUrl3 = 'http://localhost:3800/getCondidats';
   private baseUrl4 = 'http://localhost:3800/getInters';
   private baseUrl5 = 'http://localhost:3800/getNbUsers';
+  private baseUrl6 = 'http://localhost:3800/getClassName';
 
 
   constructor(private http: HttpClient) { }
@@ -28,6 +29,8 @@ export class EmployeeService {
   updateEmployee(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
+
+  
 
   deleteEmployee(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
@@ -51,6 +54,11 @@ export class EmployeeService {
 
   getNbUsers(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl5}`);
+  }
+
+
+  getClassName(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl6}/${id}`, { responseType: 'text' });
   }
 
 }
