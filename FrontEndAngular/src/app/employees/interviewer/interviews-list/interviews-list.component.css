@@ -95,6 +95,14 @@ table.table td a.delete {
 	color: #F44336;
 }
 
+table.table td a.view{
+	color: #037c28;
+}
+
+table.table td a.assignment {
+	color: #0c0fcf;
+}
+
 table.table td i {
 	font-size: 19px;
 }
@@ -190,4 +198,10 @@ table.table .avatar {
 	cursor: auto;
 	box-shadow: none;
 	background: #ddd;
+}
+
+.assignment {
+	color: rgb(51, 255, 0);
+    margin: 5px;
+    cursor: pointer;
 }

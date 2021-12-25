@@ -10,8 +10,8 @@
       <form [formGroup]="myForm" class="needs-validation" novalidate (ngSubmit)="onSubmit()">
           <div class="form-row">
               <!-- <div class="col-md-4 mb-3">
-                  <label for="prenom">Id</label>
-                  <input type="text" class="form-control"  id="id_Interview"  [(ngModel)]="interview.id_Interview" name="id_Interview">
+                  <label for="prenom">Condidate Name</label>
+                  <input type="text" class="form-control"  id="user"  [(ngModel)]="interview.user" name="user">
                   <div class="valid-feedback">Ok !</div>
                   <div class="invalid-feedback">Valeur incorrecte</div>
               </div> -->
@@ -89,6 +89,7 @@
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
                 </div> -->
+                
           </div>
           <button class="btn-hover color-7" type="submit" [disabled]="myForm.invalid">Update</button>
           <button class="btn-hover color-7" type="button" (click)="onClose()">close</button>
