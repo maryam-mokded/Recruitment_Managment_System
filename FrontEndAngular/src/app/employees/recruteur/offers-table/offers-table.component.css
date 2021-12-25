@@ -34,7 +34,7 @@ td{
 #btnAddSearch{
   display: grid;
   grid-template-columns: 250px auto;
-  margin: 30px 180px 0px;
+  margin: 15px 180px 0px;
 }
 
 #formSearch{
@@ -55,6 +55,7 @@ margin: 20px;
 }
 
 #btn{
+  margin-top: 42px;
   background-color: #ea4542;
   color: wheat;
   font-size: 20px;
@@ -97,11 +98,49 @@ table.table td a.update {
 }
 
 table.table td a.delete {
-	color: #F44336;
+  color: #F44336;
+  cursor: pointer;
+  margin: 5px;
 }
-
 
 #titre{
   font-size: 31px;
   font-family: comic sans ms;
+}
+#TostDangerTile{
+  color: red;
+  font-size: large;
+}
+
+#TostDangerContenu{
+  font-size: 18px;
+}
+
+
+#TostSuccessTile{
+  color: green;
+  font-size: large;
+}
+
+#TostSuccessContenu{
+  font-size: 18px;
+}
+
+#ToastDiv{
+  font-family: comic sans ms;
+  margin-right: 2rem !important;
+  position: absolute !important;
+  padding: 10px;
+  bottom: 2rem !important;
+  right:0 !important;
+  animation: fadein 3s;
+ }
+
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
 }

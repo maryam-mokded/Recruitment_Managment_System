@@ -25,7 +25,6 @@ export class PostulerComponent implements OnInit {
   public NewCondidat = new condidat();
   public interview:interviewList = new interviewList();
   public NewCv = new Cv();
-  public message?:string="";
   public IdCondAdd?:number;
   myForm!:FormGroup;
   file:FileReader =new FileReader();
@@ -71,8 +70,6 @@ export class PostulerComponent implements OnInit {
         .AjouterCondidat(this.NewCondidat,this.OneOffer?.idOffre!)
         .subscribe(condid=>{
           this.IdCondAdd = condid.idUser;
-          this.message="success";
-          localStorage.setItem('message', JSON.stringify(this.message));
           //console.log(condid.idUser);
         });
 

@@ -15,6 +15,15 @@ import { UpdateOfferComponent } from '../update-offer/update-offer.component';
 })
 export class OffersTableComponent implements OnInit {
 
+
+  intervalId?:any;
+  idContenu?: string;
+  idTitle?: string;
+  Toast!: string[];
+  counter: number = 0;
+  ShowToast: string = 'hide';
+
+
   // AddForPaginator
   @ViewChild('paginator') paginator!:MatPaginator;
   // AddForSotedData
@@ -32,7 +41,20 @@ export class OffersTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getListOffers();
+
+    this.idContenu = 'TostSuccessContenu';
+    this.idTitle = 'TostSuccessTile';
+
+    this.Toast = JSON.parse(localStorage.getItem('Toast') || '[]') || [];
+    if (this.Toast[0] == 'Success') {
+      console.log('Toast est n est pas vide');
+      this.showToast();
+    } else {
+      console.log('Toast Vide');
+    }
+
    }
+
 
 
   getListOffers(){
@@ -43,6 +65,61 @@ export class OffersTableComponent implements OnInit {
       this.dataSource.sort =this.matSort;
       console.log(this.dataSource);
      });
+  }
+
+  DeleteOffer(id:number){
+    let confirmation =confirm("Êtes-vous sûr de supprimer ??")
+    if(confirmation)
+    this.offerServ.supprimerOffer(id).subscribe(()=>{
+      this.Toast[0] = 'Success';
+      this.Toast[1] ='Offre was successfully removed';
+      localStorage.setItem('Toast', JSON.stringify(this.Toast));
+      window.location.reload();
+    },
+    (error) => {
+      this.idContenu = 'TostDangerContenu';
+      this.idTitle = 'TostDangerTile';
+      this.Toast[0] = 'Failed';
+      this.Toast[1] ='Failed to remove offer';
+      this.showToast();
+    }
+  );
+}
+
+  DetailsOffer(Offer:Offers){
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.disableClose = true;
+      dialogConfig.autoFocus = true;
+      localStorage.setItem('IdOffer', JSON.stringify(Offer.idOffre));
+      this.dialog.open(OffreComponent, dialogConfig);
+  }
+
+  filterData($event:any){
+    this.dataSource.filter = $event.target.value;
+  }
+
+  showToast() {
+    if (this.ShowToast == 'hide') {
+      setTimeout(() => {
+        this.ShowToast = 'show';
+        console.log(this.ShowToast);
+      }, 1);
+    }
+
+    setTimeout(() => {
+      this.ShowToast = 'hide';
+      this.Toast = [];
+      localStorage.setItem('Toast', JSON.stringify(this.Toast));
+      console.log(this.ShowToast);
+    }, 6100);
+    this.intervalId = setInterval(() => {
+      this.counter = this.counter + 1;
+      console.log(this.counter);
+      if (this.counter === 6)
+      clearInterval(this.intervalId);
+    }, 1000);
+    this.counter=0
+
   }
 
 
@@ -62,27 +139,4 @@ export class OffersTableComponent implements OnInit {
     this.dialog.open(UpdateOfferComponent, dialogConfig);
   }
 
-
-
-  DeleteOffer(id:number){
-    let confirmation =confirm("Êtes-vous sûr de supprimer ??")
-    if(confirmation)
-    this.offerServ.supprimerOffer(id).subscribe(()=>{
-      console.log("offre supprimé");
-      //refresh page
-      window.location.reload();
-    });
-  }
-
-  DetailsOffer(Offer:Offers){
-      const dialogConfig = new MatDialogConfig();
-      dialogConfig.disableClose = true;
-      dialogConfig.autoFocus = true;
-      localStorage.setItem('IdOffer', JSON.stringify(Offer.idOffre));
-      this.dialog.open(OffreComponent, dialogConfig);
-  }
-
-  filterData($event:any){
-    this.dataSource.filter = $event.target.value;
-  }
 }

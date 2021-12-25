@@ -1,16 +1,3 @@
-<div *ngIf="message == 'success' ; then thenBlock else elseBlock"></div>
-<ng-template #thenBlock>
-  <h1 style="color: green;">Successfuly</h1>
-  <div style="color: green;">
-    <h2>votre offre est ajouter avec succès</h2>
-  </div>
-    <div id="btn" *ngIf="IdCondAdd">
-      <button type="button" (click)="supprimerDemande(IdCondAdd)" id="btnClose" class="btn btn-danger">Annuler la demande</button>
-      <button type="button" (click)="onClose()" class="btn btn-info" >valider</button>
-    </div>
-
-</ng-template>
-<ng-template #elseBlock>
 
   <div class="container" *ngIf="OneOffer">
 
@@ -162,4 +149,3 @@
     </form>
   </div>
 
-</ng-template>

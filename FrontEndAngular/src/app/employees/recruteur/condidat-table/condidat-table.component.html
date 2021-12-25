@@ -1,3 +1,10 @@
+<head>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
@@ -40,9 +47,9 @@
                         {{interview.user?.pdfcv?.pdf}}
                     </td>
                     <td class="text-primary">
-                      <a (click) ="DownLoadCv(interview.user?.pdfcv?.idCV)" class="download" data-toggle="modal" title="Download Cv"><mat-icon>cloud_download</mat-icon></a>
+                      <a (click) ="DownLoadCv(interview)" class="download" data-toggle="modal" title="Download Cv"><mat-icon>cloud_download</mat-icon></a>
                       <a (click) ="deleteCondidat(interview)" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" ><i title="Delete Condidat" class="fas fa-times"></i></i></a>
-                      <a (click) ="PasserAuInterview(interview)" class="acceptCond" data-toggle="modal" title="Download Cv"><i class="material-icons" data-toggle="tooltip" ><i title="Accept Condidat" class="fas fa-check"></i></i></a>
+                      <a (click) ="PasserAuInterview(interview)" class="acceptCond" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" ><i title="go to interview" class="fas fa-check"></i></i></a>
                     </td>
                   </tr>
                 </tbody>
@@ -54,3 +61,20 @@
     </div>
   </div>
 </div>
+
+ <div class="toast {{ShowToast}}" id="ToastDiv" >
+  <div id={{idTitle}} class="toast-header">
+    <strong class="mr-auto">
+      <span class="mr-3">
+      <i *ngIf="Toast[0] == 'Success'" class="fas fa-check"></i>
+      <i *ngIf="Toast[0] == 'Failed'" class="fas fa-exclamation-triangle"></i>
+    </span>
+      {{Toast[0]}}</strong>
+    <small style="color: gray;">
+      {{counter}} second ago</small>
+  </div>
+  <div id={{idContenu}} class="toast-body">
+    {{Toast[1]}}
+  </div>
+</div>
+
