@@ -32,12 +32,14 @@
 						</th>
 						<th>Condidate Name</th>
 						<th>Offre Title</th>
-						<th>Interview Date</th>
+						<th>interview Details</th>
+						<th>Questionnaire</th>
+						<!-- <th>Interview Date</th>
 						<th>Interview Type</th>
 						<th>location</th>
-						<th>time</th>
-                        <th>Actions</th>
-					    
+						<th>time</th> -->
+
+
 
 					</tr>
 				</thead>
@@ -48,18 +50,22 @@
 								<input type="checkbox" id="checkbox1" name="options[]" value="1">
 								<label for="checkbox1"></label>
 							</span>
-						</td>    
+						</td>
 						<td>{{interview.user?.nom}} {{interview.user?.prenom}}</td>
 						<td>{{interview.offre?.titre}}</td>
-                        <td><a (click)="interviewDetails(interview)">{{interview.interviewDate}}</a></td>
+                        <!-- <td>{{interview.interviewDate}}</td>
                         <td>{{interview.interviewType}}</td>
                         <td>{{interview.location}}</td>
-						<td>{{interview.time}}</td>
+						<td>{{interview.time}}</td> -->
 						<td>
 							<!-- <a (click)="updateInterviews(interview.id_Interview)" class="update" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a> -->
 							<a (click)="onOpenDialogUpdate(interview)" class="update" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a>
+              <a (click)="interviewDetails(interview)" class="view" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xE417;</i></a>
 							<a (click)="deleteInterviews(interview.id_Interview)" class="delete" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-							<a (click)="interviewDetails(interview)" class="view" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xE417;</i></a>
+						</td>
+						<td>
+							<a (click)="questionDetails(interview)" class="assignment" style="cursor: pointer;" data-toggle="modal"><mat-icon>assignment</mat-icon></a>
+
 						</td>
 					</tr>
 				</tbody>
@@ -78,6 +84,5 @@
 			</div>
 		</div>
 
-	</div>        
-</div>					
-				
+	</div>
+</div>

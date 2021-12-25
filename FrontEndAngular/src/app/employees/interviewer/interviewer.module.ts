@@ -19,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { QuestionsListComponent } from './questions-list/questions-list.component';
 import { CreateQuestionComponent } from './create-question/create-question.component';
 import { UpdateQuestionComponent } from './update-question/update-question.component';
+import { QuestionnaireDetailsComponent } from './questionnaire-details/questionnaire-details.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { UpdateQuestionComponent } from './update-question/update-question.compo
     QuestionsListComponent,
     CreateQuestionComponent,
     UpdateQuestionComponent,
+    QuestionnaireDetailsComponent,
   
     
   ],

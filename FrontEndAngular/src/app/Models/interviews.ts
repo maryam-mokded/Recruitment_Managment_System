@@ -5,6 +5,9 @@ import { Questionnaire } from "./questionnaire";
 import { questionList } from "./questions";
 
 export class interviewList {
+    id_Question(id_Question: any): string {
+      throw new Error('Method not implemented.');
+    }
     idUser! : number;
     id_Interview!: number;
     interviewDate!: Date;

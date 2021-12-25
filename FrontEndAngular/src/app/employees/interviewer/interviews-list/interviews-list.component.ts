@@ -4,8 +4,11 @@ import { InterviewsService } from '../../../Services/interviews.service';
 import { interviewList } from '../../../Models/interviews';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { InterviewDetailsComponent  } from '../interview-details/interview-details.component';
+import { QuestionnaireDetailsComponent  } from '../questionnaire-details/questionnaire-details.component';
 import { CreateInterviewComponent } from '../create-interview/create-interview.component';
 import { UpdateInterviewComponent } from '../update-interview/update-interview.component';
+import { QuestionsService } from '../../../Services/questions.service';
+import { questionList } from 'src/app/Models/questions';
 
 
 @Component({
@@ -15,23 +18,35 @@ import { UpdateInterviewComponent } from '../update-interview/update-interview.c
 })
 export class InterviewsListComponent implements OnInit {
 
-  interviews! : interviewList[];
+  interviews : interviewList[]=[];
+  questions! : questionList[];
 
-  constructor(private dialog :MatDialog, private interviewsService: InterviewsService , private router: Router ) {
+  constructor(private dialog :MatDialog, 
+    private interviewsService: InterviewsService ,
+     private questionsService: QuestionsService ,
+      private router: Router ) {
    }
 
   ngOnInit(): void {
     this.loadList();
-    console.log(this.interviews);
+    //console.log(this.interviews);
   }
 
   loadList()
   {
-    this.interviewsService
-    .getInterviewsList()
-    .subscribe(o =>
-      {  this.interviews = o;
-      });
+    this.interviewsService.getInterviewsList().subscribe(ListInterview =>{
+       var _j=0;
+       for (var _i = 0; _i < ListInterview.length; _i++) {
+        if(ListInterview[_i].test == 1){
+          this.interviews[_j] = ListInterview[_i];
+          _j++
+           console.log(this.interviews)
+       }else{
+           console.log('Test = 1 ')
+         }
+       }
+     
+    });
   }
 
   deleteInterviews(id: number) {
@@ -44,9 +59,6 @@ export class InterviewsListComponent implements OnInit {
     });
 
 }
-// interviewDetails(id: number){
-//   this.router.navigate(['employees/interviewer//detailinterview', id]);
-// }
 
 interviewDetails(data:interviewList){
   const dialogConfig = new MatDialogConfig();
@@ -54,6 +66,16 @@ interviewDetails(data:interviewList){
   dialogConfig.autoFocus = true;
   localStorage.setItem('interview', JSON.stringify(data));
   this.dialog.open(InterviewDetailsComponent, dialogConfig);
+}
+
+questionDetails(data:interviewList){
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.disableClose = true;
+  dialogConfig.autoFocus = true;
+  localStorage.setItem('id_Interview', JSON.stringify(data.id_Interview));
+  // localStorage.setItem('id_Question', JSON.stringify(data.questionnaire));
+
+  this.dialog.open(QuestionnaireDetailsComponent , dialogConfig);
 }
 
 

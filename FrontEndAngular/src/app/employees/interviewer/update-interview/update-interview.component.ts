@@ -22,17 +22,7 @@ export class UpdateInterviewComponent implements OnInit {
     this.ValidatedForm();
     this.interview = new interviewList();
     this.interview =JSON.parse(localStorage.getItem('interview') || '[]') || [];
-    console.log("***********");
     console.log(this.interview);
-
-
-    // this.id = this.route.snapshot.params['id'];
-    
-    // this.interviewsService.getInterviews(this.interview.id_Interview)
-    //   .subscribe(data => {
-    //     console.log(data)
-    //     this.interview = data;
-    //   }, error => console.log(error));
   }
   updateInterviews(){
     this.interviewsService.updateInterviews(this.interview.id_Interview,this.interview)

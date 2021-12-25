@@ -29,9 +29,7 @@ export class InterviewDetailsComponent implements OnInit {
     //   }, error => console.log(error));
   }
 
-  // list(){
-  //   this.router.navigate(['employees/interviewer/interviewList']);
-  // }
+
   closeDetails(){
     this.dialogClose.closeAll();
   }
