@@ -54,7 +54,6 @@ this.currentQuestion--;
       this.correctAnswer++;
       setTimeout(() => {
         this.currentQuestion++;
-        this.resetCounter();
         this.getProgressPercent();
       }, 1000);
 
