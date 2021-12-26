@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import * as echarts from 'echarts';
+import * as echarts from 'echarts';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { EmployeeService } from '../../../Services/employee.service';
@@ -8,7 +8,7 @@ import {InterviewsService} from '../../../Services/interviews.service';
 var test: string = "test";
 var somEmpl: number;
 var s :number;
-//console.log(test); 
+//console.log(test);
 @Component({
   selector: 'app-dashboard-admin',
   templateUrl: './dashboard-admin.component.html',
@@ -27,8 +27,8 @@ export class DashboardAdminComponent implements OnInit {
   constructor(private employeeService: EmployeeService,
     // private interviewsService: InterviewsService,
     private router: Router) {}
- 
- 
+
+
     init(){
       return  this.employeeService.getUsers().subscribe(o =>{
        this.somEmpl = o;
