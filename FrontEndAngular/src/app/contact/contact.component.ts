@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+// import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { contactList } from '../Models/contact';
 import { ContactService } from '../Services/contact.service';
 
@@ -12,7 +12,7 @@ export class ContactComponent implements OnInit {
 
 
   contact: contactList = new contactList();
-  myForm!:FormGroup;
+  // myForm!:FormGroup;
   submitted = false;
 
   constructor(private contactService: ContactService) { }
@@ -31,20 +31,20 @@ export class ContactComponent implements OnInit {
       console.log(data)
       this.contact = new contactList();
       window.location.reload();
-    }, 
+    },
       error => console.log(error));
   }
 
   onSubmit() {
     this.submitted = true;
-    this.save();    
+    this.save();
   }
 
 //  ValidatedForm(){
 //     this.myForm = new FormGroup({
-//       // 'nom' : new FormControl(null,[Validators.required, Validators.minLength(2),Validators.maxLength(100)]),
-//       // 'prenom' : new FormControl(null,[Validators.required, Validators.minLength(2),Validators.maxLength(100)]),
-//       // 'email' : new FormControl(null,[Validators.required, Validators.minLength(2),Validators.maxLength(100)]),
+//       // 'nom' : new FormControl(null,[Validators.required, Validators.minLength(2),Validators.maxLength(15)]),
+//       // 'prenom' : new FormControl(null,[Validators.required, Validators.minLength(2),Validators.maxLength(15)]),
+//       // 'email' : new FormControl(null, [Validators.required,Validators.email]),
 //       // 'comment' : new FormControl(null,[Validators.required, Validators.minLength(2),Validators.maxLength(100)]),
 
 //   });
