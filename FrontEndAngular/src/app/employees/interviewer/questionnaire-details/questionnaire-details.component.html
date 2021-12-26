@@ -14,7 +14,10 @@
 </div> -->
 <div  class="form-group text-center">
     <label>Questionnaire :</label>
-    <!-- <span id="question"> {{Questionnaire.id_Interview}} </span> -->
+    <div *ngFor="let interview of questionnaireList">
+      <span id="question"> {{interview.question!.question} </span>
+    </div>
+
 </div>
 </div>
 <div style="text-align: center;">

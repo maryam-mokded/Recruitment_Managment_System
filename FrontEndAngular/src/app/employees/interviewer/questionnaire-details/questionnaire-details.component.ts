@@ -20,12 +20,21 @@ export class QuestionnaireDetailsComponent implements OnInit {
     this.id_Interview =JSON.parse(localStorage.getItem('id_Interview') || '[]') || [];
     console.log(this.id_Interview);
     this.getQuestionnaireList();
+    console.log(this.questionnaireList);
   }
 
   getQuestionnaireList(){
   this.questionnaireService.getQuestionnaireList().subscribe(o =>{
-  this.questionnaireList = o;
-  console.log(this.questionnaireList);
+    var _j=0;
+    for (var _i = 0; _i < o.length; _i++) {
+     if(o[_i].interview == this.id_Interview){
+       this.questionnaireList[_j] = o[_i];
+       console.log(this.questionnaireList[_j]);
+       _j++
+    }
+    }
+  // this.questionnaireList = o;
+
 });
   }
 
