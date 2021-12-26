@@ -15,6 +15,7 @@ export class interviewList {
     location!: string;
     time!: string;
     test?:number;
+    note?:number;
     offre?:Offers;
     user?:condidat;
     questionnaire?:questionList;

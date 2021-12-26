@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {  OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+
 import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import { OffreComponent } from '../details-offre/offre/offre.component';
 import { Offers } from '../Models/offers';
@@ -13,6 +15,18 @@ export class AccueilComponent implements OnInit {
 
   offers? : Offers[];
   public nb? : number;
+  navbarfixed:boolean = false;
+
+  @HostListener('window:scroll',['$event']) onscroll(){
+    if(window.scrollY > 100)
+    {
+      this.navbarfixed = true;
+    }
+    else
+    {
+      this.navbarfixed = false;
+    }
+  }
 
   constructor(
     private dialog :MatDialog,

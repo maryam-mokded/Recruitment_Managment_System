@@ -2,7 +2,7 @@
   <span>
     <img class="logo" src="assets/logovert.png">
   </span>
-  
+
   <div fxLayout="row">
     <a mat-button routerLink="/">
       <mat-icon>home</mat-icon> Accueil
@@ -11,6 +11,7 @@
       <mat-icon>perm_contact_calendar</mat-icon>
       Contact
     </a>
+
     <button id="parg" mat-button [mat-menu-trigger-for]="menu" fxHide="false">
       <mat-icon>info</mat-icon>
       A propos
@@ -30,6 +31,9 @@
         Services
       </button>
     </mat-menu>
+    <a mat-button (click)="ShowResult()">
+      <i class="fa fa-list-alt" aria-hidden="true"></i> Results
+    </a>
 
   </div>
   <button type="button"

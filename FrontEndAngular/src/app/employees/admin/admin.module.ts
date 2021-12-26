@@ -11,7 +11,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { EmployeesListComponent } from './employees-list/employees-list.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
-import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+// import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
  // AddForPaginator
  import { MatTableModule } from '@angular/material/table';

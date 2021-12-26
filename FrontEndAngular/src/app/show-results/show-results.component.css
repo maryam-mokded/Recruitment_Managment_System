@@ -1,0 +1,66 @@
+
+#btnClose{
+  margin: 7px;
+  }
+
+.modal-body{
+  width: 700px ;
+}
+#btn
+{
+padding-left: 445px;
+}
+
+#IconClose{
+  background-color: white;
+  border-radius: 35%;
+}
+a{
+  text-decoration: green underline !important;
+  cursor: pointer;
+}
+
+#DangerMessage{
+  color: red;
+}
+#SuccessMessage{
+  color: green;
+}
+
+#dialog-title{
+  display: grid;
+  grid-template-columns: 95% 5%;
+}
+
+.form-control.ng-touched.ng-invalid {
+  border:1px solid rgb(238, 28, 28);
+ }
+ .form-control.ng-touched.ng-valid {
+  border:1px solid rgb(9, 211, 9);
+ }
+
+#danger{
+  color: red;
+}
+#warning{
+  color: orangered;
+
+}
+p{
+  margin-left: 20px;
+  margin-bottom:6px ;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+li{
+  font-size: 20px;
+  font-weight: bold;
+}
+#succes{
+  color: green;
+}
+#waiting{
+  color: rgb(167, 167, 1);
+}
+

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as echarts from 'echarts';
+// import * as echarts from 'echarts';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { EmployeeService } from '../../../Services/employee.service';
