@@ -16,7 +16,7 @@ h2, .h2 {
 
 h3, .h3 {
   font-size: 1.75rem;
-  
+
 }
 
 h4, .h4 {
@@ -25,7 +25,7 @@ h4, .h4 {
 p{
   font-size: 20px;
   text-align: center;
-  background-color: rgb(102, 235, 195);
+  background-color: rgb(247, 244, 67);
   border:9px; border-style:solid; border-color:#050303; padding: 1em;
 }
 
@@ -200,14 +200,14 @@ h6, .h6 {
     margin-top: 30px;
   }
 
-  #sect1 {  
-    height: 2000 px;  
+  #sect1 {
+    height: 2000 px;
     width: 2000;
     color: #fff;
-    background-image: url("../../assets/23.jpg") ;  
-    background-size: 200px ;  
-    background-size: cover;  
+    background-image: url("../../assets/23.jpg") ;
+    background-size: 200px ;
+    background-size: cover;
     image-rendering: -webkit-optimize-contrast;
-}  
+}
 
 }

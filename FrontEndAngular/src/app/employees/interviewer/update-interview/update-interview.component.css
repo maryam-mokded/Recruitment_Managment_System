@@ -57,8 +57,8 @@
 #modal-title{
     color: #2caf8e;
     font-family: comic sans ms;
-    
-  
+
+
   }
   .ContenuCard{
     width: 500px;
@@ -69,3 +69,5 @@
    .form-control.ng-touched.ng-valid {
     border:1px solid rgb(9, 211, 9);
    }
+
+   
