@@ -65,10 +65,10 @@
 
 }
 
-#btnClose:hover{
+/* #btnClose:hover{
    transform: rotate(360deg);
 
-}
+} */
 
 #btnClose{
   margin-right: 7px;

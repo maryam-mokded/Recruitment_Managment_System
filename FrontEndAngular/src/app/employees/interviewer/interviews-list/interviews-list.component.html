@@ -32,7 +32,7 @@
 						</th>
 						<th>Condidate Name</th>
 						<th>Offre Title</th>
-						<th>interview Details</th>
+						<th>Interview Details</th>
 						<th>Questionnaire</th>
 						<!-- <th>Interview Date</th>
 						<th>Interview Type</th>
@@ -45,12 +45,12 @@
 				</thead>
 				<tbody>
                     <tr *ngFor="let interview of interviews">
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1">
-								<label for="checkbox1"></label>
-							</span>
-						</td>
+                      <td>
+                        <span class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch" name="options[]" >
+                            <label class="custom-control-label" for="customSwitch"></label>
+                        </span>
+                    </td>
 						<td>{{interview.user?.nom}} {{interview.user?.prenom}}</td>
 						<td>{{interview.offre?.titre}}</td>
                         <!-- <td>{{interview.interviewDate}}</td>
@@ -59,12 +59,12 @@
 						<td>{{interview.time}}</td> -->
 						<td>
 							<!-- <a (click)="updateInterviews(interview.id_Interview)" class="update" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a> -->
-							<a (click)="onOpenDialogUpdate(interview)" class="update" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a>
-              <a (click)="interviewDetails(interview)" class="view" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xE417;</i></a>
+							<a (click)="onOpenDialogUpdate(interview)" class="update" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Affect Interview">&#xE254;</i></a>
+              <a (click)="interviewDetails(interview)" class="view" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View interview details">&#xE417;</i></a>
 							<a (click)="deleteInterviews(interview.id_Interview)" class="delete" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
 						<td>
-							<a (click)="questionDetails(interview)" class="assignment" style="cursor: pointer;" data-toggle="modal"><mat-icon>assignment</mat-icon></a>
+							<a (click)="questionDetails(interview)" class="assignment" style="cursor: pointer;" data-toggle="modal"><mat-icon title="view questions List">assignment</mat-icon></a>
 
 						</td>
 					</tr>

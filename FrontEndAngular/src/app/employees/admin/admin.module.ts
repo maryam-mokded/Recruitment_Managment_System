@@ -23,13 +23,15 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
  import { ReactiveFormsModule } from '@angular/forms';
  //add Snackbar
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MailboxComponent } from './mailbox/mailbox.component';
 @NgModule({
   declarations: [
     EmployeesListComponent,
     EmployeeDetailsComponent,
     CreateEmployeeComponent,
     DashboardAdminComponent,
-    UpdateEmployeeComponent
+    UpdateEmployeeComponent,
+    MailboxComponent
   ],
   imports: [
     CommonModule,

@@ -5,7 +5,7 @@
 
   <div fxLayout="row">
     <a mat-button routerLink="/">
-      <mat-icon>home</mat-icon> Accueil
+      <mat-icon>home</mat-icon> Home Page
     </a>
     <a mat-button routerLink="/contact">
       <mat-icon>perm_contact_calendar</mat-icon>
@@ -14,17 +14,17 @@
 
     <button id="parg" mat-button [mat-menu-trigger-for]="menu" fxHide="false">
       <mat-icon>info</mat-icon>
-      A propos
+      About us
     </button>
     <mat-menu #menu="matMenu">
       <button  mat-menu-item routerLink="/apropos">
         <mat-icon>info</mat-icon>
-        Histoire
+       History
       </button>
 
       <button mat-menu-item routerLink="/equipe">
         <mat-icon>group</mat-icon>
-        équipe
+       Our Team
       </button>
       <button mat-menu-item routerLink="/service">
         <mat-icon>local_laundry_service</mat-icon>
