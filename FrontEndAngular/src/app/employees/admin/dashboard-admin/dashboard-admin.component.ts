@@ -5,11 +5,16 @@ import { Observable } from 'rxjs';
 import { EmployeeService } from '../../../Services/employee.service';
 import {InterviewsService} from '../../../Services/interviews.service';
 
+var test: string = "test";
+var somEmpl: number;
+var s :number;
+//console.log(test); 
 @Component({
   selector: 'app-dashboard-admin',
   templateUrl: './dashboard-admin.component.html',
   styleUrls: ['./dashboard-admin.component.css']
 })
+
 export class DashboardAdminComponent implements OnInit {
   somEmpl?: number;
   somCond?: number;
@@ -22,10 +27,20 @@ export class DashboardAdminComponent implements OnInit {
   constructor(private employeeService: EmployeeService,
     // private interviewsService: InterviewsService,
     private router: Router) {}
+ 
+ 
+    init(){
+      return  this.employeeService.getUsers().subscribe(o =>{
+       this.somEmpl = o;
+   });
+  }
+//let a=init();
+
 
   ngOnInit(): void {
-  /*  this.l=['product', '2017', '2018', '2019', '2020', '2021', '2022'];
+    this.l=['product', '2017', '2018', '2019', '2020', '2021', '2022'];
     console.log(this.l);
+
     //Get all employees
     this.employeeService.getUsers().subscribe(o =>{
       this.somEmpl = o;
@@ -248,7 +263,7 @@ option2 && myChart2.setOption(option2);
 
 //Time
 
-
+console.log(this.somEmpl);
 
 var chartDom = document.getElementById('time')!;
 var myChart = echarts.init(chartDom);
@@ -476,5 +491,5 @@ setInterval(function () {
 
 option && myChart.setOption(option);
 
-*/}
+  }
 }

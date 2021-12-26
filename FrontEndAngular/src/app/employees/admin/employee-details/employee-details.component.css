@@ -1,0 +1,16 @@
+#IconClose{
+    background-color: white;
+    border-radius: 35%;
+    margin-left:780px;
+  }
+
+  @media (min-width: 1380px){
+
+    .content-header{
+      width: 850px;
+      height:500px;
+     }    
+ 
+ }
+
+ 
