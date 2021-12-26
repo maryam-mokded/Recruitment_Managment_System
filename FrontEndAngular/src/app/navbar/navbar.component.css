@@ -13,6 +13,8 @@
     font-size: 20px;
 }
 
+
+.dropdown:hover .dropdown-content {display: block;}
 #toolbar{
     height: 74px;
    /* position: fixed;
@@ -26,7 +28,7 @@ a{
 
 }
 .log{
-  margin-left:760px;
+  margin-left:640px;
   color:white;
   font-size: 20px;
   }
@@ -34,5 +36,5 @@ a{
 .logo{
   max-width:70px;
   margin-top :6px;
-  
+
 }

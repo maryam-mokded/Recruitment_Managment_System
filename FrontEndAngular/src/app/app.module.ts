@@ -15,9 +15,9 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ContactComponent } from './contact/contact.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { EquipeComponent } from './equipe/equipe.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChangeBgDirective } from './Services/change-bg.directive';
-
+import { ShowResultsComponent } from './show-results/show-results.component';
 
 
 
@@ -31,6 +31,7 @@ import { ChangeBgDirective } from './Services/change-bg.directive';
     ContactComponent,
     EquipeComponent,
     ChangeBgDirective,
+    ShowResultsComponent,
 
   ],
   imports: [
@@ -43,7 +44,10 @@ import { ChangeBgDirective } from './Services/change-bg.directive';
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+
 
   ],
   providers: [],

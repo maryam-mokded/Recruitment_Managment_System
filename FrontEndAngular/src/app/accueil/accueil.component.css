@@ -1,6 +1,6 @@
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.0  rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
   line-height: 1.2;
@@ -36,8 +36,7 @@ h6, .h6 {
 
 
 .page-section {
-  padding: 4rem 0;
-  padding-bottom: 311px;
+  padding: 2rem 0;
 
 }
 
@@ -58,13 +57,13 @@ h6, .h6 {
 }
 
 #portfolio .portfolio-item .portfolio-link {
-  position: relative;
+  position: inherit;
   display: block;
   margin: 0 auto;
 }
+
 #portfolio .portfolio-item .portfolio-link .portfolio-hover {
   display: flex;
-  position: absolute;
   width: 100%;
   height: 100%;
   background: rgba(254, 209, 54, 0.9);
@@ -136,4 +135,35 @@ h6, .h6 {
 }
 .portfolio-modal .close-modal:hover {
   opacity: 0.3;
+}
+.fixed {
+  position: fixed;
+  width: 100%;
+  /* transition: 0.2s linear; */
+  top: 0px;
+}
+
+.nofixed {
+  position: static;
+  /* transition: 0.2s linear;  */
+  top: -50px;
+}
+
+.header {
+  /* width: 100%; */
+
+  padding: 250px;
+  background-image: url("../../assets/11.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#AlertWarnning{
+  padding:20px;
+  position: inherit;
+  border-radius: 15px;
+  color: black;
+  background-color: #fff3cd;
 }

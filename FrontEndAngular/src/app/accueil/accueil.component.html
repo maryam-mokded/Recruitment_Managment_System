@@ -1,17 +1,20 @@
-<app-navbar></app-navbar>
+
+<div class="header"></div>
+
+<app-navbar (scroll)="onscroll()" [ngClass]="navbarfixed?'fixed':'nofixed'"></app-navbar>
 <section class="page-section bg-light" id="portfolio">
   <div class="container">
       <div class="text-center">
           <h2 class="section-heading text-uppercase">Nos Offres</h2>
       </div>
-       <div *ngIf="nb != null ; then thenBlock else elseBlock"></div>
+      <div *ngIf="nb != null ; then thenBlock else elseBlock"></div>
       <ng-template #thenBlock>
-        <div class="row">
-            <div *ngFor="let offer of offers" class="col-lg-4 col-sm-6 mb-4" (click) ="onOpenDialog(offer)" >
+        <div class="row" >
+            <div style="position: inherit !important;" *ngFor="let offer of offers" class="col-lg-4 col-sm-6 mb-4" (click) ="onOpenDialog(offer)" >
               <div class="portfolio-item">
-                  <a class="portfolio-link" data-toggle="modal" >
+                  <a class="portfolio-link" data-toggle="modal" style="position: inherit !important;">
                       <div class="portfolio-hover">
-                          <div class="portfolio-hover-content">
+                          <div class="portfolio-hover-content" style="position: inherit !important;">
                             <i class="fas fa-plus fa-3x"></i>
                           </div>
                       </div>
@@ -27,7 +30,7 @@
       </ng-template>
       <ng-template #elseBlock>
         <br><br>
-        <div class="alert alert-warning" style="color: black;background-color: #fff3cd;" role="alert">
+        <div class="alert alert-warning"  id="AlertWarnning" role="alert">
           <h3>Warning</h3>
            We don't have offers now  <strong>check it later!</strong>
         </div>
@@ -37,7 +40,7 @@
 </section>
 
 
-<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
+<div aria-live="polite" aria-atomic="true">
   <div class="toast" style="position: absolute; top: 0; right: 0;">
     <div class="toast-header">
       <img src="..." class="rounded mr-2" alt="...">

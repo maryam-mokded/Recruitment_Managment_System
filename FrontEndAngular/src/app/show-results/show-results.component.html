@@ -1,0 +1,92 @@
+<div class="modal-body">
+
+  <div *ngIf="Afficher == false ; then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <div mat-dialog-title id="dialog-title">
+      <div>
+        <h2>Consulter resultats de vos offre</h2>
+      </div>
+      <div><button id="IconClose" (click)="onClose()"><i class="fas fa-times"></i></button></div>
+    </div>
+    <div id="dialog-offre">
+      <div class="container">
+        <form [formGroup]="myForm" class="needs-validation" novalidate>
+          <div class="form-row">
+            <div class="col-md-5" id="labeltitle">
+              <input type="text" readonly class="form-control-plaintext"
+                placeholder="Please type your identity card number">
+            </div>
+            <div class="col-md-5">
+              <input type="text" class="form-control" placeholder="CIN number" formControlName="cin" id="cin"
+                name="cin">
+              <div *ngIf="getcinValidate?.invalid && getcinValidate?.touched" class="text-danger">
+                Numéro de CIN invalide.<br>
+                Taper 08 Chiffre
+              </div>
+              <div *ngIf="getcinValidate?.valid && getcinValidate?.touched" class="text-success">
+                Numéro de CIN validée!
+              </div>
+            </div>
+            <div class="col">
+              <button type="submit" [disabled]="myForm.invalid" (click)="ConsultOffre()"
+                class="btn btn-primary mb-2">Confirm</button>
+            </div>
+          </div>
+        </form>
+
+        <h3 id={{idMessageDesign}}>
+          {{message}}
+          <div *ngIf="lien == 1 ; then thenBlock"></div>
+          <ng-template #thenBlock>
+            <a (click)="AfficherResultatOffre()">Click here</a> to view these offers
+          </ng-template>
+        </h3>
+
+
+
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #elseBlock>
+    <div mat-dialog-title id="dialog-title">
+      <div>
+        <h2>Consulter resultats de vos offre du condidat '  {{condidatList[0].user?.nom}}  {{condidatList[0].user?.prenom}} '</h2>
+      </div>
+      <div><button id="IconClose" (click)="onClose()"><i class="fas fa-times"></i></button></div>
+    </div>
+    <hr>
+    <h2>Information du condidat:</h2>
+     <p> Email : {{condidatList[0].user?.email}}</p>
+     <p> Cin : {{condidatList[0].user?.cin}}</p>
+     <p> Adresse : {{condidatList[0].user?.adress}}</p>
+     <p> Numéro du téléphone : {{condidatList[0].user?.tel}}</p>
+      <hr>
+     <h2> Les Offres a postulé :</h2>
+      <ul *ngFor="let offre of condidatList">
+        <li>
+          {{offre.offre?.titre}}
+          <div *ngIf="offre.interviewDate == null ; then NotReadBlock "></div>
+          <ng-template #NotReadBlock>
+            <span id="waiting"> ( <i class="fas fa-spinner fa-pulse"></i> Not read yet ! ) </span>
+          </ng-template>
+          <div *ngIf="offre.interviewDate != null && offre.note == 0 ; then PassInterviewBlock "></div>
+          <ng-template #PassInterviewBlock>
+            <span id="warning"> ( <i class="fas fa-exclamation-triangle"></i> interview planifié )</span>
+          </ng-template>
+
+          <div *ngIf="offre.interviewDate != null && offre.note == -1 ; then refuserBlock "></div>
+          <ng-template #refuserBlock>
+            <span id="danger"> ( Refuser <i class="fas fa-times"></i> ) </span>
+          </ng-template>
+
+
+          <div *ngIf="offre.interviewDate != null && offre.note != 0  && offre.note != -1; then adminBlock "></div>
+          <ng-template #adminBlock>
+            <span id="succes"> ( Admin <i class="fas fa-check"></i> ) </span>
+          </ng-template>
+
+        </li>
+      </ul>
+
+  </ng-template>
+</div>

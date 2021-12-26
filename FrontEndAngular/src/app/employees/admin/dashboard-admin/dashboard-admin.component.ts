@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as echarts from 'echarts';
+// import * as echarts from 'echarts';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { EmployeeService } from '../../../Services/employee.service';
@@ -24,7 +24,7 @@ export class DashboardAdminComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit(): void {
-    this.l=['product', '2017', '2018', '2019', '2020', '2021', '2022'];
+  /*  this.l=['product', '2017', '2018', '2019', '2020', '2021', '2022'];
     console.log(this.l);
     //Get all employees
     this.employeeService.getUsers().subscribe(o =>{
@@ -54,7 +54,7 @@ export class DashboardAdminComponent implements OnInit {
               this.nb[_x+1]=j[_i+1];
               _x++;
               console.log(this.annee);
-              console.log(this.nb);            
+              console.log(this.nb);
 
             }
 
@@ -62,7 +62,7 @@ export class DashboardAdminComponent implements OnInit {
             console.log(this.list);});
 
 
-          
+
 
     type EChartsOption = echarts.EChartsOption;
 
@@ -79,10 +79,10 @@ setTimeout(function () {
     },
     dataset: {
 
-      source: 
+      source:
       [
-        
-       
+
+
 
         //['product', '2017', '2018', '2019', '2020', '2021', '2022'],
 
@@ -476,5 +476,5 @@ setInterval(function () {
 
 option && myChart.setOption(option);
 
-  }
+*/}
 }

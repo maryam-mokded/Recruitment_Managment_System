@@ -17,11 +17,11 @@ export class CondidatService {
 
   constructor(private http : HttpClient) { }
 
-  /*
+
   ListeCondidats(): Observable<condidat[]>{
     return this.http.get<condidat[]>(this.UrlApi);
   }
-*/
+
   ConsulterCondidat(id:number):Observable<condidat>{
     const url = `${this.UrlApi}/${id}`
     return this.http.get<condidat>(url);
