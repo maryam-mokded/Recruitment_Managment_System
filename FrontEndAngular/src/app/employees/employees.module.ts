@@ -14,6 +14,7 @@ import { InterviewerComponent } from './interviewer/interviewer.component';
     NavBarComponent,
     SidebarComponent,
     InterviewerComponent,
+
   ],
   imports: [
     CommonModule,

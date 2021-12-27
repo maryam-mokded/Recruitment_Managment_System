@@ -1,142 +1,101 @@
+<div class="container" *ngIf="OneOffer">
 
-  <div class="container" *ngIf="OneOffer">
-
-    <div mat-dialog-title id="dialog-title">
-      <div>
-        <h1>Apply in : {{OneOffer.titre}}</h1>
-      </div>
-      <div><button id="IconClose" (click)="onClose()"><i class="fas fa-times"></i></button></div>
+  <div mat-dialog-title id="dialog-title">
+    <div>
+      <h1>Postuler dans : {{OneOffer.titre}}</h1>
     </div>
-
-    <form [formGroup]="myForm" class="needs-validation" novalidate>
-      <div class="form-row">
-        <div class="col-md-4 mb-3">
-          <label >First Name</label>
-          <input type="text"
-                 class="form-control"
-                 placeholder="nom"
-                 formControlName="name"
-                 [(ngModel)]="NewCondidat.nom"
-                 name="name">
-
-        </div>
-        <div class="col-md-4 mb-3">
-          <label>Last Name</label>
-          <input type="text"
-                 class="form-control"
-                 formControlName="prenom"
-                 [(ngModel)]="NewCondidat.prenom"
-                 name="prenom"
-                 placeholder="prénom" >
-            <div
-            *ngIf="prenom?.invalid && prenom?.touched"
-            class="text-danger">
-            prenom invalide minimum 2 caratères.
-          </div>
-          <div
-          *ngIf="prenom?.valid && prenom?.touched"
-          class="text-success">
-            prenom validée!
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-3">
-          <label>Email</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">@</span>
-            </div>
-            <input type="text"
-                   class="form-control"
-                   placeholder="Email"
-                   aria-describedby="inputGroupPrepend2"
-                   formControlName="email"
-                   [(ngModel)]="NewCondidat.email">
-          </div>
-          <div
-          *ngIf="email?.invalid && email?.touched"
-          class="text-danger">
-          invalide Email.
-          </div>
-          <div
-          *ngIf="email?.valid && email?.touched"
-          class="text-success">
-            Email validée!
-          </div>
-
-
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="col-md-6 mb-3">
-          <label>Address</label>
-          <input type="text"
-                 class="form-control"
-                 formControlName="adresse"
-                 [(ngModel)]="NewCondidat.adress"
-                 name="adresse"
-                 placeholder="adress">
-          <div
-          *ngIf="adresse?.invalid && adresse?.touched"
-          class="text-danger">
-          Adresse invalide.
-          </div>
-          <div
-          *ngIf="adresse?.valid && adresse?.touched"
-          class="text-success">
-            Adresse validée!
-          </div>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label>CIN</label>
-          <input type="text"
-                 class="form-control"
-                 formControlName="cin"
-                 [(ngModel)]="NewCondidat.cin"
-                 name="cin"
-                 placeholder="Num CIN">
-
-          <div
-          *ngIf="cin?.invalid && cin?.touched"
-          class="text-danger">
-            Numéro de CIN invalide.
-          </div>
-          <div
-          *ngIf="cin?.valid && cin?.touched"
-          class="text-success">
-            Numéro de CIN validée!
-          </div>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label>Téléphone</label>
-          <input type="text"
-                 class="form-control"
-                 formControlName="telephone"
-                 [(ngModel)]="NewCondidat.tel"
-                 name="tel"
-                 placeholder="Num téléphone">
-          <div
-          *ngIf="telephone?.invalid && telephone?.touched"
-          class="text-danger">
-            Numéro de téléphone invalide.
-          </div>
-          <div
-          *ngIf="telephone?.valid && telephone?.touched"
-          class="text-success">
-            Numéro de téléphone validée!
-          </div>
-        </div>
-      </div>
-      <div class="custom-file">
-        <input type="file" class="custom-file-input" id="customFile">
-        <label class="custom-file-label" for="customFile">Choose file</label>
-      </div>
-
-      <div id="btn">
-        <button type="button" (click)="onClose()" id="btnClose" class="btn btn-danger">Close</button>
-        <button type="button" (click)="onRevenir(OneOffer)" id="btnClose" class="btn btn-success">Offer Details</button>
-        <button type="submit" (click)="addCondidat()" [disabled]="myForm.invalid" class="btn btn-info" >Apply</button>
-      </div>
-    </form>
+    <div><button id="IconClose" (click)="onClose()"><i class="fas fa-times"></i></button></div>
   </div>
 
+  <form [formGroup]="myForm" class="needs-validation" novalidate>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label>Nom</label>
+        <input type="text" class="form-control" placeholder="nom" formControlName="name" [(ngModel)]="NewCondidat.nom"
+          name="name">
+        <div *ngIf="name?.invalid && name?.touched" class="text-danger">
+          nom invalide minimum 2 caratères.
+        </div>
+        <div *ngIf="name?.valid && name?.touched" class="text-success">
+          nom validée!
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Prénom</label>
+        <input type="text" class="form-control" formControlName="prenom" [(ngModel)]="NewCondidat.prenom" name="prenom"
+          placeholder="prénom">
+        <div *ngIf="prenom?.invalid && prenom?.touched" class="text-danger">
+          prenom invalide minimum 2 caratères.
+        </div>
+        <div *ngIf="prenom?.valid && prenom?.touched" class="text-success">
+          prenom validée!
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label>Email</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">@</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Email" aria-describedby="inputGroupPrepend2"
+            formControlName="email" [(ngModel)]="NewCondidat.email">
+        </div>
+        <div *ngIf="email?.invalid && email?.touched" class="text-danger">
+          invalide Email.
+        </div>
+        <div *ngIf="email?.valid && email?.touched" class="text-success">
+          Email validée!
+        </div>
+
+
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label>Adresse</label>
+        <input type="text" class="form-control" formControlName="adresse" [(ngModel)]="NewCondidat.adress"
+          name="adresse" placeholder="adress">
+        <div *ngIf="adresse?.invalid && adresse?.touched" class="text-danger">
+          Adresse invalide.
+        </div>
+        <div *ngIf="adresse?.valid && adresse?.touched" class="text-success">
+          Adresse validée!
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label>CIN</label>
+        <input type="text" class="form-control" formControlName="cin" [(ngModel)]="NewCondidat.cin" name="cin"
+          placeholder="Num CIN">
+
+        <div *ngIf="cin?.invalid && cin?.touched" class="text-danger">
+          Numéro de CIN invalide.
+        </div>
+        <div *ngIf="cin?.valid && cin?.touched" class="text-success">
+          Numéro de CIN validée!
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label>Téléphone</label>
+        <input type="text" class="form-control" formControlName="telephone" [(ngModel)]="NewCondidat.tel" name="tel"
+          placeholder="Num téléphone">
+        <div *ngIf="telephone?.invalid && telephone?.touched" class="text-danger">
+          Numéro de téléphone invalide.
+        </div>
+        <div *ngIf="telephone?.valid && telephone?.touched" class="text-success">
+          Numéro de téléphone validée!
+        </div>
+      </div>
+    </div>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="customFile">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+    </div>
+
+    <div id="btn">
+      <button type="button" (click)="onClose()" id="btnClose" class="btn btn-danger">Fermer</button>
+      <button type="button" (click)="onRevenir(OneOffer)" id="btnClose" class="btn btn-success">Détails Offre</button>
+      <button type="submit" (click)="addCondidat()" [disabled]="myForm.invalid" class="btn btn-info">Postuler</button>
+    </div>
+  </form>
+</div>
