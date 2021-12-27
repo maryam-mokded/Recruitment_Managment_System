@@ -17,14 +17,14 @@
                         <!-- <a routerLink="../addquestion"  routerLinkActive="active" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Question</span></a> -->
                         <a  routerLinkActive="active" class="btn btn-danger" (click)="onOpenDialogCreate()"><i class="material-icons">&#xE147;</i> <span>Add New Question</span></a>
                         </div>
-                        
+
                     </div>
                 </div>
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
                             <th>
-                                
+
                             </th>
                             <th>ID</th>
                             <th>Questions</th>
@@ -33,26 +33,25 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let question of questions">
-                            <td>
-                                <span class="custom-control custom-switch">
-                                    <input type="checkbox" class="custom-control-input" id="customSwitch" name="options[]" >
-                                    <label class="custom-control-label" for="customSwitch"></label>
-                                </span>
-                            </td>
+                           	<td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+								<label for="checkbox1"></label>
+							</span>
+						</td>
                             <td>{{question.id_Question}}</td>
                             <td>{{question.question}}</td>
-                         
+
                             <td>
-                                <a (click)="deleteQuestions(question.id_Question)" class="delete" style="cursor: pointer;" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                <a (click)="deleteQuestions(question.id_Question)" class="delete" style="cursor: pointer;" ><i class="material-icons" data-toggle="tooltip" title="Delete Question">&#xE872;</i></a>
                                 <!-- <a (click)="updateQuestions(question.id_Question)" class="update" style="cursor: pointer;" ><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a> -->
-                                <a (click)="onOpenDialogUpdate(question)" class="update" style="cursor: pointer;" ><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a>
+                                <a (click)="onOpenDialogUpdate(question)" class="update" style="cursor: pointer;" ><i class="material-icons" data-toggle="tooltip" title="Update Question">&#xE254;</i></a>
 
                             </td>
-                        </tr> 
+                        </tr>
                     </tbody>
                 </table>
             </div>
-        </div>        
-    </div>					
-                
-    
+        </div>
+    </div>
+
