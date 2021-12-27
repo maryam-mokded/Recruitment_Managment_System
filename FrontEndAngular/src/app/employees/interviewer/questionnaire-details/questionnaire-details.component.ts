@@ -27,7 +27,7 @@ export class QuestionnaireDetailsComponent implements OnInit {
   this.questionnaireService.getQuestionnaireList().subscribe(o =>{
     var _j=0;
     for (var _i = 0; _i < o.length; _i++) {
-     if(o[_i].interview == this.id_Interview){
+     if(o[_i].interview.id_Interview == this.id_Interview){
        this.questionnaireList[_j] = o[_i];
        console.log(this.questionnaireList[_j]);
        _j++
