@@ -44,7 +44,7 @@ ngOnInit() {
     this.contactService.getContact(id).subscribe(o =>{
       this.ELEMENT_DATA= o;});
       console.log(this.ELEMENT_DATA);
-    let confirmation =confirm("Êtes-vous sûr de supprimer le contact ou son id est egale à : "+id+" ??")
+    let confirmation =confirm("Are you sure you want to delete the contact with id : "+id+" ??")
     if(confirmation)
     this.contactService.deleteContact(id).subscribe(data => {
           console.log(data);

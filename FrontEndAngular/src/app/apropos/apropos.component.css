@@ -1,8 +1,9 @@
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 700;
+
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-weight: 700;
   line-height: 1.2;
 }
 
@@ -23,10 +24,11 @@ h4, .h4 {
   font-size: 1.9rem;
 }
 p{
+
   font-size: 20px;
   text-align: center;
-  background-color: rgb(247, 244, 67);
-  border:9px; border-style:solid; border-color:#050303; padding: 1em;
+  background-color: rgb(250, 248, 114);
+  border:5px; border-style:solid; border-color:#050303; padding: 1em;
 }
 
 h5, .h5 {
@@ -67,7 +69,7 @@ h6, .h6 {
   width: 2px;
   margin-left: -1.5px;
   content: "";
-  background-color: #e9ecef;
+  background-color: #141414;
 }
 .timeline > li {
   position: relative;
@@ -109,7 +111,7 @@ h6, .h6 {
   margin-left: 0;
   text-align: center;
   color: white;
-  border: 7px solid #e9ecef;
+  border: 7px solid #dbd6d6;
   border-radius: 100%;
   background-color: #f1c217;
 }
@@ -200,7 +202,7 @@ h6, .h6 {
     margin-top: 30px;
   }
 
-  #sect1 {
+  /* #sect1 {
     height: 2000 px;
     width: 2000;
     color: #fff;
@@ -208,6 +210,7 @@ h6, .h6 {
     background-size: 200px ;
     background-size: cover;
     image-rendering: -webkit-optimize-contrast;
-}
+} */
 
 }
+
