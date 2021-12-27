@@ -4,6 +4,28 @@
   margin-bottom: 30px;
   background-color: #fff;
 }
+
+:host ::ng-deep .mat-slider-thumb {
+  background-color: blue!important;
+  }
+:host ::ng-deep .mat-slider-thumb-label{
+  background-color: blue !important;
+}
+
+:host ::ng-deep .mat-slider-track-fill{
+    background-color: blue !important;
+}
+
+#espacement{
+  margin: 10px;
+}
+.mat-slider{
+  bottom: 15px;
+  height: 51px;
+  width: 550px;
+}
+
+
 .social-links li a {
   border-radius: 50%;
   color: rgba(121, 121, 121, .8);

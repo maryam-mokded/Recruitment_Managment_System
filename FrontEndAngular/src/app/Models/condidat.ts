@@ -1,3 +1,4 @@
+import { competance } from "./Competance";
 import { Cv } from "./Cv";
 
 export class condidat{
@@ -11,5 +12,4 @@ export class condidat{
   pdfcv!:Cv;
   cin!: string;
   tel!: number;
-
 }
