@@ -119,6 +119,10 @@ export class ProfilComponent implements OnInit {
 
   // Changer Password
 
+  AnnulerChangerPassword(){
+    this.ChangePwd = true;
+  }
+
   showPwd(): void {
     if (this.ShowPwd == true) {
       this.ShowPwd = false;
