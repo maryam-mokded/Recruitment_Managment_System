@@ -8,6 +8,7 @@ import { Offers } from 'src/app/Models/offers';
 import { OffresService } from 'src/app/Services/offers.service';
 import { CreateOfferComponent } from '../create-offer/create-offer.component';
 import { UpdateOfferComponent } from '../update-offer/update-offer.component';
+import { AuthService } from 'src/app/Services/auth.service';
 @Component({
   selector: 'app-offers-table',
   templateUrl: './offers-table.component.html',
@@ -37,6 +38,7 @@ export class OffersTableComponent implements OnInit {
   constructor(
     private dialog :MatDialog,
     private offerServ : OffresService,
+    public authService: AuthService
   ) { }
 
   ngOnInit(): void {

@@ -11,7 +11,7 @@
             </div>
           </div>
           <div>
-            <button class="btn btn" id="btn" (click)="onOpenDialogCreate()">
+            <button class="btn btn" id="btn" *ngIf="authService.isRecruteur()" (click)="onOpenDialogCreate()">
               <i class="fas fa-plus"></i>
               Add Offer
             </button>
@@ -54,9 +54,9 @@
                 <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef> Action</th>
                 <td mat-cell *matCellDef="let element">
-                  <a (click)="onOpenDialogUpdate(element)" class="update"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a>
-                  <a (click)="DeleteOffer(element?.idOffre)" class="delete"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                  <a (click) ="DetailsOffer(element)" class="view"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xE417;</i></a>
+                  <a *ngIf="authService.isRecruteur()" (click)="onOpenDialogUpdate(element)" class="update"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a>
+                  <a *ngIf="authService.isRecruteur()" (click)="DeleteOffer(element?.idOffre)" class="delete"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                  <a  (click) ="DetailsOffer(element)" class="view"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xE417;</i></a>
                 </td>
                 </ng-container>
 
