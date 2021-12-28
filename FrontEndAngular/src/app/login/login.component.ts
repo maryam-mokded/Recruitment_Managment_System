@@ -40,13 +40,13 @@ err:number=0;
 
 
 
-  // mdp = "password"
-  //  myFunction() {
-  //   if (this.mdp === "password") {
-  //     this.mdp = "text";
-  //   } else {
-  //     this.mdp = "password";
-  //   }
-  // }
+  mdp = "password"
+   myFunction() {
+    if (this.mdp === "password") {
+      this.mdp = "text";
+    } else {
+      this.mdp = "password";
+    }
+  }
 
 }

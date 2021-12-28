@@ -71,6 +71,7 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
       </li>
+
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -99,7 +100,7 @@
         </div>
       </li>
 
-
+      <li style="margin-right:5px;margin-left:20px;"> {{authService.loggedUser}}</li>
 
       <li class="nav-item dropdown" >
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -110,6 +111,7 @@
           <div class="dropdown-divider"></div>
           <div class="media">
             <img src="assets/Teams/Maryam.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3 ml-4 mt-1" >
+           
             <div class="media-body">
               <h3 class="dropdown-item-title">
                 {{authService.loggedUser}} <br>
