@@ -14,6 +14,11 @@ const routes: Routes = [
   { path: 'user-profil', loadChildren: () => import('./user-profil/user-profil.module').then(m => m.UserProfilModule) }];
 
 
+  
+
+
+
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

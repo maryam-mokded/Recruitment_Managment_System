@@ -5,7 +5,7 @@ import { OffreComponent } from '../../../details-offre/offre/offre.component';
 import { InterviewsService } from 'src/app/Services/interviews.service';
 import { DetailsCondidatComponent } from '../details-condidat/details-condidat.component';
 import { CvService } from 'src/app/Services/cv.service';
-
+import * as fileSaver from 'file-saver';
 @Component({
   selector: 'app-condidat-table',
   templateUrl: './condidat-table.component.html',
@@ -42,6 +42,15 @@ export class CondidatTableComponent implements OnInit {
       console.log('Toast Vide');
     }
   }
+
+
+
+  // downloadFile(fileData?:interviewList ): void {
+  //   this.CvServ
+  //     .download(fileData.user?.pdfcv.idCV)
+  //     .subscribe(blob => fileSaver(blob, fileData.filename));
+  // }
+
 
   DetailsCondidat(interview: interviewList) {
     const dialogConfig = new MatDialogConfig();
@@ -131,9 +140,16 @@ export class CondidatTableComponent implements OnInit {
       }
     );
   }
-
   DownLoadCv(interview: interviewList) {
-    console.log(interview);
+
+    var idCv = interview.user?.pdfcv.idCV
+    console.log(idCv)
+    this.CvServ
+        .downloadCv(idCv)
+        .subscribe();
+  }
+ /* DownLoadCv(interview: interviewList) {
+    console.log(interview.user?.pdfcv.idCV);
     this.CvServ.downloadCv(interview.user?.pdfcv?.idCV).subscribe(
       (cv) => {
         this.Toast[0] = 'Success';
@@ -157,7 +173,7 @@ export class CondidatTableComponent implements OnInit {
         this.showToast();
       }
     );
-  }
+  }*/
 
   showToast() {
     if (this.ShowToast == 'hide') {

@@ -87,15 +87,20 @@
         </div>
       </div>
     </div>
-    <div class="custom-file">
-      <input type="file" class="custom-file-input" id="customFile">
-      <label class="custom-file-label" for="customFile">Choose file</label>
-    </div>
+
+    <div class="row">
+      <div class="col-10">
+         <label>Upload Cv</label>
+         <input type="file"
+                class="form-control"
+                (change)="selectFile($event)"/>
+      </div>
+   </div>
 
     <div id="btn">
       <button type="button" (click)="onClose()" id="btnClose" class="btn btn-danger">Fermer</button>
       <button type="button" (click)="onRevenir(OneOffer)" id="btnClose" class="btn btn-success">Détails Offre</button>
-      <button type="submit" (click)="addCondidat()" [disabled]="myForm.invalid" class="btn btn-info">Postuler</button>
+      <button type="submit" (click)="addCondidat()" class="btn btn-info">Postuler</button>
     </div>
   </form>
 </div>
