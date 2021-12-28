@@ -91,7 +91,7 @@ export class ProfilComponent implements OnInit {
   }
 
   getEmployee() {
-    this.id = 15;
+    this.id = 34;
     this.EmpServ.getEmployee(this.id).subscribe((emp) => {
       this.employe = emp;
     });
@@ -103,7 +103,7 @@ export class ProfilComponent implements OnInit {
       this.profilStatus = 'Editer Profil';
       console.log(this.employe);
       this.id = this.employe?.idUser;
-      this.EmpServ.updateEmployee(15, this.employe).subscribe((emp) => {});
+      this.EmpServ.updateEmployee(34, this.employe).subscribe((emp) => {});
     } else {
       this.test = true;
       this.profilStatus = 'Profil';
@@ -174,10 +174,12 @@ export class ProfilComponent implements OnInit {
         this.testPwdInCorrect = false;
         this.testConfirmedPwdInCorrect = false;
         this.employe.pwd = this.NPwd;
-        this.EmpServ.updateEmployee(15, this.employe).subscribe(() => {
+        this.EmpServ.updateEmployee(34, this.employe).subscribe(() => {
           this.ChangePwd = true;
           console.log('mot de passe changer avec succes');
         });
+
+        window.location.reload();
       }
     }
   }
@@ -243,22 +245,22 @@ export class ProfilComponent implements OnInit {
   //CRUD Liens
 
   ModifierLienG() {
-    this.EmpServ.updateEmployee(15, this.employe).subscribe(() => {
+    this.EmpServ.updateEmployee(34, this.employe).subscribe(() => {
       this.testInputLienG = false;
     });
   }
   ModifierLienF() {
-    this.EmpServ.updateEmployee(15, this.employe).subscribe(() => {
+    this.EmpServ.updateEmployee(34, this.employe).subscribe(() => {
       this.testInputLienF = false;
     });
   }
   ModifierLienL() {
-    this.EmpServ.updateEmployee(15, this.employe).subscribe(() => {
+    this.EmpServ.updateEmployee(34, this.employe).subscribe(() => {
       this.testInputLienL = false;
     });
   }
   ModifierLienI() {
-    this.EmpServ.updateEmployee(15, this.employe).subscribe(() => {
+    this.EmpServ.updateEmployee(34, this.employe).subscribe(() => {
       this.testInputLienI = false;
     });
   }
@@ -280,25 +282,25 @@ export class ProfilComponent implements OnInit {
     let confirmation = confirm('Êtes-vous sûr de Lien de voter Github ??');
     if (confirmation) this.employe.lienGithub = '';
     console.log(this.employe);
-    this.EmpServ.updateEmployee(15, this.employe).subscribe((emp) => {});
+    this.EmpServ.updateEmployee(34, this.employe).subscribe((emp) => {});
   }
   SupprimerLienL() {
     let confirmation = confirm('Êtes-vous sûr de Lien de voter LinkedIn ??');
     if (confirmation) this.employe.lienLinkedIn = '';
     console.log(this.employe);
-    this.EmpServ.updateEmployee(15, this.employe).subscribe((emp) => {});
+    this.EmpServ.updateEmployee(34, this.employe).subscribe((emp) => {});
   }
   SupprimerLienI() {
     let confirmation = confirm('Êtes-vous sûr de Lien de voter Instagram ??');
     if (confirmation) this.employe.lienInstagram = '';
     console.log(this.employe);
-    this.EmpServ.updateEmployee(15, this.employe).subscribe((emp) => {});
+    this.EmpServ.updateEmployee(34, this.employe).subscribe((emp) => {});
   }
   SupprimerLienF() {
     let confirmation = confirm('Êtes-vous sûr de Lien de voter Facebook ??');
     if (confirmation) this.employe.lienFacebook = '';
     console.log(this.employe);
-    this.EmpServ.updateEmployee(15, this.employe).subscribe((emp) => {});
+    this.EmpServ.updateEmployee(34, this.employe).subscribe((emp) => {});
   }
 
 

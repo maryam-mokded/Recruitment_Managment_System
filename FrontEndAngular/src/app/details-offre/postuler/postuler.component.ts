@@ -11,6 +11,7 @@ import {  FormControl, FormGroup, Validators } from '@angular/forms';
 import { ParseSourceFile } from '@angular/compiler';
 import { interviewList } from 'src/app/Models/interviews';
 import { InterviewsService } from 'src/app/Services/interviews.service';
+import { HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
 
 
 @Component({
@@ -21,15 +22,20 @@ import { InterviewsService } from 'src/app/Services/interviews.service';
 
 export class PostulerComponent implements OnInit {
 
+  selectedFiles?: FileList;
+  currentFile?: File;
+  message = '';
+  errorMsg = '';
+
   public OneOffer?: Offers;
   public NewCondidat = new condidat();
   public interview:interviewList = new interviewList();
   public NewCv = new Cv();
   public IdCondAdd?:number;
   myForm!:FormGroup;
-  file:FileReader =new FileReader();
 
   constructor(
+    private http: HttpClient,
     private InterviewServ : InterviewsService,
     private dialog: MatDialog,
     private dialogClose: MatDialog,
@@ -42,7 +48,50 @@ export class PostulerComponent implements OnInit {
     //Revenir a offre détails
       this.OffreDetailsMethode();
       this.ValidatedForm();
+  }
 
+  selectFile(event: any): void {
+    this.selectedFiles = event.target.files;
+  }
+
+  addCondidat(): void {
+      if (this.selectedFiles) {
+      const file: File | null = this.selectedFiles.item(0);
+      if (file) {
+        this.currentFile = file;
+        this.cvServ.UploadCv(this.currentFile).subscribe(
+          (event: any) => {
+            console.log(event)
+            if (event.type === HttpEventType.UploadProgress) {
+              console.log(Math.round(100 * event.loaded / event.total));
+            } else if (event instanceof HttpResponse) {
+              this.message = event.body.responseMessage;
+            }
+          },
+          (err: any) => {
+            console.log(err);
+            this.currentFile = undefined;
+          });
+      }
+      this.selectedFiles = undefined;
+    }
+   /* var cv = JSON.parse(localStorage.getItem('cv') || '[]') || []
+    console.log(cv);*/
+    this.NewCondidat.idUser = 1
+    // this.NewCondidat.pdfcv = cv
+    this.condServ
+       .AjouterCondidat(this.NewCondidat,this.OneOffer?.idOffre!)
+       .subscribe(condid=>{
+         this.IdCondAdd = condid.idUser;
+         //console.log(condid.idUser);
+       });
+  /* this.condServ
+      .AjouterCondidat(this.NewCondidat,this.OneOffer?.idOffre!)
+      .subscribe(condid=>{
+        this.IdCondAdd = condid.idUser;
+        //console.log(condid.idUser);
+      });
+      this.dialogClose.closeAll();*/
   }
 
   OffreDetailsMethode(){
@@ -62,19 +111,6 @@ export class PostulerComponent implements OnInit {
     });
     this.dialogClose.closeAll();
   }
-
-  addCondidat() {
-    console.log(this.NewCondidat);
-    this.NewCondidat.idUser = 1;
-    this.condServ
-        .AjouterCondidat(this.NewCondidat,this.OneOffer?.idOffre!)
-        .subscribe(condid=>{
-          this.IdCondAdd = condid.idUser;
-          //console.log(condid.idUser);
-        });
-        this.dialogClose.closeAll();
-        console.log(this.file);
-    }
 
   onClose() {
     this.dialogClose.closeAll();
