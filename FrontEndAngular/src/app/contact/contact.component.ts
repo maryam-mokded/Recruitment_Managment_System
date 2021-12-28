@@ -27,6 +27,8 @@ export class ContactComponent implements OnInit {
   }
   save() {
     this.contact.id_Contact = 1;
+    // let confirmation = confirm("Do you really want to send this message ?")
+    // if(confirmation)
     this.contactService.createContact(this.contact).subscribe(data => {
       console.log(data)
       this.contact = new contactList();

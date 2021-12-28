@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpClientModule , HttpHeaders } from '@angular/common/http';
 import { Offers } from '../Models/offers';
+import { AuthService } from './auth.service';
 
 const httpOptions ={
   headers: new HttpHeaders({'Content-Type' : 'application/json'})
@@ -17,30 +18,45 @@ export class OffresService {
 
 //  offers? : Offers[];
 
-  constructor(private http : HttpClient) {
+  constructor(private http : HttpClient,private authService : AuthService) {
   }
 
   ListeOffers(): Observable<Offers[]>{
+    // let jwt = this.authService.getToken();
+    // jwt = "Bearer "+jwt;
+    // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
     return this.http.get<Offers[]>(this.UrlApi);
   }
 
   AjouterOffer(o:Offers):Observable<Offers>{
-    return this.http.post<Offers>(this.UrlApi,o,httpOptions);
+    let jwt = this.authService.getToken();
+    jwt = "Bearer "+jwt;
+    let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+    return this.http.post<Offers>(this.UrlApi,o ,{headers:httpHeaders});
   }
 
   ConsulterOffer(id:number):Observable<Offers>{
+    // let jwt = this.authService.getToken();
+    // jwt = "Bearer "+jwt;
+    // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
     const url = `${this.UrlApi}/${id}`
     return this.http.get<Offers>(url);
   }
 
   supprimerOffer(id:number){
-    const url =`${this.UrlApi}/${id}`;
-    return this.http.delete(url,httpOptions);
+    let jwt = this.authService.getToken();
+      jwt = "Bearer "+jwt;
+      let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+     const url =`${this.UrlApi}/${id}`;
+    return this.http.delete(url,{headers:httpHeaders});
   }
 
   modifierOffer(o :Offers):Observable<Offers>{
+    let jwt = this.authService.getToken();
+        jwt = "Bearer "+jwt;
+        let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
     const url =`${this.UrlApi}/${o.idOffre}`;
-    return this.http.put<Offers>(url,o,httpOptions);
+    return this.http.put<Offers>(url,o,{headers:httpHeaders});
   }
 
 }

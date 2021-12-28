@@ -4,6 +4,8 @@ import { HttpClient, HttpClientModule , HttpEvent, HttpHeaders, HttpRequest } fr
 import { Cv } from '../Models/Cv';
 import { condidat } from '../Models/condidat';
 
+import { AuthService } from './auth.service';
+
 //Pour dire que c'est un json
 const httpOptions ={
   headers: new HttpHeaders({'Content-Type' : 'application/json'})
@@ -17,7 +19,7 @@ export class CvService {
   UrlApi : string = 'http://localhost:3800/cv/downloadCV';
 
   constructor(
-    private http : HttpClient
+    private http : HttpClient,private authService : AuthService
     ) { }
 
     // download(file:number): Observable<Blob> {
@@ -27,8 +29,12 @@ export class CvService {
     //   });
     // }
   downloadCv(id?:number):Observable<any>{
+    let jwt = this.authService.getToken();
+    jwt = "Bearer "+jwt;
+    let httpHeaders = new HttpHeaders({"Authorization":jwt}) ;
+
     const url = `${this.UrlApi}/${id}`
-    return this.http.get(url);
+    return this.http.get(url,{headers:httpHeaders});
   }
 
   UploadCv(file: File): Observable<HttpEvent<any>> {

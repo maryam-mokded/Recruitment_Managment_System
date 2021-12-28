@@ -2,7 +2,7 @@
   <span>
     <img class="logo" src="assets/logovert.png">
   </span>
-
+<br>
   <div fxLayout="row">
     <a mat-button routerLink="/">
       <mat-icon>home</mat-icon> Home Page
@@ -39,6 +39,7 @@
   <button type="button"
           class="btn btn-outline-info"
           mat-menu-item routerLink="/login"
+          *ngIf="authService.isloggedIn == false"
           class="log"
           > Login</button>
 </mat-toolbar>
