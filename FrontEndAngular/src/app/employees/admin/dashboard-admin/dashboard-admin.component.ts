@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { EmployeeService } from '../../../Services/employee.service';
 import {InterviewsService} from '../../../Services/interviews.service';
+import { ScaleLinear, ScalePoint, ScaleTime } from 'd3-scale';
 
 var test: string = "test";
 var somEmpl: number;
@@ -24,22 +25,125 @@ export class DashboardAdminComponent implements OnInit {
   nb: any[]=[];
   l: any[]=[];
 
-  constructor(private employeeService: EmployeeService,
+
+  dataAxis = [];
+  data:any[] = [];
+  piedata: any[] = [];
+  lastChart: any[] = [];
+
+  single: any[] = [];
+  multi: any[] = [];
+
+  view: any[] = [700, 400];
+
+  // options
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = true;
+  showXAxisLabel = true;
+  xAxisLabel = 'Date Reccrutement';
+  showYAxisLabel = true;
+  yAxisLabel = 'Nombre';
+
+  colorScheme : any = {
+    // domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+    domain: ['#ffc107', '#28a745', '#17a2b8', '#AAAAAA']
+  };
+
+
+  constructor(
+    private employeeService: EmployeeService,
     // private interviewsService: InterviewsService,
     private router: Router) {}
 
 
-    init(){
-      return  this.employeeService.getUsers().subscribe(o =>{
-       this.somEmpl = o;
-   });
-  }
-//let a=init();
+    getData(){
+      this.employeeService.getEmployeesList().subscribe( (data)=>{
+        this.formateData(data);
+        this.formatePieData(data);
+      })
+      this.employeeService.getEmployees().subscribe( (data)=>{
+        this.formateLastData(data)
+      })
+    }
+
+
+    formateLastData(data: any){
+      const element = data._embedded;
+      const dataArray = [];
+      dataArray.push({name : "recruteurs" , value : element.recruteurs.length })
+      dataArray.push({name : "admins" , value : element.admins.length })
+      dataArray.push({name : "condidats" , value : element.condidatses.length })
+      dataArray.push({name : "interviewers" , value : element.interviewers.length })
+      this.lastChart = dataArray;
+  
+    }
+  
+    formatePieData(data: any[]){
+      const dataArrayYaxis: any[] = [];
+      const dataArrayXaxis: any[] = [];
+  
+      for (const  element of data){
+        if(!dataArrayYaxis.includes(element.competance) && element.competance !== null )dataArrayYaxis.push(element.competance);
+  
+      }
+      for(const el of dataArrayYaxis){
+        let i = 0;
+        for (const  element of data){
+          if(el === element.competance) i++
+        }
+        dataArrayXaxis.push(i);
+        i = 0;
+      }
+  
+      const result = [];
+      for (const [i ,element] of dataArrayXaxis.entries()) {
+        const object = {
+          name : dataArrayYaxis[i],
+          value :dataArrayXaxis[i]
+        }
+        result.push(object);
+      }
+      this.piedata = result;
+  
+    }
+  
+    formateData(data: any[]){
+      const dataArrayYaxis: any[] = [];
+      const dataArrayXaxis: any[] = [];
+  
+      for (const  element of data){
+        const dateElement = new Date(element.dateEmbauche).toLocaleDateString();
+        if(!dataArrayYaxis.includes(dateElement) && dateElement !== "Invalid Date")dataArrayYaxis.push(dateElement);
+  
+      }
+      for(const arrayDate of dataArrayYaxis){
+        let i = 0;
+        for (const  element of data){
+          const dateElement = new Date(element.dateEmbauche).toLocaleDateString();
+          if(dateElement === arrayDate) i++
+        }
+        dataArrayXaxis.push(i);
+        i = 0;
+      }
+      const result = [];
+      for (const [i ,element] of dataArrayXaxis.entries()) {
+        const object = {
+          name : dataArrayYaxis[i],
+          value :dataArrayXaxis[i]
+        }
+        result.push(object);
+      }
+      this.data = result;
+  
+  
+    }
 
 
   ngOnInit(): void {
-    this.l=['product', '2017', '2018', '2019', '2020', '2021', '2022'];
-    console.log(this.l);
+
+    this.getData();
 
     //Get all employees
     this.employeeService.getUsers().subscribe(o =>{
@@ -81,189 +185,8 @@ export class DashboardAdminComponent implements OnInit {
 
     type EChartsOption = echarts.EChartsOption;
 
-var chartDom1 = document.getElementById('main')!;
-var myChart1 = echarts.init(chartDom1);
-var option1: EChartsOption;
-
-setTimeout(function () {
-  option1 = {
-    legend: {},
-    tooltip: {
-      trigger: 'axis',
-      showContent: false
-    },
-    dataset: {
-
-      source:
-      [
-
-
-
-        //['product', '2017', '2018', '2019', '2020', '2021', '2022'],
-
-        ['product', '2016', '2017', '2018', '2019', '2020', '2021'],
-        ['Interviewers salaries', 56.5, 82.1, 88.7, 70.1, 53.4, 85.1],
-        ['Recruters salaries', 51.1, 51.4, 55.1, 53.3, 73.8, 68.7],
-        ['Employees salaries', 40.1, 62.2, 69.5, 36.4, 45.2, 32.5],
-        //['Walnut Brownie', 25.2, 37.1, 41.2, 18, 33.9, 49.1]
-
-
-        // ['product', '2012', '2013', '2014', '2015', '2016', '2017'],
-        // ['Milk Tea', 56.5, 82.1, 88.7, 70.1, 53.4, 85.1],
-        // ['Matcha Latte', 51.1, 51.4, 55.1, 53.3, 73.8, 68.7],
-        // ['Cheese Cocoa', 40.1, 62.2, 69.5, 36.4, 45.2, 32.5],
-        // ['Walnut Brownie', 25.2, 37.1, 41.2, 18, 33.9, 49.1]
-      ]
-    },
-    xAxis: { type: 'category' },
-    yAxis: { gridIndex: 0 },
-    grid: { top: '55%' },
-    series: [
-      {
-        type: 'line',
-        smooth: true,
-        seriesLayoutBy: 'row',
-        emphasis: { focus: 'series' }
-      },
-      {
-        type: 'line',
-        smooth: true,
-        seriesLayoutBy: 'row',
-        emphasis: { focus: 'series' }
-      },
-      {
-        type: 'line',
-        smooth: true,
-        seriesLayoutBy: 'row',
-        emphasis: { focus: 'series' }
-      },
-      {
-        type: 'line',
-        smooth: true,
-        seriesLayoutBy: 'row',
-        emphasis: { focus: 'series' }
-      },
-      {
-        type: 'pie',
-        id: 'pie',
-        radius: '30%',
-        center: ['50%', '25%'],
-        emphasis: {
-          focus: 'self'
-        },
-        label: {
-          formatter: '{b}: {@2016} ({d}%)'
-        },
-        encode: {
-          itemName: 'product',
-          value: '2016',
-          tooltip: '2016'
-        }
-      }
-    ]
-  };
-
-  myChart1.on('updateAxisPointer', function (event: any) {
-    const xAxisInfo = event.axesInfo[0];
-    if (xAxisInfo) {
-      const dimension = xAxisInfo.value + 1;
-      myChart1.setOption<echarts.EChartsOption>({
-        series: {
-          id: 'pie',
-          label: {
-            formatter: '{b}: {@[' + dimension + ']} ({d}%)'
-          },
-          encode: {
-            value: dimension,
-            tooltip: dimension
-          }
-        }
-      });
-    }
-  });
-
-  myChart1.setOption<echarts.EChartsOption>(option1);
-});
-
-
-
-
-var chartDom2 = document.getElementById('graph2')!;
-var myChart2 = echarts.init(chartDom2);
-var option2: EChartsOption;
-
-option2 = {
-  title: {
-    text: 'Funnel'
-  },
-  tooltip: {
-    trigger: 'item',
-    formatter: '{a} <br/>{b} : {c}%'
-  },
-  toolbox: {
-    feature: {
-      dataView: { readOnly: false },
-      restore: {},
-      saveAsImage: {}
-    }
-  },
-  legend: {
-    data: ['Show', 'Click', 'Visit', 'Inquiry', 'Order']
-  },
-
-  series: [
-    {
-      name: 'Funnel',
-      type: 'funnel',
-      left: '10%',
-      top: 60,
-      bottom: 60,
-      width: '80%',
-      min: 0,
-      max: 100,
-      minSize: '0%',
-      maxSize: '100%',
-      sort: 'descending',
-      gap: 2,
-      label: {
-        show: true,
-        position: 'inside'
-      },
-      labelLine: {
-        length: 10,
-        lineStyle: {
-          width: 1,
-          type: 'solid'
-        }
-      },
-      itemStyle: {
-        borderColor: '#fff',
-        borderWidth: 1
-      },
-      emphasis: {
-        label: {
-          fontSize: 20
-        }
-      },
-      data: [
-        { value: this.somEmpl, name: 'Visit' },
-        { value: 40, name: 'Inquiry' },
-        { value: 20, name: 'Order' },
-        { value: 80, name: 'Click' },
-        { value: 100, name: 'Show' }
-      ]
-    }
-  ]
-};
-
-option2 && myChart2.setOption(option2);
-
-
-
 
 //Time
-
-console.log(this.somEmpl);
 
 var chartDom = document.getElementById('time')!;
 var myChart = echarts.init(chartDom);
