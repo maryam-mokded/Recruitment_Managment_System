@@ -9,6 +9,7 @@ import { CreateInterviewComponent } from '../create-interview/create-interview.c
 import { UpdateInterviewComponent } from '../update-interview/update-interview.component';
 import { QuestionsService } from '../../../Services/questions.service';
 import { questionList } from 'src/app/Models/questions';
+import { AuthService } from 'src/app/Services/auth.service';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class InterviewsListComponent implements OnInit {
   constructor(private dialog :MatDialog, 
     private interviewsService: InterviewsService ,
      private questionsService: QuestionsService ,
-      private router: Router ) {
+      private router: Router , public authService: AuthService) {
    }
 
   ngOnInit(): void {

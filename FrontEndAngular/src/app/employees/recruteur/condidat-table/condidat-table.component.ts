@@ -5,7 +5,8 @@ import { OffreComponent } from '../../../details-offre/offre/offre.component';
 import { InterviewsService } from 'src/app/Services/interviews.service';
 import { DetailsCondidatComponent } from '../details-condidat/details-condidat.component';
 import { CvService } from 'src/app/Services/cv.service';
-import * as fileSaver from 'file-saver';
+import { AuthService } from 'src/app/Services/auth.service';
+// import * as fileSaver from 'file-saver';
 @Component({
   selector: 'app-condidat-table',
   templateUrl: './condidat-table.component.html',
@@ -27,7 +28,8 @@ export class CondidatTableComponent implements OnInit {
   constructor(
     private CvServ: CvService,
     private dialog: MatDialog,
-    private interviewServ: InterviewsService
+    private interviewServ: InterviewsService,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {

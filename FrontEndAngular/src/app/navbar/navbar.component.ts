@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { AuthService } from '../Services/auth.service';
 import { ShowResultsComponent } from '../show-results/show-results.component';
+
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +12,7 @@ import { ShowResultsComponent } from '../show-results/show-results.component';
 export class NavbarComponent implements OnInit {
 
   constructor(
-    private dialog :MatDialog,
+    private dialog :MatDialog,public authService: AuthService
 
   ) { }
 

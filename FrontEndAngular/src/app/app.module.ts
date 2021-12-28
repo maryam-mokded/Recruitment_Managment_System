@@ -18,6 +18,7 @@ import { EquipeComponent } from './equipe/equipe.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChangeBgDirective } from './Services/change-bg.directive';
 import { ShowResultsComponent } from './show-results/show-results.component';
+// import { GardsComponent } from './gards/gards.component';
 
 
 
@@ -32,6 +33,7 @@ import { ShowResultsComponent } from './show-results/show-results.component';
     EquipeComponent,
     ChangeBgDirective,
     ShowResultsComponent,
+    // GardsComponent
 
   ],
   imports: [

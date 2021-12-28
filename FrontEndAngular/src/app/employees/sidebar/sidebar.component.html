@@ -15,6 +15,7 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Partie Profil lel Les employee lkol -->
@@ -93,6 +94,13 @@
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
+=======
+              <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="info" style="margin-left:35px" >
+                  <a  class="d-block" style="margin-left:40px;" >{{authService.loggedUser}}</a>
+                </div>
+              </div>
+>>>>>>> 9a6f522385beeaa04a985cbb4c3cab0bbc9a6690
 
         </li>
 
@@ -123,6 +131,87 @@
   <!-- /.sidebar -->
 </aside>
 
+<<<<<<< HEAD
+=======
+                      <li class="nav-item has-treeview menu-open">
+                        <a *ngIf="authService.isAdmin()" class="nav-link ">
+                          <i class="nav-icon fas fa-user-secret"></i>
+                          <p>
+                            Admin
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview" *ngIf="authService.isAdmin()" >
+                          <li class="nav-item">
+                            <a routerLink="employeesList" class="nav-link ">
+                              <i class="nav-icon fas fa-users"></i>
+                              <p>Employees List</p>
+                            </a>
+                          </li>
+                        </ul>
+                        <li class="nav-item has-treeview menu-open">
+                            <a class="nav-link ">
+                              <i class="nav-icon fas fa-user-tie"></i>
+                              <p>
+                                Recruter
+                                <i class="right fas fa-angle-left"></i>
+                              </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                              <li class="nav-item">
+                                <a routerLink="recruteur/Condidat-Table" class="nav-link ">
+                                  <i class="nav-icon fas fa-people-carry"></i>
+                                  <p>Condidates List</p>
+                                </a>
+                              </li>
+                              <li class="nav-item">
+                                <a routerLink="recruteur/Offer-Table" class="nav-link ">
+                                  <i class="nav-icon fas fa-briefcase"></i>
+                                  <p>Job Offres List</p>
+                                </a>
+                              </li>
+                            </ul>
+                            <li class="nav-item has-treeview menu-open">
+                                <a class="nav-link ">
+                                  <i class="nav-icon fas fa-user-clock"></i>
+                                  <p>
+                                    Interviewer
+                                    <i class="right fas fa-angle-left"></i>
+                                  </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                  <li class="nav-item">
+                                    <a routerLink="recruteur/Condidat-Table"  class="nav-link ">
+                                      <i class="nav-icon fas fa-user-friends"></i>
+                                      <p>Condidates List</p>
+                                    </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a routerLink="interviewer/interviewList" class="nav-link ">
+                                      <i class="nav-icon far fa-calendar-alt"></i>
+                                      <p>Interviews List</p>
+                                    </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a  routerLink="interviewer/questionList" class="nav-link">
+                                      <i class="nav-icon fas fa-clipboard-list"></i>
+                                      <p> Questions List</p>
+                                    </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a  routerLink="interviewer/quiz" class="nav-link">
+                                      <i class="nav-icon fa fa-file-video-o"></i>
+                                      <p> Interview Quiz </p>
+                                    </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a  routerLink="interviewer/quizrules" class="nav-link">
+                                      <i class="nav-icon fa fa-exclamation-triangle"></i>
+                                      <p> Quiz rules </p>
+                                    </a>
+                                  </li>
+                                </ul>
+>>>>>>> 9a6f522385beeaa04a985cbb4c3cab0bbc9a6690
 
 
 
