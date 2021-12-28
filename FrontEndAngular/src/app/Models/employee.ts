@@ -10,4 +10,7 @@ export class Employee{
     tel!: number;
     photo!: string;
     Competance!: string;
+    username!:string;
+    password!:string;
+    roles!:string[];
 }

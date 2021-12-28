@@ -112,9 +112,10 @@
             <img src="assets/Teams/Maryam.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3 ml-4 mt-1" >
             <div class="media-body">
               <h3 class="dropdown-item-title">
-                Maryem Mokded
+                {{authService.loggedUser}} <br>
+                {{authService.getRole()}} 
               </h3>
-              <p class="text-sm text-muted" style="margin-left:-40px;">See your profil</p>
+              <p class="text-sm text-muted" style="margin-left:-10px;">See your profil</p>
             </div>
           </div>
           <div class="dropdown-divider"></div>
@@ -122,10 +123,10 @@
           <span class="mr-3"> <i class="fas fa-cog"></i> </span> 
           <span>Settings</span>
           </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item mr-4 ml-1">
+          <div  class="dropdown-divider"></div>
+          <a (click) = "onLogout()" class="dropdown-item mr-4 ml-1">
             <span class="mr-3"><i class="fas fa-sign-out-alt"></i></span> 
-            <span> Logout</span>
+            <span> <button *ngIf="authService.isloggedIn" class="dropdown-item"></button>Logout</span>
           </a>
         </div>
       </li>

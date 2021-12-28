@@ -2,21 +2,33 @@
   <div class="forms-container">
     <div class="signin-signup">
 
-      <form method="post" class="sign-in-form">
+     
+
+      <form class="sign-in-form">
+
+
+        <div  class="alert alert-danger" style="height:40px;width:190px;text-align:center;" *ngIf="err==1">
+          <strong>login ou mot de passe erronés ...</strong>
+         </div>
+         <br>
+
+
         <h2 class="title">Sign in</h2>
         <div class="input-field">
           <i class="fa fa-user"></i>
-          <input type="text" name="username" placeholder="UserName" />
+          <input type="text" name="username" placeholder="UserName"  [(ngModel)]="user.username" />
         </div>
         <div class="input-field">
           <i class="fa fa-lock"></i>
-          <input [type]="mdp" name="password" placeholder="Password" />
+          <input  type="password"   name="password" placeholder="Password"  [(ngModel)]="user.password"  />
         </div>
 
-        <div>
+      
+
+        <!-- <div>
           <input type="checkbox" (click)="myFunction()"> Show Password
-        </div>
-        <input type="submit" value="Login" class="btn solid" />
+        </div> -->
+        <input type="submit" value="Login" (click)="onLoggedin()" class="btn solid" />
         <p class="social-text">Ou Connectez-vous avec les plateformes sociales</p>
         <div class="social-media">
           <a href="https://www.facebook.com/" class="social-icon">
