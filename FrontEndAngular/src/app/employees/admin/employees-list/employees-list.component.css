@@ -18,11 +18,11 @@
     padding-left: 25px !important;
     padding-top: 15px !important;
   }
-  
+
   #alignement{
     padding-left: 15px !important;
   }
-  
+
   #formSearch{
     width: 300px !important;
   }
@@ -35,19 +35,21 @@
     grid-template-columns: 250px auto;
   }
   #btnAddSearch{
-    display: grid;
-    grid-template-columns: 250px auto;
-    margin: 30px 180px 0px;
-  }
-  
+     display: grid;
+    grid-template-columns: 420px auto;
+    /* padding: 30px !important; */
+    padding-left: 60px !important;
+    padding-right: 30px !important;
+   }
+
   #formSearch{
   margin: 20px;
   }
-  
+
   .mat-input-element {
     caret-color: #ea4542 !important;
   }
-  
+
   #AlertSucces{
     color: green;
     background-color: #d4edda;
@@ -56,33 +58,34 @@
     margin-left: 150px;
     margin-right: 150px;
   }
-  
+
   #btn{
     background-color: #DAD8D8;
     width:195px;
     height:50px;
     font-size: 15px;
-    margin-left: 640px;
+    margin-top: 25px;
+    margin-left: 300px;
   }
-  
+
   #LienDetails:hover{
     text-decoration: tomato wavy underline;
     cursor: pointer;
-  
+
     }
-  
-  
+
+
   #entete-Table{
     color: #ea4542;
     font-family: comic sans ms;
     font-size: 15px;
   }
-  
+
   .card{
     box-shadow:0 0 70px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%) !important;
   }
   #title-Table{
-  
+
     border-radius: 10px;
     background-color: #ea4542;
     margin-left: 20px !important;
@@ -91,31 +94,31 @@
     margin-top: 14px;
     color: aliceblue;
   }
-  
+
   a{
     cursor: pointer;
   }
-  
+
   table.table td a.update {
       color: #FFC107;
   }
-  
+
   table.table td a.delete {
       color: #F44336;
   }
-  
-  
+
+
   #titre{
     font-size: 31px;
     font-family: comic sans ms;
   }
-  
+
   .search {
     width: 100%;
     position: relative;
     display: flex;
   }
-  
+
   .searchTerm {
     width: 100%;
     border: 3px solid #00B4CC;
@@ -126,11 +129,11 @@
     outline: none;
     color: #9DBFAF;
   }
-  
+
   .searchTerm:focus{
     color: #00B4CC;
   }
-  
+
   .searchButton {
     width: 40px;
     height: 36px;
@@ -142,7 +145,7 @@
     cursor: pointer;
     font-size: 20px;
   }
-  
+
   /*Resize the wrap to see the search bar change!*/
   .wrap{
     width: 30%;
@@ -156,6 +159,6 @@
 
     .my-modal-popup .modal-lg {
         width: 1308px;
-    }       
- 
+    }
+
  }

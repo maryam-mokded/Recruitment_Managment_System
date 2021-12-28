@@ -17,9 +17,7 @@ const routes: Routes = [
   { path: 'addemployee', component: CreateEmployeeComponent  },
   { path: 'detailemployee/:id', component: EmployeeDetailsComponent   },
   { path: 'updateemployee/:id', component: UpdateEmployeeComponent   },
-  { path:'',redirectTo:'/admin',pathMatch:'full'},
 ];
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

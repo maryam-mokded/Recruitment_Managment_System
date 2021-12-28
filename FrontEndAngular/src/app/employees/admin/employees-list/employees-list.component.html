@@ -36,7 +36,7 @@
 
 <div class="container-fluid">
 <div class="row">
-  <div class="col-md-12" id="card-Table">
+  <div class="col-md-12" id="card-Table" style=" padding-left: 30px; padding-right: 27px;">
     <div class="card">
       <!-- <div class="card-header card-header-danger" id="title-Table">
         <h3 class="card-title" id="titre">Table Employees</h3><br>
@@ -61,18 +61,18 @@
                     <th mat-sort-header mat-header-cell *matHeaderCellDef> Email </th>
                     <td id="alignement" mat-cell *matCellDef="let element">{{element.email}}</td>
                   </ng-container>
-  
+
                   <!-- <ng-container matColumnDef="Pwd">
                     <th mat-sort-header mat-header-cell *matHeaderCellDef> Password </th>
                     <td id="alignement"mat-cell *matCellDef="let element"> {{element.Pwd}} </td>
                   </ng-container> -->
-                 
+
 
                   <ng-container matColumnDef="adress">
                     <th mat-sort-header mat-header-cell *matHeaderCellDef> Adresse </th>
                     <td id="alignement"mat-cell *matCellDef="let element"> {{ element.adress}} </td>
                   </ng-container>
-<!-- 
+<!--
                   <ng-container matColumnDef="Competance">
                     <th mat-sort-header mat-header-cell *matHeaderCellDef> Competance </th>
                     <td id="alignement"mat-cell *matCellDef="let element"> {{element.Competance}} </td>
@@ -82,28 +82,28 @@
                     <th mat-sort-header mat-header-cell *matHeaderCellDef > Telephone </th>
                     <td id="alignement"mat-cell *matCellDef="let element"> {{ element.tel}} </td>
                   </ng-container>
-  
+
                   <ng-container matColumnDef="action">
                   <th mat-header-cell *matHeaderCellDef style="margin-left:-350px"> Action</th>
                   <td mat-cell *matCellDef="let element">
                     <a (click)="updateEmployee(element)" class="btn btn-success" style="margin-right:15px;margin-bottom:15px;">
                       <i class="fas fa-edit"></i>
                   </a>
-  
+
                   <a (click)="employeeDetails(element)"  class="btn  btn-info" style="margin-right:15px;margin-bottom:15px;">
                     <i class="fas fa-info"></i>
                   </a>
-  
+
                   <a (click)="deleteEmployee(element.idUser)" class="btn  btn-danger" style="margin-right:15px;margin-bottom:15px">
-                  <i class="far fa-trash-alt"></i> 
+                  <i class="far fa-trash-alt"></i>
               </a>
                   </td>
                   </ng-container>
-  
-  
+
+
                   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  
+
                  </table>
                  <mat-paginator #paginator
                                 [pageSize]="3"
@@ -116,7 +116,7 @@
       </div>
     </div>
   </div>
-  
+
 
 <script>
     $(function () {
