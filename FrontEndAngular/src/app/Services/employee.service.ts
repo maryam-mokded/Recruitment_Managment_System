@@ -22,6 +22,11 @@ export class EmployeeService {
 
   constructor(private http: HttpClient,private authService : AuthService) { }
 
+
+  getEmployees(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
+
   getEmployee(id: number): Observable<any> {
     let jwt = this.authService.getToken();
     jwt = "Bearer "+jwt;

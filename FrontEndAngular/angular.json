@@ -41,7 +41,7 @@
 
             ],
             "scripts": [
-              "../node_modules/file-saver/FileSaver.js",
+              // "../node_modules/file-saver/FileSaver.js",
               "node_modules/admin-lte/plugins/jquery/jquery.js",
               "node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.js",
               "node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.js",

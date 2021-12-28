@@ -24,6 +24,7 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
  //add Snackbar
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MailboxComponent } from './mailbox/mailbox.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 @NgModule({
   declarations: [
     EmployeesListComponent,
@@ -52,7 +53,8 @@ import { MailboxComponent } from './mailbox/mailbox.component';
      MatFormFieldModule,
      MatInputModule,
      MatTableModule,
-     MatSnackBarModule
+     MatSnackBarModule,
+     NgxChartsModule
 
   ]
 })
