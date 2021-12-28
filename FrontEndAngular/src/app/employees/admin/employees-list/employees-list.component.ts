@@ -10,6 +10,7 @@ import { CreateEmployeeComponent } from '../create-employee/create-employee.comp
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-employees-list',
@@ -27,7 +28,7 @@ export class EmployeesListComponent implements OnInit {
   displayedColumns: string[] = ['idUser','nom', 'prenom', 'email','adress','tel','action'];
 
   constructor(private employeeService: EmployeeService,
-    private router: Router, private dialog:MatDialog) {}
+    private router: Router, private dialog:MatDialog,public authService: AuthService) {}
 
   ngOnInit() {
     this.reloadData();
