@@ -11,6 +11,12 @@ export class Employee{
     dateEmbauche!: string;
     tel!: number;
     photo!: string;
+
+    Competance!: string;
+    username!:string;
+    password!:string;
+    roles!:string[];
+
     lienLinkedIn!:string;
     lienFacebook!:string;
     lienInstagram!:string;
