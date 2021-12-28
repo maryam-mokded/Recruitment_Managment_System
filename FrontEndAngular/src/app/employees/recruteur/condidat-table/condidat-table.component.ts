@@ -160,7 +160,7 @@ export class CondidatTableComponent implements OnInit {
   }
 
   showToast() {
-    if (this   .ShowToast == 'hide') {
+    if (this.ShowToast == 'hide') {
       setTimeout(() => {
         this.ShowToast = 'show';
         console.log(this.ShowToast);

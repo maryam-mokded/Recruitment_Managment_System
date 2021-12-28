@@ -3,7 +3,7 @@
     <div class="row">
 
       <div class="col-md-8">
-        <!-- Information-User -->
+        <!-- Information-User Terminer-->
         <div class="card">
           <div class="card-header card-header-danger" id="backgroundColor">
             <h4 class="card-title" id="textColor">{{profilStatus}}</h4>
@@ -45,85 +45,101 @@
               </div>
               <div class="form-group">
                 <label>Date d'embauche </label>
-                <input type="text" class="form-control"
-                       value="{{employe.dateEmbauche | date}}"
-                       placeholder="02 Nov 2021" disabled>
+                <input type="text" class="form-control" value="{{employe.dateEmbauche | date}}"
+                  placeholder="02 Nov 2021" disabled>
               </div>
 
-              <button (click)="modifierProfil()" class="btn btn-primary btn-round " style="margin-left: 590px;">
+              <button (click)="modifierProfil()" class="btn btn-primary btn-round " style="margin-left: 550px;">
                 <i class="fas fa-pen fa-lg"></i>
                 Modifier
               </button>
 
             </ng-template>
             <ng-template #elseBlock>
-              <form  class="needs-validation" novalidate>
+              <form [formGroup]="myFormProfil" class="needs-validation" novalidate>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label>Nom</label>
-                    <input type="text"
-                          class="form-control"
-                          placeholder="Mokded"
-                          [(ngModel)]="employe.nom"
-                          name="name">
+                    <input type="text" class="form-control" formControlName="nom" placeholder="Mokded"
+                      [(ngModel)]="employe.nom" name="nom">
+                    <div *ngIf="nom?.invalid && nom?.touched" class="text-danger">
+                      nom invalide minimum 2 caratères.
+                    </div>
+                    <div *ngIf="nom?.valid && nom?.touched" class="text-success">
+                      nom validée!
+                    </div>
+
                   </div>
                   <div class="form-group col-md-6">
                     <label>Prenom</label>
-                    <input type="text"
-                          class="form-control"
-                          placeholder="Maryam"
-                          [(ngModel)]="employe.prenom"
-                          name="prenom">
+                    <input type="text" class="form-control" formControlName="prenom" placeholder="Maryam"
+                      [(ngModel)]="employe.prenom" name="prenom">
+                    <div *ngIf="prenom?.invalid && prenom?.touched" class="text-danger">
+                      prenom invalide minimum 2 caratères.
+                    </div>
+                    <div *ngIf="prenom?.valid && prenom?.touched" class="text-success">
+                      prenom validée!
+                    </div>
+
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label>Num CIN</label>
-                    <input type="text"
-                          class="form-control"
-                          placeholder="11427586"
-                          [(ngModel)]="employe.cin"
-                          name="cin">
+                    <input type="text" class="form-control" formControlName="cin" placeholder="11427586"
+                      [(ngModel)]="employe.cin" name="cin">
+                    <div *ngIf="cin?.invalid && cin?.touched" class="text-danger">
+                      Numéro de CIN invalide.
+                    </div>
+                    <div *ngIf="cin?.valid && cin?.touched" class="text-success">
+                      Numéro de CIN validée!
+                    </div>
                   </div>
                   <div class="form-group col-md-6">
                     <label>Num Tel</label>
-                    <input type="tel"
-                          class="form-control"
-                          placeholder="53740917"
-                          [(ngModel)]="employe.tel"
-                          name="tel">
-
+                    <input type="tel" class="form-control" placeholder="53740917" formControlName="tel"
+                      [(ngModel)]="employe.tel" name="tel">
+                    <div *ngIf="telephone?.invalid && telephone?.touched" class="text-danger">
+                      Numéro de téléphone invalide.
+                    </div>
+                    <div *ngIf="telephone?.valid && telephone?.touched" class="text-success">
+                      Numéro de téléphone validée!
+                    </div>
                   </div>
                 </div>
                 <div class="form-group">
                   <label>Email</label>
-                  <input type="email"
-                        class="form-control"
-                        placeholder="Maryam@gmail.com"
-                        [(ngModel)]="employe.email"
-                        name="email">
+                  <input type="email" class="form-control" formControlName="email" placeholder="Maryam@gmail.com"
+                    [(ngModel)]="employe.email" name="email">
+                  <div *ngIf="email?.invalid && email?.touched" class="text-danger">
+                    invalide Email.
+                  </div>
+                  <div *ngIf="email?.valid && email?.touched" class="text-success">
+                    Email validée!
+                  </div>
+
                 </div>
                 <div class="form-group">
                   <label>Address</label>
-                  <input type="text"
-                        class="form-control"
-                        placeholder="Bizerte"
-                        [(ngModel)]="employe.adress"
-                        name="adress">
+                  <input type="text" class="form-control" placeholder="Bizerte" formControlName="adress"
+                    [(ngModel)]="employe.adress" name="adress">
+                  <div *ngIf="adress?.invalid && adress?.touched" class="text-danger">
+                    Adresse invalide.
+                  </div>
+                  <div *ngIf="adress?.valid && adress?.touched" class="text-success">
+                    Adresse validée!
+                  </div>
 
                 </div>
                 <div class="form-group">
                   <label>Date d'embauche </label>
-                  <input type="text"
-                        class="form-control"
-                        placeholder="12 Nov 2019"
-                        value="{{employe.dateEmbauche | date}}"
-                        name="dateEmbauche"
-                        disabled
-                      >
+                  <input type="text" class="form-control" placeholder="12 Nov 2019" formControlName="dateEmbauche"
+                    [(ngModel)]="employe.dateEmbauche" value="{{employe.dateEmbauche | date}}" name="dateEmbauche"
+                    readonly>
                 </div>
 
-                <button type="submit" (click)="modifierProfil()" class="btn btn-success btn-round" style="margin-left: 570px;">
+                <button type="submit" [disabled]="myFormProfil.invalid" (click)="modifierProfil()"
+                  class="btn btn-success btn-round" style="margin-left: 550px;">
                   <i class="fas fa-save fa-lg"></i>
                   Enregistrer
                 </button>
@@ -131,70 +147,67 @@
             </ng-template>
           </div>
         </div>
-        <!-- Competance -->
+        <!-- Competance Terminer -->
         <div class="card">
           <div class="card-header card-header-danger" id="backgroundColor">
             <h2 class="card-title" id="textColor">Compétance :</h2>
           </div>
-          <div class="card-body border-gradient border-gradient-purple on-light">
+          <div class="card-body border-gradient border-gradient-purple on-light " style="padding-top: 40px;">
 
-            <div class="row">
+            <div class="row" *ngFor="let competance of competanceList">
               <div class="col-md-2">
-                <label>Angular</label>
+                <label>{{competance.nomCompetance}}</label>
               </div>
-              <div class="col-md-10">
-                <div class="progress">
-                  <div class="progress-bar bg-success progress-bar-success progress-bar-striped progress-bar-animated"
-                    role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
-                    75%
-                  </div>
+              <div class="col-md-9">
+                <div>
+                  <mat-slider (input)="ModifierCompetance($event,competance)" thumbLabel [displayWith]="formatLabel"
+                    tickInterval="1000" step="1000" min="0" value="{{competance.pourcentage}}000" max="100000"
+                    #matslider aria-label="units"></mat-slider>
+
                 </div>
+
+              </div>
+              <div class="col-md-1">
+                <button type="button" (click)="SupprimerCompetance(competance)" title="Delete" class="ml-2 mb-1 close"
+                  data-dismiss="toast" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+
               </div>
             </div>
+            <div *ngIf="AddCpt">
+              <div class="row" *ngIf="AddC">
+                <div class="col-md-2">
+                  <input type="text" [(ngModel)]="AddC.nomCompetance" class="form-control" placeholder="Nom Competance">
+                </div>
+                <div class="col-md-9">
+                  <div>
+                    <mat-slider (input)="ModifierCompetance($event,AddC)" thumbLabel [displayWith]="formatLabel"
+                      tickInterval="1000" step="1000" min="0" [(ngModel)]="AddC.pourcentage" max="100000" #matslider
+                      aria-label="units"></mat-slider>
 
-            <div class="row">
-              <div class="col-md-2">
-                <label>Spring Boot</label>
-              </div>
-              <div class="col-md-10">
-                <div class="progress">
-                  <div class="progress-bar bg-warning progress-bar-success progress-bar-striped progress-bar-animated"
-                    role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-                    50%
+
                   </div>
                 </div>
-              </div>
-            </div>
+                <div class="col-md-1">
+                  <button type="button" (click)="AnnulerAdd()" title="Delete" class="ml-2 mb-1 close"
+                    data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
 
-            <div class="row">
-              <div class="col-md-2">
-                <label>Laravel</label>
-              </div>
-              <div class="col-md-10">
-                <div class="progress">
-                  <div class="progress-bar bg-danger progress-bar-success progress-bar-striped progress-bar-animated"
-                    role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
-                    30% faible
-                  </div>
                 </div>
               </div>
+              <button *ngIf="AddCpt" type="submit" (click)="SaveCompetance()" class="btn btn-success btn-round"
+                style="margin-left: 590px;">
+                <i class="fas fa-save fa-lg"></i>
+                Save
+              </button>
             </div>
-
-            <div class="row">
-              <div class="col-md-2">
-                <label>Java</label>
-              </div>
-              <div class="col-md-10">
-                <div class="progress">
-                  <div class="progress-bar progress-bar-success progress-bar-striped progress-bar-animated"
-                    role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                    100% Complete
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
+            <button *ngIf="AddCpt == false" type="submit" (click)="AddCompetance()" class="btn btn-primary btn-round"
+              style="margin-left: 590px;">
+              <i class="fas fa-plus fa-lg"></i>
+              Add
+            </button>
           </div>
         </div>
       </div>
@@ -221,7 +234,7 @@
 
 
         </div>
-        <!-- partie Pwd -->
+        <!-- partie Pwd Terminer-->
         <div class="row">
           <div class="text-center card-box border-gradient border-gradient-purple on-light">
             <div class="member-card pt-2 pb-2 ">
@@ -236,47 +249,72 @@
                     <span>&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull; </span>
                   </ng-template>
                   <ng-template #AfficherPwd>
-                    {{employe.Pwd}}
+                    {{employe.pwd}}
                   </ng-template>
                   <span><button (click)="showPwd()" class="btn btn-info ml-3"><i class="fa fa-eye"></i></button></span>
-
-                <!-- Lorsque je clique sur cette boutton ,il me rederiger vers "Settings" -->
-                <button type="button" (click)="ChangerPassword()" class="btn btn-primary mt-3  btn-rounded waves-effect w-md waves-light">
-                  <i class="fas fa-pen fa-lg"></i>
-                  Changer Password
-                </button>
+                  <button type="button" (click)="AfficherLaberlChangeMdp()"
+                    class="btn btn-primary mt-3  btn-rounded waves-effect w-md waves-light">
+                    <i class="fas fa-pen fa-lg"></i>
+                    Changer Password
+                  </button>
 
                 </div>
 
 
               </ng-template>
               <ng-template #AfficherFormulaire>
-
                 <div class="">
-                  <form>
+                  <form [formGroup]="myForm" class="needs-validation" novalidate>
                     <div class="form-group">
                       <label>Current Password</label>
-                      <input type="password"
-                            class="form-control"
-                            name="pwdAnc">
+                      <input type="password" class="form-control" formControlName="pwd" [(ngModel)]="pwd" name="pwd">
+                      <div *ngIf="testPwdInCorrect == true && Pwd?.valid && Pwd?.touched" class="text-danger">
+                        Password incorrect.
+                      </div>
+                      <div *ngIf="Pwd?.invalid && Pwd?.touched " class="text-danger">
+                        Password invalide minimum 2 caratères.
+                      </div>
+                      <div *ngIf="testPwdInCorrect == false && Pwd?.valid && Pwd?.touched" class="text-success">
+                        Password validée!
+                      </div>
                     </div>
                     <div class="form-group">
                       <label>New Password</label>
-                      <input type="password"
-                            class="form-control"
-                            name="NPwd">
+                      <input type="password" class="form-control" formControlName="NPwd" [(ngModel)]="NPwd" name="NPwd">
+                      <div *ngIf="Nvpwd?.invalid && Nvpwd?.touched" class="text-danger">
+                        Password invalide minimum 2 caratères.
+                      </div>
+                      <div *ngIf="Nvpwd?.valid && Nvpwd?.touched" class="text-success">
+                        Password validée!
+                      </div>
                     </div>
                     <div class="form-group">
                       <label>Re-type new Password</label>
-                      <input type="password"
-                            class="form-control"
-                            name="CPwd">
+                      <input type="password" class="form-control" name="CPwd" formControlName="CPwd" [(ngModel)]="CPwd">
+                      <div *ngIf="testConfirmedPwdInCorrect == true && Cfpwd?.valid && Cfpwd?.touched"
+                        class="text-danger">
+                        Confirmed password incorrect.
+                      </div>
+                      <div *ngIf="Cfpwd?.invalid && Cfpwd?.touched" class="text-danger">
+                        Password invalide minimum 2 caratères.
+                      </div>
+                      <div *ngIf="testConfirmedPwdInCorrect == false && Cfpwd?.valid && Cfpwd?.touched"
+                        class="text-success">
+                        Password validée!
+                      </div>
                     </div>
 
-                    <button type="submit" (click)="ChangerPassword()" class="btn btn-primary mt-3  btn-rounded waves-effect w-md waves-light">
+                    <button type="submit" (click)="ChangerPassword()"
+                      class="btn btn-primary mt-3  btn-rounded waves-effect w-md waves-light">
                       <i class="fas fa-save fa-lg"></i>
-                      Changer Password
+                      Save Changer
                     </button>
+
+                    <button type="submit" (click)="AnnulerChangerPassword()"
+                        class="btn btn-danger mt-3  btn-rounded waves-effect w-md waves-light" style="margin-left: 10px;">
+                        Annuler
+                     </button>
+
 
                   </form>
                 </div>
@@ -285,13 +323,13 @@
 
 
 
-              </div>
+            </div>
           </div>
 
 
 
         </div>
-        <!-- partie Site -->
+        <!-- partie Site Terminer-->
         <div class="row">
           <div class="text-center card-box border-gradient border-gradient-purple on-light">
             <div class="member-card pt-2 pb-2 ">
@@ -300,11 +338,19 @@
                 <span>
                   <img class="IconLien mr-3" src="../../assets/Icons/Github.png" alt="..." />
                 </span>
-                <span>Github</span>
-                <span class="lien"><a>Hanin103</a></span>
+                <a href="{{employe.lienGithub}}">
+                  <span>Github</span>
+                </a>
+                <span *ngIf="testInputLienG == false" class="lien"><a>{{employe.lienGithub | slice:0:10}}...</a></span>
+                <input *ngIf="testInputLienG" [(ngModel)]="employe.lienGithub" type="text" class="form-control"
+                  placeholder="Lien" id="espacement">
+                <button *ngIf="testInputLienG" (click)="ModifierLienG()" type="submit"
+                  class="btn btn-success mb-2">Confirm</button>
                 <span>
-                  <span><button class="btn btn-warning" id="btn"><i class="fas fa-pencil-alt"></i></button></span>
-                  <span><button class="btn btn-danger" id="btn"><i class="fas fa-trash-alt"></i></button></span>
+                  <span><button *ngIf="testInputLienG == false" (click)="ShowLabelGit()" class="btn btn-primary"
+                      id="btn"><i class="fas fa-pencil-alt"></i></button></span>
+                  <span><button *ngIf="testInputLienG == false" (click)="SupprimerLienG()" class="btn btn-danger"
+                      id="btn"><i class="fas fa-trash-alt"></i></button></span>
                 </span>
               </div>
               <hr>
@@ -313,25 +359,42 @@
                 <span>
                   <img class="IconLien mr-3" src="../../assets/Icons/Linkedin.png" alt="..." />
                 </span>
-                <span>LinkedIn</span>
-                <span class="lien"><a>Hanin103</a></span>
+                <a href="{{employe.lienLinkedIn}}">
+                  <span>LinkedIn</span>
+                </a>
+                <span *ngIf="testInputLienL == false" class="lien"><a>{{employe.lienLinkedIn |
+                    slice:0:10}}...</a></span>
+                <input *ngIf="testInputLienL" [(ngModel)]="employe.lienLinkedIn" type="text" class="form-control"
+                  placeholder="Lien Linkedin" id="espacement">
+                <button *ngIf="testInputLienL" (click)="ModifierLienL()" type="submit"
+                  class="btn btn-success mb-2">Confirm</button>
                 <span>
-                  <span><button class="btn btn-warning" id="btn"><i class="fas fa-pencil-alt"></i></button></span>
-                  <span><button class="btn btn-danger" id="btn"><i class="fas fa-trash-alt"></i></button></span>
+                  <span><button *ngIf="testInputLienL == false" (click)="ShowLabelLinkedIn()" class="btn btn-primary"
+                      id="btn"><i class="fas fa-pencil-alt"></i></button></span>
+                  <span><button *ngIf="testInputLienL == false" (click)="SupprimerLienL()" class="btn btn-danger"
+                      id="btn"><i class="fas fa-trash-alt"></i></button></span>
                 </span>
               </div>
-
               <hr>
               <!-- Lien Facebook -->
               <div class="">
                 <span>
                   <img class="IconLienFace" src="../../assets/Icons/Facebook.png" alt="..." />
                 </span>
-                <span>Facebook</span>
-                <span class="lien"><a>Hanin103</a></span>
+                <a href="{{employe.lienFacebook}}">
+                  <span>Facebook</span>
+                </a>
+                <span *ngIf="testInputLienF == false" class="lien"><a>{{employe.lienFacebook |
+                    slice:0:10}}...</a></span>
+                <input *ngIf="testInputLienF" [(ngModel)]="employe.lienFacebook" type="text" class="form-control"
+                  placeholder="Lien Facebook" id="espacement">
+                <button *ngIf="testInputLienF" (click)="ModifierLienF()" type="submit"
+                  class="btn btn-success mb-2">Confirm</button>
                 <span>
-                  <span><button class="btn btn-warning" id="btn"><i class="fas fa-pencil-alt"></i></button></span>
-                  <span><button class="btn btn-danger" id="btn"><i class="fas fa-trash-alt"></i></button></span>
+                  <span><button *ngIf="testInputLienF == false" (click)="ShowLabelFacebook()" class="btn btn-primary"
+                      id="btn"><i class="fas fa-pencil-alt"></i></button></span>
+                  <span><button *ngIf="testInputLienF == false" (click)="SupprimerLienF()" class="btn btn-danger"
+                      id="btn"><i class="fas fa-trash-alt"></i></button></span>
                 </span>
               </div>
               <hr>
@@ -340,14 +403,22 @@
                 <span>
                   <img class="IconLienInsta" src="../../assets/Icons/Instagram.png" alt="..." />
                 </span>
-                <span>Instagram</span>
-                <span class="lien"><a>Hanin103</a></span>
+                <a href="{{employe.lienInstagram}}">
+                  <span>Instagram</span>
+                </a>
+                <span *ngIf="testInputLienI == false" class="lien"><a>{{employe.lienInstagram |
+                    slice:0:10}}...</a></span>
+                <input *ngIf="testInputLienI" [(ngModel)]="employe.lienInstagram" type="text" class="form-control"
+                  placeholder="Lien Instagram" id="espacement">
+                <button *ngIf="testInputLienI" (click)="ModifierLienI()" type="submit"
+                  class="btn btn-success mb-2">Confirm</button>
                 <span>
-                  <span><button class="btn btn-warning" id="btn"><i class="fas fa-pencil-alt"></i></button></span>
-                  <span><button class="btn btn-danger" id="btn"><i class="fas fa-trash-alt"></i></button></span>
+                  <span><button *ngIf="testInputLienI == false" (click)="ShowLabelInstagram()" class="btn btn-primary"
+                      id="btn"><i class="fas fa-pencil-alt"></i></button></span>
+                  <span><button *ngIf="testInputLienI == false" (click)="SupprimerLienI()" class="btn btn-danger"
+                      id="btn"><i class="fas fa-trash-alt"></i></button></span>
                 </span>
               </div>
-
             </div>
           </div>
 

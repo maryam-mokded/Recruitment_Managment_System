@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'interviewer', loadChildren: () => import('./interviewer/interviewer.module').then(m => m.InterviewerModule) },
   { path: 'user-profil', loadChildren: () => import('./user-profil/user-profil.module').then(m => m.UserProfilModule) }];
 
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

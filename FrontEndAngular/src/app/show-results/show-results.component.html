@@ -4,7 +4,7 @@
   <ng-template #thenBlock>
     <div mat-dialog-title id="dialog-title">
       <div>
-        <h2>Consulter resultats de vos offre</h2>
+        <h2>Consult the results of your offers application </h2>
       </div>
       <div><button id="IconClose" (click)="onClose()"><i class="fas fa-times"></i></button></div>
     </div>
@@ -50,18 +50,18 @@
   <ng-template #elseBlock>
     <div mat-dialog-title id="dialog-title">
       <div>
-        <h2>Consulter resultats de vos offre du condidat '  {{condidatList[0].user?.nom}}  {{condidatList[0].user?.prenom}} '</h2>
+        <h2>Consult the results of  " {{condidatList[0].user?.nom}}  {{condidatList[0].user?.prenom}} " application</h2>
       </div>
       <div><button id="IconClose" (click)="onClose()"><i class="fas fa-times"></i></button></div>
     </div>
     <hr>
-    <h2>Information du condidat:</h2>
+    <h2>Condidate informations :</h2>
      <p> Email : {{condidatList[0].user?.email}}</p>
      <p> Cin : {{condidatList[0].user?.cin}}</p>
-     <p> Adresse : {{condidatList[0].user?.adress}}</p>
-     <p> Numéro du téléphone : {{condidatList[0].user?.tel}}</p>
+     <p> Adress : {{condidatList[0].user?.adress}}</p>
+     <p> Phone Number : {{condidatList[0].user?.tel}}</p>
       <hr>
-     <h2> Les Offres a postulé :</h2>
+     <h2> Offers applied in :</h2>
       <ul *ngFor="let offre of condidatList">
         <li>
           {{offre.offre?.titre}}
@@ -71,18 +71,18 @@
           </ng-template>
           <div *ngIf="offre.interviewDate != null && offre.note == 0 ; then PassInterviewBlock "></div>
           <ng-template #PassInterviewBlock>
-            <span id="warning"> ( <i class="fas fa-exclamation-triangle"></i> interview planifié )</span>
+            <span id="warning"> ( <i class="fas fa-exclamation-triangle"></i> scheduled interview )</span>
           </ng-template>
 
           <div *ngIf="offre.interviewDate != null && offre.note == -1 ; then refuserBlock "></div>
           <ng-template #refuserBlock>
-            <span id="danger"> ( Refuser <i class="fas fa-times"></i> ) </span>
+            <span id="danger"> ( Rejected <i class="fas fa-times"></i> ) </span>
           </ng-template>
 
 
           <div *ngIf="offre.interviewDate != null && offre.note != 0  && offre.note != -1; then adminBlock "></div>
           <ng-template #adminBlock>
-            <span id="succes"> ( Admin <i class="fas fa-check"></i> ) </span>
+            <span id="succes"> ( Accepted <i class="fas fa-check"></i> ) </span>
           </ng-template>
 
         </li>

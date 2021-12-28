@@ -10,6 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
+
 
 import { UserProfilRoutingModule } from './user-profil-routing.module';
 import { UserProfilComponent } from './user-profil.component';
@@ -35,7 +37,8 @@ import { UpdatePhotoComponent } from './update-photo/update-photo.component';
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSliderModule,
   ]
 })
 export class UserProfilModule { }
