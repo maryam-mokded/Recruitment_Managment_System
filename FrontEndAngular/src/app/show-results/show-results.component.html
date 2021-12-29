@@ -61,7 +61,10 @@
      <p> Adress : {{condidatList[0].user?.adress}}</p>
      <p> Phone Number : {{condidatList[0].user?.tel}}</p>
       <hr>
-     <h2> Offers applied in :</h2>
+
+      <div *ngIf="TestInterviewDetails == false && TestAcceptedOffre == false;">
+
+      <h2> Offers applied in :</h2>
       <ul *ngFor="let offre of condidatList">
         <li>
           {{offre.offre?.titre}}
@@ -71,7 +74,7 @@
           </ng-template>
           <div *ngIf="offre.interviewDate != null && offre.note == 0 ; then PassInterviewBlock "></div>
           <ng-template #PassInterviewBlock>
-            <span id="warning"> ( <i class="fas fa-exclamation-triangle"></i> scheduled interview )</span>
+            <span id="warning"> ( <i class="fas fa-exclamation-triangle"></i> scheduled interview )</span> <span style="color: blue;font-size: large;margin-left: 20px;"><a (click)="AfficherDetailsInterview(offre)"><i class="fa fa-book" aria-hidden="true" title="Show More details"></i></a></span>
           </ng-template>
 
           <div *ngIf="offre.interviewDate != null && offre.note == -1 ; then refuserBlock "></div>
@@ -80,13 +83,41 @@
           </ng-template>
 
 
-          <div *ngIf="offre.interviewDate != null && offre.note != 0  && offre.note != -1; then adminBlock "></div>
-          <ng-template #adminBlock>
-            <span id="succes"> ( Accepted <i class="fas fa-check"></i> ) </span>
+          <div *ngIf="offre.interviewDate != null && offre.note != 0  && offre.note != -1; then admiseBlock "></div>
+          <ng-template #admiseBlock>
+            <span id="succes"> ( Accepted <i class="fas fa-check"></i> ) </span> <span style="color: blue;font-size: large;margin-left: 20px;"><a (click)="AfficherAcceptedOffre(offre)"><i class="fa fa-book" aria-hidden="true" title="Show More details"></i></a></span>
           </ng-template>
 
         </li>
       </ul>
+
+      </div>
+
+
+    <!-- Details Interview -->
+    <div *ngIf="TestInterviewDetails">
+      <h2> Details Interview :</h2>
+
+        <button style="margin-left: 300px;"
+                class="btn btn-success"
+                (click)="RevenirAuStatusOffre()">
+                <i class="fas fa-hand-point-left"></i>
+              </button>
+      </div>
+
+      <!-- Offre Accepted -->
+      <div *ngIf="TestAcceptedOffre">
+      <h2 style="color: green;font-weight: bold;">
+         Congratulations {{condidatList[0].user?.prenom}} :
+         {{ MessageAcceptation }} </h2>
+       <button style="margin-left: 300px;"
+               class="btn btn-success"
+               (click)="RevenirAuStatusOffre()">
+               <i class="fas fa-hand-point-left"></i>
+              </button>
+      </div>
+
+
 
   </ng-template>
 </div>

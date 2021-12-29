@@ -13,6 +13,14 @@ import { InterviewsService } from '../Services/interviews.service';
 })
 export class ShowResultsComponent implements OnInit {
 
+
+  TestInterviewDetails:boolean=false;
+  TestAcceptedOffre:boolean=false;
+
+  MessageAcceptation:string="";
+  offreCheked:interviewList=new interviewList()
+
+
   Afficher:boolean=false;
   lien:number=0;
   idMessageDesign?:string="";
@@ -30,6 +38,28 @@ export class ShowResultsComponent implements OnInit {
   ngOnInit(): void {
     this.ValidatedForm();
   }
+
+
+  AfficherDetailsInterview(o:interviewList){
+    this.offreCheked = o
+    this.TestInterviewDetails = true;
+  }
+
+  AfficherAcceptedOffre(offre:interviewList){
+    if(offre.interviewType == "RH"){
+      this.MessageAcceptation = "  you made it the next step will be the technical interview"+
+      " You'll get notified with the date as soon as possible "
+
+    }else if(offre.interviewType == "technique"){
+      this.MessageAcceptation = " Will done ! You reached the final step if you're accepted you will be notified via a phone call"
+    }
+    this.TestAcceptedOffre = true;
+  }
+  RevenirAuStatusOffre(){
+    this.TestAcceptedOffre = false;
+    this.TestInterviewDetails = false;
+  }
+
 
   ConsultOffre() {
     this.condidatList = [];
