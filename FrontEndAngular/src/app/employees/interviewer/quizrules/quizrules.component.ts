@@ -1,5 +1,6 @@
 import { Component, OnInit , ViewChild , ElementRef} from '@angular/core';
-
+import { AuthService } from 'src/app/Services/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-quizrules',
   templateUrl: './quizrules.component.html',
@@ -8,7 +9,7 @@ import { Component, OnInit , ViewChild , ElementRef} from '@angular/core';
 export class QuizrulesComponent implements OnInit {
 
   @ViewChild('name') nameKey!: ElementRef;
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
   }

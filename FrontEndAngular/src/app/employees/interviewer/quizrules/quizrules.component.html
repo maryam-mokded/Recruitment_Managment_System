@@ -11,10 +11,10 @@
     <li>Refreching the page will reset the Quiz if you want to restart an interview </li>
   </ol>
   <h1 style="font-family: cursive;text-align: center;">If the condidate Succeeded in answering all ! he will pass to the final job interview !<br><i class="fa fa-smile-o"></i></h1>
-  <div class="name col-md-4 my-3">
+  <div *ngIf="authService.isInterviewer()" class="name col-md-4 my-3">
     <label form="">Enter Condidate Name : </label>
     <input #name type="text" class="form-control">
   </div>
-  <button class="btn btn-success btn" routerLink="/employees/interviewer/quiz" (click)="startQuiz()">Start the Interview !</button>
+  <button *ngIf="authService.isInterviewer()"  class="btn btn-success btn" routerLink="/employees/interviewer/quiz" (click)="startQuiz()">Start the Interview !</button>
 
 </div>
