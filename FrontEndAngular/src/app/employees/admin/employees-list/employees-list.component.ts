@@ -32,6 +32,7 @@ export class EmployeesListComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
+   
   }
 
   reloadData() {
@@ -64,7 +65,6 @@ export class EmployeesListComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-
     localStorage.setItem('IdUser', JSON.stringify(employee.idUser));
     this.dialog.open(EmployeeDetailsComponent, dialogConfig);
     //this.router.navigate(['employees/admin/detailemployee', id]);
