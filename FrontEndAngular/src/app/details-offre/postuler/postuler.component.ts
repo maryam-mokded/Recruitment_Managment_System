@@ -55,7 +55,7 @@ export class PostulerComponent implements OnInit {
   }
 
   addCondidat(): void {
-      if (this.selectedFiles) {
+    if (this.selectedFiles) {
       const file: File | null = this.selectedFiles.item(0);
       if (file) {
         this.currentFile = file;
@@ -85,13 +85,7 @@ export class PostulerComponent implements OnInit {
          this.IdCondAdd = condid.idUser;
          //console.log(condid.idUser);
        });
-  /* this.condServ
-      .AjouterCondidat(this.NewCondidat,this.OneOffer?.idOffre!)
-      .subscribe(condid=>{
-        this.IdCondAdd = condid.idUser;
-        //console.log(condid.idUser);
-      });
-      this.dialogClose.closeAll();*/
+      this.dialogClose.closeAll();
   }
 
   OffreDetailsMethode(){
