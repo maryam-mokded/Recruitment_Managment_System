@@ -5,17 +5,57 @@ class MyHomePage extends StatelessWidget {
 
   final String title;
 
- @override
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        backgroundColor: Colors.teal,
-      ),
-      body: Center(
+    return DefaultTabController(
+      length: 4,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("RMS"),
+          //centerTitle: true,
+          leading: IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () {},
+          ),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.notifications_none),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: const Icon(Icons.login_outlined),
+              onPressed: () {
+                Navigator.pushNamed(context, '/login');
+              },
+            ),
+          ],
+          //backgroundColor: Colors.purple,
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.purple, Colors.teal],
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft,
+              ),
+            ),
+          ),
+          bottom: const TabBar(
+            indicatorColor: Colors.white,
+            indicatorWeight: 5,
+            tabs: [
+              Tab(icon: Icon(Icons.home), text: 'Home'),
+              Tab(icon: Icon(Icons.face), text: 'Profile'),
+              Tab(icon: Icon(Icons.settings), text: 'Settings'),
+              Tab(icon: Icon(Icons.star), text: 'Star'),
+            ],
+          ),
+        ),
+        body:   Center(
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
            children:<Widget>[
+
             const Text(
               "My Home Page",
               style: TextStyle(
@@ -24,7 +64,6 @@ class MyHomePage extends StatelessWidget {
                 color: Colors.teal
               ),
             ),
-
 
              RaisedButton(
                  child: const Text("Go To Team Page"),
@@ -147,6 +186,7 @@ class MyHomePage extends StatelessWidget {
                               onTap: () {},
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
+
                               ),
                             ),
                           ),
@@ -159,7 +199,15 @@ class MyHomePage extends StatelessWidget {
             ),
           ],
         ),
+       ),      
       ),
-    );
-  } 
+     );
+  }
+
+  Widget buildPage(String text) => Center(
+        child: Text(
+          text,
+          style: TextStyle(fontSize: 28),
+        ),
+      );
 }
