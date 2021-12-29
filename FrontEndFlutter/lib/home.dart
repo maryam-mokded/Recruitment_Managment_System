@@ -99,7 +99,7 @@ Widget buildContactPage() => Center(
                 color: Colors.teal
               ),
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 20)),
+             const Padding(padding: EdgeInsets.only(bottom: 20)),
             Padding(
               padding: const EdgeInsets.only(
                   left: 24, right: 24, top: 8, bottom: 16),
