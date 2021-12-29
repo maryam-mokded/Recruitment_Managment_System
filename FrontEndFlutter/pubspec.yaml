@@ -41,6 +41,9 @@ dependencies:
   flutter_secure_storage : ^3.3.1+1
   fl_chart : ^0.8.4
   rxdart : ^0.21.0
+  url_launcher : ^6.0.3
+  url_strategy : ^0.2.0
+  velocity_x : ^3.0.0
 
   # switch animation between light and dark theme
   animated_theme_switcher : ^2.0.1-nullsafety.0

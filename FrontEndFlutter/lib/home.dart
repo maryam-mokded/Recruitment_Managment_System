@@ -74,6 +74,14 @@ class MyHomePage extends StatelessWidget {
                  }
              ),
 
+             const Padding(padding: EdgeInsets.only(bottom: 20)),
+             RaisedButton(
+                 child: const Text("Go to Add User"),
+                 color: Colors.teal,
+                 textColor: Colors.white,
+                 onPressed: () {
+                   Navigator.pushNamed(context, '/addUser');
+                 }),
 
              const Padding(padding: EdgeInsets.only(bottom: 20)),
             RaisedButton(
@@ -83,6 +91,14 @@ class MyHomePage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/login');
                 }),
+             const Padding(padding: EdgeInsets.only(bottom: 20)),
+             RaisedButton(
+                 child: const Text("Go to List Users"),
+                 color: Colors.teal,
+                 textColor: Colors.white,
+                 onPressed: () {
+                   Navigator.pushNamed(context, '/listUsers');
+                 }),
             Padding(
               padding: const EdgeInsets.only(
                   left: 24, right: 24, top: 8, bottom: 16),
