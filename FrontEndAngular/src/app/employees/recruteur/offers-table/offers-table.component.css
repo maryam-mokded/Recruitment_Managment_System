@@ -33,8 +33,8 @@ td{
 }
 #btnAddSearch{
   display: grid;
-  grid-template-columns: 250px auto;
-  margin: 15px 180px 0px;
+  grid-template-columns: 420px auto;
+  padding-left: 100px !important;
 }
 
 #formSearch{
@@ -59,7 +59,7 @@ margin: 20px;
   background-color: #ea4542;
   color: wheat;
   font-size: 20px;
-  margin-left: 600px;
+  margin-left: 300px;
 }
 
 #LienDetails:hover{
