@@ -87,6 +87,7 @@ export class CondidatTableComponent implements OnInit {
 
   PasserAuInterview(Interview: interviewList) {
     Interview.test = 1;
+    Interview.interviewType="RH"
     this.interviewServ
       .updateInterviews(Interview.id_Interview, Interview)
       .subscribe(

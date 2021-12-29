@@ -96,8 +96,11 @@
 
     <!-- Details Interview -->
     <div *ngIf="TestInterviewDetails">
-      <h2> Details Interview :</h2>
-
+      <h2> Details Interview {{offreCheked.interviewType}}:</h2>
+        <h2>Date & time :</h2>
+        <h3>{{offreCheked.interviewDate | date: 'medium' }} {{offreCheked.time}} </h3>
+        <h2>Location :</h2>
+        <h3>{{offreCheked.location}}</h3>
         <button style="margin-left: 300px;"
                 class="btn btn-success"
                 (click)="RevenirAuStatusOffre()">

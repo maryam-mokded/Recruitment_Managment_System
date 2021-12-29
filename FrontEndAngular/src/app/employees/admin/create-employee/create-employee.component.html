@@ -1,11 +1,12 @@
 
   <!-- Content Wrapper. Contains page content -->
 
+  <div class="content-wrapper" id="page">
   <!-- <div class="content-wrapper"> -->
 
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    
+
 
     <div class="container" >
       <h1 style="color:rgb(255, 187, 0)">Formulaires</h1>
@@ -15,10 +16,10 @@
         <div class="form-row">
           <div class="form-group col-md-6 mb-3">
             <label>UserName </label>
-            <input type="text" 
-             formControlName="nom" 
+            <input type="text"
+             formControlName="nom"
              class="form-control"
-             id="nom" 
+             id="nom"
              [(ngModel)]="employee.nom"
              name="nom">
 
@@ -34,7 +35,7 @@
             <label for="pseudo">LastName</label>
             <input type="text"
              class="form-control"
-              id="prenom" 
+              id="prenom"
               formControlName="prenom"
               [(ngModel)]="employee.prenom"
               name="prenom">
@@ -44,9 +45,9 @@
               </div>
               <div *ngIf="prenom?.valid && prenom?.touched" class="text-success">
                 LastName valid!
-              </div> 
-        
-          </div> 
+              </div>
+
+          </div>
         </div>
         <div class="form-row">
 
@@ -63,14 +64,14 @@
               pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"  multiple>
             <!-- <div class="valid-feedback">Ok !</div>
               <div class="invalid-feedback">vous devez introduire un email correct !</div> -->
-              
+
               <div *ngIf="email?.invalid && email?.touched" class="text-danger">
-                Email invalid! you must enter a valid email 
+                Email invalid! you must enter a valid email
               </div>
               <div *ngIf="email?.valid && email?.touched" class="text-success">
                 Email valid !
-              </div> 
-           
+              </div>
+
             </div>
           <div class="col-md-3 mb-3">
             <label for="pays">Cin</label>
@@ -82,13 +83,13 @@
               required
               [(ngModel)]="employee.cin"
               name="cin">
-          
+
               <div *ngIf="cin?.invalid && cin?.touched" class="text-danger">
                 invalid CIN number! you must enter exactly 8 characters.
               </div>
               <div *ngIf="cin?.valid && cin?.touched" class="text-success">
                 CIN number valid !
-              </div> 
+              </div>
 
           </div>
           <div class="col-md-3 mb-3">
@@ -101,7 +102,7 @@
               </div>
               <div *ngIf="adress?.valid && adress?.touched" class="text-success">
                 Adress valid !
-              </div> 
+              </div>
 
           </div>
 
@@ -120,7 +121,7 @@
               </div>
               <div *ngIf="tel?.valid && tel?.touched" class="text-success">
                 The phone number validée!
-              </div> 
+              </div>
 
           </div>
 
@@ -159,7 +160,7 @@
   <!-- </div> -->
 
   <!-- <script>
-   
+
     (function () {
       'use strict';
       window.addEventListener('load', function () {
@@ -177,3 +178,4 @@
     })();
   </script> -->
 
+</div>
