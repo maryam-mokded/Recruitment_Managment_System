@@ -76,7 +76,8 @@ class MyLoginPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (BuildContext context) =>
-                            AdminDashboardPage(title: "Admin Dashboard")),
+                           MyApp()
+                   ),
                   );
                 },
                 padding: const EdgeInsets.all(12),

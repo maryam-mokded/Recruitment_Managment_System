@@ -13,14 +13,12 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("RMS"),
           //centerTitle: true,
-          leading: IconButton(
-            icon: const Icon(Icons.menu),
-            onPressed: () {},
-          ),
           actions: [
             IconButton(
               icon: const Icon(Icons.notifications_none),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/profil');
+              },
             ),
             IconButton(
               icon: const Icon(Icons.login_outlined),
@@ -44,13 +42,50 @@ class MyHomePage extends StatelessWidget {
             indicatorWeight: 5,
             tabs: [
               Tab(icon: Icon(Icons.home), text: 'Home'),
-              Tab(icon: Icon(Icons.face), text: 'Profile'),
-              Tab(icon: Icon(Icons.settings), text: 'Settings'),
-              Tab(icon: Icon(Icons.star), text: 'Star'),
+              Tab(icon: Icon(Icons.face), text: 'About'),
+              Tab(icon: Icon(Icons.group), text: 'Teams'),
+              Tab(icon: Icon(Icons.email), text: 'Contact'),
             ],
           ),
         ),
-        body:   Center(
+        body:  TabBarView(
+          children: [
+            buildHomePage(),
+            buildAboutPage(),
+            buildTeamsPage() ,
+            buildContactPage() ,
+          ],
+        ),    
+      ),
+     );
+  }
+Widget buildContactPage() => Center(
+        child: Text(
+          "Contact",
+          style: TextStyle(fontSize: 28),
+        ),
+      );
+
+
+   Widget buildAboutPage() => Center(
+        child: Text(
+          "About",
+          style: TextStyle(fontSize: 28),
+        ),
+      );
+
+   Widget buildTeamsPage() => Center(
+        child: Text(
+          "Teams",
+          style: TextStyle(fontSize: 28),
+        ),
+      );
+
+
+
+
+  Widget buildHomePage() {
+    return   Center(
 
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -64,41 +99,7 @@ class MyHomePage extends StatelessWidget {
                 color: Colors.teal
               ),
             ),
-
-             RaisedButton(
-                 child: const Text("Go To Team Page"),
-                 color: Colors.blue,
-                 textColor: Colors.white,
-                 onPressed: () {
-                   Navigator.pushNamed(context, '/teams');
-                 }
-             ),
-
              const Padding(padding: EdgeInsets.only(bottom: 20)),
-             RaisedButton(
-                 child: const Text("Go to Add User"),
-                 color: Colors.teal,
-                 textColor: Colors.white,
-                 onPressed: () {
-                   Navigator.pushNamed(context, '/addUser');
-                 }),
-
-             const Padding(padding: EdgeInsets.only(bottom: 20)),
-            RaisedButton(
-                child: const Text("Go to Screen 2"),
-                color: Colors.teal,
-                textColor: Colors.white,
-                onPressed: () {
-                  Navigator.pushNamed(context, '/login');
-                }),
-             const Padding(padding: EdgeInsets.only(bottom: 20)),
-             RaisedButton(
-                 child: const Text("Go to List Users"),
-                 color: Colors.teal,
-                 textColor: Colors.white,
-                 onPressed: () {
-                   Navigator.pushNamed(context, '/listUsers');
-                 }),
             Padding(
               padding: const EdgeInsets.only(
                   left: 24, right: 24, top: 8, bottom: 16),
@@ -215,15 +216,6 @@ class MyHomePage extends StatelessWidget {
             ),
           ],
         ),
-       ),      
-      ),
-     );
-  }
-
-  Widget buildPage(String text) => Center(
-        child: Text(
-          text,
-          style: TextStyle(fontSize: 28),
-        ),
-      );
+       );
+  } 
 }
