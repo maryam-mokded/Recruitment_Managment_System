@@ -1,88 +1,114 @@
-
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title> CRUD Data Table </title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title> CRUD Data Table </title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body >
-<div class="container-xl">
-	<div class="table-responsive">
-		<div class="table-wrapper">
-			<div class="table-title">
-				<div class="row">
-					<div class="col-sm-6">
-						<h2 style="font-family: Arial, Helvetica, sans-serif;"><b>Manage Interviews</b></h2>
-					</div>
-					<div class="col-sm-6">
-                    <!-- <a routerLink="../addinterview"  routerLinkActive="active" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Interview</span></a> -->
-					<a  routerLinkActive="active" class="btn btn-success" (click)="onOpenDialogCreate()"><i class="material-icons">&#xE147;</i> <span>Add New Interview</span></a>
-                    <a (click)="refrech()" class="btn btn-primary" ><i class="material-icons">&#xE863;</i> <span>refresh page </span></a>
-					</div>
-				</div>
-			</div>
-			<table class="table table-striped table-hover">
-				<thead>
-					<tr>
-						<th>
 
-						</th>
-						<th>Condidate Name</th>
-						<th>Offre Title</th>
-						<th>Interview Details</th>
-						<th>Questionnaire</th>
-						<!-- <th>Interview Date</th>
+<body>
+  <div class="container-xl">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-6">
+              <h2 style="font-family: Arial, Helvetica, sans-serif;"><b>Manage Interviews</b></h2>
+            </div>
+            <div class="col-sm-6">
+              <!-- <a routerLink="../addinterview"  routerLinkActive="active" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Interview</span></a> -->
+              <a routerLinkActive="active" class="btn btn-success" (click)="onOpenDialogCreate()"><i
+                  class="material-icons">&#xE147;</i> <span>Add New Interview</span></a>
+              <a (click)="refrech()" class="btn btn-primary"><i class="material-icons">&#xE863;</i> <span>refresh page
+                </span></a>
+            </div>
+          </div>
+        </div>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>
+
+              </th>
+              <th>Condidate Name</th>
+              <th>Offre Title</th>
+              <th>Interview Details</th>
+              <th style="text-align: center;">RH Questionnaire <br>Interview</th>
+              <th>Technical Interview</th>
+              <!-- <th>Interview Date</th>
 						<th>Interview Type</th>
 						<th>location</th>
 						<th>time</th> -->
 
 
 
-					</tr>
-				</thead>
-				<tbody>
-                    <tr *ngFor="let interview of interviews">
-                      <td>
-                        <span class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch" name="options[]" >
-                            <label class="custom-control-label" for="customSwitch"></label>
-                        </span>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let interview of interviews">
+              <td>
+                <span class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="customSwitch" name="options[]">
+                  <label class="custom-control-label" for="customSwitch"></label>
+                </span>
+              </td>
+              <td>{{interview.user?.nom}} {{interview.user?.prenom}}</td>
+              <td>{{interview.offre?.titre}}</td>
+              <td style="text-align: center;">
+                <!-- <a (click)="updateInterviews(interview.id_Interview)" class="update" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a> -->
+                <a (click)="onOpenDialogUpdate(interview)" *ngIf="authService.isInterviewer()" class="update"
+                  style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
+                    title="Affect Interview">&#xE254;</i></a>
+                <a (click)="interviewDetails(interview)" class="view" style="cursor: pointer;" data-toggle="modal"><i
+                    class="material-icons" data-toggle="tooltip" title="View interview details">&#xE417;</i></a>
+                <a (click)="deleteInterviews(interview.id_Interview)" *ngIf="authService.isInterviewer()" class="delete"
+                  style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
+                    title="Delete">&#xE872;</i></a>
+              </td>
+
+              <td style="text-align: center;">
+                <div *ngIf="interview!.interviewType == 'RH'; then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>
+              
+                <a (click)="questionDetails(interview)" class="assignment" style="cursor: pointer;" data-toggle="modal">
+                  <mat-icon title="view questions List">assignment</mat-icon>
+                </a>
+                <a (click)="PasserAuTechnicalAuInterview(interview)" class="acceptCond" data-toggle="modal"><i
+                    class="material-icons" data-toggle="tooltip"><i title="interview done"
+                      class="fas fa-check"></i></i>
+                </a>
+              </ng-template>
+              <ng-template #elseBlock>
+                <h3 style="color: gray;"> done</h3>
+                </ng-template>
+              </td>
+              <td style="text-align: center;">
+                <div *ngIf="interview!.interviewType == 'technique'; then technincalThenBlock else technicalElsethenBlock"></div>
+                <ng-template #technincalThenBlock>
+                   <button class="btn btn-success" (click)="PasserInterviewNow(interview)"  data-toggle="modal">Pass Now</button>
+              </ng-template>
+              <ng-template #technicalElsethenBlock>
+               <h3 style="color: gray;"> not yet !</h3>
+              </ng-template>
                     </td>
-						<td>{{interview.user?.nom}} {{interview.user?.prenom}}</td>
-						<td>{{interview.offre?.titre}}</td>
-                        <!-- <td>{{interview.interviewDate}}</td>
-                        <td>{{interview.interviewType}}</td>
-                        <td>{{interview.location}}</td>
-						<td>{{interview.time}}</td> -->
-						<td>
-							<!-- <a (click)="updateInterviews(interview.id_Interview)" class="update" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a> -->
-							<a (click)="onOpenDialogUpdate(interview)" *ngIf="authService.isInterviewer()" class="update" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Affect Interview">&#xE254;</i></a>
-              <a (click)="interviewDetails(interview)" class="view" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View interview details">&#xE417;</i></a>
-							<a (click)="deleteInterviews(interview.id_Interview)" *ngIf="authService.isInterviewer()" class="delete" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-						</td>
-						<td>
-							<a (click)="questionDetails(interview)" class="assignment" style="cursor: pointer;" data-toggle="modal"><mat-icon title="view questions List">assignment</mat-icon></a>
+            </tr>
+          </tbody>
+        </table>
+        <div class="clearfix">
+          <div class="hint-text">Showing <b>3</b> out of <b>25</b> entries</div>
+          <ul class="pagination">
+            <li class="page-item disabled"><a href="#">Previous</a></li>
+            <li class="page-item"><a href="#" class="page-link">1</a></li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item"><a href="#" class="page-link">3</a></li>
+            <li class="page-item"><a href="#" class="page-link">4</a></li>
+            <li class="page-item"><a href="#" class="page-link">5</a></li>
+            <li class="page-item"><a href="#" class="page-link">Next</a></li>
+          </ul>
+        </div>
+      </div>
 
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<div class="clearfix">
-				<div class="hint-text">Showing <b>3</b> out of <b>25</b> entries</div>
-				<ul class="pagination">
-					<li class="page-item disabled"><a href="#">Previous</a></li>
-					<li class="page-item"><a href="#" class="page-link">1</a></li>
-					<li class="page-item"><a href="#" class="page-link">2</a></li>
-					<li class="page-item"><a href="#" class="page-link">3</a></li>
-					<li class="page-item"><a href="#" class="page-link">4</a></li>
-					<li class="page-item"><a href="#" class="page-link">5</a></li>
-					<li class="page-item"><a href="#" class="page-link">Next</a></li>
-				</ul>
-			</div>
-		</div>
-
-	</div>
-</div>
+    </div>
+  </div>

@@ -70,6 +70,7 @@
             <p> Questions List</p>
           </a>
         </li>
+
         <!-- Partie Interview Quiz lel Interviewr wel admin -->
         <li *ngIf="authService.isAdmin() || authService.isInterviewer()" class="nav-item">
           <a routerLink="interviewer/quiz" class="nav-link">
@@ -77,6 +78,7 @@
             <p> Interview Quiz </p>
           </a>
         </li>
+
         <!-- Partie Quiz rules lel Interviewr khw -->
         <li *ngIf="authService.isInterviewer() || authService.isAdmin() " class="nav-item">
           <a routerLink="interviewer/quizrules" class="nav-link">
