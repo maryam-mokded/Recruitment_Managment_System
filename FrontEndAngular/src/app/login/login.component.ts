@@ -30,8 +30,15 @@ err:number=0;
     this.authService.login(this.user).subscribe((data)=> {
       let jwToken : any   = data.headers.get('Authorization');
       this.authService.saveToken(jwToken);
+
+      if(this.authService.isAdmin()){
+        this.router.navigate(['/employees/admin/dashboardAdmin']);
+      }
+      else{
+        this.router.navigate(['/employees/user-profil/profil']);   
+      }
       //this.router.navigate(['/']);     
-       this.router.navigate(['/employees/admin/employeesList']);           
+       //this.router.navigate(['/employees/admin/employeesList']);           
     },(err)=>{   this.err = 1;
 });
 
