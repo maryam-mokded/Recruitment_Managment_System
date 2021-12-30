@@ -87,17 +87,16 @@ Widget buildContactPage() => Center(
 
 
   Widget buildHomePage() {
-    return   Center(
-
+    return   Container(
+      margin: const EdgeInsets.only(top: 30.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
            children:<Widget>[
-
             const Text(
-              "My Home Page",
+              "Our Offers",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 40,
+                fontSize: 30 ,
                 color: Colors.teal
               ),
             ),
