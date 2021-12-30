@@ -60,7 +60,7 @@ class MyEmployeesPage extends StatelessWidget {
               ),*/
 
            child: Padding(
-             padding: const EdgeInsets.only(right: 210.0),
+             padding: const EdgeInsets.only(left: 215.0),
              child: Column(
                  children: [
                    RaisedButton( //mennaa
@@ -70,7 +70,7 @@ class MyEmployeesPage extends StatelessWidget {
                      },
 
                      child: Icon(Icons.add),
-                     color: Colors.amber,
+                     color: Colors.yellow[200]!,
                    ),
 
   ]

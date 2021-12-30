@@ -21,6 +21,8 @@ class RecrutmentManagmentSystem extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+
+
       home: const MyHomePage(title: 'My Home Page'),
        routes: {
           '/home': (BuildContext context) => const MyHomePage(title: "home"),
@@ -29,7 +31,11 @@ class RecrutmentManagmentSystem extends StatelessWidget {
           '/profil': (BuildContext context) => const MyProfilApp(),
          '/addUser': (BuildContext context) => AddUser(),
          '/listUsers': (BuildContext context) => ListUsers(),
+
+
         },
+
+
     );
   }
 }

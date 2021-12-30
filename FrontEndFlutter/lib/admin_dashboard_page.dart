@@ -16,6 +16,8 @@ void main() {
   runApp(const MyApp());
 }
 
+
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -64,7 +66,8 @@ class _AdminDashboardPage extends State<MyHomePage> {
             gradient: LinearGradient(
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
-              colors: <Color>[Colors.greenAccent[400]!, Colors.blue[400]!],
+              //Yellow[200] / deepPurpule[200]
+              colors: <Color>[Colors.yellow[200]!, Colors.deepPurple[200]!],
             ),
           ),
         ),
@@ -74,11 +77,13 @@ class _AdminDashboardPage extends State<MyHomePage> {
             Icons.search,
             color: Colors.white,
           ),
+
+
+
+
           IconButton(
             icon: const Icon(Icons.logout_outlined),
-            onPressed: () {
-              Navigator.pop(context);
-            },
+            onPressed: () => Navigator.pushNamed(context,'/login'),
           ),
         ],
         backgroundColor: Colors.teal,
@@ -338,3 +343,4 @@ class Sidenav extends StatelessWidget {
     );
   }
 }
+

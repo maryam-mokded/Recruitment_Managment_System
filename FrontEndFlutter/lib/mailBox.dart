@@ -24,7 +24,7 @@ class MyMailBoxPage extends StatelessWidget {
                   gradient: LinearGradient(
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
-                    colors: <Color>[Colors.greenAccent[400]!, Colors.blue[400]!],
+                    colors: <Color>[Colors.yellow[200]!, Colors.deepPurple[200]!],
                   ),
                   boxShadow: [
                     new BoxShadow(
@@ -97,15 +97,15 @@ class MyMailBoxPage extends StatelessWidget {
                           elevation: 10.0,
                           shadowColor: Colors.grey.withOpacity(0.5),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
+                            borderRadius: BorderRadius.circular(20.0),
                           ),
                           child: Container(
-                            height: 200,
-                            width: 150,
+                            height: 150,
+                            width: 130,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.0),
+                              borderRadius: BorderRadius.circular(20.0),
                               image: DecorationImage(
-                                image: AssetImage("images/100.jpg"),
+                                image: AssetImage("images/email2.png"),
                                 fit: BoxFit.fill,
                               ),
                             ),
@@ -162,14 +162,14 @@ class MyMailBoxPage extends StatelessWidget {
                               gradient: LinearGradient(
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
-                                colors: <Color>[Colors.greenAccent[400]!, Colors.blue[400]!],
+                                colors: <Color>[Colors.yellow[200]!, Colors.deepPurple[200]!],
                               ),
                               borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(88.0),
                               ),
                               boxShadow: [
                                 new BoxShadow(
-                                    color: Color(0xFF3EB0CD).withOpacity(0.3),
+                                    color: Colors.yellow[200]!.withOpacity(0.3),
                                     offset: new Offset(-10.0, 0.0),
                                     blurRadius: 20.0,
                                     spreadRadius: 4.0),
@@ -212,7 +212,7 @@ class MyMailBoxPage extends StatelessWidget {
                               gradient: LinearGradient(
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
-                                colors: <Color>[Colors.greenAccent[400]!, Colors.blue[400]!],
+                                colors: <Color>[Colors.yellow[200]!, Colors.deepPurple[200]!],
                               ),
                               borderRadius: const BorderRadius.only(
                                 topRight: Radius.circular(88.0),
@@ -262,7 +262,7 @@ class MyMailBoxPage extends StatelessWidget {
                               gradient: LinearGradient(
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
-                                colors: <Color>[Colors.greenAccent[400]!, Colors.blue[400]!],
+                                colors: <Color>[Colors.yellow[200]!, Colors.deepPurple[200]!],
                               ),
                               borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(88.0),
