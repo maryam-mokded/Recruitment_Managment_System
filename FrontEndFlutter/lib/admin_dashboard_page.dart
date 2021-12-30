@@ -46,11 +46,23 @@ class _AdminDashboardPage extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        flexibleSpace: Container(
+        decoration: BoxDecoration(
+        gradient: LinearGradient(
+        begin: Alignment.centerLeft,
+        end: Alignment.centerRight,
+        colors: <Color>[
+        Colors.greenAccent[400]!,
+        Colors.blue[400]!
+        ],
+    ),
+        ),
+        ),
         title: Text(''),
         actions: <Widget>[
           Icon(
             Icons.search,
-            color: Colors.black,
+            color: Colors.white,
           ),
           IconButton(
             icon: const Icon(Icons.logout_outlined),
@@ -76,6 +88,11 @@ class _AdminDashboardPage extends State<MyHomePage> {
               title: 'Profile',
             );
           }
+             return HomeScreen();
+          }
+          if (selectedIndex == 1) {
+            return const MyProfilApp();
+           }
           if (selectedIndex == 2) {
             return const MyOffersPage(
               title: 'Offers',
@@ -86,6 +103,9 @@ class _AdminDashboardPage extends State<MyHomePage> {
               title: 'Employees List',
             );
           }
+             return MyEmployeesPage();
+         }
+
           if (selectedIndex == 4) {
             return const QuestionsList(
               title: 'Question',
