@@ -371,7 +371,7 @@ class Sidenav extends StatelessWidget {
     child: ListTile(
     title: Text(' Offers '),
     selected: selectedIndex == 2,
-    leading: Icon(Icons.person_search,
+    leading: Icon(Icons.local_offer_outlined ,
     color: selectedIndex == 2
     ? Theme.of(context).primaryColor
         : Colors.black),
@@ -389,7 +389,7 @@ class Sidenav extends StatelessWidget {
     child: ListTile(
     title: Text(' Employees '),
     selected: selectedIndex == 3,
-    leading: Icon(Icons.video_camera_front,
+    leading: Icon(Icons.supervised_user_circle_sharp ,
     color: selectedIndex == 3
     ? Theme.of(context).primaryColor
         : Colors.black),
@@ -407,7 +407,7 @@ class Sidenav extends StatelessWidget {
     child: ListTile(
     title: Text(' Question '),
     selected: selectedIndex == 4,
-    leading: Icon(Icons.admin_panel_settings,
+    leading: Icon(Icons.fact_check_sharp,
     color: selectedIndex == 4
     ? Theme.of(context).primaryColor
         : Colors.black),
