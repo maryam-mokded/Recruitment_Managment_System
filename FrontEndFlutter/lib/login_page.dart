@@ -36,11 +36,12 @@ class MyLoginPage extends StatelessWidget {
               keyboardType: TextInputType.emailAddress,
               autofocus: false,
               decoration: InputDecoration(
-                icon: Icon(
+                prefixIcon: Icon(
                   Icons.email,
                   color: Colors.black,
                 ),
                 labelText: 'Email Adress',
+                border: OutlineInputBorder(),
                 hintText: ' Enter your email',
                 contentPadding: EdgeInsets.fromLTRB(20.0, 12.0, 20.0, 12.0),
               ),
@@ -55,11 +56,12 @@ class MyLoginPage extends StatelessWidget {
               autofocus: false,
               obscureText: true,
               decoration: InputDecoration(
-                icon: Icon(
+                prefixIcon: Icon(
                   Icons.lock,
                   color: Colors.black,
                 ),
                 labelText: 'Password',
+                border: OutlineInputBorder(),
                 hintText: ' Enter your password',
                 contentPadding: EdgeInsets.fromLTRB(20.0, 12.0, 20.0, 12.0),
               ),
@@ -75,9 +77,7 @@ class MyLoginPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                           MyApp()
-                   ),
+                        builder: (BuildContext context) => MyApp()),
                   );
                 },
                 padding: const EdgeInsets.all(12),
