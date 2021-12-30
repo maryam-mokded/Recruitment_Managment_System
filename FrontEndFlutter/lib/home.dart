@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:front_end_flutter/TeamPages/master.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -52,7 +53,7 @@ class MyHomePage extends StatelessWidget {
           children: [
             buildHomePage(),
             buildAboutPage(),
-            buildTeamsPage() ,
+            Master() ,
             buildContactPage() ,
           ],
         ),    
