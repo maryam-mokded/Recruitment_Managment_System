@@ -70,10 +70,10 @@ class _AdminDashboardPage extends State<MyHomePage> {
       body: Builder(
         builder: (context) {
           if (selectedIndex == 0) {
-             return AdminPage();
+             return const AdminPage();
           }
           if (selectedIndex == 1) {
-            return const MyProfilPage(title: 'Profile',);
+            return const MyProfilApp();
            }
           if (selectedIndex == 2) {
              return const MyOffersPage(title: 'Offers',);

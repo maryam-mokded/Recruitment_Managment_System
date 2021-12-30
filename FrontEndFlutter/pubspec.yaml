@@ -58,7 +58,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
-
+  font_awesome_flutter: ^9.1.0
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -75,6 +75,7 @@ flutter:
     - images/login.png
     - images/logos.png 
     - images/offre.png
+    - images/cover.jpg
     - images/
     
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -99,6 +100,18 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
-  #
+  # #
+  # fonts:
+  #   - family: Raleway
+  #     fonts:
+  #       - asset: fonts/Raleway-Regular.ttf
+  #       - asset: fonts/Raleway-Italic.ttf
+  #         style: italic
+  #   - family: RobotoMono
+  #     fonts:
+  #       - asset: fonts/RobotoMono-Regular.ttf
+  #       - asset: fonts/RobotoMono-Bold.ttf
+  #         weight: 700
+  # uses-material-design: true
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
