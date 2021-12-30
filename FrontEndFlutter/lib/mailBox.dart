@@ -209,7 +209,11 @@ class MyMailBoxPage extends StatelessWidget {
                               left: 20, right: 20, bottom: 20),
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Color(0xFF363F93),
+                              gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: <Color>[Colors.greenAccent[400]!, Colors.blue[400]!],
+                              ),
                               borderRadius: const BorderRadius.only(
                                 topRight: Radius.circular(88.0),
                               ),
@@ -255,7 +259,11 @@ class MyMailBoxPage extends StatelessWidget {
                               left: 20, right: 20, bottom: 20),
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Color(0xFF363F93),
+                              gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: <Color>[Colors.greenAccent[400]!, Colors.blue[400]!],
+                              ),
                               borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(88.0),
                               ),
