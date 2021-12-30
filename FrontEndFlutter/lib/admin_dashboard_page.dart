@@ -86,7 +86,7 @@ class _AdminDashboardPage extends State<MyHomePage> {
              return HomeScreen();
           }
           if (selectedIndex == 1) {
-            return const MyProfilPage(title: 'Profile',);
+            return const MyProfilApp();
            }
           if (selectedIndex == 2) {
              return const MyOffersPage(title: 'Offers',);
