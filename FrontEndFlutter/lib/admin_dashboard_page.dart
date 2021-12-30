@@ -12,37 +12,27 @@ import 'package:front_end_flutter/profil.dart';
 import 'package:front_end_flutter/questionsList.dart';
 import 'package:front_end_flutter/interviews.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return new MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
+      theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Admin Dashboard'),
+      home: new MyDashboardPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
+class MyDashboardPage extends StatefulWidget {
   @override
-  State<MyHomePage> createState() => _AdminDashboardPage();
+  _AdminDashboardPage createState() => new _AdminDashboardPage();
 }
-
-class _AdminDashboardPage extends State<MyHomePage> {
+class _AdminDashboardPage extends State<MyDashboardPage> {
   int selectedIndex = 0;
 
   get handleClick => null;
@@ -98,9 +88,7 @@ class _AdminDashboardPage extends State<MyHomePage> {
           }
 
           if (selectedIndex == 2) {
-            return const MyOffersPage(
-              title: 'Offers',
-            );
+            return const MyOfferPageApp();
           }
           if (selectedIndex == 3) {
             return MyEmployeesPage();
@@ -148,12 +136,14 @@ class Sidenav extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
-          children: [
+     children: [
       Padding(
       padding: EdgeInsets.all(6.0),
-      child: Image(
-        image: AssetImage('images/logos.png'),
+      child:   image: NetworkImage(
+                   'https://static.remove.bg/remove-bg-web/6cc620ebfb5922c21227f533a09d892abd65defa/assets/start_remove-c851bdf8d3127a24e2d137a55b1b427378cd17385b01aec6e59d5d4b5f39d2ec.png'
+              ),
         height: 50.0,
+
       ),
     ),
     Padding(
