@@ -47,16 +47,13 @@ class _AdminDashboardPage extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Container(
-        decoration: BoxDecoration(
-        gradient: LinearGradient(
-        begin: Alignment.centerLeft,
-        end: Alignment.centerRight,
-        colors: <Color>[
-        Colors.greenAccent[400]!,
-        Colors.blue[400]!
-        ],
-    ),
-        ),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: <Color>[Colors.greenAccent[400]!, Colors.blue[400]!],
+            ),
+          ),
         ),
         title: Text(''),
         actions: <Widget>[
@@ -81,31 +78,20 @@ class _AdminDashboardPage extends State<MyHomePage> {
       body: Builder(
         builder: (context) {
           if (selectedIndex == 0) {
-            return AdminPage();
-          }
-          if (selectedIndex == 1) {
-            return const MyProfilPage(
-              title: 'Profile',
-            );
-          }
-             return HomeScreen();
+            return HomeScreen();
           }
           if (selectedIndex == 1) {
             return const MyProfilApp();
-           }
+          }
+
           if (selectedIndex == 2) {
             return const MyOffersPage(
               title: 'Offers',
             );
           }
           if (selectedIndex == 3) {
-            return const MyEmployeesPage(
-              title: 'Employees List',
-            );
+            return MyEmployeesPage();
           }
-             return MyEmployeesPage();
-         }
-
           if (selectedIndex == 4) {
             return const QuestionsList(
               title: 'Question',
@@ -113,8 +99,8 @@ class _AdminDashboardPage extends State<MyHomePage> {
           }
           if (selectedIndex == 5) {
             return Calendar(
-              // title: 'Calendar',
-            );
+                // title: 'Calendar',
+                );
           }
           if (selectedIndex == 6) {
             return const MyMailBoxPage(
