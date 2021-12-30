@@ -36,11 +36,11 @@ class ListUsers extends StatelessWidget {
         children: <Widget>[
           Container(
             margin: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
-            height: 50,
-            child: ListView(
+             height: 50,
+           child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                'Featured item',
+                'Featured itemmmm',
                 'Most recent',
                 'Item 1',
                 'Item 2',
@@ -78,12 +78,16 @@ class ListUsers extends StatelessWidget {
                     ],
                   ),
                   child: ListTile(
-                    leading: Image.network(
+
+                    trailing: SizedBox(
+                        height: 50, width: 90, child: Image.network(e.image,)),
+
+                  /*  leading: Image.network(
                       e.image,
                       fit: BoxFit.cover,
                       width: 90,
                       height: 160,
-                    ),
+                    ),*/
                     title: Text(
                       e.lastname +" \n"+e.firstname,
                       style: TextStyle(fontSize: 25),
@@ -118,7 +122,8 @@ class ListUsers extends StatelessWidget {
                   ),
                 ),
               )
-                  .toList())
+                  .toList()
+          )
         ],
       ),
     );
