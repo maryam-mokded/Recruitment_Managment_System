@@ -13,12 +13,11 @@ class MyHomePage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const Text("RMS"),
-          //centerTitle: true,
           actions: [
             IconButton(
               icon: const Icon(Icons.notifications_none),
               onPressed: () {
-                Navigator.pushNamed(context, '/profil');
+                Navigator.pushNamed(context, '/offer');
               },
             ),
             IconButton(
@@ -51,7 +50,7 @@ class MyHomePage extends StatelessWidget {
         ),
         body:  TabBarView(
           children: [
-            buildHomePage(),
+            buidBoucleOffers(),
             buildAboutPage(),
             Master() ,
             buildContactPage() ,
@@ -60,7 +59,30 @@ class MyHomePage extends StatelessWidget {
       ),
      );
   }
-Widget buildContactPage() => Center(
+  
+  Widget buidBoucleOffers(){
+    return ListView(
+         children:<Widget> [
+            Padding(padding: EdgeInsets.only(top: 30)),
+           Center(
+            child: Text(
+              "Our Offers",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 30 ,
+                color: Colors.teal
+              ),
+            ),
+           ),
+            buildHomePage(),
+            buildHomePage(),
+            buildHomePage(),
+  
+          ],
+    );
+  }
+  
+  Widget buildContactPage() => Center(
         child: Text(
           "Contact",
           style: TextStyle(fontSize: 28),
@@ -87,19 +109,9 @@ Widget buildContactPage() => Center(
 
   Widget buildHomePage() {
     return   Container(
-      margin: const EdgeInsets.only(top: 30.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
            children:<Widget>[
-            const Text(
-              "Our Offers",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 30 ,
-                color: Colors.teal
-              ),
-            ),
-             const Padding(padding: EdgeInsets.only(bottom: 20)),
             Padding(
               padding: const EdgeInsets.only(
                   left: 24, right: 24, top: 8, bottom: 16),

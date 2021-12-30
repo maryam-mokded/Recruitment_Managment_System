@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:front_end_flutter/TeamPages/master.dart';
+import 'package:front_end_flutter/admin_dashboard_page.dart';
+import 'package:front_end_flutter/offers.dart';
 import 'package:front_end_flutter/profil.dart';
 import 'package:front_end_flutter/forms/addUser.dart';
 import 'package:front_end_flutter/forms/listUser.dart';
-import 'home.dart';
+import 'package:front_end_flutter/home.dart';
 import 'package:front_end_flutter/login_page.dart';
 
 void main()  {
@@ -29,6 +31,8 @@ class RecrutmentManagmentSystem extends StatelessWidget {
           '/profil': (BuildContext context) => const MyProfilApp(),
          '/addUser': (BuildContext context) => AddUser(),
          '/listUsers': (BuildContext context) => ListUsers(),
+          '/offer': (BuildContext context) => const MyOfferPageApp(),
+         '/dasboard': (BuildContext context) => MyApp(),
         },
     );
   }
