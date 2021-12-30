@@ -11,7 +11,7 @@ class QuestionsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Questions List ')),
+      // appBar: AppBar(title: Text('Questions List ')),
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(
         onPressed: () {

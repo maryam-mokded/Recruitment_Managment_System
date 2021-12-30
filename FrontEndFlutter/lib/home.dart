@@ -27,6 +27,7 @@ class MyHomePage extends StatelessWidget {
               },
             ),
           ],
+
           //backgroundColor: Colors.purple,
           flexibleSpace: Container(
             decoration: const BoxDecoration(
@@ -229,5 +230,9 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
        );
-  } 
+  }
+
 }
+
+
+

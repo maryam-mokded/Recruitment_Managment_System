@@ -47,7 +47,8 @@ class _MyProfilPage extends State<ProfilPage> {
     return Column(
       children: [
         const SizedBox(height: 8),
-        const Text('Maryam Mokded', style: TextStyle(fontSize: 28,fontWeight:  FontWeight.bold)),
+        const Text('Maryam Mokded',
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
         const SizedBox(
           height: 8,
         ),
@@ -114,14 +115,14 @@ class _MyProfilPage extends State<ProfilPage> {
         children: [
           Text(
             "About",
-            style: TextStyle(fontSize: 23,fontWeight:FontWeight.bold),
+            style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           Text(
             "Flutter Software Engineer and google Developper Expert for Flutter & Dart with  years of experience  as a consultant  for multiple compaines  in Europe ,USA and Asia  ",
             style: TextStyle(fontSize: 14, height: 1.4),
           ),
-           Text(
+          Text(
             "My mission is to  create better world  with beautiful Flutter App designs and software !",
             style: TextStyle(fontSize: 14, height: 1.4),
           ),
@@ -131,7 +132,7 @@ class _MyProfilPage extends State<ProfilPage> {
   }
 
   Widget buildTop() {
-    final bottom = profilHeigh / 2 ;
+    final bottom = profilHeigh / 2;
     final top = coverHight - profilHeigh / 2;
     return Stack(
       clipBehavior: Clip.none,
@@ -154,8 +155,7 @@ class _MyProfilPage extends State<ProfilPage> {
       radius: profilHeigh / 2,
       backgroundColor: Colors.grey.shade800,
       backgroundImage: const NetworkImage(
-        'https://static.remove.bg/remove-bg-web/6cc620ebfb5922c21227f533a09d892abd65defa/assets/start_remove-c851bdf8d3127a24e2d137a55b1b427378cd17385b01aec6e59d5d4b5f39d2ec.png'
-      ),
+          'https://static.remove.bg/remove-bg-web/6cc620ebfb5922c21227f533a09d892abd65defa/assets/start_remove-c851bdf8d3127a24e2d137a55b1b427378cd17385b01aec6e59d5d4b5f39d2ec.png'),
     );
   }
 
