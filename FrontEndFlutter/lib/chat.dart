@@ -53,7 +53,7 @@ class _ChatState extends State<Chat> {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: FloatingActionButton(
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.deepPurple[200],
               onPressed: () {
                 _onImageButtonPressed(ImageSource.gallery);
               },
@@ -63,7 +63,7 @@ class _ChatState extends State<Chat> {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: FloatingActionButton(
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.deepPurple[200],
               onPressed: () {
                 _onImageButtonPressed(ImageSource.camera);
               },

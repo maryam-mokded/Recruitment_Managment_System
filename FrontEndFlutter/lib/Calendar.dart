@@ -73,7 +73,7 @@ class _CalendarState extends State<Calendar> {
               calendarStyle: CalendarStyle(
                 isTodayHighlighted: true,
                 selectedDecoration: BoxDecoration(
-                  color: Colors.blue,
+                 color: Colors.yellow[200]!,
                   shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.circular(5.0),
                 ),
@@ -97,7 +97,7 @@ class _CalendarState extends State<Calendar> {
                 titleCentered: true,
                 formatButtonShowsNext: false,
                 formatButtonDecoration: BoxDecoration(
-                  color: Colors.blue,
+                  color:Colors.deepPurple[200]!,
                   borderRadius: BorderRadius.circular(5.0),
                 ),
                 formatButtonTextStyle: TextStyle(
@@ -153,7 +153,11 @@ class _CalendarState extends State<Calendar> {
           ),
         ),
         label: Text("Add Event"),
+
+          backgroundColor: Colors.deepPurple[200],
+
         icon: Icon(Icons.add),
+
       ),
     );
   }

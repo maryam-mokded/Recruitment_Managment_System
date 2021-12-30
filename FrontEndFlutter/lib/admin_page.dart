@@ -28,10 +28,20 @@ class AdminPage extends State<HomeScreen> {
           Container(
             height: size.height * .3,
             decoration: BoxDecoration(
-              image: DecorationImage(
-                  alignment: Alignment.topCenter,
-                  image: AssetImage('images/top_header.png')),
-            ),
+                borderRadius:
+                BorderRadius.only(bottomRight: Radius.circular(30),bottomLeft: Radius.circular(30)),
+                gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: <Color>[Colors.yellow[200]!, Colors.deepPurple[200]!],
+                ),
+                boxShadow: [
+                  new BoxShadow(
+                      color: Color(0xFF3EB0CD).withOpacity(0.2),
+                      offset: new Offset(-10.0, 0.0),
+                      blurRadius: 40.0,
+                      spreadRadius: 10.0)
+                ]),
           ),
           SafeArea(
             child: Padding(
@@ -56,12 +66,14 @@ class AdminPage extends State<HomeScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text(
-                              'DashBoard Admin',
-                              style: TextStyle(
-                                  fontFamily: "Montserrat Medium",
-                                  color: Colors.white,
-                                  fontSize: 28),
+                            Center(
+                              child: Text(
+                                '    DashBoard Admin',
+                                style: TextStyle(
+                                    fontFamily: "Montserrat Medium",
+                                    color: Colors.white,
+                                    fontSize: 31),
+                              ),
                             ),
                            /* Text(
                               'nourguerfali08@gmail.com',
