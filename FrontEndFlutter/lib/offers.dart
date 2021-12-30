@@ -69,9 +69,32 @@ class _MyOfferPageState extends State<MyOfferPage> {
               decoration: InputDecoration(
                   labelText: 'Number of positions', border: OutlineInputBorder()),
             ),
+            CheckboxListTile(
+                controlAffinity: ListTileControlAffinity.leading,
+                activeColor: Colors.deepPurple[200],
+                value: value, 
+                title: Text("I accept",style: TextStyle(color:Colors.grey ,fontSize : 15)),
+
+               onChanged: (value)=>
+                    setState(()=>this.value = value!),
+             ),
             Padding(padding: EdgeInsets.only(top: 20)),
             FlatButton(
-              onPressed: () {},
+              onPressed: () {
+                 final snackBar = SnackBar(
+                content: const Text('Add button!',style:TextStyle(color:Colors.black)),             
+                backgroundColor: Colors.yellow[200],
+                duration: Duration(seconds: 10),
+                action: SnackBarAction(
+                  label: 'ok',
+                  onPressed: () {
+                    // Some code to undo the change.
+                  },
+                ),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+              },
               color: Colors.yellow[200],
               padding: EdgeInsets.fromLTRB(60, 20, 50,20),
               child: Text("Add"),
@@ -82,6 +105,19 @@ class _MyOfferPageState extends State<MyOfferPage> {
                Padding(padding: EdgeInsets.only(top: 20)),
             FlatButton(
               onPressed: () {
+                 final snackBar = SnackBar(
+                content: const Text('Cancel change Button !',style:TextStyle(color:Colors.black)),             
+                backgroundColor: Colors.deepPurple[200],
+                duration: Duration(seconds: 10),
+                action: SnackBarAction(
+                  label: 'ok',
+                  onPressed: () {
+                    // Some code to undo the change.
+                  },
+                ),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
                 },
               color: Colors.deepPurple[200],
               child: Text("Cancel"),
