@@ -1,6 +1,10 @@
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:front_end_flutter/Calendar.dart';
+import 'package:front_end_flutter/TeamPages/themes.dart';
 import 'package:front_end_flutter/admin_page.dart';
+import 'package:front_end_flutter/chat.dart';
 import 'package:front_end_flutter/employees.dart';
 import 'package:front_end_flutter/mailBox.dart';
 import 'package:front_end_flutter/offers.dart';
@@ -46,8 +50,17 @@ class _AdminDashboardPage extends State<MyHomePage> {
   get handleClick => null;
   @override
   Widget build(BuildContext context) {
+
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final icon = CupertinoIcons.moon_stars;
+
     return Scaffold(
       appBar: AppBar(
+
+     /*   actions: [
+
+        ],*/
+
         flexibleSpace: Container(
         decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -105,7 +118,12 @@ class _AdminDashboardPage extends State<MyHomePage> {
           }
            if (selectedIndex == 7) {
              return const MyScheduleSendPage(title: 'Send',);
+          }
 
+          if (selectedIndex == 8) {
+          return const Chat(
+          title: 'Chat',
+          );
           }
           return Container();
         },
@@ -261,6 +279,25 @@ class Sidenav extends StatelessWidget {
             },
           ),
            ),
+
+          Container(
+            color: selectedIndex == 8
+                ? Theme.of(context).primaryColorLight
+                : Colors.transparent,
+            child: ListTile(
+              title: Text(' Chat '),
+              selected: selectedIndex == 8,
+              leading: Icon(Icons.video_camera_front,
+                  color: selectedIndex == 8
+                      ? Theme.of(context).primaryColor
+                      : Colors.black),
+              onTap: () {
+                Navigator.of(context).pop();
+                onIndexChanged(8);
+              },
+            ),
+          ),
+
         ],
       ),
     );
