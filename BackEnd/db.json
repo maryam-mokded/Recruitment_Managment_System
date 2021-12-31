@@ -242,4 +242,53 @@
         "credentialsNonExpired": false
     }
 ]
+,    
+    "offers": [
+    {
+        "idOffre": 1,
+        "nbPost": 10,
+        "date": "2021-09-05T23:00:00.000+00:00",
+        "description": "Le chef de bureau répond aux objectifs commerciaux qui lui ont été attribués, avec l'aide de son équipe :\r\n\r\nExerce, au quotidien, un rôle de manager auprès du personnel du bureau.\r\n\r\nEffectue les visites de prospection, de fidélisation des clients et des partenaires.\r\n\r\nAssure le développement de la clientèle, et du relationnel avec les partenaires externes\r\n\r\nIl est responsable de la rentabilité de son bureau et des risques qu'il encourt.\r\n\r\nAnalyse les principaux indicateurs de l'activité et veille à ce que ces indicateurs soient en ligne avec les objectifs tracés.\r\n\r\nVeille à l'application rigoureuse des procédures internes de la société",
+        "titre": "Chef de bureau à Bizerte"
+    },
+    {
+        "idOffre": 2,
+        "nbPost": 20,
+        "date": "2021-12-31T15:43:37.324+00:00",
+        "description": "Ses missions sont les suivantes :\r\nPROSPECTER : Réaliser des actions de prospection auprès des entrepreneurs\r\nANALYSER : Analyser l'activité des entrepreneurs sollicitant un crédit\r\nACCOMPAGNER : Suivre le client après le déboursement du crédit\r\nRECOUVRER : Effectuer les opérations de recouvrement en lien avec la direction d'agence",
+        "titre": "Commerciaux terrain en Microfinance"
+    },
+    {
+        "idOffre": 3,
+        "nbPost": 10,
+        "date": "2021-12-31T15:43:37.324+00:00",
+        "description": "Gestion d'une équipe de télévendeurs\r\n\r\nParticiper à l'activité commerciale (phoning) et Veillez a l'atteinte des objectifs\r\n\r\nReporting avec le responsable hiérarchique\r\n\r\nFormation des futurs collaborateurs",
+        "titre": "Superviseuse Expérimente"
+    },
+    {
+        "idOffre": 4,
+        "nbPost": 20,
+        "date": "2021-12-31T15:43:37.324+00:00",
+        "description": "- Mettre en place et assurer les ateliers métier lié aux centres d’appels.\r\n- Élaborer et rédiger les supports de formation continue.\r\n- Contribuer à la préparation et à la mise en place des sessions de formations.\r\n- Animer des formations métier ou produit.\r\n- Intervenir sur des actions de montée en compétence et accompagnement personnalisé des téléopérateurs.",
+        "titre": "BPO Services recrute Formateur"
+    },
+    {
+        "idOffre": 5,
+        "nbPost": 10,
+        "date": "2021-12-31T15:43:37.324+00:00",
+        "description": "Reportant au Directeur du site et au chef de département qualité,\r\nVous êtes au cœur des problématiques qualité sur le périmètre du site : qualité système, qualité production, qualité client.\r\nVous vous assurez du déploiement de la politique qualité définie par la direction qualité division\r\nVous élaborez et maintenez le système de management qualité du site dans le respect des référentiels qualité, sécurité et environnement choisis et/ou imposés par les clients et la direction.\r\nVous représentez le client au cours de la vie série des pièces et des développements produits et process.\r\nVous réalisez les audits internes.\r\nVous définissez les mises au point et les plans de qualification des nouveaux moyens.",
+        "titre": "Responsable Qualité Produit"
+    },
+    {
+        "idOffre": 6,
+        "nbPost": 20,
+        "date": "2021-12-31T15:43:37.324+00:00",
+        "description": "Développer des procédures stockées en PL/SQL selon le besoin clients.\r\nDéveloppements autour des déclencheurs LDD (Triggers).\r\nParticiper aux estimations de complexité des développements sur le produit.\r\nApporter votre expertise technique pour analyser les incidents soulevés par le client.\r\nGérer la documentation·",
+        "titre": "Développement DataWarehouses"
+    }
+]
+
+
+
+
 }
