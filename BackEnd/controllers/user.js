@@ -50,3 +50,40 @@ exports.profile = (req, res, next) => {
     .then(user => res.status(200).json(user))
     .catch(error => res.status(500).json({ error }));
 };
+
+exports.all = (req, res) => {
+  User.find()
+    .then(user => res.status(200).json(user))
+    .catch(err => res.status(400).json({error: err.message}));
+};
+
+
+exports.get = (req, res, next) => {
+  User.findOne({ _id: req.params.id })
+      .then(user => res.status(200).json(user))
+      .catch(error => res.status(404).json({ error }));
+  };
+
+
+exports.create = (req, res, next) => {
+  const user = new User({
+    ...req.body
+  });
+  user.save()
+    .then(() => res.status(201).json({ message: 'User created  !'}))
+    .catch(error => res.status(400).json({ error }));
+};
+
+// update an interview by id
+exports.update = (req, res, next) => {
+  User.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
+    .then(() => res.status(200).json({ message: 'User updated !'}))
+    .catch(error => res.status(400).json({ error }));
+};
+
+// delete an interview by id
+exports.delete = (req, res, next) => {
+  User.deleteOne({ _id: req.params.id })
+    .then(() => res.status(200).json({ message: 'User deleted !'}))
+    .catch(error => res.status(400).json({ error }));
+};

@@ -241,8 +241,7 @@
         "accountNonLocked": false,
         "credentialsNonExpired": false
     }
-]
-,    
+],    
     "offers": [
     {
         "idOffre": 1,
@@ -287,7 +286,6 @@
         "titre": "Développement DataWarehouses"
     }
 ]
-
 
 
 
