@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:front_end_flutter/forms/addUser.dart';
 
 
 
@@ -64,10 +65,10 @@ class MyEmployeesPage extends StatelessWidget {
              child: Column(
                  children: [
                    RaisedButton( //mennaa
-                     onPressed: () {
-                       Navigator.pushNamed(context, '/addUser');
-                       //print("FlatButton");
-                     },
+                    onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => AddUser()));
+                  },
 
                      child: Icon(Icons.add),
                      color: Colors.yellow[200]!,

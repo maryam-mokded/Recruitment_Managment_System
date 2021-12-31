@@ -22,11 +22,19 @@ class QuestionsList extends StatelessWidget {
       ),
       body: ListView.separated(
         separatorBuilder: (_, __) => Divider(height: 1, color: Colors.green),
-        itemBuilder: (_, index) {
+        itemBuilder: (context, index) {
           return Dismissible(
             key: ValueKey(QuestionsList),
+            background: Container(
+              child: const Icon(Icons.delete, size: 40, color: Colors.white),
+              color: Colors.cyan,
+            ),
             direction: DismissDirection.startToEnd,
-            onDismissed: (direction) {},
+            onDismissed: (direction) {
+              setState(() {
+                QuestionsList.removeAt(index);
+              });
+            },
             child: ListTile(
               title: Text(
                 'Question',
@@ -44,4 +52,8 @@ class QuestionsList extends StatelessWidget {
       ),
     );
   }
+
+  void setState(Null Function() param0) {}
+
+  static void removeAt(int index) {}
 }
