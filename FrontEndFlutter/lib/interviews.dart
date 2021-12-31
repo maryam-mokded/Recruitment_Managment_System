@@ -1,3 +1,5 @@
+import 'dart:ffi';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
 class Interviews extends StatefulWidget {
@@ -10,155 +12,130 @@ class Interviews extends StatefulWidget {
 }
 
 class _InterviewsState extends State<Interviews> {
-  late TextEditingController controller;
-  String name = "";
-  var _date = null;
-  var _time = null;
+  bool _isTimeSelected = false;
+  bool _isDateSelected = false;
+  bool _isDateRangeSelected = false;
 
-  var child;
-
-  get children => null;
-
-  @override
-  void initState() {
-    super.initState();
-    controller = TextEditingController();
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
-  Future<void> _dateSelection() async {
-    DateTime? _pickedDate = await showDatePicker(
-        context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime(1900),
-        lastDate: DateTime(2030));
-    if (_pickedDate != null) {
-      setState(() {
-        _date = _pickedDate;
-      });
-    }
-  }
-
-  Future<void> _timeSelection() async {
-    TimeOfDay? _pickedTime =
-        await showTimePicker(context: context, initialTime: TimeOfDay.now());
-    if (_pickedTime != null) {
-      setState(() {
-        _time = _pickedTime;
-      });
-    }
-  }
+  TimeOfDay currentTime = TimeOfDay.now();
+  DateTime currentDate = DateTime.now();
+  DateTimeRange currentRange = DateTimeRange
+  (start: DateTime.now(),
+   end: DateTime.now().add(Duration(days: 3)),
+   );
 
   @override
   Widget build(BuildContext context) {
-    final isKeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
       // appBar: AppBar(
-      //   title: Text(widget.title),
-      //   backgroundColor: Colors.teal,
+      //   title: Text('DatePicker'),
       // ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            // const Text(
-            //   "Interviews Schedule",
-            //   style: TextStyle(
-            //       fontWeight: FontWeight.bold,
-            //       fontSize: 20,
-            //       color: Colors.teal),
-            // ),
-            const Padding(padding: EdgeInsets.only(bottom: 20)),
-            ElevatedButton(
-              child: const Text(
-                "Select an Interview Date",
-                style: TextStyle(color: Colors.white),
+      body: Container(
+        child: ListView(
+          children: [
+            Card(
+              child: ListTile(
+                leading: Icon(Icons.timer),
+                trailing: Icon(Icons.edit),
+                title: _isTimeSelected
+                    ? Text('${currentTime.format(context).toString()}')
+                    : Text('Select your Time '),
+                onTap: () {
+                  _selectTime(context);
+                },
               ),
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  elevation: MaterialStateProperty.all(8)),
-              onPressed: _dateSelection,
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 20)),
-            const Text("Picked date is: "),
-            const Padding(padding: EdgeInsets.only(bottom: 20)),
-            Text(
-              _date == null
-                  ? "No picked date!"
-                  : '${_date.day}/${_date.month}/${_date.year}',
-              style: _date == null
-                  ? const TextStyle(color: Colors.blue)
-                  : const TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25),
-            ),
-            ElevatedButton(
-              child: const Text("Select Interview Time",
-                  style: TextStyle(color: Colors.white)),
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  elevation: MaterialStateProperty.all(8)),
-              onPressed: _timeSelection,
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 20)),
-            const Text("Picked time is: "),
-            const Padding(padding: EdgeInsets.only(bottom: 10)),
-            Text(
-              _time == null ? "No time chosen!" : '${_time.format(context)}',
-              style: _time == null
-                  ? const TextStyle(color: Colors.blue)
-                  : const TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25),
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 20)),
-            ElevatedButton(
-              child: const Text(
-                " Condidate Name",
-                style: TextStyle(color: Colors.white),
+            Card(
+              child: ListTile(
+                leading: Icon(Icons.calendar_today),
+                trailing: Icon(Icons.edit),
+                title: _isDateSelected 
+                // ? Text('${currentDate.day} / ${currentDate.month} / ${currentDate.year} ')
+                    ? Text(DateFormat('EEE, M/d/y').format(currentDate))
+                    : Text('Select your Date'),
+                onTap: () {
+          _selectDate(context);
+
+                },
               ),
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  elevation: MaterialStateProperty.all(8)),
-              onPressed: () async {
-                final name = await openDialog();
-                if (name == null || name.isEmpty) return;
-                setState(() => this.name = name);
-              },
             ),
+             Card(
+              child: ListTile(
+                leading: Icon(Icons.date_range),
+                trailing: Icon(Icons.edit),
+                title: _isDateRangeSelected 
+                // ? Text('${currentDate.day} / ${currentDate.month} / ${currentDate.year} ')
+                    ? Text("${DateFormat.yMd().format(currentRange.start)} to ${DateFormat.yMd().format(currentRange.end)}")
+                    : Text('Select your Date Range'),
+                onTap: () {
+          _selectDateRange(context);
+
+                },
+              ),
+            )
           ],
         ),
       ),
     );
   }
 
-  void submit() {
-    Navigator.of(context).pop(controller.text);
+  Future<void> _selectTime(BuildContext context) async {
+    TimeOfDay? pickedTime = await showTimePicker(
+      context: context,
+      initialTime: currentTime,
+      initialEntryMode:  TimePickerEntryMode.dial
+      helpText: 'Choose your Time',
+      confirmText: 'Choose Now',
+      cancelText: 'Later',
+      
+    );
+    if (pickedTime != null && pickedTime != currentTime) {
+      setState(() {
+        currentTime = pickedTime;
+        _isTimeSelected = true;
+      });
+    }
   }
 
-  Future<String?> openDialog() => showDialog<String>(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text('Condidat Name : '),
-          content: TextField(
-            autofocus: true,
-            decoration: InputDecoration(hintText: 'Enter condidate name'),
-          ),
-          actions: [
-            TextButton(
-              child: Text('SUBMIT'),
-              onPressed: submit,
-            ),
-          ],
-        ),
-      );
+  Future<void> _selectDate(BuildContext context) async {
+   final DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: currentDate,
+      firstDate:DateTime(2021,1,1),
+      lastDate:DateTime(2030,12,31),
+
+      //initialEntryMode:  DatePickerEntryMode.dial,
+      helpText: 'Choose your Date',
+      confirmText: 'Choose Now',
+      cancelText: 'Later',
+    );
+    if (pickedDate != null && pickedDate != currentDate) {
+      setState(() {
+        currentDate = pickedDate;
+        _isDateSelected = true;
+      });
+    }
+}
+
+
+
+  Future<void> _selectDateRange(BuildContext context) async {
+   final DateTimeRange? pickedDateRange = await showDateRangePicker(
+      context: context,
+      initialDateRange: currentRange,
+      firstDate:DateTime(2021,1,1),
+      lastDate:DateTime(2030,12,31),
+
+      //initialEntryMode:  DatePickerEntryMode.dial,
+      helpText: 'Choose your Date Range',
+      confirmText: 'Choose Now',
+      cancelText: 'Later',
+      errorInvalidRangeText : 'Invalid Date Range ',
+    );
+    if (pickedDateRange != null && pickedDateRange != currentRange) {
+      setState(() {
+        currentRange = pickedDateRange;
+        _isDateRangeSelected = true;
+      });
+    }
+}
 }

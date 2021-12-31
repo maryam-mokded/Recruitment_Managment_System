@@ -35,7 +35,7 @@ class _ChatState extends State<Chat> {
       );
     } else {
       return const Text(
-        'No image',
+        'Upload your Image here ! ',
         textAlign: TextAlign.center,
       );
     }
