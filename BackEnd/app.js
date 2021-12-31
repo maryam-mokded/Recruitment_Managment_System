@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 // const courseRouter = require('./routes/courses');
 const userRouter = require('./routes/users');
+const offerRouter = require('./routes/offers');
 
 const app = express();
 
@@ -23,5 +24,6 @@ mongoose.connect('mongodb://localhost:27017/recrutement',
 
 // app.use('/api/users', courseRouter);
 app.use('/api/users', userRouter);
+app.use('/api', offerRouter);
 
 module.exports = app;
