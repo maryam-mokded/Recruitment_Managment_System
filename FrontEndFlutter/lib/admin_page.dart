@@ -68,7 +68,7 @@ class AdminPage extends State<HomeScreen> {
                           children: <Widget>[
                             Center(
                               child: Text(
-                                '    DashBoard Admin',
+                                ' DashBoard Admin',
                                 style: TextStyle(
                                     fontFamily: "Montserrat Medium",
                                     color: Colors.white,
