@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:front_end_flutter/Geolocalisation.dart';
 import 'package:front_end_flutter/TeamPages/master.dart';
 import 'package:front_end_flutter/admin_dashboard_page.dart';
 import 'package:front_end_flutter/offers.dart';
@@ -25,20 +26,17 @@ class RecrutmentManagmentSystem extends StatelessWidget {
       ),
 
 
-      home: const MyHomePage(title: 'My Home Page'),
+      home: const MyHomePage(title: "",),
        routes: {
-          '/home': (BuildContext context) => const MyHomePage(title: "home"),
+          '/home': (BuildContext context) => const MyHomePage(title: "",),
           '/login': ( context) => const MyLoginPage(title: ""),
           '/teams': (BuildContext context) => Master(),
           '/profil': (BuildContext context) => const MyProfilApp(),
          '/addUser': (BuildContext context) => AddUser(),
          '/listUsers': (BuildContext context) => ListUsers(),
-
           '/offer': (BuildContext context) => const MyOfferPageApp(),
          '/dasboard': (BuildContext context) => MyApp(),
-
         },
-
 
     );
   }

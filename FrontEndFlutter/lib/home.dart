@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:front_end_flutter/TeamPages/master.dart';
+import 'package:front_end_flutter/login_page.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -23,7 +24,8 @@ class MyHomePage extends StatelessWidget {
             IconButton(
               icon: const Icon(Icons.login_outlined),
               onPressed: () {
-                Navigator.pushNamed(context, '/login');
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => const MyLoginPage(title: "",)));
               },
             ),
           ],
@@ -78,7 +80,11 @@ class MyHomePage extends StatelessWidget {
             buildHomePage(),
             buildHomePage(),
             buildHomePage(),
-  
+            buildHomePage(),
+            buildHomePage(),
+            buildHomePage(),
+            buildHomePage(),
+
           ],
     );
   }
