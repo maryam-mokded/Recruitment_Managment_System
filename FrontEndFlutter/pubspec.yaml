@@ -51,6 +51,7 @@ dependencies:
   page_transition : ^1.1.4
   simple_animations : ^1.3.3
   provider: ^4.3.2+3
+  intl: ^0.17.0
 
   # switch animation between light and dark theme
   animated_theme_switcher : ^2.0.1-nullsafety.0
