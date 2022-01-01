@@ -14,7 +14,9 @@ const httpOptions ={
 
 export class OffresService {
 
-  UrlApi : string = 'http://localhost:3800/offers';
+  UrlApi : string = 'http://localhost:3000/api/offers';
+  UrlApi1 : string = 'http://localhost:3000/api/offer';
+
 
 //  offers? : Offers[];
 
@@ -29,34 +31,34 @@ export class OffresService {
   }
 
   AjouterOffer(o:Offers):Observable<Offers>{
-    let jwt = this.authService.getToken();
-    jwt = "Bearer "+jwt;
-    let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-    return this.http.post<Offers>(this.UrlApi,o ,{headers:httpHeaders});
+    // let jwt = this.authService.getToken();
+    // jwt = "Bearer "+jwt;
+    // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+    return this.http.post<Offers>(this.UrlApi1,o );
   }
 
   ConsulterOffer(id:number):Observable<Offers>{
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
-    // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-    const url = `${this.UrlApi}/${id}`
+    //let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+    const url = `${this.UrlApi1}/${id}`
     return this.http.get<Offers>(url);
   }
 
   supprimerOffer(id:number){
-    let jwt = this.authService.getToken();
-      jwt = "Bearer "+jwt;
-      let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-     const url =`${this.UrlApi}/${id}`;
-    return this.http.delete(url,{headers:httpHeaders});
+    // let jwt = this.authService.getToken();
+    //   jwt = "Bearer "+jwt;
+    //   let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+     const url =`${this.UrlApi1}/${id}`;
+    return this.http.delete(url);
   }
 
   modifierOffer(o :Offers):Observable<Offers>{
-    let jwt = this.authService.getToken();
-        jwt = "Bearer "+jwt;
-        let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-    const url =`${this.UrlApi}/${o.idOffre}`;
-    return this.http.put<Offers>(url,o,{headers:httpHeaders});
+    // let jwt = this.authService.getToken();
+    //     jwt = "Bearer "+jwt;
+    //     let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+     const url =`${this.UrlApi1}/${o.idOffre}`;
+    return this.http.put<Offers>(url,o);
   }
 
 }

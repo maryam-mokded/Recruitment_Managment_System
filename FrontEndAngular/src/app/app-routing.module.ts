@@ -13,9 +13,9 @@ import { IsAuthGuard } from './gards/is-auth.guard';
 
 const routes :Routes =[
   {path:'accueil',component:AccueilComponent, canActivate: [IsAuthGuard] },
-  {path:'contact',component:ContactComponent},
-  {path:'apropos',component:AproposComponent},
-  {path:'equipe',component:EquipeComponent},
+  // {path:'contact',component:ContactComponent},
+  // {path:'apropos',component:AproposComponent},
+  // {path:'equipe',component:EquipeComponent},
   {path:'login',component:LoginComponent, canActivate: [IsAuthGuard] },
   { path:'employees', loadChildren: () => import('./employees/employees.module').then(m => m.EmployeesModule) },
   {path:'',redirectTo:'/accueil',pathMatch:'full'},

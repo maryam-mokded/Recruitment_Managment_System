@@ -13,15 +13,15 @@ export class AppComponent {
   constructor (public authService: AuthService,private router: Router) {}
 
 ngOnInit () {
-  this.authService.loadToken();
-  if (this.authService.getToken()==null || 
-      this.authService.isTokenExpired()){
-        this.router.navigate(['/']);
-   
-      }
+  // this.authService.loadToken();
+  // if (this.authService.getToken()==null ||
+  //     this.authService.isTokenExpired()){
+  //       this.router.navigate(['/']);
+
+  //     }
 }
 
-onLogout(){
-  this.authService.logout();
-}
+// onLogout(){
+//   this.authService.logout();
+// }
 }

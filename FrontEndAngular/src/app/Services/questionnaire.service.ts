@@ -7,7 +7,7 @@ import { Questionnaire } from '../Models/questionnaire';
   providedIn: 'root'
 })
 export class QuestionnaireService {
-  private baseUrl = 'http://localhost:3800/Questionnaire';
+  private baseUrl = 'http://localhost:3000//api/questionnaire';
 
   constructor(private http: HttpClient) { }
   getQuestionnaireList(): Observable<Questionnaire[]> {

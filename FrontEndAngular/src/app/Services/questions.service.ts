@@ -8,14 +8,14 @@ import { questionList } from '../Models/questions';
 })
 export class QuestionsService {
 
-  private baseUrl = 'http://localhost:3800/Questions';
+  private baseUrl = 'http://localhost:3000/api/question';
   constructor(private http: HttpClient) { }
 
-  getQuestionsList(): Observable<questionList[]> {
-    return this.http.get<questionList[]>(`${this.baseUrl}`);
+  getQuestionsList(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}`);
    }
-  getQuestions(id: number): Observable<questionList> {
-    return this.http.get<questionList>(`${this.baseUrl}/${id}`);
+  getQuestions(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/${id}`);
   }
 
    createQuestions(questions: Object): Observable<Object> {

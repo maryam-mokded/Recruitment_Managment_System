@@ -3,6 +3,7 @@ import { AuthService } from '../Services/auth.service';
 import {Router} from '@angular/router';
 import { Employee } from '../Models/employee';
 import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -12,9 +13,16 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
 user =new Employee();
 err:number=0;
+public loginForm: FormGroup;
 
-  constructor(private authService: AuthService, public router:Router ) { }
-
+  constructor( public formBuilder: FormBuilder,
+    public authService: AuthService,
+    public router: Router ) {
+    this.loginForm= this.formBuilder.group({
+      username: ['', [Validators.minLength(3), Validators.required]],
+      password: ['', [Validators.minLength(3), Validators.required]],
+    });
+   }
   // ngOnInit(): void {
   // }
 
@@ -27,9 +35,7 @@ err:number=0;
 
   onLoggedin()
   {
-    this.authService.login(this.user).subscribe((data)=> {
-      let jwToken : any   = data.headers.get('Authorization');
-      this.authService.saveToken(jwToken);
+    this.authService.login(this.loginForm.value)
 
       if(this.authService.isAdmin()){
         this.router.navigate(['/employees/admin/dashboardAdmin']);
@@ -39,9 +45,6 @@ err:number=0;
       }
       //this.router.navigate(['/']);     
        //this.router.navigate(['/employees/admin/employeesList']);           
-    },(err)=>{   this.err = 1;
-});
-
  }
 
 

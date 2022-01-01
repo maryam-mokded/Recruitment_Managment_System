@@ -13,7 +13,7 @@ const httpOptions ={
 })
 export class CompetanceService {
 
-  UrlApi : string = 'http://localhost:3800/competance';
+  UrlApi : string = 'http://localhost:3000/api/competance';
 
   constructor(private http : HttpClient) { }
 

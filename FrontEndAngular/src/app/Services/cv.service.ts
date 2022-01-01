@@ -29,12 +29,12 @@ export class CvService {
     //   });
     // }
   downloadCv(id?:number):Observable<any>{
-    let jwt = this.authService.getToken();
-    jwt = "Bearer "+jwt;
-    let httpHeaders = new HttpHeaders({"Authorization":jwt}) ;
+    // let jwt = this.authService.getToken();
+    // jwt = "Bearer "+jwt;
+    // let httpHeaders = new HttpHeaders({"Authorization":jwt}) ;
 
     const url = `${this.UrlApi}/${id}`
-    return this.http.get(url,{headers:httpHeaders});
+    return this.http.get(url );
   }
 
   UploadCv(file: File): Observable<HttpEvent<any>> {
