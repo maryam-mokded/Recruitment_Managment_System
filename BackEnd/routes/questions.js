@@ -5,7 +5,7 @@ const router = express.Router();
 
 const auth = require('./../middlewares/auth')
 
-router.get('/question',auth, questionController.all);
+router.get('/question', questionController.all);
 router.get('/question/:id',auth, questionController.get);
 router.post('/question',auth, questionController.create);
 router.put('/question/:id',auth, questionController.update);
