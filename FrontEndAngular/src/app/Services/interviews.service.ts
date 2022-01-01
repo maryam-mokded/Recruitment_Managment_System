@@ -20,16 +20,12 @@ export class InterviewsService {
   constructor(private http: HttpClient,private authService : AuthService) { }
 
   getInterviewsList(): Observable<interviewList[]> {
-    // let jwt = this.authService.getToken();
-    // jwt = "Bearer "+jwt;
-    // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+    
     return this.http.get<interviewList[]>(`${this.baseUrl}`);
    }
 
   getInterviews(id: number): Observable<interviewList> {
-    // let jwt = this.authService.getToken();
-    // jwt = "Bearer "+jwt;
-    // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+    
     return this.http.get<interviewList>(`${this.baseUrl}/${id}`);
   }
 
@@ -37,14 +33,15 @@ export class InterviewsService {
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-     return this.http.post(`${this.baseUrl}`, interviews );
+     return this.http.post(`${this.baseUrl}`, interviews);
    }
 
    updateInterviews(id: number, value: any): Observable<Object> {
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-     return this.http.put(`${this.baseUrl}/${id}`, value );
+
+     return this.http.put(`${this.baseUrl}/${id}`, value);
    }
 
    deleteInterviews(id: number): Observable<any> {
@@ -52,7 +49,7 @@ export class InterviewsService {
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
     //  return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
-     return this.http.delete(`${this.baseUrl}/${id}` );
+     return this.http.delete(`${this.baseUrl}/${id}`);
    }
 
   //  getInters(): Observable<any> {

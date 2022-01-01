@@ -26,7 +26,7 @@ export class CondidatTableComponent implements OnInit {
   idNumber: number = 0;
 
   constructor(
-    private CvServ: CvService,
+    //private CvServ: CvService,
     private dialog: MatDialog,
     private interviewServ: InterviewsService,
     public authService: AuthService
@@ -147,9 +147,9 @@ export class CondidatTableComponent implements OnInit {
 
     var idCv = interview.user?.pdfcv.idCV
     console.log(idCv)
-    this.CvServ
-        .downloadCv(idCv)
-        .subscribe();
+    // this.CvServ
+    //     .downloadCv(idCv)
+    //     .subscribe();
   }
  /* DownLoadCv(interview: interviewList) {
     console.log(interview.user?.pdfcv.idCV);

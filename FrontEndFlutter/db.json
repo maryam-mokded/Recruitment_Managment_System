@@ -1,0 +1,312 @@
+{
+    "users": [
+    {
+        "idUser": 24,
+        "tel": 53740917,
+        "photo": "photoMaryam",
+        "isAdmin": 0,
+        "username": "maryem",
+        "password": "$2a$10$H9dm.4FSoDU4KGSWcrYXNeyc2D.X90KcVrq8DA1hWVjywBfNFOAZG",
+        "enabled": null,
+        "pdfcv": {
+            "idCV": 12,
+            "pdf": "cv2.pdf"
+        },
+        "dateEmbauche": "2012-12-11T23:00:00.000+00:00",
+        "pwd": null,
+        "adress": "Bizerte",
+        "email": "Maryam@gmail.com",
+        "prenom": "Maryam",
+        "cin": 11427586,
+        "competance": null,
+        "nom": "Mokded",
+        "lienFacebook": "F",
+        "lienLinkedIn": "L",
+        "lienGithub": "G",
+        "lienInstagram": "I",
+        "authorities": [
+            {
+                "authority": "INTERVIEWER"
+            },
+            {
+                "authority": "USER"
+            }
+        ],
+        "accountNonExpired": false,
+        "accountNonLocked": false,
+        "credentialsNonExpired": false
+    },
+    {
+        "idUser": 27,
+        "tel": 54789632,
+        "photo": "photoSamia",
+        "isAdmin": 0,
+        "username": null,
+        "password": null,
+        "enabled": null,
+        "pdfcv": {
+            "idCV": 12,
+            "pdf": "cv2.pdf"
+        },
+        "adress": "Bizerte",
+        "email": "samia@gmail.com",
+        "prenom": "Samia",
+        "dateEmbauche": null,
+        "cin": 11111111,
+        "competance": null,
+        "nom": "Weslati",
+        "lienFacebook": "F",
+        "lienLinkedIn": "L",
+        "lienGithub": "G",
+        "lienInstagram": "I",
+        "authorities": [],
+        "accountNonExpired": false,
+        "accountNonLocked": false,
+        "credentialsNonExpired": false
+    },
+    {
+        "idUser": 28,
+        "tel": 56458795,
+        "photo": "photo",
+        "isAdmin": 0,
+        "username": null,
+        "password": null,
+        "enabled": null,
+        "pdfcv": {
+            "idCV": 11,
+            "pdf": "cv1.pdf"
+        },
+        "dateEmbauche": "2012-12-11T23:00:00.000+00:00",
+        "pwd": "1234",
+        "adress": "Bizerte",
+        "email": "dorraayari@gmail.com",
+        "prenom": "Ayari",
+        "cin": 11221122,
+        "competance": null,
+        "nom": "Dorra",
+        "lienFacebook": "F",
+        "lienLinkedIn": "L",
+        "lienGithub": "G",
+        "lienInstagram": "I",
+        "authorities": [],
+        "accountNonExpired": false,
+        "accountNonLocked": false,
+        "credentialsNonExpired": false
+    },
+    {
+        "idUser": 29,
+        "tel": 54891319,
+        "photo": "photo",
+        "isAdmin": 0,
+        "username": "hanin",
+        "password": "$2a$10$EfgVY9WKhjhGWmLdN.q6MuaZBunuYRavnnRsW6Vy/cOShB3Z9YpZe",
+        "enabled": null,
+        "pdfcv": {
+            "idCV": 11,
+            "pdf": "cv1.pdf"
+        },
+        "dateEmbauche": "2015-09-30T23:00:00.000+00:00",
+        "pwd": "1234",
+        "adress": "Bizerte",
+        "email": "haninbenjemaa@gmail.com",
+        "prenom": "benJemaa",
+        "cin": 11429204,
+        "competance": null,
+        "nom": "Hanin",
+        "lienFacebook": "F",
+        "lienLinkedIn": "L",
+        "lienGithub": "G",
+        "lienInstagram": "I",
+        "authorities": [
+            {
+                "authority": "USER"
+            },
+            {
+                "authority": "RECRUTEUR"
+            }
+        ],
+        "accountNonExpired": false,
+        "accountNonLocked": false,
+        "credentialsNonExpired": false
+    },
+    {
+        "idUser": 32,
+        "tel": 52186359,
+        "photo": "photoIlhem",
+        "isAdmin": 0,
+        "username": null,
+        "password": null,
+        "enabled": null,
+        "pdfcv": {
+            "idCV": 12,
+            "pdf": "cv2.pdf"
+        },
+        "adress": "Bizerte",
+        "email": "Ilhem@gmail.com",
+        "prenom": "Ilhem",
+        "dateEmbauche": null,
+        "cin": 114785236,
+        "competance": null,
+        "nom": "Ben Salha",
+        "lienFacebook": "F",
+        "lienLinkedIn": "L",
+        "lienGithub": "G",
+        "lienInstagram": "I",
+        "authorities": [],
+        "accountNonExpired": false,
+        "accountNonLocked": false,
+        "credentialsNonExpired": false
+    },
+    {
+        "idUser": 33,
+        "tel": 12345678,
+        "photo": "photo",
+        "isAdmin": 0,
+        "username": null,
+        "password": null,
+        "enabled": null,
+        "pdfcv": {
+            "idCV": 11,
+            "pdf": "cv1.pdf"
+        },
+        "dateEmbauche": "2015-09-30T23:00:00.000+00:00",
+        "pwd": "1234",
+        "adress": "Tunis",
+        "email": "hendamri102@gùail.com",
+        "prenom": "hend",
+        "cin": 1111111,
+        "competance": null,
+        "nom": "Hend",
+        "lienFacebook": "F",
+        "lienLinkedIn": "L",
+        "lienGithub": "G",
+        "lienInstagram": "I",
+        "authorities": [],
+        "accountNonExpired": false,
+        "accountNonLocked": false,
+        "credentialsNonExpired": false
+    },
+    {
+        "idUser": 34,
+        "tel": 0,
+        "photo": null,
+        "isAdmin": 0,
+        "username": null,
+        "password": null,
+        "enabled": null,
+        "pdfcv": null,
+        "dateEmbauche": "2012-12-11T23:00:00.000+00:00",
+        "pwd": null,
+        "adress": null,
+        "email": "ahmed@gmail.com",
+        "prenom": "ahmed",
+        "cin": 12345678,
+        "competance": null,
+        "nom": "ben saber",
+        "lienFacebook": null,
+        "lienLinkedIn": null,
+        "lienGithub": null,
+        "lienInstagram": null,
+        "authorities": [],
+        "accountNonExpired": false,
+        "accountNonLocked": false,
+        "credentialsNonExpired": false
+    },
+    {
+        "idUser": 35,
+        "tel": 12345678,
+        "photo": "photo",
+        "isAdmin": 0,
+        "username": null,
+        "password": null,
+        "enabled": null,
+        "pdfcv": {
+            "idCV": 11,
+            "pdf": "cv1.pdf"
+        },
+        "dateEmbauche": "2016-08-01T23:00:00.000+00:00",
+        "pwd": "1234",
+        "adress": "aaaa",
+        "email": "aaaa",
+        "prenom": "bbbbbb",
+        "cin": 1111111,
+        "competance": null,
+        "nom": "asma",
+        "lienFacebook": "F",
+        "lienLinkedIn": "L",
+        "lienGithub": "G",
+        "lienInstagram": "I",
+        "authorities": [],
+        "accountNonExpired": false,
+        "accountNonLocked": false,
+        "credentialsNonExpired": false
+    }
+],    
+    "offers": [
+    {
+        "idOffre": 1,
+        "nbPost": 10,
+        "date": "2021-09-05T23:00:00.000+00:00",
+        "description": "Le chef de bureau répond aux objectifs commerciaux qui lui ont été attribués, avec l'aide de son équipe :\r\n\r\nExerce, au quotidien, un rôle de manager auprès du personnel du bureau.\r\n\r\nEffectue les visites de prospection, de fidélisation des clients et des partenaires.\r\n\r\nAssure le développement de la clientèle, et du relationnel avec les partenaires externes\r\n\r\nIl est responsable de la rentabilité de son bureau et des risques qu'il encourt.\r\n\r\nAnalyse les principaux indicateurs de l'activité et veille à ce que ces indicateurs soient en ligne avec les objectifs tracés.\r\n\r\nVeille à l'application rigoureuse des procédures internes de la société",
+        "titre": "Chef de bureau à Bizerte"
+    },
+    {
+        "idOffre": 2,
+        "nbPost": 20,
+        "date": "2021-12-31T15:43:37.324+00:00",
+        "description": "Ses missions sont les suivantes :\r\nPROSPECTER : Réaliser des actions de prospection auprès des entrepreneurs\r\nANALYSER : Analyser l'activité des entrepreneurs sollicitant un crédit\r\nACCOMPAGNER : Suivre le client après le déboursement du crédit\r\nRECOUVRER : Effectuer les opérations de recouvrement en lien avec la direction d'agence",
+        "titre": "Commerciaux terrain en Microfinance"
+    },
+    {
+        "idOffre": 3,
+        "nbPost": 10,
+        "date": "2021-12-31T15:43:37.324+00:00",
+        "description": "Gestion d'une équipe de télévendeurs\r\n\r\nParticiper à l'activité commerciale (phoning) et Veillez a l'atteinte des objectifs\r\n\r\nReporting avec le responsable hiérarchique\r\n\r\nFormation des futurs collaborateurs",
+        "titre": "Superviseuse Expérimente"
+    },
+    {
+        "idOffre": 4,
+        "nbPost": 20,
+        "date": "2021-12-31T15:43:37.324+00:00",
+        "description": "- Mettre en place et assurer les ateliers métier lié aux centres d’appels.\r\n- Élaborer et rédiger les supports de formation continue.\r\n- Contribuer à la préparation et à la mise en place des sessions de formations.\r\n- Animer des formations métier ou produit.\r\n- Intervenir sur des actions de montée en compétence et accompagnement personnalisé des téléopérateurs.",
+        "titre": "BPO Services recrute Formateur"
+    },
+    {
+        "idOffre": 5,
+        "nbPost": 10,
+        "date": "2021-12-31T15:43:37.324+00:00",
+        "description": "Reportant au Directeur du site et au chef de département qualité,\r\nVous êtes au cœur des problématiques qualité sur le périmètre du site : qualité système, qualité production, qualité client.\r\nVous vous assurez du déploiement de la politique qualité définie par la direction qualité division\r\nVous élaborez et maintenez le système de management qualité du site dans le respect des référentiels qualité, sécurité et environnement choisis et/ou imposés par les clients et la direction.\r\nVous représentez le client au cours de la vie série des pièces et des développements produits et process.\r\nVous réalisez les audits internes.\r\nVous définissez les mises au point et les plans de qualification des nouveaux moyens.",
+        "titre": "Responsable Qualité Produit"
+    },
+    {
+        "idOffre": 6,
+        "nbPost": 20,
+        "date": "2021-12-31T15:43:37.324+00:00",
+        "description": "Développer des procédures stockées en PL/SQL selon le besoin clients.\r\nDéveloppements autour des déclencheurs LDD (Triggers).\r\nParticiper aux estimations de complexité des développements sur le produit.\r\nApporter votre expertise technique pour analyser les incidents soulevés par le client.\r\nGérer la documentation·",
+        "titre": "Développement DataWarehouses"
+    }
+],
+"questions": [ 
+                            
+    {
+        "id_Question": 19,
+        "question": "Tell me about yourself , your strengths ? weaknesses"
+    },
+    {
+        "id_Question": 20,
+        "question": "Why do you want to leave your current job?"
+    },
+    {
+        "id_Question": 21,
+        "question": "What makes you the perfect condidate for this position?"
+    },
+    {
+        "id_Question": 22,
+        "question": "Where do you see yourself five (ten or fifteen) years from now?"
+    }
+]
+
+
+
+
+}

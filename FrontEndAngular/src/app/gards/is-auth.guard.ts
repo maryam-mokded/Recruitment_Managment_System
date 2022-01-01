@@ -22,6 +22,7 @@ export class IsAuthGuard implements CanActivate {
   //       this.router.navigate(['/']);
   //     }
      return true;
+     
   }
   
 }

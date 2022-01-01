@@ -34,7 +34,7 @@ export class CvService {
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) ;
 
     const url = `${this.UrlApi}/${id}`
-    return this.http.get(url );
+    return this.http.get(url);
   }
 
   UploadCv(file: File): Observable<HttpEvent<any>> {

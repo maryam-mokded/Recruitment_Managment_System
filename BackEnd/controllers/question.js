@@ -8,7 +8,7 @@ exports.all = (req, res) => {
   
   // get a question by id
   exports.get = (req, res, next) => {
-    Question.findOne({ _id: req.params.id })
+    Question.findOne({id_Question: req.params.id })
         .then(question => res.status(200).json(question))
         .catch(error => res.status(404).json({ error }));
     };
@@ -25,14 +25,14 @@ exports.all = (req, res) => {
   
   // update a question by id
   exports.update = (req, res, next) => {
-    Question.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
+    Question.updateOne({id_Question: req.params.id }, { ...req.body,id_Question: req.params.id })
       .then(() => res.status(200).json({ message: 'Question updated !'}))
       .catch(error => res.status(400).json({ error }));
   };
   
   // delete an interview by id
   exports.delete = (req, res, next) => {
-    Question.deleteOne({ _id: req.params.id })
+    Question.deleteOne({id_Question: req.params.id })
       .then(() => res.status(200).json({ message: 'Question deleted !'}))
       .catch(error => res.status(400).json({ error }));
   };
