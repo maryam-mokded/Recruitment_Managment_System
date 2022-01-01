@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class InterviewsService {
 
-  private baseUrl = 'http://localhost:3800/Interview';
+  private baseUrl = 'http://localhost:3000/api/interview';
   // private baseUrl2 = 'http://localhost:3800/getInters';
 
   constructor(private http: HttpClient,private authService : AuthService) { }
@@ -40,6 +40,7 @@ export class InterviewsService {
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+
      return this.http.put(`${this.baseUrl}/${id}`, value);
    }
 

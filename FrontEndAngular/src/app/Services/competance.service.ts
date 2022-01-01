@@ -13,33 +13,36 @@
 // })
 // export class CompetanceService {
 
-//   UrlApi : string = 'http://localhost:3800/competance';
 
-//   constructor(private http : HttpClient) { }
+  UrlApi : string = 'http://localhost:3000/api/competance';
 
-//   ListeCompetances(): Observable<competance[]>{
-//     return this.http.get<competance[]>(this.UrlApi);
-//   }
+//  UrlApi : string = 'http://localhost:3800/competance';
 
-//   ConsulterCompetance(id:number):Observable<competance>{
-//     const url = `${this.UrlApi}/${id}`
-//     return this.http.get<competance>(url);
-//   }
+   constructor(private http : HttpClient) { }
 
-//   AjouterCompetance(comp?:competance,id?:number):Observable<competance>{
-//     const url = `${this.UrlApi}/${id}`
-//     return this.http.post<competance>(url,comp,httpOptions);
-//   }
+ ListeCompetances(): Observable<competance[]>{
+    return this.http.get<competance[]>(this.UrlApi);
+   }
 
-//   supprimerCompetance(id?:number){
-//     const url =`${this.UrlApi}/${id}`;
-//     return this.http.delete(url,httpOptions);
-//   }
+  ConsulterCompetance(id:number):Observable<competance>{
+    const url = `${this.UrlApi}/${id}`
+    return this.http.get<competance>(url);
+  }
 
-//   modifierCompetance(comp :competance):Observable<competance>{
-//     const url =`${this.UrlApi}/${comp.idCompetance}`;
-//     return this.http.put<competance>(url,comp,httpOptions);
-//   }
+  AjouterCompetance(comp?:competance,id?:number):Observable<competance>{
+    const url = `${this.UrlApi}/${id}`
+    return this.http.post<competance>(url,comp,httpOptions);
+  }
+
+  supprimerCompetance(id?:number){
+    const url =`${this.UrlApi}/${id}`;
+    return this.http.delete(url,httpOptions);
+  }
+
+  modifierCompetance(comp :competance):Observable<competance>{
+    const url =`${this.UrlApi}/${comp.idCompetance}`;
+    return this.http.put<competance>(url,comp,httpOptions);
+  }
 
 
-// }
+}

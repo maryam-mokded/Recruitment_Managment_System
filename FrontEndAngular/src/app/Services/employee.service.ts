@@ -12,12 +12,16 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class EmployeeService {
-  baseUrl : string = 'http://localhost:3800/user';
-  baseUrl2 : string ='http://localhost:3800/getUsers';
-  baseUrl3 : string = 'http://localhost:3800/getCondidats';
-  baseUrl4 : string = 'http://localhost:3800/getInters';
-  baseUrl5 : string = 'http://localhost:3800/getNbUsers';
-  baseUrl6 : string =  'http://localhost:3800/getClassName';
+  baseUrl : string = 'http://localhost:3000/api/user';
+  baseUrl2 : string ='http://localhost:3000/api/getUsers';
+  baseUrl3 : string = 'http://localhost:3000/api/getCondidats';
+  baseUrl4 : string = 'http://localhost:3000/api/getInters';
+  baseUrl5 : string = 'http://localhost:3000/api/getNbUsers';
+  baseUrl6 : string =  'http://localhost:3000/api/getClassName';
+
+  apiURL : string = 'http://localhost:3000/api/user';
+  headers = new HttpHeaders().set('Content-Type', 'application/json');
+
 
 
   constructor(private http: HttpClient,private authService : AuthService) { }

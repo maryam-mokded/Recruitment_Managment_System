@@ -14,7 +14,7 @@ const httpOptions ={
 })
 export class CondidatService {
 
-  UrlApi : string = 'http://localhost:3800/condidats';
+  UrlApi : string = 'http://localhost:3000/api/condidat';
 
   constructor(private http : HttpClient,private authService : AuthService) { }
 
@@ -56,6 +56,7 @@ export class CondidatService {
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
      const url =`${this.UrlApi}/${cond.idUser}`;
+
     return this.http.put<condidat>(url,cond);
   }
 

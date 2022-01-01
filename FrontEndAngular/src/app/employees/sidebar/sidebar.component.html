@@ -26,6 +26,9 @@
             </p>
           </a>
         </li>
+
+        <!-- Partie Dashboard lel Admin -->
+        <li class="nav-item">
   
         <li *ngIf="authService.isAdmin()" class="nav-item">
           <a routerLink="admin/dashboardAdmin" routerLinkActive="active" class="nav-link">
@@ -37,50 +40,63 @@
         </li>
        
         <li class="nav-item">
-          <a *ngIf="authService.isAdmin()" routerLink="admin/employeesList" class="nav-link ">
+          <a  routerLink="admin/employeesList" class="nav-link ">
             <i class="nav-icon fas fa-users"></i>
             <p>Employees List</p>
           </a>
         </li>
-        
-        <li *ngIf="authService.isAdmin() || authService.isRecruteur() "class="nav-item">
+        <!-- Partie Job Offers lel Admin w recruteur -->
+        <li class="nav-item">
+<!--         <li *ngIf="authService.isAdmin() || authService.isRecruteur() "class="nav-item"> -->
           <a routerLink="recruteur/Offer-Table" class="nav-link ">
             <i class="nav-icon fas fa-briefcase"></i>
             <p>Job Offres List</p>
           </a>
         </li>
+        <!-- Partie Condidates List lel Recruteur wel admin -->
+        <li class="nav-item">
        
-        <li *ngIf="authService.isAdmin() || authService.isRecruteur()"class="nav-item">
+<!--         <li *ngIf="authService.isAdmin() || authService.isRecruteur()"class="nav-item"> -->
           <a routerLink="recruteur/Condidat-Table" class="nav-link ">
             <i class="nav-icon fas fa-user-friends"></i>
             <p>Condidates List</p>
           </a>
         </li>
+
+        <!-- Partie Interviews List lel Interviewr wel admin -->
+        <li  class="nav-item">
         
-        <li *ngIf="authService.isAdmin() || authService.isInterviewer()" class="nav-item">
+<!--         <li *ngIf="authService.isAdmin() || authService.isInterviewer()" class="nav-item"> -->
           <a routerLink="interviewer/interviewList" class="nav-link ">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>Interviews List</p>
           </a>
         </li>
+
+        <!-- Partie Questions List lel Interviewr wel admin -->
+        <li  class="nav-item">
         
-        <li *ngIf="authService.isAdmin() || authService.isInterviewer()" class="nav-item">
+<!--         <li *ngIf="authService.isAdmin() || authService.isInterviewer()" class="nav-item"> -->
           <a routerLink="interviewer/questionList" class="nav-link">
             <i class="nav-icon fas fa-clipboard-list"></i>
             <p> Questions List</p>
           </a>
         </li>
 
+        <!-- Partie Interview Quiz lel Interviewr wel admin -->
+        <li class="nav-item">
    
-        <li *ngIf="authService.isAdmin() || authService.isInterviewer()" class="nav-item">
+<!--         <li *ngIf="authService.isAdmin() || authService.isInterviewer()" class="nav-item"> -->
           <a routerLink="interviewer/quiz" class="nav-link">
             <i class="nav-icon fa fa-file-video-o"></i>
             <p> Interview Quiz </p>
           </a>
         </li>
 
+        <!-- Partie Quiz rules lel Interviewr khw -->
+        <li  class="nav-item">
        
-        <li *ngIf="authService.isInterviewer() || authService.isAdmin() " class="nav-item">
+<!--         <li *ngIf="authService.isInterviewer() || authService.isAdmin() " class="nav-item"> -->
           <a routerLink="interviewer/quizrules" class="nav-link">
             <i class="nav-icon fa fa-exclamation-triangle"></i>
             <p> Quiz rules </p>
@@ -108,8 +124,11 @@
             </p>
           </a>
         </li>
+
+        <!-- Partie Mailbox lel Les Admin khw -->
+        <li  class="nav-item">
      
-        <li *ngIf="authService.isAdmin()" class="nav-item">
+<!--         <li *ngIf="authService.isAdmin()" class="nav-item"> -->
           <a routerLink="admin/mailbox" class="nav-link">
             <p>
               <i class="nav-icon far fa-envelope"></i>

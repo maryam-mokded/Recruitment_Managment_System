@@ -14,6 +14,13 @@ export class AppComponent {
 
 ngOnInit () {
   // this.authService.loadToken();
+  // if (this.authService.getToken()==null ||
+  //     this.authService.isTokenExpired()){
+  //       this.router.navigate(['/']);
+
+  //     }
+}
+
   // if (this.authService.getToken()==null 
   // //|| 
   //    // this.authService.isTokenExpired()

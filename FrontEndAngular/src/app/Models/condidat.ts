@@ -12,4 +12,14 @@ export class condidat{
   pdfcv!:Cv;
   cin!: string;
   tel!: number;
+
+    Competance!: string;
+    username!:string;
+    password!:string;
+    roles!:string[];
+
+    lienLinkedIn!:string;
+    lienFacebook!:string;
+    lienInstagram!:string;
+    lienGithub!:string;
 }
