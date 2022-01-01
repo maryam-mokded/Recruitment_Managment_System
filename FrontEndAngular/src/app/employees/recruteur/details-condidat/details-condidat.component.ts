@@ -19,7 +19,9 @@ export class DetailsCondidatComponent implements OnInit {
   constructor(
     private dialogClose: MatDialog,
     private route: ActivatedRoute,private router: Router,
-    private condidatServ: CondidatService) { }
+  //  private condidatServ: CondidatService
+  ) 
+  { }
 
   ngOnInit() {
     this.condidat =JSON.parse(localStorage.getItem('Condidat') || '[]') || [];

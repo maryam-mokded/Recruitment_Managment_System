@@ -40,7 +40,7 @@ export class PostulerComponent implements OnInit {
     private dialog: MatDialog,
     private dialogClose: MatDialog,
     private offresServ: OffresService,
-    private cvServ : CvService,
+    // private cvServ : CvService,
     private condServ: CondidatService
   ) {}
 
@@ -59,19 +59,19 @@ export class PostulerComponent implements OnInit {
       const file: File | null = this.selectedFiles.item(0);
       if (file) {
         this.currentFile = file;
-        this.cvServ.UploadCv(this.currentFile).subscribe(
-          (event: any) => {
-            console.log(event)
-            if (event.type === HttpEventType.UploadProgress) {
-              console.log(Math.round(100 * event.loaded / event.total));
-            } else if (event instanceof HttpResponse) {
-              this.message = event.body.responseMessage;
-            }
-          },
-          (err: any) => {
-            console.log(err);
-            this.currentFile = undefined;
-          });
+        // this.cvServ.UploadCv(this.currentFile).subscribe(
+        //   (event: any) => {
+        //     console.log(event)
+        //     if (event.type === HttpEventType.UploadProgress) {
+        //       console.log(Math.round(100 * event.loaded / event.total));
+        //     } else if (event instanceof HttpResponse) {
+        //       this.message = event.body.responseMessage;
+        //     }
+        //   },
+        //   (err: any) => {
+        //     console.log(err);
+        //     this.currentFile = undefined;
+        //   });
       }
       this.selectedFiles = undefined;
     }

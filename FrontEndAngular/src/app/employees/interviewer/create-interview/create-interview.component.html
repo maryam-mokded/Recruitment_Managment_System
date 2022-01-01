@@ -1,6 +1,6 @@
       
        <!-- <div class="col-md-8 offset-md-3"> -->
-        <div class="ContenuCard" [hidden]="submitted" >
+        <!-- <div class="ContenuCard" [hidden]="submitted" >
           <div class="modal-header">
               <h1 id="modal-title"><b>Add new Interview</b></h1>
             <button type="button" (click)="onClose()" class="close" data-dismiss="modal" aria-label="Close">
@@ -8,14 +8,14 @@
             </button>
           </div><br>
         <form [formGroup]="myForm" class="needs-validation" novalidate (ngSubmit)="onSubmit()">
-            <div class="form-row">
+            <div class="form-row"> -->
                 <!-- <div class="col-md-4 mb-3">
                     <label for="prenom">Id</label>
                     <input type="text" class="form-control"  id="id_Interview"  [(ngModel)]="interview.id_Interview" name="id_Interview">
                     <div class="valid-feedback">Ok !</div>
                     <div class="invalid-feedback">Valeur incorrecte</div>
                 </div> -->
-                <div class="col-md-6 mb-3">
+                <!-- <div class="col-md-6 mb-3">
                     <label for="pseudo">Interview type</label>
      <select type="text" class="form-select" id="interviewType" [(ngModel)]="interview.interviewType" name="interviewType" formControlName="interviewType" >
                       <option value="technique">technique</option>
@@ -81,14 +81,7 @@
                      Interview Date validée .
               </div>
                 </div>
-                <!-- <div class="container">
-                <mat-form-field appearance="outline">
-                    <mat-label>Interview date</mat-label>
-                    <input matInput [matDatepicker]="picker">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                  </mat-form-field>
-                  </div> -->
+                
             </div>
             <button class="btn-hover color-7" type="submit" [disabled]="myForm.invalid">Submit</button>
             <button class="btn-hover color-7" type="button" (click)="onClose()">close</button>
@@ -96,4 +89,4 @@
         </form>
         <div>
     </div>
-    </div>
+    </div> -->

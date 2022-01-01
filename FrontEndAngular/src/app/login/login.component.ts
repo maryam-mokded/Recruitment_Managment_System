@@ -3,6 +3,7 @@ import { AuthService } from '../Services/auth.service';
 import {Router} from '@angular/router';
 import { Employee } from '../Models/employee';
 import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -11,49 +12,24 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 user =new Employee();
-err:number=0;
+public loginForm: FormGroup;
 
-  constructor(private authService: AuthService, public router:Router ) { }
+  constructor(
+    public formBuilder: FormBuilder,
+    public authService: AuthService,
+    public router: Router
+  ) {
+    this.loginForm= this.formBuilder.group({
+      username: ['', [Validators.minLength(3), Validators.required]],
+      password: ['', [Validators.minLength(3), Validators.required]],
+    });
+   }
 
-  // ngOnInit(): void {
-  // }
-
-  ngOnInit () {
-    // this.authService.loadToken();
-    // if (this.authService.getToken()==null || 
-    //     this.authService.isTokenExpired())
-    //       this.router.navigate(['/']);
+  ngOnInit(): void {
   }
 
-  onLoggedin()
-  {
-    this.authService.login(this.user).subscribe((data)=> {
-      let jwToken : any   = data.headers.get('Authorization');
-      this.authService.saveToken(jwToken);
-
-      if(this.authService.isAdmin()){
-        this.router.navigate(['/employees/admin/dashboardAdmin']);
-      }
-      else{
-        this.router.navigate(['/employees/user-profil/profil']);   
-      }
-      //this.router.navigate(['/']);     
-       //this.router.navigate(['/employees/admin/employeesList']);           
-    },(err)=>{   this.err = 1;
-});
-
- }
-
-
-
-
-  mdp = "password"
-   myFunction() {
-    if (this.mdp === "password") {
-      this.mdp = "text";
-    } else {
-      this.mdp = "password";
-    }
+  loginUser() {
+    this.authService.login(this.loginForm.value)
   }
 
 }
