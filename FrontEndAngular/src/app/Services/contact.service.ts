@@ -18,33 +18,33 @@ export class ContactService {
   constructor(private http: HttpClient,private authService : AuthService) { }
 
   getContact(id: number): Observable<any> {
-    let jwt = this.authService.getToken();
-    jwt = "Bearer "+jwt;
-    let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-    return this.http.get(`${this.baseUrl}/${id}`,{headers:httpHeaders});
+    // let jwt = this.authService.getToken();
+    // jwt = "Bearer "+jwt;
+    // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+    return this.http.get(`${this.baseUrl}/${id}`);
   }
 
   createContact(contact: Object): Observable<Object> {
-    let jwt = this.authService.getToken();
-    jwt = "Bearer "+jwt;
-    let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-    return this.http.post(`${this.baseUrl}`, contact,{headers:httpHeaders});
+    // let jwt = this.authService.getToken();
+    // jwt = "Bearer "+jwt;
+    // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+    return this.http.post(`${this.baseUrl}`, contact);
   }
 
 
   deleteContact(id: number): Observable<any> {
-    let jwt = this.authService.getToken();
-    jwt = "Bearer "+jwt;
-    let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+    // let jwt = this.authService.getToken();
+    // jwt = "Bearer "+jwt;
+    // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
     // return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
-    return this.http.delete(`${this.baseUrl}/${id}`,{headers:httpHeaders});
+    return this.http.delete(`${this.baseUrl}/${id}`);
   }
 
   getContactList(): Observable<contactList[]> {
-    let jwt = this.authService.getToken();
-    jwt = "Bearer "+jwt;
-    let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-    return this.http.get<contactList[]>(`${this.baseUrl}`,{headers:httpHeaders});
+    // let jwt = this.authService.getToken();
+    // jwt = "Bearer "+jwt;
+    // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+    return this.http.get<contactList[]>(`${this.baseUrl}`);
     // return this.http.get<condidat[]>(this.UrlApi,{headers:httpHeaders});
   }
 }

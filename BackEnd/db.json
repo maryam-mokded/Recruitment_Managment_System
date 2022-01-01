@@ -286,8 +286,10 @@
         "titre": "Développement DataWarehouses"
     }
 ],
+
 "questions": [ 
                             
+
     {
         "id_Question": 19,
         "question": "Tell me about yourself , your strengths ? weaknesses"
@@ -304,6 +306,93 @@
         "id_Question": 22,
         "question": "Where do you see yourself five (ten or fifteen) years from now?"
     }
+
+],
+
+"interviews":
+[
+    {
+        "id_Interview": 42,
+        "interviewDate": "2022-01-01T11:01:53.000+00:00",
+        "interviewType": "RH",
+        "location": "virtual",
+        "time": "12:48",
+        "test": 0,
+        "note": 0,
+        "offre": null,
+        "user": null
+    },
+    {
+        "id_Interview": 43,
+        "interviewDate": "2022-01-01T11:01:53.000+00:00",
+        "interviewType": "technique",
+        "location": "physicall",
+        "time": "10:05",
+        "test": 0,
+        "note": 0,
+        "offre": null,
+        "user": null
+    },
+    {
+        "id_Interview": 44,
+        "interviewDate": "2022-01-01T11:01:53.000+00:00",
+        "interviewType": "téléphonique",
+        "location": "virtual",
+        "time": "17:00",
+        "test": 0,
+        "note": 0,
+        "offre": null,
+        "user": null
+    }
+],
+"cvs":[
+    {
+        "idCV": 11,
+        "pdf": "cv1.pdf"
+    },
+    {
+        "idCV": 12,
+        "pdf": "cv2.pdf"
+    }
+],
+
+"competances":
+[
+    {
+        "idCompetance": 7,
+        "nomCompetance": "Angular",
+        "pourcentage": 20,
+        "user": null
+    },
+    {
+        "idCompetance": 8,
+        "nomCompetance": "Laravel",
+        "pourcentage": 100,
+        "user": null
+    },
+    {
+        "idCompetance": 9,
+        "nomCompetance": "Java",
+        "pourcentage": 50,
+        "user": null
+    },
+    {
+        "idCompetance": 10,
+        "nomCompetance": "Spring Boot",
+        "pourcentage": 70,
+        "user": null
+    }
+],
+"contacts":
+[
+    {
+        "id_Contact": 23,
+        "comment": "when will you accept me ?",
+        "nom": "hanin",
+        "email": "hanin@gmail.com",
+        "prenom": "benjemaa"
+    }
+
 ]
 
 

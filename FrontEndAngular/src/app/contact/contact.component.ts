@@ -15,7 +15,9 @@ export class ContactComponent implements OnInit {
   // myForm!:FormGroup;
   submitted = false;
 
-  constructor(private contactService: ContactService) { }
+  constructor(
+    // private contactService: ContactService
+    ) { }
 
   ngOnInit(): void {
     // this.ValidatedForm();
@@ -29,12 +31,12 @@ export class ContactComponent implements OnInit {
     this.contact.id_Contact = 1;
     // let confirmation = confirm("Do you really want to send this message ?")
     // if(confirmation)
-    this.contactService.createContact(this.contact).subscribe(data => {
-      console.log(data)
-      this.contact = new contactList();
-      window.location.reload();
-    },
-      error => console.log(error));
+    // this.contactService.createContact(this.contact).subscribe(data => {
+    //   console.log(data)
+    //   this.contact = new contactList();
+    //   window.location.reload();
+    // },
+     // error => console.log(error));
   }
 
   onSubmit() {

@@ -8,10 +8,10 @@ const auth = require('./../middlewares/auth')
 router.post('/login', userController.login);
 router.get('/profil/:id', auth, userController.profile);
 
-router.get('/user',auth, userController.all);
-router.get('/user/:id',auth, userController.get);
-router.post('/user',auth, userController.create);
-router.put('/user/:id',auth, userController.update);
-router.delete('/user/:id',auth, userController.delete);
-
+router.get('/user', userController.all);
+router.get('/user/:id', userController.get);
+router.post('/user', userController.create);
+router.put('/user/:id', userController.update);
+router.delete('/user/:id', userController.delete);
+// router.delete('/user/:id',auth, userController.delete);
 module.exports = router;

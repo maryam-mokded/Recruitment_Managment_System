@@ -20,19 +20,19 @@ export class CondidatService {
 
 
   ListeCondidats(): Observable<condidat[]>{
-    let jwt = this.authService.getToken();
-    jwt = "Bearer "+jwt;
-    let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+    // let jwt = this.authService.getToken();
+    // jwt = "Bearer "+jwt;
+    // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
     
-    return this.http.get<condidat[]>(this.UrlApi,{headers:httpHeaders});
+    return this.http.get<condidat[]>(this.UrlApi);
   }
 
   ConsulterCondidat(id:number):Observable<condidat>{
-    let jwt = this.authService.getToken();
-    jwt = "Bearer "+jwt;
-    let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-    const url = `${this.UrlApi}/${id}`
-    return this.http.get<condidat>(url,{headers:httpHeaders});
+    // let jwt = this.authService.getToken();
+    // jwt = "Bearer "+jwt;
+    // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+     const url = `${this.UrlApi}/${id}`
+    return this.http.get<condidat>(url);
   }
 
   AjouterCondidat(cond:condidat,id:number):Observable<condidat>{
@@ -44,19 +44,19 @@ export class CondidatService {
   }
 
   supprimerCondidat(id:number){
-    let jwt = this.authService.getToken();
-    jwt = "Bearer "+jwt;
-    let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-    const url =`${this.UrlApi}/${id}`;
-    return this.http.delete(url,{headers:httpHeaders});
+    // let jwt = this.authService.getToken();
+    // jwt = "Bearer "+jwt;
+    // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+     const url =`${this.UrlApi}/${id}`;
+    return this.http.delete(url);
   }
 
   modifierCondidat(cond :condidat):Observable<condidat>{
-    let jwt = this.authService.getToken();
-    jwt = "Bearer "+jwt;
-    let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-    const url =`${this.UrlApi}/${cond.idUser}`;
-    return this.http.put<condidat>(url,cond,{headers:httpHeaders});
+    // let jwt = this.authService.getToken();
+    // jwt = "Bearer "+jwt;
+    // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+     const url =`${this.UrlApi}/${cond.idUser}`;
+    return this.http.put<condidat>(url,cond);
   }
 
 }

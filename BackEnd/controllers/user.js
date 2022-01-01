@@ -32,9 +32,9 @@ exports.login = (req, res, next) => {
               return res.status(401).json({ error: 'Wrong password !' });
             }
             res.status(200).json({
-              idUser: user._id,
+              idUser: user.idUser,
               token: jwt.sign(
-                { idUser: user._id },
+                { idUser: user.idUser },
                 'RANDOM_TOKEN_SECRET',
                 { expiresIn: '24h' }
               )
@@ -46,7 +46,7 @@ exports.login = (req, res, next) => {
 };
 
 exports.profile = (req, res, next) => {
-  User.findOne({ _id: req.params.id })
+  User.findOne({ idUser: req.params.id })
     .then(user => res.status(200).json(user))
     .catch(error => res.status(500).json({ error }));
 };
@@ -59,7 +59,7 @@ exports.all = (req, res) => {
 
 
 exports.get = (req, res, next) => {
-  User.findOne({ _id: req.params.id })
+  User.findOne({ idUser: req.params.id })
       .then(user => res.status(200).json(user))
       .catch(error => res.status(404).json({ error }));
   };
@@ -76,14 +76,14 @@ exports.create = (req, res, next) => {
 
 // update an interview by id
 exports.update = (req, res, next) => {
-  User.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
+  User.updateOne({ idUser: req.params.id }, { ...req.body, idUser: req.params.id })
     .then(() => res.status(200).json({ message: 'User updated !'}))
     .catch(error => res.status(400).json({ error }));
 };
 
 // delete an interview by id
 exports.delete = (req, res, next) => {
-  User.deleteOne({ _id: req.params.id })
+  User.deleteOne({ idUser: req.params.id })
     .then(() => res.status(200).json({ message: 'User deleted !'}))
     .catch(error => res.status(400).json({ error }));
 };

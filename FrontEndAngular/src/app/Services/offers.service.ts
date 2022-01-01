@@ -29,34 +29,32 @@ export class OffresService {
   }
 
   AjouterOffer(o:Offers):Observable<Offers>{
-    let jwt = this.authService.getToken();
-    jwt = "Bearer "+jwt;
-    let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-    return this.http.post<Offers>(this.UrlApi,o ,{headers:httpHeaders});
-  }
-
-  ConsulterOffer(id:number):Observable<Offers>{
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+    return this.http.post<Offers>(this.UrlApi,o );
+  }
+
+  ConsulterOffer(id:number):Observable<Offers>{
+    
     const url = `${this.UrlApi}/${id}`
     return this.http.get<Offers>(url);
   }
 
   supprimerOffer(id:number){
-    let jwt = this.authService.getToken();
-      jwt = "Bearer "+jwt;
-      let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+    // let jwt = this.authService.getToken();
+    //   jwt = "Bearer "+jwt;
+    //   let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
      const url =`${this.UrlApi}/${id}`;
-    return this.http.delete(url,{headers:httpHeaders});
+    return this.http.delete(url);
   }
 
   modifierOffer(o :Offers):Observable<Offers>{
-    let jwt = this.authService.getToken();
-        jwt = "Bearer "+jwt;
-        let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+    // let jwt = this.authService.getToken();
+    //     jwt = "Bearer "+jwt;
+    //     let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
     const url =`${this.UrlApi}/${o.idOffre}`;
-    return this.http.put<Offers>(url,o,{headers:httpHeaders});
+    return this.http.put<Offers>(url,o);
   }
 
 }
