@@ -12,6 +12,7 @@ import { Observable, throwError } from 'rxjs';
 })
 
 export class AuthService {
+
   // apiURL: string = 'http://localhost:8081/users';
   apiURL : string = 'http://localhost:3000/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -115,12 +116,7 @@ constructor(
     if (!this.roles)
         return false;
   return this.roles.indexOf('ADMIN') >=0;
-  }
-
-  isUser():Boolean{
-    if (!this.roles)
-        return false;
-  return this.roles.indexOf('ROLE_USER') >=0;
+ 
   }
 
   isInterviewer():Boolean{
@@ -163,6 +159,6 @@ constructor(
     if(this.isInterviewer())
     this.role="INTERVIEWER"
     return this.role;
-  }
 
+}
 }

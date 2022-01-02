@@ -31,7 +31,7 @@ export class CondidatService {
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-    const url = `${this.UrlApi}/${id}`
+     const url = `${this.UrlApi}/${id}`
     return this.http.get<condidat>(url);
   }
 
@@ -55,7 +55,8 @@ export class CondidatService {
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-    const url =`${this.UrlApi}/${cond.idUser}`;
+     const url =`${this.UrlApi}/${cond.idUser}`;
+
     return this.http.put<condidat>(url,cond);
   }
 

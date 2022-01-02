@@ -7,7 +7,7 @@ const auth = require('./../middlewares/auth')
 router.get('/interview', interviewController.all);
 router.get('/interview/:id', interviewController.get);
 router.post('/interview', interviewController.create);
-router.put('/interview/:id',auth, interviewController.update);
-router.delete('/interview/:id',auth, interviewController.delete);
+router.put('/interview/:id', interviewController.update);
+router.delete('/interview/:id', interviewController.delete);
 
 module.exports = router;

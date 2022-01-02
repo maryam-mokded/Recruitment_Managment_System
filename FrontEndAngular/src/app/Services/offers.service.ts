@@ -37,11 +37,10 @@ export class OffresService {
     return this.http.post<Offers>(this.UrlApi1,o );
   }
 
+
   ConsulterOffer(id:number):Observable<Offers>{
-    // let jwt = this.authService.getToken();
-    // jwt = "Bearer "+jwt;
-    //let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-    const url = `${this.UrlApi1}/${id}`
+    
+    const url = `${this.UrlApi}/${id}`
     return this.http.get<Offers>(url);
   }
 
@@ -57,6 +56,7 @@ export class OffresService {
     // let jwt = this.authService.getToken();
     //     jwt = "Bearer "+jwt;
     //     let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
+
      const url =`${this.UrlApi1}/${o.idOffre}`;
     return this.http.put<Offers>(url,o);
   }

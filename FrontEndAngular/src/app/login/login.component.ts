@@ -23,6 +23,7 @@ public loginForm: FormGroup;
       password: ['', [Validators.minLength(3), Validators.required]],
     });
    }
+  
   // ngOnInit(): void {
   // }
 
@@ -57,6 +58,6 @@ public loginForm: FormGroup;
     } else {
       this.mdp = "password";
     }
-  }
+   }
 
 }
