@@ -9,6 +9,7 @@ import 'package:front_end_flutter/chat.dart';
 import 'package:front_end_flutter/employees.dart';
 import 'package:front_end_flutter/home.dart';
 import 'package:front_end_flutter/mailBox.dart';
+import 'package:front_end_flutter/notification.dart';
 import 'package:front_end_flutter/offers.dart';
 import 'package:front_end_flutter/profil.dart';
 import 'package:front_end_flutter/questionsList.dart';
@@ -120,6 +121,9 @@ class _AdminDashboardPage extends State<MyDashboardPage> {
           }
           if (selectedIndex == 9) {
             return const MyGeolocalisationPageApp();
+          }
+          if (selectedIndex == 10) {
+            return const MyNotificationPage();
           }
         
           return Container();
@@ -340,6 +344,25 @@ class Sidenav extends StatelessWidget {
               },
             ),
           ),
+
+          Container(
+            color: selectedIndex == 10
+                ? Theme.of(context).primaryColorLight
+                : Colors.transparent,
+            child: ListTile(
+              title: Text('Notification'),
+              selected: selectedIndex == 10,
+              leading: Icon(Icons.circle_notifications,
+                  color: selectedIndex == 10
+                      ? Theme.of(context).primaryColor
+                      : Colors.black),
+              onTap: () {
+                Navigator.of(context).pop();
+                onIndexChanged(10);
+              },
+            ),
+          ),
+
         ], 
       ),
     );
