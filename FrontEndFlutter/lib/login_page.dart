@@ -48,6 +48,7 @@ class _LoginPage extends State<MyLoginPage> {
               'images/login.png',
             )),
             TextFormField(
+              controller:_textController,
               keyboardType: TextInputType.emailAddress,
               autofocus: false,
               decoration: InputDecoration(
@@ -90,11 +91,12 @@ class _LoginPage extends State<MyLoginPage> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => MyApp()),
-                  );
+                  var route = new MaterialPageRoute(
+                                builder : (BuildContext context) => 
+                                new MyDashboardPage(value:_textController.text),
+                                
+                     );
+                     Navigator.of(context).push(route);
                 },
                 padding: const EdgeInsets.all(12),
                 color: Colors.teal,
