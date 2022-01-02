@@ -58,6 +58,11 @@ dependencies:
   animated_theme_switcher : ^2.0.1-nullsafety.0
   image_picker: ^0.8.4+4
   location: ^4.3.0
+  geolocator: ^8.0.1
+  dio : ^4.0.0
+  google_maps_flutter : ^2.0.2
+  flutter_polyline_points: ^1.0.0
+
 
 dev_dependencies:
   flutter_test:
