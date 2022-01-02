@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 // import 'package:location/location.dart';
 
 void main()=>runApp(MyGeolocalisationPageApp());
@@ -23,48 +24,65 @@ class MyGeolocalisationPage extends StatefulWidget {
 
 class _MyGeolocalisationPageState extends State<MyGeolocalisationPage> {
 
-  // Location _location = Location();
-  // late LocationData _locationData;
-
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   _getPosition();
-  // }
-
-  //   Future<void>  _getPosition() async {
-  //       try{
-  //         _locationData = await _location.getLocation();
-  //       }catch(e){
-  //         print('Get Position Error : $e !');
-  //       }
-  //     }
-
+  var long = "longitude";
+  var lat = "latitude";
+  void getlocation() async {
+    LocationPermission per = await Geolocator.checkPermission();
+    if (per == LocationPermission.denied ||
+        per == LocationPermission.deniedForever) {
+      print("permission denied");
+      LocationPermission per1 = await Geolocator.requestPermission();
+    } else {
+      Position currentLoc = await Geolocator.getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.best);
+      setState(() {
+        long = currentLoc.longitude.toString();
+        lat = currentLoc.latitude.toString();
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(  
-      body: Center(child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-            Padding(padding: EdgeInsets.only(top: 50.0)),
-          const Text(
-            'Your Location is :',
-            style : TextStyle(fontSize: 28,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.deepPurple),
+    return Scaffold(
+
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                "longitude : " + long,
+                style: TextStyle(
+                  color: Colors.purpleAccent,
+                  fontSize: 30,
+                ),
+              ),
+              Text(
+                "latitude : " + lat,
+                style: TextStyle(
+                  color: Colors.purpleAccent,
+                  fontSize: 35,
+                ),
+
+              ),
+              MaterialButton(
+                onPressed: getlocation,
+                color: Colors.yellow[200]!,
+                child: Text(
+                  "Get Location",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 40,
+                  ),
+                ),
+              ),
+            ],
           ),
-          // Text(
-          //   _locationData == null ?'Waiting For Position ' : 'Latitude :${_locationData.latitude}',
-          //   style:Theme.of(context).textTheme.headline4,
-          // ),
-          // Text(
-          //   _locationData == null ?'Waiting For Position ' : 'Longitude :${_locationData.longitude}',
-          //   style:Theme.of(context).textTheme.headline4,
-          // ),
-        ],
-      ),),
+        ),
+      ),
     );
   }
 }
