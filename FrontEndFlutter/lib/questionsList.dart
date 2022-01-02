@@ -14,7 +14,7 @@ class QuestionsList extends StatefulWidget {
 }
 
 class _QuestionsListState extends State<QuestionsList> {
-  final String url = 'http://192.168.0.7:3000/question';
+  final String url = 'https://test-deploiment.herokuapp.com/Questions';
   List<dynamic> _questions = [];
   bool loading = true;
 
@@ -73,19 +73,18 @@ class _QuestionsListState extends State<QuestionsList> {
         itemBuilder: (context, index) {
           Question question = _questions[index];
           return Card(
-            color: Colors.cyan,
+            color: Colors.white,
             child: Container(
-              padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-              child: Column(
+               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Text(
                     question.question,
                     style: const TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontWeight: FontWeight.bold,
                         fontSize: 20),
-                    textAlign: TextAlign.start,
+                    textAlign: TextAlign.center,
                   ),
                 ],
               ),

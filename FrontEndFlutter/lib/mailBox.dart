@@ -186,7 +186,7 @@ class MyMailBoxPage extends StatelessWidget {
                                 Text(
                                   "Hanin Ben Jemaà",
                                   style: TextStyle(
-                                      color: Colors.white, fontSize: 12),
+                                      color: Colors.black, fontSize: 12),
                                 ),
                                 const SizedBox(
                                   height: 2,
@@ -194,7 +194,7 @@ class MyMailBoxPage extends StatelessWidget {
                                 Text(
                                   "when will i pass the interview ? ",
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -236,7 +236,7 @@ class MyMailBoxPage extends StatelessWidget {
                                 Text(
                                   "Maryem Mokded",
                                   style: TextStyle(
-                                      color: Colors.white, fontSize: 12),
+                                      color: Colors.black, fontSize: 12),
                                 ),
                                 const SizedBox(
                                   height: 2,
@@ -244,7 +244,7 @@ class MyMailBoxPage extends StatelessWidget {
                                 Text(
                                   "Good morning , hope your doing great !",
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -286,7 +286,7 @@ class MyMailBoxPage extends StatelessWidget {
                                 Text(
                                   "Nour Guerfalli",
                                   style: TextStyle(
-                                      color: Colors.white, fontSize: 12),
+                                      color: Colors.black, fontSize: 12),
                                 ),
                                 const SizedBox(
                                   height: 2,
@@ -294,7 +294,7 @@ class MyMailBoxPage extends StatelessWidget {
                                 Text(
                                   "Hi there did you get my message ? ",
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold),
                                 ),

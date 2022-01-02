@@ -1,28 +1,21 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-void main() {
-  runApp(const MyProfilApp());
-}
-
 class MyProfilApp extends StatelessWidget {
-  const MyProfilApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return new MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const ProfilPage(title: 'Profil Page'),
+      home: const ProfilPage(name: ''),
     );
   }
 }
 
 class ProfilPage extends StatefulWidget {
-  const ProfilPage({Key? key, required this.title}) : super(key: key);
+  const ProfilPage({Key? key, required this.name}) : super(key: key);
 
-  final String title;
+  final String name;
 
   @override
   State<ProfilPage> createState() => _MyProfilPage();
@@ -47,7 +40,7 @@ class _MyProfilPage extends State<ProfilPage> {
     return Column(
       children: [
         const SizedBox(height: 8),
-        const Text('Maryam Mokded',
+        Text('${widget.name}',
             style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
         const SizedBox(
           height: 8,

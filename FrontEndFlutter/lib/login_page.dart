@@ -2,19 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:front_end_flutter/home.dart';
 import '../../admin_dashboard_page.dart';
 
-class MyLoginPage extends StatelessWidget {
-  const MyLoginPage({Key? key, required this.title}) : super(key: key);
 
-  final String title;
+class MyLoginPageApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new MyLoginPage(),
+    );
+  }
+}
 
+class MyLoginPage extends StatefulWidget {
+  @override
+  _LoginPage createState() => new _LoginPage();
+}
+
+class _LoginPage extends State<MyLoginPage> {
+
+  var _textController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      /*appBar: AppBar(
-        title: Text(title),
-        backgroundColor: Colors.teal,
-      ),*/
       body: Center(
         child: ListView(
           shrinkWrap: true,
@@ -34,6 +48,7 @@ class MyLoginPage extends StatelessWidget {
               'images/login.png',
             )),
             TextFormField(
+              controller:_textController,
               keyboardType: TextInputType.emailAddress,
               autofocus: false,
               decoration: InputDecoration(
@@ -54,6 +69,7 @@ class MyLoginPage extends StatelessWidget {
             ),
             SizedBox(height: 12.0),
             TextFormField(
+              controller:_textController,
               autofocus: false,
               obscureText: true,
               decoration: InputDecoration(
@@ -75,11 +91,12 @@ class MyLoginPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => MyApp()),
-                  );
+                  var route = new MaterialPageRoute(
+                                builder : (BuildContext context) => 
+                                new MyDashboardPage(value:_textController.text),
+                                
+                     );
+                     Navigator.of(context).push(route);
                 },
                 padding: const EdgeInsets.all(12),
                 color: Colors.teal,

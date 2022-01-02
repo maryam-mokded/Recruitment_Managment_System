@@ -14,9 +14,6 @@ import 'package:front_end_flutter/offers.dart';
 import 'package:front_end_flutter/profil.dart';
 import 'package:front_end_flutter/questionsList.dart';
 import 'package:front_end_flutter/interviews.dart';
-
-void main() => runApp(new MyApp());
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -26,20 +23,25 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyDashboardPage(),
+      home: new MyDashboardPage(value: '',),
     );
   }
 }
 
 class MyDashboardPage extends StatefulWidget {
+ 
+  MyDashboardPage({Key? key,required this.value}) : super(key: key);
+
+  final String value;
+
   @override
   _AdminDashboardPage createState() => new _AdminDashboardPage();
 }
 
 class _AdminDashboardPage extends State<MyDashboardPage> {
   int selectedIndex = 0;
-
   get handleClick => null;
+  
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
@@ -56,7 +58,7 @@ class _AdminDashboardPage extends State<MyDashboardPage> {
             ),
           ),
         ),
-        title: Text(''),
+        title: Text('${widget.value}'),
         actions: <Widget>[
           Icon(
             Icons.search,
@@ -76,14 +78,14 @@ class _AdminDashboardPage extends State<MyDashboardPage> {
         setState(() {
           selectedIndex = index;
         });
-      }, selectedIndex),
+      }, selectedIndex,this.widget.value),
       body: Builder(
         builder: (context) {
           if (selectedIndex == 0) {
             return HomeScreen();
           }
           if (selectedIndex == 1) {
-            return const MyProfilApp();
+            return const ProfilPage(name:'Maryam Mokded');
           }
 
           if (selectedIndex == 2) {
@@ -134,9 +136,11 @@ class _AdminDashboardPage extends State<MyDashboardPage> {
 }
 
 class Sidenav extends StatelessWidget {
+  
   final Function onIndexChanged;
+  final String Name;
   final int selectedIndex;
-  Sidenav(this.onIndexChanged, this.selectedIndex);
+  Sidenav(this.onIndexChanged, this.selectedIndex,this.Name);
 
   @override
   Widget build(BuildContext context) {
@@ -154,7 +158,7 @@ class Sidenav extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(7.0),
             child: Center(
-                child: Text('- Easy Recruite - ',
+                child: Text(Name,
                     style: TextStyle(
                         fontSize: 21,
                         color: Theme.of(context).primaryColorDark))),
