@@ -29,7 +29,7 @@ class MyOfferPage extends StatefulWidget {
 class _MyOfferPageState extends State<MyOfferPage> {
 
   bool value =false;
-  final String _Titre = '';
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

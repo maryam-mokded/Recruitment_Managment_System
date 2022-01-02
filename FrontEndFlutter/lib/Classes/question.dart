@@ -1,5 +1,5 @@
 class Question {
-  String id;
+  int id;
   String question;
 
   Question({
@@ -9,7 +9,7 @@ class Question {
 
   factory Question.fromJson(Map<String, dynamic> json) {
     return Question(
-      id: json['id'],
+      id: json['id_Question'],
       question: json['question'],
     );
   }
