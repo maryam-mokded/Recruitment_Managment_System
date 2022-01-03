@@ -13,6 +13,17 @@ class QuestionsList extends StatefulWidget {
 
   @override
   State<QuestionsList> createState() => _QuestionsListState();
+
+  final String apiUrl = 'https://test-deploiment.herokuapp.com/Questions';
+  Future<void> deleteCase(String id) async {
+    Response res = await http.delete(Uri.parse('$apiUrl/$id'));
+
+    if (res.statusCode == 200) {
+      print("Case deleted");
+    } else {
+      throw "Failed to delete a case.";
+    }
+  }
 }
 
 class _QuestionsListState extends State<QuestionsList> {
@@ -24,6 +35,8 @@ class _QuestionsListState extends State<QuestionsList> {
   void initState() {
     getQuestions();
     super.initState();
+    setState(() {
+    });
   }
 
   Future<void> getQuestions() async {
@@ -51,7 +64,7 @@ class _QuestionsListState extends State<QuestionsList> {
     }
   }
 
-  Future<void> deleteCase(String id) async {
+  Future<void> deleteCase(int id) async {
     Response res = await http.delete(Uri.parse('$apiUrl/$id'));
 
     if (res.statusCode == 200) {
@@ -63,6 +76,8 @@ class _QuestionsListState extends State<QuestionsList> {
 
 
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +85,7 @@ class _QuestionsListState extends State<QuestionsList> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (_) => QuestionModify(idQuestion: 1)));
+                builder: (_) => QuestionModify()));
           },
           child: Icon(Icons.add),
         ),
@@ -100,6 +115,20 @@ class _QuestionsListState extends State<QuestionsList> {
                 padding: const EdgeInsets.all(18.0),
                 child: Column(
                   children: [
+
+                    Padding(
+                      padding: const EdgeInsets.only(left: 220),
+                      child: RaisedButton(
+                        //padding: ,
+                        splashColor: Colors.red,
+                        onPressed: () {
+                          deleteCase(_questions[index].id);
+                        },
+                        child: Text('Delete', style: TextStyle(color: Colors.white)),
+                        color: Colors.red,
+                      ),
+                    ),
+
                     Card(
                         child: InkWell(
                           onTap: () {
@@ -109,14 +138,22 @@ class _QuestionsListState extends State<QuestionsList> {
                                   builder: (context) => Detailstrans(_questions[index])),
                             );
                           },
+
+
                           child: ListTile(
                             leading: Icon(Icons.info),
                             title: Text(_questions[index].question),
 
                           ),
-                        )
+                        ),
                     ),
+
+
+
                   ],
+
+
+
                 ),
               );
           });

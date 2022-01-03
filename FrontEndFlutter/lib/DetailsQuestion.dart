@@ -46,6 +46,22 @@ class _DetailstransState extends State<Detailstrans> {
                         margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
                         child: Column(
                           children: <Widget>[
+                          /*  RaisedButton(
+                              splashColor: Colors.red,
+                              onPressed: () {
+                                _navigateToEditScreen(context, widget.transaction);
+                              },
+                              child: Text('Edit', style: TextStyle(color: Colors.white)),
+                              color: Colors.blue,
+                            ),*/
+                         /*   RaisedButton(
+                              splashColor: Colors.red,
+                              onPressed: () {
+                                _confirmDialog();
+                              },
+                              child: Text('Delete', style: TextStyle(color: Colors.white)),
+                              color: Colors.blue,
+                            )*/
                           ],
                         ),
                       ),
@@ -65,7 +81,7 @@ class _DetailstransState extends State<Detailstrans> {
     );
   }*/
 
-  /*Future<void> _confirmDialog() async {
+ /* Future<void> _confirmDialog() async {
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
@@ -82,14 +98,6 @@ class _DetailstransState extends State<Detailstrans> {
           actions: <Widget>[
             FlatButton(
               child: Text('Yes'),
-              onPressed: () {
-                api.deleteCase(widget.transaction.id);
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            Affichetrans(title: 'trans',)));
-              },
             ),
             FlatButton(
               child: const Text('No'),
