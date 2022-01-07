@@ -11,7 +11,7 @@ import { Questionnaire } from 'src/app/Models/questionnaire';
 export class QuestionnaireDetailsComponent implements OnInit {
 
   questionnaireList: Questionnaire[]=[];
-  id_Interview ! : number ;
+  id_Interview ! : any;
   constructor(private dialogClose: MatDialog,private questionnaireService: QuestionnaireService) { }
 
   ngOnInit(): void {
@@ -27,7 +27,7 @@ export class QuestionnaireDetailsComponent implements OnInit {
   this.questionnaireService.getQuestionnaireList().subscribe(o =>{
     var _j=0;
     for (var _i = 0; _i < o.length; _i++) {
-     if(o[_i].interview.id_Interview == this.id_Interview){
+     if(o[_i].interview._id == this.id_Interview){
        this.questionnaireList[_j] = o[_i];
        console.log(this.questionnaireList[_j]);
        _j++

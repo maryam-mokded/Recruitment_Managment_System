@@ -14,7 +14,7 @@ export class QuestionsService {
   getQuestionsList(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}`);
    }
-  getQuestions(id: number): Observable<any> {
+  getQuestions(id: any): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/${id}`);
   }
 
@@ -22,11 +22,11 @@ export class QuestionsService {
      return this.http.post(`${this.baseUrl}`, questions);
    }
 
-   updateQuestions(id: number, value: any): Observable<Object> {
+   updateQuestions(id: any, value: any): Observable<Object> {
      return this.http.put(`${this.baseUrl}/${id}`, value);
    }
 
-   deleteQuestions(id: number): Observable<any> {
+   deleteQuestions(id: any): Observable<any> {
      return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
    }
 

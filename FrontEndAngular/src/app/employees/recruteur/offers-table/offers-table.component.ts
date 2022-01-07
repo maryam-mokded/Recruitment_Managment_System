@@ -69,8 +69,8 @@ export class OffersTableComponent implements OnInit {
      });
   }
 
-  DeleteOffer(id:number){
-    let confirmation =confirm("Êtes-vous sûr de supprimer ??")
+  DeleteOffer(id:any){
+    let confirmation =confirm("Êtes-vous sûr de supprimer  "+id+" ??")
     if(confirmation)
     this.offerServ.supprimerOffer(id).subscribe(()=>{
       this.Toast[0] = 'Success';
@@ -92,7 +92,7 @@ export class OffersTableComponent implements OnInit {
       const dialogConfig = new MatDialogConfig();
       dialogConfig.disableClose = true;
       dialogConfig.autoFocus = true;
-      localStorage.setItem('IdOffer', JSON.stringify(Offer.idOffre));
+      localStorage.setItem('IdOffer', JSON.stringify(Offer._id));
       this.dialog.open(OffreComponent, dialogConfig);
   }
 
@@ -137,7 +137,7 @@ export class OffersTableComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    localStorage.setItem('IdOffer', JSON.stringify(o.idOffre));
+    localStorage.setItem('IdOffer', JSON.stringify(o._id));
     this.dialog.open(UpdateOfferComponent, dialogConfig);
   }
 

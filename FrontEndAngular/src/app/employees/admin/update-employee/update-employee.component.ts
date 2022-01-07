@@ -12,7 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class UpdateEmployeeComponent implements OnInit {
 
-  id!: number;
+  id!: String;
   employee!: Employee;
   myForm!:FormGroup;
 
@@ -66,16 +66,16 @@ get tel(){
 }
 
   updateEmployee() {
-    this.employeeService.updateEmployee(this.employee.idUser, this.employee)
+    this.employeeService.updateEmployee(this.employee._id, this.employee)
       .subscribe(data => {
         window.location.reload()
         this.onClose();
         console.log(data);
       });
   }
-  
+
   onSubmit() {
-    this.updateEmployee();    
+    this.updateEmployee();
   }
 
   gotoList() {
@@ -85,5 +85,5 @@ get tel(){
   onClose() {
     this.dialogClose.closeAll();
   }
-  
+
 }

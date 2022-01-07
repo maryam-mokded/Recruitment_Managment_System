@@ -5,7 +5,7 @@ import { Questionnaire } from "./questionnaire";
 import { questionList } from "./questions";
 
 export class interviewList {
-    id_Interview!: number;
+    _id!:any;
     interviewDate!: Date;
     interviewType!: string;
     location!: string;

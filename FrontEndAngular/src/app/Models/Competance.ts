@@ -1,5 +1,5 @@
 export class competance{
-  idCompetance?: number;
+  _id!:any;
   nomCompetance?: string;
   pourcentage?: number;
   user?:any;

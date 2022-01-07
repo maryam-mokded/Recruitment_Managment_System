@@ -21,15 +21,6 @@ ngOnInit () {
   //     }
 }
 
-  // if (this.authService.getToken()==null 
-  // //|| 
-  //    // this.authService.isTokenExpired()
-  //    ){
-  //       this.router.navigate(['/']);
-   
-  //     }
-}
-
 // onLogout(){
 //   this.authService.logout();
 // }

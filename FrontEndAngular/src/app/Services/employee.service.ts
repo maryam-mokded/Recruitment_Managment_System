@@ -31,7 +31,7 @@ export class EmployeeService {
     return this.http.get(`${this.baseUrl}`);
   }
 
-  getEmployee(id: number): Observable<any> {
+  getEmployee(id: any): Observable<any> {
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) ;
@@ -47,7 +47,7 @@ export class EmployeeService {
     return this.http.post(this.baseUrl, employee);
   }
 
-  updateEmployee(id: number, value: any): Observable<Object> {
+  updateEmployee(id: String, value: any): Observable<Object> {
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) ;
@@ -55,15 +55,15 @@ export class EmployeeService {
     return this.http.put(url, value);
   }
 
-  
 
-  deleteEmployee(id: number): Observable<any> {
+
+  deleteEmployee(id: String): Observable<any> {
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) ;
     const url = `${this.baseUrl}/${id}`
     return this.http.delete(url);
- 
+
   }
 
   getEmployeesList(): Observable<Employee[]> {
@@ -103,7 +103,7 @@ export class EmployeeService {
   }
 
 
-  getClassName(id: number): Observable<any> {
+  getClassName(id: String): Observable<any> {
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) ;

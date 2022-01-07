@@ -26,7 +26,7 @@ export class CondidatTableComponent implements OnInit {
   idNumber: number = 0;
 
   constructor(
-    //private CvServ: CvService,
+    private CvServ: CvService,
     private dialog: MatDialog,
     private interviewServ: InterviewsService,
     public authService: AuthService
@@ -66,7 +66,7 @@ export class CondidatTableComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    localStorage.setItem('IdOffer', JSON.stringify(interview.offre?.idOffre));
+    localStorage.setItem('IdOffer', JSON.stringify(interview.offre?._id));
     this.dialog.open(OffreComponent, dialogConfig);
   }
 
@@ -89,7 +89,7 @@ export class CondidatTableComponent implements OnInit {
     Interview.test = 1;
     Interview.interviewType="RH"
     this.interviewServ
-      .updateInterviews(Interview.id_Interview, Interview)
+      .updateInterviews(Interview._id, Interview)
       .subscribe(
         (o) => {
           this.Toast[0] = 'Success';
@@ -118,7 +118,7 @@ export class CondidatTableComponent implements OnInit {
   }
 
   deleteCondidat(interview: interviewList) {
-    this.interviewServ.deleteInterviews(interview.id_Interview).subscribe(
+    this.interviewServ.deleteInterviews(interview._id).subscribe(
       () => {
         this.Toast[0] = 'Success';
         this.Toast[1] =
@@ -145,11 +145,11 @@ export class CondidatTableComponent implements OnInit {
   }
   DownLoadCv(interview: interviewList) {
 
-    var idCv = interview.user?.pdfcv.idCV
+    var idCv = interview.user?.pdfcv._id
     console.log(idCv)
-    // this.CvServ
-    //     .downloadCv(idCv)
-    //     .subscribe();
+    this.CvServ
+        .downloadCv(idCv)
+        .subscribe();
   }
  /* DownLoadCv(interview: interviewList) {
     console.log(interview.user?.pdfcv.idCV);

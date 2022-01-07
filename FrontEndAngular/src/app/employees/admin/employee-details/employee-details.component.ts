@@ -11,7 +11,7 @@ import { EmployeeService } from 'src/app/Services/employee.service';
 })
 export class EmployeeDetailsComponent implements OnInit {
 
-  id!: number;
+  iduser!: any;
   className?: string;
   employee!: Employee;
   
@@ -22,16 +22,13 @@ export class EmployeeDetailsComponent implements OnInit {
   ngOnInit() {
     this.employee = new Employee();
 
-    this.employeeService.getClassName(JSON.parse(localStorage.getItem('IdUser') || '[]') || []).subscribe(a =>{
-      this.className = a;
-      console.log(this.className);});
-
-    this.id = this.route.snapshot.params['id'];
+    //this.iduser = this.route.snapshot.params['idUser'];
+  
     this.employeeService.getEmployee(JSON.parse(localStorage.getItem('IdUser') || '[]') || []).subscribe(o =>{
       this.employee = o;
       //console.log(typeof this.OneOffer);
       console.log(this.employee);
-  });
+     });
 }
 
   list(){

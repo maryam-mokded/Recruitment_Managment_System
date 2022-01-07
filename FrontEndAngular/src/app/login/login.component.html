@@ -4,7 +4,7 @@
 
      
 
-      <form class="sign-in-form" [formGroup]="loginForm">
+      <form class="sign-in-form">
 
 
         <!-- <div  class="alert alert-danger" style="height:40px;width:190px;text-align:center;" >
@@ -16,18 +16,18 @@
         <h2 class="title">Sign in</h2>
         <div class="input-field">
           <i class="fa fa-user"></i>
-          <input type="text" name="username" placeholder="UserName" formControlName="username" />
+          <input type="text" name="username" placeholder="UserName"  [(ngModel)]="user.username" />
         </div>
         <div class="input-field">
           <i class="fa fa-lock"></i>
-          <input  type="password"   name="password" placeholder="Password"  formControlName="password" />
+          <input  type="password"   name="password" placeholder="Password"  [(ngModel)]="user.password"  />
         </div>
 
       
 
-        <!-- <div>
+        <div>
           <input type="checkbox" (click)="myFunction()"> Show Password        
-        </div>  -->
+        </div> 
         <input type="submit" value="Login" (click)="onLoggedin()" class="btn solid" />
         <p class="social-text">Or Connect with social platforms</p>
 

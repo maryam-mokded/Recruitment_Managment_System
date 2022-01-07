@@ -28,18 +28,20 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   save() {
-    this.employee.idUser = 1;
+    //this.employee._id = 1;
     this.employeeService
     .createEmployee(this.employee).subscribe(data => {
-      console.log(data)
+      this.employee = new Employee();
       window.location.reload()
+      this.onClose();
       //this.gotoList();
-    });
+    },
+    error => console.log(error));
   }
 
   onSubmit() {
 
-    //this.submitted = true;
+    this.submitted = true;
     this.save();
 
   }
@@ -58,7 +60,7 @@ export class CreateEmployeeComponent implements OnInit {
     this.myForm = new FormGroup({
       'nom' : new FormControl(null,[Validators.required, Validators.minLength(2),Validators.maxLength(15)]),
       'prenom' : new FormControl(null,[Validators.required, Validators.minLength(2),Validators.maxLength(15)]),
-      'email' : new FormControl(null,[Validators.required, Validators.minLength(16),Validators.maxLength(30)]),
+      'email' : new FormControl(null,[Validators.required, Validators.minLength(13),Validators.maxLength(30)]),
       'cin' : new FormControl(null,[Validators.required, Validators.minLength(8),Validators.maxLength(8)]),
       'adress' : new FormControl(null,[Validators.required, Validators.minLength(4),Validators.maxLength(30)]),
       'tel' : new FormControl(null,[Validators.required, Validators.minLength(8),Validators.maxLength(8)]),

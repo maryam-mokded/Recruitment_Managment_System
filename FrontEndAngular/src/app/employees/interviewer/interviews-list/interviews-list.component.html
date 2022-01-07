@@ -1,4 +1,4 @@
-<!-- <head>
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title> CRUD Data Table </title>
@@ -17,9 +17,9 @@
             <div class="col-sm-6">
               <h2 style="font-family: Arial, Helvetica, sans-serif;"><b>Manage Interviews</b></h2>
             </div>
-            <div class="col-sm-6"> -->
+            <div class="col-sm-6">
               <!-- <a routerLink="../addinterview"  routerLinkActive="active" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Interview</span></a> -->
-              <!-- <a routerLinkActive="active" class="btn btn-success" (click)="onOpenDialogCreate()"><i
+              <a routerLinkActive="active" class="btn btn-success" (click)="onOpenDialogCreate()"><i
                   class="material-icons">&#xE147;</i> <span>Add New Interview</span></a>
               <a (click)="refrech()" class="btn btn-primary"><i class="material-icons">&#xE863;</i> <span>refresh page
                 </span></a>
@@ -36,14 +36,14 @@
               <th>Offre Title</th>
               <th>Interview Details</th>
               <th style="text-align: center;">RH Questionnaire <br>Interview</th>
-              <th>Technical Interview</th> -->
+              <th>Technical Interview</th>
               <!-- <th>Interview Date</th>
 						<th>Interview Type</th>
 						<th>location</th>
 						<th>time</th> -->
 
 
-<!-- 
+
             </tr>
           </thead>
           <tbody>
@@ -56,14 +56,14 @@
               </td>
               <td>{{interview.user?.nom}} {{interview.user?.prenom}}</td>
               <td>{{interview.offre?.titre}}</td>
-              <td style="text-align: center;"> -->
+              <td style="text-align: center;">
                 <!-- <a (click)="updateInterviews(interview.id_Interview)" class="update" style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a> -->
-                <!-- <a (click)="onOpenDialogUpdate(interview)" *ngIf="authService.isInterviewer()" class="update"
+                <a (click)="onOpenDialogUpdate(interview)" *ngIf="authService.isInterviewer()" class="update"
                   style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
                     title="Affect Interview">&#xE254;</i></a>
                 <a (click)="interviewDetails(interview)" class="view" style="cursor: pointer;" data-toggle="modal"><i
                     class="material-icons" data-toggle="tooltip" title="View interview details">&#xE417;</i></a>
-                <a (click)="deleteInterviews(interview.id_Interview)" *ngIf="authService.isInterviewer()" class="delete"
+                <a (click)="deleteInterviews(interview._id)" *ngIf="authService.isInterviewer()" class="delete"
                   style="cursor: pointer;" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
                     title="Delete">&#xE872;</i></a>
               </td>
@@ -111,4 +111,4 @@
       </div>
 
     </div>
-  </div> -->
+  </div>

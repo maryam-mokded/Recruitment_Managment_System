@@ -46,7 +46,7 @@ export class AccueilComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    localStorage.setItem('IdOffer', JSON.stringify(Offer.idOffre));
+    localStorage.setItem('IdOffer', JSON.stringify(Offer._id));
     this.dialog.open(OffreComponent, dialogConfig);
   }
 }

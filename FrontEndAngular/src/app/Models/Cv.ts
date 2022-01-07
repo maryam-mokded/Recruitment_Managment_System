@@ -1,4 +1,4 @@
 export class Cv{
-  idCV? :number;
+  _id!:any;
 	pdf? : string;
 }

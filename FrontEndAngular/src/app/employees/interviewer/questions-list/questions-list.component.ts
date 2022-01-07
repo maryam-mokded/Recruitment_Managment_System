@@ -47,7 +47,7 @@ export class QuestionsListComponent implements OnInit {
     this.dialog.open(UpdateQuestionComponent, dialogConfig);
   }
 
-  deleteQuestions(id: number) {
+  deleteQuestions(id: any) {
     let confirmation =confirm("Do you really want to delete this question ?")
     if(confirmation)
     this.questionsService.deleteQuestions(id)
@@ -56,7 +56,7 @@ export class QuestionsListComponent implements OnInit {
       this.loadList();
     });
 }
-questionDetails(id: number){
+questionDetails(id: any){
   this.router.navigate(['employees/interviewer//detailquestion', id]);
 }
 

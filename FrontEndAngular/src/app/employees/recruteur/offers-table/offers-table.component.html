@@ -1,4 +1,4 @@
-<!-- <div class="main-content">
+<div class="main-content">
       <div id="btnAddSearch">
           <div>
             <div  class="search-container">
@@ -11,7 +11,7 @@
             </div>
           </div>
           <div>
-            <button class="btn btn" id="btn" *ngIf="authService.isRecruteur()" (click)="onOpenDialogCreate()">
+            <button class="btn btn" id="btn" (click)="onOpenDialogCreate()">
               <i class="fas fa-plus"></i>
               Add Offer
             </button>
@@ -31,7 +31,7 @@
               <table mat-table matSort [dataSource]="dataSource!" class="table">
                 <ng-container matColumnDef="idOffre">
                   <th  mat-header-cell *matHeaderCellDef hidden> id Offre </th>
-                  <td mat-cell *matCellDef="let element" hidden> {{element.idOffre}} </td>
+                  <td mat-cell *matCellDef="let element" hidden> {{element._id}} </td>
                 </ng-container>
                 <ng-container matColumnDef="titre">
                   <th mat-sort-header mat-header-cell *matHeaderCellDef > Post </th>
@@ -54,8 +54,9 @@
                 <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef> Action</th>
                 <td mat-cell *matCellDef="let element">
-                  <a *ngIf="authService.isRecruteur()" (click)="onOpenDialogUpdate(element)" class="update"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a>
-                  <a *ngIf="authService.isRecruteur()" (click)="DeleteOffer(element?.idOffre)" class="delete"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                  <!-- *ngIf="authService.isRecruteur()"  -->
+                  <a (click)="onOpenDialogUpdate(element)" class="update"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a>
+                  <a (click)="DeleteOffer(element._id)" class="delete"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                   <a  (click) ="DetailsOffer(element)" class="view"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xE417;</i></a>
                 </td>
                 </ng-container>
@@ -94,4 +95,4 @@
     {{Toast[1]}}
   </div>
 </div>
- -->
+

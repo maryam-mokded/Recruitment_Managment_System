@@ -46,12 +46,12 @@ export class EmployeesListComponent implements OnInit {
     
   }
 
-  deleteEmployee(id: number) {
+  deleteEmployee(id: any) {
     //let e?:Employee;
     this.employeeService.getEmployee(id).subscribe(o =>{
       this.ELEMENT_DATA= o;});
       console.log(this.ELEMENT_DATA);
-      //console.log(this.id);
+      console.log(id);
     let confirmation =confirm("Êtes-vous sûr de supprimer l'employée ou son id est egale à : "+id+" ??")
     if(confirmation)
     this.employeeService.deleteEmployee(id).subscribe(data => {
@@ -65,7 +65,7 @@ export class EmployeesListComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    localStorage.setItem('IdUser', JSON.stringify(employee.idUser));
+    localStorage.setItem('IdUser', JSON.stringify(employee._id));
     this.dialog.open(EmployeeDetailsComponent, dialogConfig);
     //this.router.navigate(['employees/admin/detailemployee', id]);
   }
@@ -74,7 +74,7 @@ export class EmployeesListComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    localStorage.setItem('IdUser', JSON.stringify(employee.idUser));
+    localStorage.setItem('IdUser', JSON.stringify(employee._id));
     this.dialog.open(UpdateEmployeeComponent, dialogConfig);
     //this.router.navigate(['employees/admin/updateemployee', id]);
   }

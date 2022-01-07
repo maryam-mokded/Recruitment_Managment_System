@@ -21,8 +21,8 @@
       <div>
 
 
-        *ngIf="authService.isAdmin()"
-        <Button  (click)="onOpenDialogCreate()" id="btn"  class="btn  btn" style="margin-right:15px;">
+        <!-- *ngIf="authService.isAdmin()"  -->
+        <Button (click)="onOpenDialogCreate()" id="btn"  class="btn  btn" style="margin-right:15px;">
           <i class="fas fa-plus"></i> Ajouter un employee
       </Button>
 
@@ -47,7 +47,7 @@
                   <ng-container matColumnDef="idUser">
                     <!-- <th  mat-header-cell *matHeaderCellDef hidden> id Employee </th> -->
                     <th  mat-header-cell *matHeaderCellDef > #id  </th>
-                    <td mat-cell *matCellDef="let element" > {{element.idUser}} </td>
+                    <td mat-cell *matCellDef="let element" > {{element._id}} </td>
                   </ng-container>
                   <ng-container matColumnDef="nom">
                     <th mat-sort-header mat-header-cell *matHeaderCellDef >Nom  </th>
@@ -94,7 +94,7 @@
                     <i class="fas fa-info"></i>
                   </a>
   
-                  <a (click)="deleteEmployee(element.idUser)" class="btn  btn-danger" style="margin-right:15px;margin-bottom:15px">
+                  <a (click)="deleteEmployee(element._id)" class="btn  btn-danger" style="margin-right:15px;margin-bottom:15px">
                   <i class="far fa-trash-alt"></i> 
               </a>
                   </td>

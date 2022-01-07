@@ -5,7 +5,7 @@
 </head>
  -->
 
-<!-- <div class="main-content">
+<div class="main-content">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12" id="card-Table">
@@ -47,9 +47,11 @@
                         {{interview.user?.pdfcv?.pdf}}
                     </td>
                     <td class="text-primary">
+                      
                       <a (click) ="DownLoadCv(interview)" class="download" data-toggle="modal" title="Download Cv"><mat-icon>cloud_download</mat-icon></a>
-                      <a *ngIf="authService.isRecruteur()" (click) ="deleteCondidat(interview)" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" ><i title="Delete Condidat" class="fas fa-times"></i></i></a>
-                      <a *ngIf="authService.isRecruteur()" (click) ="PasserAuInterview(interview)" class="acceptCond" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" ><i title="go to interview" class="fas fa-check"></i></i></a>
+                      <!-- *ngIf="authService.isRecruteur()" -->
+                      <a  (click) ="deleteCondidat(interview)" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" ><i title="Delete Condidat" class="fas fa-times"></i></i></a>
+                      <a  (click) ="PasserAuInterview(interview)" class="acceptCond" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" ><i title="go to interview" class="fas fa-check"></i></i></a>
                     </td>
                   </tr>
                 </tbody>
@@ -77,4 +79,4 @@
     {{Toast[1]}}
   </div>
 </div>
- -->
+

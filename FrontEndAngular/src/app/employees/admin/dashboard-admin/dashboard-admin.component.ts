@@ -77,6 +77,7 @@ export class DashboardAdminComponent implements OnInit {
       dataArray.push({name : "condidats" , value : element.condidatses.length })
       dataArray.push({name : "interviewers" , value : element.interviewers.length })
       this.lastChart = dataArray;
+      this.somCond=element.condidatses.length;
   
     }
   
@@ -112,12 +113,27 @@ export class DashboardAdminComponent implements OnInit {
     formateData(data: any[]){
       const dataArrayYaxis: any[] = [];
       const dataArrayXaxis: any[] = [];
-  
+      this.somEmpl=data.length;
       for (const  element of data){
+       
         const dateElement = new Date(element.dateEmbauche).toLocaleDateString();
         if(!dataArrayYaxis.includes(dateElement) && dateElement !== "Invalid Date")dataArrayYaxis.push(dateElement);
   
       }
+
+this.somCond=0;
+      //get nbre des condidats
+      for (const  element of data){
+       
+        const dateElement = new Date(element.dateEmbauche).toLocaleDateString();
+        if(!dataArrayYaxis.includes(dateElement) && dateElement == "Invalid Date")
+        {
+          this.somCond=this.somCond+1;
+        }
+          
+      }
+
+
       for(const arrayDate of dataArrayYaxis){
         let i = 0;
         for (const  element of data){
@@ -146,21 +162,21 @@ export class DashboardAdminComponent implements OnInit {
     this.getData();
 
     //Get all employees
-    this.employeeService.getUsers().subscribe(o =>{
+   /* this.employeeService.getUsers().subscribe(o =>{
       this.somEmpl = o;
-      console.log(this.somEmpl);});
+      console.log(this.somEmpl);});*/
 
       //Get all Condidats
-      this.employeeService.getCondidats().subscribe(o =>{
+     /* this.employeeService.getCondidats().subscribe(o =>{
         this.somCond = o;
-        console.log(this.somCond);});
+        console.log(this.somCond);});*/
 
-        this.employeeService.getInters().subscribe(i =>{
+     /*   this.employeeService.getInters().subscribe(i =>{
           this.somInter = i;
-          console.log(this.somInter);});
+          console.log(this.somInter);});*/
 
           this.employeeService.getNbUsers().subscribe(j=>{
-
+           
           var _x=0;
             for (var _i = 0; _i < j.length; _i+=2) {
               console.log(j[_i]);
@@ -174,7 +190,7 @@ export class DashboardAdminComponent implements OnInit {
               _x++;
               console.log(this.annee);
               console.log(this.nb);
-
+            
             }
 
             this.list = j;

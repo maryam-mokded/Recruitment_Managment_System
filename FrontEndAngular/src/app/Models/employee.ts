@@ -1,7 +1,7 @@
 import { competance } from "./Competance";
 
 export class Employee{
-    idUser!: number;
+    _id!:any;
     nom!: string;
     prenom!: string;
     email!: string;

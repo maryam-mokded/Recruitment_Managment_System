@@ -1,7 +1,7 @@
 import { interviewList } from "./interviews";
 import { questionList } from "./questions";
 export class Questionnaire {
-    id_Questionnaire!:number;
+    _id!:any;
     validate?:number;
     question! : questionList;
     interview!: interviewList;

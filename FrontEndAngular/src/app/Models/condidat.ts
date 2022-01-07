@@ -2,7 +2,7 @@ import { competance } from "./Competance";
 import { Cv } from "./Cv";
 
 export class condidat{
-  idUser!: number;
+  _id!:any;
   nom!: string;
   prenom!: string;
   email!: string;

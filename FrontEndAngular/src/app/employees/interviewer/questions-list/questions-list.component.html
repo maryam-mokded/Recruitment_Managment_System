@@ -1,4 +1,4 @@
-<!-- 
+
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -13,9 +13,9 @@
                         <div class="col-sm-6">
                             <h2 style="font-family: Arial, Helvetica, sans-serif;">Questions List</h2>
                         </div>
-                        <div class="col-sm-6"> -->
+                        <div class="col-sm-6">
                         <!-- <a routerLink="../addquestion"  routerLinkActive="active" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Question</span></a> -->
-                        <!-- <a  routerLinkActive="active" class="btn btn-danger" (click)="onOpenDialogCreate()"><i class="material-icons">&#xE147;</i> <span>Add New Question</span></a>
+                        <a  routerLinkActive="active" class="btn btn-danger" (click)="onOpenDialogCreate()"><i class="material-icons">&#xE147;</i> <span>Add New Question</span></a>
                         </div>
 
                     </div>
@@ -39,13 +39,13 @@
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-                            <td>{{question.id_Question}}</td>
+                            <td>{{question._id}}</td>
                             <td>{{question.question}}</td>
 
                             <td>
-                                <a (click)="deleteQuestions(question.id_Question)" class="delete" style="cursor: pointer;" ><i class="material-icons" data-toggle="tooltip" title="Delete Question">&#xE872;</i></a> -->
-                                <!-- <a (click)="updateQuestions(question.id_Question)" class="update" style="cursor: pointer;" ><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a> -->
-                                <!-- <a (click)="onOpenDialogUpdate(question)" class="update" style="cursor: pointer;" ><i class="material-icons" data-toggle="tooltip" title="Update Question">&#xE254;</i></a>
+                                <a (click)="deleteQuestions(question._id)" class="delete" style="cursor: pointer;" ><i class="material-icons" data-toggle="tooltip" title="Delete Question">&#xE872;</i></a>
+                                <!-- <a (click)="updateQuestions(question._id)" class="update" style="cursor: pointer;" ><i class="material-icons" data-toggle="tooltip" title="Update">&#xE254;</i></a> -->
+                                <a (click)="onOpenDialogUpdate(question)" class="update" style="cursor: pointer;" ><i class="material-icons" data-toggle="tooltip" title="Update Question">&#xE254;</i></a>
 
                             </td>
                         </tr>
@@ -53,5 +53,5 @@
                 </table>
             </div>
         </div>
-    </div> -->
+    </div>
 

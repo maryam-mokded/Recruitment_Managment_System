@@ -31,7 +31,7 @@ export class CreateOfferComponent implements OnInit {
 
   ValidatedForm(){
      this.myForm = new FormGroup({
-       'titre' : new FormControl(null,[Validators.required, Validators.minLength(2),Validators.maxLength(15)]),
+       'titre' : new FormControl(null,[Validators.required, Validators.minLength(2),Validators.maxLength(80)]),
        'description' : new FormControl(null,[Validators.required, Validators.minLength(2),Validators.maxLength(1000)]),
        'nbPost' : new FormControl(null,[Validators.required , Validators.pattern("[0-9].*"),Validators.maxLength(3)]),
    });
@@ -50,7 +50,7 @@ export class CreateOfferComponent implements OnInit {
 
   addOffer() {
     console.log(this.Newoffer);
-    this.Newoffer.idOffre = 1;
+   // this.Newoffer._id= 1;
     this.Newoffer.date=new Date();
     this.OfferServ
         .AjouterOffer(this.Newoffer)

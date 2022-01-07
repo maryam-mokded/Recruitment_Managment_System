@@ -25,7 +25,7 @@ export class UpdateInterviewComponent implements OnInit {
     console.log(this.interview);
   }
   updateInterviews(){
-    this.interviewsService.updateInterviews(this.interview.id_Interview,this.interview)
+    this.interviewsService.updateInterviews(this.interview._id,this.interview)
     .subscribe(data => console.log(data),error => console.log(error));
     this.interview = new interviewList();
     this.dialogClose.closeAll();

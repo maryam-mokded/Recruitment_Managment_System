@@ -3,14 +3,14 @@
     <div class="row">
 
       <div class="col-md-8">
-   
+        <!-- Information-User Terminer-->
         <div class="card">
           <div class="card-header card-header-danger" id="backgroundColor">
-            <!-- <h4 class="card-title" id="textColor">{{profilStatus}}</h4> -->
+            <h4 class="card-title" id="textColor">{{profilStatus}}</h4>
           </div>
           <div class="card-body border-gradient border-gradient-purple on-light">
 
-            <!-- <div *ngIf="test == true ; then thenBlock else elseBlock"></div> -->
+            <div *ngIf="test == true ; then thenBlock else elseBlock"></div>
             <ng-template #thenBlock>
               <div class="form-row">
                 <div class="form-group col-md-6">
@@ -49,17 +49,14 @@
                   placeholder="02 Nov 2021" disabled>
               </div>
 
-              <!-- (click)="modifierProfil()" -->
-              <button 
-               class="btn btn-primary btn-round " style="margin-left: 550px;">
+              <button (click)="modifierProfil()" class="btn btn-primary btn-round " style="margin-left: 550px;">
                 <i class="fas fa-pen fa-lg"></i>
                 Modifier
               </button>
 
             </ng-template>
             <ng-template #elseBlock>
-              <!-- [formGroup]="myFormProfil" -->
-              <!-- <form class="needs-validation" novalidate>
+              <form [formGroup]="myFormProfil" class="needs-validation" novalidate>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label>Nom</label>
@@ -146,18 +143,18 @@
                   <i class="fas fa-save fa-lg"></i>
                   Enregistrer
                 </button>
-              </form> -->
+              </form>
             </ng-template>
           </div>
         </div>
-
+        <!-- Competance Terminer -->
         <div class="card">
           <div class="card-header card-header-danger" id="backgroundColor">
             <h2 class="card-title" id="textColor">Compétance :</h2>
           </div>
           <div class="card-body border-gradient border-gradient-purple on-light " style="padding-top: 40px;">
 
-            <!-- <div class="row" *ngFor="let competance of competanceList">
+            <div class="row" *ngFor="let competance of competanceList">
               <div class="col-md-2">
                 <label>{{competance.nomCompetance}}</label>
               </div>
@@ -177,8 +174,8 @@
                 </button>
 
               </div>
-            </div> -->
-            <!-- <div *ngIf="AddCpt">
+            </div>
+            <div *ngIf="AddCpt">
               <div class="row" *ngIf="AddC">
                 <div class="col-md-2">
                   <input type="text" [(ngModel)]="AddC.nomCompetance" class="form-control" placeholder="Nom Competance">
@@ -205,18 +202,18 @@
                 <i class="fas fa-save fa-lg"></i>
                 Save
               </button>
-            </div> -->
-            <!-- <button *ngIf="AddCpt == false" type="submit" (click)="AddCompetance()" class="btn btn-primary btn-round"
-              style="margin-left: 590px;"> 
+            </div>
+            <button *ngIf="AddCpt == false" type="submit" (click)="AddCompetance()" class="btn btn-primary btn-round"
+              style="margin-left: 590px;">
               <i class="fas fa-plus fa-lg"></i>
               Add
-            </button>-->
+            </button>
           </div>
         </div>
       </div>
 
       <div class="col-md-4 ">
-      
+        <!-- partie image -->
         <div class="row">
           <div class="text-center card-box " id="backgroundColor">
             <div class="member-card pt-2 pb-2 ">
@@ -226,8 +223,8 @@
                 <h4 id="textColor">{{employe.nom}} {{employe.prenom}}</h4>
                 <h5 id="textColor">Développeur</h5>
               </div>
-              <!-- (click)=onOpenDialog() -->
-              <button type="file" class="btn btn-primary bg-white mt-3  btn-rounded waves-effect w-md waves-light">
+              <button type="file" class="btn btn-primary bg-white mt-3  btn-rounded waves-effect w-md waves-light"
+                (click)=onOpenDialog()>
                 <i class="fas fa-pen fa-lg"></i>
                 Modier Photo
               </button>
@@ -237,10 +234,10 @@
 
 
         </div>
-      
+        <!-- partie Pwd Terminer-->
         <div class="row">
           <div class="text-center card-box border-gradient border-gradient-purple on-light">
-            <!-- <div class="member-card pt-2 pb-2 ">
+            <div class="member-card pt-2 pb-2 ">
 
               <div *ngIf="ChangePwd == true ; then Masquerformulaire else AfficherFormulaire"></div>
               <ng-template #Masquerformulaire>
@@ -326,18 +323,18 @@
 
 
 
-            </div> -->
+            </div>
           </div>
 
 
 
         </div>
-   
+        <!-- partie Site Terminer-->
         <div class="row">
           <div class="text-center card-box border-gradient border-gradient-purple on-light">
             <div class="member-card pt-2 pb-2 ">
-         
-              <!-- <div class="">
+              <!-- Lien Github -->
+              <div class="">
                 <span>
                   <img class="IconLien mr-3" src="../../assets/Icons/Github.png" alt="..." />
                 </span>
@@ -355,10 +352,11 @@
                   <span><button *ngIf="testInputLienG == false" (click)="SupprimerLienG()" class="btn btn-danger"
                       id="btn"><i class="fas fa-trash-alt"></i></button></span>
                 </span>
-              </div> -->
+              </div>
               <hr>
+              <!-- Lien LinkedIn -->
               <div class="">
-                <!-- <span>
+                <span>
                   <img class="IconLien mr-3" src="../../assets/Icons/Linkedin.png" alt="..." />
                 </span>
                 <a href="{{employe.lienLinkedIn}}">
@@ -376,10 +374,10 @@
                   <span><button *ngIf="testInputLienL == false" (click)="SupprimerLienL()" class="btn btn-danger"
                       id="btn"><i class="fas fa-trash-alt"></i></button></span>
                 </span>
-              </div> -->
+              </div>
               <hr>
-              
-              <!-- <div class="">
+              <!-- Lien Facebook -->
+              <div class="">
                 <span>
                   <img class="IconLienFace" src="../../assets/Icons/Facebook.png" alt="..." />
                 </span>
@@ -398,9 +396,9 @@
                   <span><button *ngIf="testInputLienF == false" (click)="SupprimerLienF()" class="btn btn-danger"
                       id="btn"><i class="fas fa-trash-alt"></i></button></span>
                 </span>
-              </div> -->
+              </div>
               <hr>
-<!--        
+              <!-- Lien Instagram -->
               <div class="">
                 <span>
                   <img class="IconLienInsta" src="../../assets/Icons/Instagram.png" alt="..." />
@@ -420,7 +418,7 @@
                   <span><button *ngIf="testInputLienI == false" (click)="SupprimerLienI()" class="btn btn-danger"
                       id="btn"><i class="fas fa-trash-alt"></i></button></span>
                 </span>
-              </div> -->
+              </div>
             </div>
           </div>
 

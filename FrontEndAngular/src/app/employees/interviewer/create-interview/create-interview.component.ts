@@ -30,7 +30,7 @@ export class CreateInterviewComponent implements OnInit {
   }
 
   save() {
-    this.interview.id_Interview =1;
+    //this.interview.id_Interview =1;
     this.interviewsService
     .createInterviews(this.interview).subscribe(data => {
       console.log(data)

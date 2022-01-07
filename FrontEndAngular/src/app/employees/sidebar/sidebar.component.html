@@ -1,12 +1,12 @@
-<!-- 
+<!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4 " style="position: fixed !important;">
-
+  <!-- Brand Logo -->
   <a class="brand-link ">
     <img src="assets/logos.png" alt="RMS Logo" class="brand-image img-circle elevation-3" style="margin-left: 2px">
     <span class="brand-text font-weight-light" style="color: white;">Recruitment MS</span>
   </a>
 
-
+  <!-- Sidebar -->
   <div class="sidebar">
 
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -17,7 +17,7 @@
 
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-   
+        <!-- Partie Profil lel Les employee lkol -->
         <li class="nav-item">
           <a routerLink="user-profil/profil" class="nav-link" routerLinkActive="active">
             <i class="nav-icon fas fa-user-alt"></i>
@@ -26,11 +26,8 @@
             </p>
           </a>
         </li>
-
         <!-- Partie Dashboard lel Admin -->
         <li class="nav-item">
-  
-        <li *ngIf="authService.isAdmin()" class="nav-item">
           <a routerLink="admin/dashboardAdmin" routerLinkActive="active" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>
@@ -38,7 +35,7 @@
             </p>
           </a>
         </li>
-       
+        <!-- Partie Employees List lel Admin khw -->
         <li class="nav-item">
           <a  routerLink="admin/employeesList" class="nav-link ">
             <i class="nav-icon fas fa-users"></i>
@@ -47,7 +44,6 @@
         </li>
         <!-- Partie Job Offers lel Admin w recruteur -->
         <li class="nav-item">
-<!--         <li *ngIf="authService.isAdmin() || authService.isRecruteur() "class="nav-item"> -->
           <a routerLink="recruteur/Offer-Table" class="nav-link ">
             <i class="nav-icon fas fa-briefcase"></i>
             <p>Job Offres List</p>
@@ -55,28 +51,20 @@
         </li>
         <!-- Partie Condidates List lel Recruteur wel admin -->
         <li class="nav-item">
-       
-<!--         <li *ngIf="authService.isAdmin() || authService.isRecruteur()"class="nav-item"> -->
           <a routerLink="recruteur/Condidat-Table" class="nav-link ">
             <i class="nav-icon fas fa-user-friends"></i>
             <p>Condidates List</p>
           </a>
         </li>
-
         <!-- Partie Interviews List lel Interviewr wel admin -->
         <li  class="nav-item">
-        
-<!--         <li *ngIf="authService.isAdmin() || authService.isInterviewer()" class="nav-item"> -->
           <a routerLink="interviewer/interviewList" class="nav-link ">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>Interviews List</p>
           </a>
         </li>
-
         <!-- Partie Questions List lel Interviewr wel admin -->
         <li  class="nav-item">
-        
-<!--         <li *ngIf="authService.isAdmin() || authService.isInterviewer()" class="nav-item"> -->
           <a routerLink="interviewer/questionList" class="nav-link">
             <i class="nav-icon fas fa-clipboard-list"></i>
             <p> Questions List</p>
@@ -85,8 +73,6 @@
 
         <!-- Partie Interview Quiz lel Interviewr wel admin -->
         <li class="nav-item">
-   
-<!--         <li *ngIf="authService.isAdmin() || authService.isInterviewer()" class="nav-item"> -->
           <a routerLink="interviewer/quiz" class="nav-link">
             <i class="nav-icon fa fa-file-video-o"></i>
             <p> Interview Quiz </p>
@@ -95,14 +81,12 @@
 
         <!-- Partie Quiz rules lel Interviewr khw -->
         <li  class="nav-item">
-       
-<!--         <li *ngIf="authService.isInterviewer() || authService.isAdmin() " class="nav-item"> -->
           <a routerLink="interviewer/quizrules" class="nav-link">
             <i class="nav-icon fa fa-exclamation-triangle"></i>
             <p> Quiz rules </p>
           </a>
         </li>
-       
+        <!-- Partie Forms lel Les employee lkol -->
         <li class="nav-item has-treeview">
           <a class="nav-link">
             <i class="nav-icon fas fa-edit"></i>
@@ -114,7 +98,7 @@
         </li>
 
         <li class="nav-header">Schedule</li>
-   
+        <!-- Partie Calendar lel Les employee lkol -->
         <li class="nav-item">
           <a class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
@@ -124,11 +108,8 @@
             </p>
           </a>
         </li>
-
         <!-- Partie Mailbox lel Les Admin khw -->
         <li  class="nav-item">
-     
-<!--         <li *ngIf="authService.isAdmin()" class="nav-item"> -->
           <a routerLink="admin/mailbox" class="nav-link">
             <p>
               <i class="nav-icon far fa-envelope"></i>
@@ -138,10 +119,10 @@
         </li>
       </ul>
     </nav>
-   
+    <!-- /.sidebar-menu -->
   </div>
-
-</aside> -->
+  <!-- /.sidebar -->
+</aside>
 
 
 <!--

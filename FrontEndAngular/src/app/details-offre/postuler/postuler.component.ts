@@ -40,7 +40,7 @@ export class PostulerComponent implements OnInit {
     private dialog: MatDialog,
     private dialogClose: MatDialog,
     private offresServ: OffresService,
-    // private cvServ : CvService,
+    private cvServ : CvService,
     private condServ: CondidatService
   ) {}
 
@@ -59,30 +59,30 @@ export class PostulerComponent implements OnInit {
       const file: File | null = this.selectedFiles.item(0);
       if (file) {
         this.currentFile = file;
-        // this.cvServ.UploadCv(this.currentFile).subscribe(
-        //   (event: any) => {
-        //     console.log(event)
-        //     if (event.type === HttpEventType.UploadProgress) {
-        //       console.log(Math.round(100 * event.loaded / event.total));
-        //     } else if (event instanceof HttpResponse) {
-        //       this.message = event.body.responseMessage;
-        //     }
-        //   },
-        //   (err: any) => {
-        //     console.log(err);
-        //     this.currentFile = undefined;
-        //   });
+        this.cvServ.UploadCv(this.currentFile).subscribe(
+          (event: any) => {
+            console.log(event)
+            if (event.type === HttpEventType.UploadProgress) {
+              console.log(Math.round(100 * event.loaded / event.total));
+            } else if (event instanceof HttpResponse) {
+              this.message = event.body.responseMessage;
+            }
+          },
+          (err: any) => {
+            console.log(err);
+            this.currentFile = undefined;
+          });
       }
       this.selectedFiles = undefined;
     }
    /* var cv = JSON.parse(localStorage.getItem('cv') || '[]') || []
     console.log(cv);*/
-    this.NewCondidat.idUser = 1
+    this.NewCondidat._id= 1
     // this.NewCondidat.pdfcv = cv
     this.condServ
-       .AjouterCondidat(this.NewCondidat,this.OneOffer?.idOffre!)
+       .AjouterCondidat(this.NewCondidat,this.OneOffer?._id!)
        .subscribe(condid=>{
-         this.IdCondAdd = condid.idUser;
+         this.IdCondAdd = condid._id;
          //console.log(condid.idUser);
        });
       this.dialogClose.closeAll();
@@ -115,7 +115,7 @@ export class PostulerComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    localStorage.setItem('IdOffer', JSON.stringify(Offer.idOffre));
+    localStorage.setItem('IdOffer', JSON.stringify(Offer._id));
     this.dialog.open(OffreComponent, dialogConfig);
   }
 

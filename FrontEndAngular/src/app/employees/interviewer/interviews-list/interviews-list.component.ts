@@ -49,7 +49,7 @@ export class InterviewsListComponent implements OnInit {
     });
   }
 
-  deleteInterviews(id: number) {
+  deleteInterviews(id: any) {
     let confirmation = confirm('Do you really want to delete this interview ?');
     if (confirmation)
       this.interviewsService.deleteInterviews(id).subscribe((o) => {
@@ -61,7 +61,7 @@ export class InterviewsListComponent implements OnInit {
   PasserAuTechnicalAuInterview(data: interviewList) {
     data.interviewType = 'technique';
     console.log(data)
-    this.interviewsService.updateInterviews(data.id_Interview,data)
+    this.interviewsService.updateInterviews(data._id,data)
     .subscribe(() => {
 
       // this.interview = new interviewList();
@@ -83,7 +83,7 @@ export class InterviewsListComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    localStorage.setItem('id_Interview', JSON.stringify(data.id_Interview));
+    localStorage.setItem('id_Interview', JSON.stringify(data._id));
     // localStorage.setItem('id_Question', JSON.stringify(data.questionnaire));
 
     this.dialog.open(QuestionnaireDetailsComponent, dialogConfig);

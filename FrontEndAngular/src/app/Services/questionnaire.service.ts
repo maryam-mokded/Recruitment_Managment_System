@@ -13,7 +13,7 @@ export class QuestionnaireService {
   getQuestionnaireList(): Observable<Questionnaire[]> {
     return this.http.get<Questionnaire[]>(`${this.baseUrl}`);
    }
-  getQuestionnaire(id: number): Observable<Questionnaire> {
+  getQuestionnaire(id: any): Observable<Questionnaire> {
     return this.http.get<Questionnaire>(`${this.baseUrl}/${id}`);
   }
 
@@ -21,11 +21,11 @@ export class QuestionnaireService {
      return this.http.post(`${this.baseUrl}`, questionnaire);
    }
 
-   updateQuestionnaire(id: number, value: any): Observable<Object> {
+   updateQuestionnaire(id: any, value: any): Observable<Object> {
      return this.http.put(`${this.baseUrl}/${id}`, value);
    }
 
-   deleteQuestionnaire(id: number): Observable<any> {
+   deleteQuestionnaire(id: any): Observable<any> {
      return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
    }
 

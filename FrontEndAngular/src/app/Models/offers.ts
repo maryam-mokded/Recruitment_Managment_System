@@ -1,5 +1,5 @@
 export class Offers{
-  idOffre! :number;
+	_id!:any;
 	titre? : string;
 	description? : string;
 	nbPost? : number;

@@ -1,6 +1,6 @@
 <!-- <div class="container">
     <div class="card"> -->
-      <!-- <div class="ContenuCard"  >
+      <div class="ContenuCard"  >
         <div class="modal-header">
             <h1 id="modal-title"><b>Affect & Update Interview</b></h1>
           <button type="button" (click)="onClose()" class="close" data-dismiss="modal" aria-label="Close">
@@ -8,14 +8,14 @@
           </button>
         </div><br>
       <form [formGroup]="myForm" class="needs-validation" novalidate (ngSubmit)="onSubmit()">
-          <div class="form-row"> -->
+          <div class="form-row">
               <!-- <div class="col-md-4 mb-3">
                   <label for="prenom">Condidate Name</label>
                   <input type="text" class="form-control"  id="user"  [(ngModel)]="interview.user" name="user">
                   <div class="valid-feedback">Ok !</div>
                   <div class="invalid-feedback">Valeur incorrecte</div>
               </div> -->
-              <!-- <div class="col-md-6 mb-3">
+              <div class="col-md-6 mb-3">
                   <label for="pseudo">Interview type</label>
    <select type="text" class="form-select" id="interviewType" [(ngModel)]="interview.interviewType" name="interviewType" formControlName="interviewType" >
                     <option value="technique">technique</option>
@@ -80,7 +80,15 @@
                  class="text-success">
                    Interview Date validée .
             </div>
-              </div> 
+              </div>
+              <!-- <div class="container">
+              <mat-form-field appearance="outline">
+                  <mat-label>Interview date</mat-label>
+                  <input matInput [matDatepicker]="picker">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                </div> -->
 
           </div>
           <button class="btn-hover color-7" type="submit" [disabled]="myForm.invalid">Update</button>
@@ -88,6 +96,6 @@
 
       </form>
 </div>
- -->
+
 
 

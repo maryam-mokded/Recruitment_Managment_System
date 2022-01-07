@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
    <application
-        android:label="front_end_flutter"
+        android:label="RMS"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

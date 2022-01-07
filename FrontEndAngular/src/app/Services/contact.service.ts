@@ -17,38 +17,33 @@ export class ContactService {
 
   constructor(private http: HttpClient,private authService : AuthService) { }
 
-  getContact(id: number): Observable<any> {
+  getContact(id: any): Observable<any> {
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-
-
-    return this.http.get(`${this.baseUrl}/${id}`);
-
+    return this.http.get(`${this.baseUrl}/${id}` );
   }
 
   createContact(contact: Object): Observable<Object> {
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-
-    return this.http.post(`${this.baseUrl}`, contact);
+    return this.http.post(`${this.baseUrl}`, contact );
   }
 
 
-  deleteContact(id: number): Observable<any> {
+  deleteContact(id: any): Observable<any> {
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
     // return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
-    return this.http.delete(`${this.baseUrl}/${id}`);
+    return this.http.delete(`${this.baseUrl}/${id}` );
   }
 
   getContactList(): Observable<contactList[]> {
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-
     return this.http.get<contactList[]>(`${this.baseUrl}` );
     // return this.http.get<condidat[]>(this.UrlApi );
   }

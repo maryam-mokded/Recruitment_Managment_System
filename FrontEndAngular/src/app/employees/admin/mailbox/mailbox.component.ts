@@ -21,7 +21,7 @@ export class MailboxComponent implements OnInit {
   ELEMENT_DATA?: contactList[];
   employee?: contactList;
   dataSource!:MatTableDataSource<any>;
-  displayedColumns: string[] = ['id_Contact','nom', 'prenom', 'email','comment','action'];
+  displayedColumns: string[] = ['_id','nom', 'prenom', 'email','comment','action'];
 
   constructor(private contactService: ContactService, private router: Router) { }
 

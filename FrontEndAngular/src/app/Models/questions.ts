@@ -1,5 +1,5 @@
 
 export class questionList {
-      id_Question! :number;
+     _id!:any;
       question? : string;
   }

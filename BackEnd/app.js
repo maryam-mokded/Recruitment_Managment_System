@@ -8,11 +8,8 @@ const offerRouter = require('./routes/offers');
 
 const interviewRouter = require('./routes/interviews');
 const questionRouter = require('./routes/questions');
-const cvRouter = require('./routes/cv');
-const competanceRouter = require('./routes/competance');
-const contactRouter = require('./routes/contact');
-const questionnaireRouter = require('./routes/questionnaire');
-const condidatRouter = require('./routes/condidat');
+
+
 
 const app = express();
 
@@ -35,14 +32,8 @@ mongoose.connect('mongodb://localhost:27017/recrutement',
 app.use('/api', userRouter);
 
 app.use('/api', offerRouter);
-app.use('/api', cvRouter);
-app.use('/api', competanceRouter);
-app.use('/api', contactRouter);
-app.use('/api', questionnaireRouter);
 
 app.use('/api', interviewRouter);
 app.use('/api', questionRouter);
-app.use('/api', condidatRouter);
-
 
 module.exports = app;

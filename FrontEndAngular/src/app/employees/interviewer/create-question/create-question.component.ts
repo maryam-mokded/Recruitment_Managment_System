@@ -28,7 +28,7 @@ export class CreateQuestionComponent implements OnInit {
   }
 
   save() {
-    this.question.id_Question = 1;
+    // this.question.id_Question = 1;
     this.questionsService
     .createQuestions(this.question).subscribe(data => {
       console.log(data)

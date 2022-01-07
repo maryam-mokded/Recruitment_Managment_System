@@ -25,8 +25,8 @@ export class UpdateQuestionComponent implements OnInit {
     console.log(this.question);
 
     // this.id = this.route.snapshot.params['id'];
-    //console.log(this.question.id_Question);
-    this.questionsService.getQuestions(this.question.id_Question)
+    //console.log(this.question._id);
+    this.questionsService.getQuestions(this.question._id)
       .subscribe(data => {
         console.log(data)
         this.question = data;
@@ -34,7 +34,7 @@ export class UpdateQuestionComponent implements OnInit {
   }
 
   updateQuestions(){
-    this.questionsService.updateQuestions(this.question.id_Question,this.question)
+    this.questionsService.updateQuestions(this.question._id,this.question)
     .subscribe(data => console.log(data),error => console.log(error));
     this.question = new questionList();
     this.dialogClose.closeAll();

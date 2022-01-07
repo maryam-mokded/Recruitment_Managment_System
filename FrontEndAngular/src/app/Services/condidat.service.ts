@@ -27,15 +27,15 @@ export class CondidatService {
     return this.http.get<condidat[]>(this.UrlApi);
   }
 
-  ConsulterCondidat(id:number):Observable<condidat>{
+  ConsulterCondidat(id:any):Observable<condidat>{
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-     const url = `${this.UrlApi}/${id}`
+    const url = `${this.UrlApi}/${id}`
     return this.http.get<condidat>(url);
   }
 
-  AjouterCondidat(cond:condidat,id:number):Observable<condidat>{
+  AjouterCondidat(cond:condidat,id:any):Observable<condidat>{
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
@@ -43,7 +43,7 @@ export class CondidatService {
     return this.http.post<condidat>(url,cond);
   }
 
-  supprimerCondidat(id:number){
+  supprimerCondidat(id:any){
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
@@ -55,8 +55,7 @@ export class CondidatService {
     // let jwt = this.authService.getToken();
     // jwt = "Bearer "+jwt;
     // let httpHeaders = new HttpHeaders({"Authorization":jwt}) 
-     const url =`${this.UrlApi}/${cond.idUser}`;
-
+    const url =`${this.UrlApi}/${cond._id}`;
     return this.http.put<condidat>(url,cond);
   }
 

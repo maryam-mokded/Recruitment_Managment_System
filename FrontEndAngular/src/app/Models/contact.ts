@@ -1,5 +1,5 @@
 export class contactList{
-    id_Contact!: number;
+    _id!:any;
     nom!: string;
     prenom!: string;
     email?: string;
